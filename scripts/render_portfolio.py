@@ -150,37 +150,20 @@ def build_readme_section(data: dict) -> str:
     return "\n".join(lines)
 
 
-def build_training_section(data: dict) -> str:
-    """The complete evidence log."""
-    username = data["username"]
-    rooms = data.get("rooms") or []
-    badges = data.get("badges") or []
+def build_room_grids(lines: list, rooms: list) -> None:
+    """Append difficulty-grouped room grids (hardest first) to `lines`.
 
-    lines = [
-        f"**Profile:** [{username}](https://tryhackme.com/p/{username})  ",
-        f"**Last synced:** {data['last_synced_utc']}",
-        "",
-    ]
-    lines += build_stat_block(data)
-    lines += [
-        "",
-        f"## Completed rooms ({len(rooms)})",
-        "",
-        "_Hardest first. Within each tier, related rooms are kept together._",
-    ]
-
-    # Only carry a Type column once there is actually a mix of types.
-    # While every room is a "walkthrough" the column just repeats one word
-    # down the page; it earns its place as soon as challenges/CTFs appear.
-    show_type = len({r.get("type", "") for r in rooms}) > 1
-
-    # Group by difficulty, then order the groups hardest-first. Any
-    # difficulty the API introduces that we don't know about still gets
-    # rendered - it just sorts to the end rather than vanishing.
+    Rooms are laid out three across rather than as a single-column list: one
+    column of names occupies about a quarter of GitHub's content width, so
+    centring it strands a thin ribbon in whitespace and long sections scroll
+    for over a page. Three across fills the measure and cuts the height.
+    """
     by_difficulty = {}
     for room in rooms:
         by_difficulty.setdefault(room.get("difficulty", "") or "unspecified", []).append(room)
 
+    # Known tiers hardest-first; any unfamiliar difficulty sorts to the end
+    # rather than vanishing, so an API change adds a section, never drops one.
     known = [d for d in DIFFICULTY_ORDER if d in by_difficulty]
     unknown = sorted(d for d in by_difficulty if d not in DIFFICULTY_ORDER)
 
@@ -188,11 +171,6 @@ def build_training_section(data: dict) -> str:
         group = sorted(by_difficulty[difficulty], key=lambda r: natural_key(r.get("title", "")))
         emoji = DIFFICULTY_EMOJI.get(difficulty, "")
         heading = f"{emoji} {difficulty.title()}".strip()
-        # Laid out as a grid rather than a single-column list. A one-column
-        # table of room names occupies about a quarter of GitHub's content
-        # width, so centring it leaves a thin ribbon adrift in whitespace
-        # and 32 rooms scroll for a page and a half. Three across fills the
-        # measure and cuts the height to a third.
         lines += [
             "",
             f"### {heading} ({len(group)})",
@@ -205,15 +183,49 @@ def build_training_section(data: dict) -> str:
             row = group[row_start:row_start + ROOMS_PER_ROW]
             lines.append("<tr>")
             for room in row:
-                cell = room_link_html(room)
-                if show_type:
-                    cell += f"<br><sub>{room.get('type', '') or '—'}</sub>"
-                lines.append(f'<td align="left" width="300">{cell}</td>')
+                lines.append(f'<td align="left" width="300">{room_link_html(room)}</td>')
             # Pad the final row so the grid keeps square edges.
             for _ in range(ROOMS_PER_ROW - len(row)):
                 lines.append('<td width="300"></td>')
             lines.append("</tr>")
         lines += ["</table>", "", "</div>"]
+
+
+def build_training_section(data: dict) -> str:
+    """The complete evidence log."""
+    username = data["username"]
+    rooms = data.get("rooms") or []
+    badges = data.get("badges") or []
+
+    lines = [
+        f"**Profile:** [{username}](https://tryhackme.com/p/{username})  ",
+        f"**Last synced:** {data['last_synced_utc']}",
+        "",
+    ]
+    lines += build_stat_block(data)
+
+    # Challenge rooms are solved unaided, so they lead - a reader sees them
+    # before scrolling through the guided fundamentals. Anything that is not
+    # a walkthrough counts as a challenge, so CTF/network types feature here
+    # too rather than being lumped in with guided content.
+    challenges = [r for r in rooms if r.get("type", "") != "walkthrough"]
+    guided = [r for r in rooms if r.get("type", "") == "walkthrough"]
+
+    if challenges and guided:
+        # Both kinds present: split them so the type is conveyed by the
+        # section, not by a label repeated under every single room.
+        lines += ["", f"## Challenges ({len(challenges)})", "",
+                  "_Solved without a guided walkthrough. Hardest first._"]
+        build_room_grids(lines, challenges)
+        lines += ["", f"## Guided Rooms ({len(guided)})", "",
+                  "_Walkthrough rooms. Hardest first; related rooms grouped._"]
+        build_room_grids(lines, guided)
+    else:
+        # Only one kind so far - a single flat section reads cleaner than a
+        # near-empty "Challenges" heading beside everything else.
+        lines += ["", f"## Completed rooms ({len(rooms)})", "",
+                  "_Hardest first. Within each tier, related rooms are kept together._"]
+        build_room_grids(lines, rooms)
 
     lines += ["", f"## Badges ({len(badges)})", ""]
     if not badges:
