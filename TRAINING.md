@@ -75,6 +75,4 @@ automatically by the daily sync.
 
 
 
-_Link individual room write-ups here as you produce them. A short report
-explaining what you did and what you learned is worth far more to a reader
-than a completion count._
+
