@@ -36,6 +36,15 @@ TBC
 Full room-by-room history and badge log: [TRAINING.md](TRAINING.md)
 <!--THM:END-->
 
+## Study & Knowledge
+
+Formal training: **Level 2 Award in Cybersecurity** (completed), **Level 3 in
+progress** — alongside self-directed labs.
+
+For a domain-by-domain summary of what I understand and can apply — threats and
+vulnerabilities, access control, defensive measures, offensive security, and UK
+security law — see [FOUNDATIONS.md](FOUNDATIONS.md).
+
 ## Projects
 
 ### Portfolio Sync Automation
