@@ -44,9 +44,33 @@ your home IP.
   retries/wake-the-PC options.)
 
 - To run it manually any time: `powershell -File scripts\sync_local.ps1`
+- To sync and commit without pushing: add `-NoPush`.
 - The `.github/workflows/update-portfolio.yml` workflow is kept as a manual
   (`workflow_dispatch`) fallback you can try from the Actions tab, but
   expect it to hit the same bot-challenge block.
+
+## What the sync actually does
+
+1. `fetch_thm.py` — pulls rooms and badges into `data/thm_data.json`. If the
+   fetch fails, the previous file is left untouched rather than emptied.
+2. `render_portfolio.py` — writes the compact snapshot into `README.md` and
+   the full history into `TRAINING.md`, only between the `<!--THM:START-->`
+   and `<!--THM:END-->` markers.
+3. `safety_check.py` — refuses to publish if the output contains credentials,
+   tokens, private keys, CTF flags, email addresses, or local user paths.
+   A non-zero exit here aborts the whole sync before anything is committed.
+4. Commit and push, staging an explicit allow-list of files only
+   (`README.md`, `TRAINING.md`, `data/thm_data.json`) so a stray file in the
+   working tree can never be swept into a public commit.
+
+## If the home-IP approach ever gets blocked too
+
+The remaining option is an authenticated browser session (Playwright): a
+real browser window opens, you log in yourself once, and the saved session
+is reused for later syncs. That is how some similar portfolios do it. Be
+aware of the trade-off before adopting it — saved sessions expire, and when
+one does, an unattended scheduled task will fail until you log in again by
+hand. It converts this from "runs by itself" into "runs when you click it".
 
 ## Notes
 

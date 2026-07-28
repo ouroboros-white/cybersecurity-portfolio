@@ -29,13 +29,16 @@ jobs:
           THM_USERNAME: ${{ vars.THM_USERNAME }}
         run: python scripts/fetch_thm.py
 
-      - name: Render README
-        run: python scripts/render_readme.py
+      - name: Render README and TRAINING.md
+        run: python scripts/render_portfolio.py
+
+      - name: Safety check before publishing
+        run: python scripts/safety_check.py
 
       - name: Commit changes if anything updated
         run: |
           git config user.name "portfolio-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/thm_data.json README.md
+          git add README.md TRAINING.md data/thm_data.json
           git diff --cached --quiet || git commit -m "chore: sync TryHackMe stats"
           git push
