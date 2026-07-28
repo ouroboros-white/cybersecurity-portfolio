@@ -2,9 +2,7 @@
 
 The complete record of hands-on lab work behind the summary in
 [README.md](README.md). The TryHackMe section below is generated
-automatically by the daily sync — everything outside the markers is yours
-to edit freely.
-
+automatically by the daily sync.
 ## TryHackMe
 
 <!--THM:START-->
