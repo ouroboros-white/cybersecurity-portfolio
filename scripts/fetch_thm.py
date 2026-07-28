@@ -30,7 +30,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(BASE_DIR, "data", "thm_data.json")
 
 HEADERS = {
-    "User-Agent": f"portfolio-sync-bot (github.com/{THM_USERNAME or 'unknown'})"
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/json",
 }
 TIMEOUT = 15
 
