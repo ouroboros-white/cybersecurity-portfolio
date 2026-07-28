@@ -21,7 +21,7 @@ TBC
 |---|---|
 | 45 | 8 |
 
-**Room difficulty:** ℹ️ 12 info · 🟢 32 easy · 🟡 1 medium
+**Room difficulty:** 🟡 1 medium · 🟢 32 easy · ℹ️ 12 info
 
 **Recent badges:** `7 Day Streak` `cat linux.txt` `World Wide Web` `Webbed` `Networking Nerd`
 

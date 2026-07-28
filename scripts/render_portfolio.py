@@ -29,10 +29,24 @@ START = "<!--THM:START-->"
 END = "<!--THM:END-->"
 
 DIFFICULTY_EMOJI = {"info": "ℹ️", "easy": "🟢", "medium": "🟡", "hard": "🔴", "insane": "⚫"}
-# Order difficulties sensibly rather than alphabetically.
-DIFFICULTY_ORDER = ["info", "easy", "medium", "hard", "insane"]
+# Hardest first: the most demanding work should be the first thing a reader
+# meets, not something they have to scroll past 30 intro rooms to find.
+DIFFICULTY_ORDER = ["insane", "hard", "medium", "easy", "info"]
 
 RECENT_BADGE_COUNT = 5
+
+
+def natural_key(title: str) -> list:
+    """Sort key that treats digit runs as numbers.
+
+    Keeps room series together and in human order - "Part 1, Part 2,
+    Part 10" rather than the "Part 1, Part 10, Part 2" you get from a
+    plain alphabetical sort.
+    """
+    return [
+        int(chunk) if chunk.isdigit() else chunk
+        for chunk in re.split(r"(\d+)", title.lower())
+    ]
 
 
 def format_date(iso_string: str) -> str:
@@ -105,15 +119,40 @@ def build_training_section(data: dict) -> str:
         "",
         f"## Completed rooms ({len(rooms)})",
         "",
-        "| # | Room | Difficulty | Type |",
-        "|---|---|---|---|",
+        "_Hardest first. Within each tier, related rooms are kept together._",
     ]
-    for index, room in enumerate(rooms, start=1):
-        room_type = room.get("type", "") or "—"
-        lines.append(
-            f"| {index} | {room_link(room)} | "
-            f"{difficulty_cell(room.get('difficulty', ''))} | {room_type} |"
-        )
+
+    # Only carry a Type column once there is actually a mix of types.
+    # While every room is a "walkthrough" the column just repeats one word
+    # down the page; it earns its place as soon as challenges/CTFs appear.
+    show_type = len({r.get("type", "") for r in rooms}) > 1
+
+    # Group by difficulty, then order the groups hardest-first. Any
+    # difficulty the API introduces that we don't know about still gets
+    # rendered - it just sorts to the end rather than vanishing.
+    by_difficulty = {}
+    for room in rooms:
+        by_difficulty.setdefault(room.get("difficulty", "") or "unspecified", []).append(room)
+
+    known = [d for d in DIFFICULTY_ORDER if d in by_difficulty]
+    unknown = sorted(d for d in by_difficulty if d not in DIFFICULTY_ORDER)
+
+    for difficulty in known + unknown:
+        group = sorted(by_difficulty[difficulty], key=lambda r: natural_key(r.get("title", "")))
+        emoji = DIFFICULTY_EMOJI.get(difficulty, "")
+        heading = f"{emoji} {difficulty.title()}".strip()
+        lines += [
+            "",
+            f"### {heading} ({len(group)})",
+            "",
+            "| Room | Type |" if show_type else "| Room |",
+            "|---|---|" if show_type else "|---|",
+        ]
+        for room in group:
+            if show_type:
+                lines.append(f"| {room_link(room)} | {room.get('type', '') or '—'} |")
+            else:
+                lines.append(f"| {room_link(room)} |")
 
     lines += ["", f"## Badges ({len(badges)})", ""]
     if badges:

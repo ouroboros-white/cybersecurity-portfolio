@@ -11,53 +11,67 @@ automatically by the daily sync.
 
 ## Completed rooms (45)
 
-| # | Room | Difficulty | Type |
-|---|---|---|---|
-| 1 | [Linux Fundamentals Part 1](https://tryhackme.com/room/linuxfundamentalspart1) | ℹ️ info | walkthrough |
-| 2 | [Linux Fundamentals Part 2](https://tryhackme.com/room/linuxfundamentalspart2) | ℹ️ info | walkthrough |
-| 3 | [How Websites Work](https://tryhackme.com/room/howwebsiteswork) | 🟢 easy | walkthrough |
-| 4 | [Linux Fundamentals Part 3](https://tryhackme.com/room/linuxfundamentalspart3) | ℹ️ info | walkthrough |
-| 5 | [Putting it all together](https://tryhackme.com/room/puttingitalltogether) | 🟢 easy | walkthrough |
-| 6 | [DNS in Detail](https://tryhackme.com/room/dnsindetail) | 🟢 easy | walkthrough |
-| 7 | [HTTP in Detail](https://tryhackme.com/room/httpindetail) | 🟢 easy | walkthrough |
-| 8 | [Windows Fundamentals 1](https://tryhackme.com/room/windowsfundamentals1xbx) | ℹ️ info | walkthrough |
-| 9 | [Windows Fundamentals 2](https://tryhackme.com/room/windowsfundamentals2x0x) | ℹ️ info | walkthrough |
-| 10 | [What is Networking?](https://tryhackme.com/room/whatisnetworking) | ℹ️ info | walkthrough |
-| 11 | [Intro to LAN](https://tryhackme.com/room/introtolan) | ℹ️ info | walkthrough |
-| 12 | [OSI Model](https://tryhackme.com/room/osimodelzi) | ℹ️ info | walkthrough |
-| 13 | [Packets & Frames](https://tryhackme.com/room/packetsframes) | ℹ️ info | walkthrough |
-| 14 | [Extending Your Network](https://tryhackme.com/room/extendingyournetwork) | ℹ️ info | walkthrough |
-| 15 | [Windows Fundamentals 3](https://tryhackme.com/room/windowsfundamentals3xzx) | ℹ️ info | walkthrough |
-| 16 | [Operating System Security](https://tryhackme.com/room/operatingsystemsecurity) | 🟢 easy | walkthrough |
-| 17 | [Active Directory Basics](https://tryhackme.com/room/winadbasics) | 🟢 easy | walkthrough |
-| 18 | [Windows Command Line](https://tryhackme.com/room/windowscommandline) | 🟢 easy | walkthrough |
-| 19 | [Networking Concepts](https://tryhackme.com/room/networkingconcepts) | 🟢 easy | walkthrough |
-| 20 | [Windows PowerShell](https://tryhackme.com/room/windowspowershell) | 🟢 easy | walkthrough |
-| 21 | [Linux Shells](https://tryhackme.com/room/linuxshells) | 🟢 easy | walkthrough |
-| 22 | [Malware Classification](https://tryhackme.com/room/malwareclassification) | 🟢 easy | walkthrough |
-| 23 | [Virtualisation Basics](https://tryhackme.com/room/virtualisationbasics) | 🟢 easy | walkthrough |
-| 24 | [Operating Systems: Introduction](https://tryhackme.com/room/operatingsystemsintroduction) | 🟢 easy | walkthrough |
-| 25 | [Linux CLI Basics](https://tryhackme.com/room/linuxclibasics) | 🟢 easy | walkthrough |
-| 26 | [Data Representation](https://tryhackme.com/room/datarepresentation) | 🟢 easy | walkthrough |
-| 27 | [Data Encoding](https://tryhackme.com/room/dataencoding) | 🟢 easy | walkthrough |
-| 28 | [JavaScript: Simple Demo](https://tryhackme.com/room/javascriptsimpledemo) | 🟡 medium | walkthrough |
-| 29 | [Python: Simple Demo](https://tryhackme.com/room/pythonsimpledemo) | 🟢 easy | walkthrough |
-| 30 | [Windows Basics](https://tryhackme.com/room/windowsbasics) | 🟢 easy | walkthrough |
-| 31 | [Cloud Computing Fundamentals](https://tryhackme.com/room/cloudcomputingfundamentals) | 🟢 easy | walkthrough |
-| 32 | [Windows CLI Basics](https://tryhackme.com/room/windowsclibasics) | 🟢 easy | walkthrough |
-| 33 | [The CIA Triad](https://tryhackme.com/room/theciatriad) | 🟢 easy | walkthrough |
-| 34 | [Database SQL Basics](https://tryhackme.com/room/databasesqlbasics) | 🟢 easy | walkthrough |
-| 35 | [Cryptography Concepts](https://tryhackme.com/room/cryptographyconcepts) | 🟢 easy | walkthrough |
-| 36 | [Client-Server Basics](https://tryhackme.com/room/clientserverbasics) | 🟢 easy | walkthrough |
-| 37 | [Become a Hacker](https://tryhackme.com/room/becomeahacker) | 🟢 easy | walkthrough |
-| 38 | [Become a Defender](https://tryhackme.com/room/becomeadefender) | 🟢 easy | walkthrough |
-| 39 | [Inside a Computer System](https://tryhackme.com/room/insideacomputer) | 🟢 easy | walkthrough |
-| 40 | [Offensive Security Intro](https://tryhackme.com/room/offensivesecurityintrokKx12l39) | 🟢 easy | walkthrough |
-| 41 | [Computer Types](https://tryhackme.com/room/computertypes) | 🟢 easy | walkthrough |
-| 42 | [Defensive Security Intro](https://tryhackme.com/room/defensivesecurityintroezn39) | ℹ️ info | walkthrough |
-| 43 | [Search Skills](https://tryhackme.com/room/searchskillscS) | 🟢 easy | walkthrough |
-| 44 | [Offensive Security Intro](https://tryhackme.com/room/offensivesecurityintroc101) | 🟢 easy | walkthrough |
-| 45 | [Careers in Cyber](https://tryhackme.com/room/careersincybersn) | 🟢 easy | walkthrough |
+_Hardest first. Within each tier, related rooms are kept together._
+
+### 🟡 Medium (1)
+
+| Room |
+|---|
+| [JavaScript: Simple Demo](https://tryhackme.com/room/javascriptsimpledemo) |
+
+### 🟢 Easy (32)
+
+| Room |
+|---|
+| [Active Directory Basics](https://tryhackme.com/room/winadbasics) |
+| [Become a Defender](https://tryhackme.com/room/becomeadefender) |
+| [Become a Hacker](https://tryhackme.com/room/becomeahacker) |
+| [Careers in Cyber](https://tryhackme.com/room/careersincybersn) |
+| [Client-Server Basics](https://tryhackme.com/room/clientserverbasics) |
+| [Cloud Computing Fundamentals](https://tryhackme.com/room/cloudcomputingfundamentals) |
+| [Computer Types](https://tryhackme.com/room/computertypes) |
+| [Cryptography Concepts](https://tryhackme.com/room/cryptographyconcepts) |
+| [Data Encoding](https://tryhackme.com/room/dataencoding) |
+| [Data Representation](https://tryhackme.com/room/datarepresentation) |
+| [Database SQL Basics](https://tryhackme.com/room/databasesqlbasics) |
+| [DNS in Detail](https://tryhackme.com/room/dnsindetail) |
+| [How Websites Work](https://tryhackme.com/room/howwebsiteswork) |
+| [HTTP in Detail](https://tryhackme.com/room/httpindetail) |
+| [Inside a Computer System](https://tryhackme.com/room/insideacomputer) |
+| [Linux CLI Basics](https://tryhackme.com/room/linuxclibasics) |
+| [Linux Shells](https://tryhackme.com/room/linuxshells) |
+| [Malware Classification](https://tryhackme.com/room/malwareclassification) |
+| [Networking Concepts](https://tryhackme.com/room/networkingconcepts) |
+| [Offensive Security Intro](https://tryhackme.com/room/offensivesecurityintrokKx12l39) |
+| [Offensive Security Intro](https://tryhackme.com/room/offensivesecurityintroc101) |
+| [Operating System Security](https://tryhackme.com/room/operatingsystemsecurity) |
+| [Operating Systems: Introduction](https://tryhackme.com/room/operatingsystemsintroduction) |
+| [Putting it all together](https://tryhackme.com/room/puttingitalltogether) |
+| [Python: Simple Demo](https://tryhackme.com/room/pythonsimpledemo) |
+| [Search Skills](https://tryhackme.com/room/searchskillscS) |
+| [The CIA Triad](https://tryhackme.com/room/theciatriad) |
+| [Virtualisation Basics](https://tryhackme.com/room/virtualisationbasics) |
+| [Windows Basics](https://tryhackme.com/room/windowsbasics) |
+| [Windows CLI Basics](https://tryhackme.com/room/windowsclibasics) |
+| [Windows Command Line](https://tryhackme.com/room/windowscommandline) |
+| [Windows PowerShell](https://tryhackme.com/room/windowspowershell) |
+
+### ℹ️ Info (12)
+
+| Room |
+|---|
+| [Defensive Security Intro](https://tryhackme.com/room/defensivesecurityintroezn39) |
+| [Extending Your Network](https://tryhackme.com/room/extendingyournetwork) |
+| [Intro to LAN](https://tryhackme.com/room/introtolan) |
+| [Linux Fundamentals Part 1](https://tryhackme.com/room/linuxfundamentalspart1) |
+| [Linux Fundamentals Part 2](https://tryhackme.com/room/linuxfundamentalspart2) |
+| [Linux Fundamentals Part 3](https://tryhackme.com/room/linuxfundamentalspart3) |
+| [OSI Model](https://tryhackme.com/room/osimodelzi) |
+| [Packets & Frames](https://tryhackme.com/room/packetsframes) |
+| [What is Networking?](https://tryhackme.com/room/whatisnetworking) |
+| [Windows Fundamentals 1](https://tryhackme.com/room/windowsfundamentals1xbx) |
+| [Windows Fundamentals 2](https://tryhackme.com/room/windowsfundamentals2x0x) |
+| [Windows Fundamentals 3](https://tryhackme.com/room/windowsfundamentals3xzx) |
 
 ## Badges (8)
 
