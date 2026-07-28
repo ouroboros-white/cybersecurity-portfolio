@@ -37,6 +37,7 @@ RECENT_BADGE_COUNT = 5
 
 # Badge images are hotlinked from TryHackMe's CDN (verified to serve HTTP 200).
 BADGES_PER_ROW = 4
+ROOMS_PER_ROW = 3
 
 # Where a badge image links to.
 #
@@ -115,6 +116,15 @@ def room_link(room: dict) -> str:
     return f"[{title}](https://tryhackme.com/room/{code})" if code else title
 
 
+def room_link_html(room: dict) -> str:
+    """Same link as room_link, but as HTML for use inside a grid cell."""
+    title = room.get("title", "Unknown room")
+    code = room.get("code", "")
+    if not code:
+        return title
+    return f'<a href="https://tryhackme.com/room/{code}">{title}</a>'
+
+
 def build_readme_section(data: dict) -> str:
     """Compact snapshot for the front page."""
     username = data["username"]
@@ -178,23 +188,32 @@ def build_training_section(data: dict) -> str:
         group = sorted(by_difficulty[difficulty], key=lambda r: natural_key(r.get("title", "")))
         emoji = DIFFICULTY_EMOJI.get(difficulty, "")
         heading = f"{emoji} {difficulty.title()}".strip()
-        # The blank lines around the table are load-bearing: GitHub only
-        # parses Markdown inside an HTML block if it is separated by them.
+        # Laid out as a grid rather than a single-column list. A one-column
+        # table of room names occupies about a quarter of GitHub's content
+        # width, so centring it leaves a thin ribbon adrift in whitespace
+        # and 32 rooms scroll for a page and a half. Three across fills the
+        # measure and cuts the height to a third.
         lines += [
             "",
             f"### {heading} ({len(group)})",
             "",
             '<div align="center">',
             "",
-            "| Room | Type |" if show_type else "| Room |",
-            "|---|---|" if show_type else "|---|",
+            "<table>",
         ]
-        for room in group:
-            if show_type:
-                lines.append(f"| {room_link(room)} | {room.get('type', '') or '—'} |")
-            else:
-                lines.append(f"| {room_link(room)} |")
-        lines += ["", "</div>"]
+        for row_start in range(0, len(group), ROOMS_PER_ROW):
+            row = group[row_start:row_start + ROOMS_PER_ROW]
+            lines.append("<tr>")
+            for room in row:
+                cell = room_link_html(room)
+                if show_type:
+                    cell += f"<br><sub>{room.get('type', '') or '—'}</sub>"
+                lines.append(f'<td align="left" width="300">{cell}</td>')
+            # Pad the final row so the grid keeps square edges.
+            for _ in range(ROOMS_PER_ROW - len(row)):
+                lines.append('<td width="300"></td>')
+            lines.append("</tr>")
+        lines += ["</table>", "", "</div>"]
 
     lines += ["", f"## Badges ({len(badges)})", ""]
     if not badges:
