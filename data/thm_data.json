@@ -1,0 +1,540 @@
+{
+  "username": "ouroboroswhite",
+  "last_synced_utc": "2026-07-28 16:01 UTC",
+  "rooms_completed": 45,
+  "rooms": [
+    {
+      "_id": "605345a60988e711c0065e07",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "info",
+      "code": "linuxfundamentalspart1",
+      "title": "Linux Fundamentals Part 1",
+      "description": "Embark on the journey of learning the fundamentals of Linux.  Learn to run some of the first essential commands on an interactive terminal.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxfundamentalspart1-1785241447142.png"
+    },
+    {
+      "_id": "605c991a51a66f03a514770f",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "info",
+      "code": "linuxfundamentalspart2",
+      "title": "Linux Fundamentals Part 2",
+      "description": "Continue your learning Linux journey with part two. You will be learning how to log in to a Linux machine using SSH, how to advance your commands, file system interaction.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxfundamentalspart2-1785241447270.png"
+    },
+    {
+      "_id": "605cbd7de3e045775d2172f1",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "howwebsiteswork",
+      "title": "How Websites Work",
+      "description": "To exploit a website, you first need to know how they are created.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image11.png"
+    },
+    {
+      "_id": "6065a8575a27121513f5bf1f",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "info",
+      "code": "linuxfundamentalspart3",
+      "title": "Linux Fundamentals Part 3",
+      "description": "Power-up your Linux skills and get hands-on with some common utilities that you are likely to use day-to-day!",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxfundamentalspart3-1785241447458.png"
+    },
+    {
+      "_id": "606d6c850562674d2e98c999",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "puttingitalltogether",
+      "title": "Putting it all together",
+      "description": "Learn how all the individual components of the web work together to bring you access to your favourite web sites.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image12.png"
+    },
+    {
+      "_id": "606d751bb5dea76d5e3d03b6",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "dnsindetail",
+      "title": "DNS in Detail",
+      "description": "Learn how DNS works and how it helps you access internet services.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image9.png"
+    },
+    {
+      "_id": "606d755ba3918f6d3df0c89d",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "httpindetail",
+      "title": "HTTP in Detail",
+      "description": "Learn about how you request content from a web server using the HTTP protocol",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image10.png"
+    },
+    {
+      "_id": "607ffcaa92e6443f8396591c",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "info",
+      "code": "windowsfundamentals1xbx",
+      "title": "Windows Fundamentals 1",
+      "description": "In part 1 of the Windows Fundamentals module, we'll start our journey learning about the Windows desktop, the NTFS file system, UAC, the Control Panel, and more..",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowsfundamentals1xbx-1785241454665.png"
+    },
+    {
+      "_id": "6091e4ac2c5440004fa7ecd8",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "info",
+      "code": "windowsfundamentals2x0x",
+      "title": "Windows Fundamentals 2",
+      "description": "In part 2 of the Windows Fundamentals module, discover more about System Configuration, UAC Settings, Resource Monitoring, the Windows Registry and more..",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowsfundamentals2x0x-1785241454868.png"
+    },
+    {
+      "_id": "60ae443a4c7e1d004a677ce8",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "info",
+      "code": "whatisnetworking",
+      "title": "What is Networking?",
+      "description": "Begin learning the fundamentals of computer networking in this bite-sized and interactive module.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image4.png"
+    },
+    {
+      "_id": "60ae44e51358bc00489f1ef8",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "info",
+      "code": "introtolan",
+      "title": "Intro to LAN",
+      "description": "Learn about some of the technologies and designs that power private networks",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image5.png"
+    },
+    {
+      "_id": "60ae4535530c3c004f246c1d",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "info",
+      "code": "osimodelzi",
+      "title": "OSI Model",
+      "description": "Learn about the fundamental networking framework that determines the various stages in which data is handled across a network",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image6.png"
+    },
+    {
+      "_id": "60ae457149fbb00041e0e766",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "info",
+      "code": "packetsframes",
+      "title": "Packets & Frames",
+      "description": "Understand how data is divided into smaller pieces and transmitted across a network to another device.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image7.png"
+    },
+    {
+      "_id": "60ae459a1358bc00489f1f25",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "info",
+      "code": "extendingyournetwork",
+      "title": "Extending Your Network",
+      "description": "Learn about some of the technologies used to extend networks out onto the Internet and the motivations for this.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image8.png"
+    },
+    {
+      "_id": "60ba3f01ad9ff1004266e1cb",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "info",
+      "code": "windowsfundamentals3xzx",
+      "title": "Windows Fundamentals 3",
+      "description": "In part 3 of the Windows Fundamentals module, learn about the built-in Microsoft tools that help keep the device secure, such as Windows Updates, Windows Security, BitLocker, and more...",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowsfundamentals3xzx-1785241455111.png"
+    },
+    {
+      "_id": "621f396b4fee0d0044ef9d43",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "operatingsystemsecurity",
+      "title": "Operating System Security",
+      "description": "This room introduces users to operating system security and demonstrates SSH authentication on Linux.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400267726-Room_Image-9.png"
+    },
+    {
+      "_id": "62a79f64126bc700560fd452",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "winadbasics",
+      "title": "Active Directory Basics",
+      "description": "This room will introduce the basic concepts and functionality provided by Active Directory.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/winadbasics-1785241454256.png"
+    },
+    {
+      "_id": "6627c55f624376abfd0d86d2",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "windowscommandline",
+      "title": "Windows Command Line",
+      "description": "Learn the essential Windows commands.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowscommandline-1785241454442.png"
+    },
+    {
+      "_id": "663e40d9e9ae81db98f61fd5",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "networkingconcepts",
+      "title": "Networking Concepts",
+      "description": "Learn about the ISO OSI model and the TCP/IP protocol suite.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingconcepts-1785241449058.png"
+    },
+    {
+      "_id": "66d1a2d041da803e3ebecd23",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "windowspowershell",
+      "title": "Windows PowerShell",
+      "description": "Discover the \"Power\" in PowerShell and learn the basics.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowspowershell-1785241455299.png"
+    },
+    {
+      "_id": "66d6ae5b117a88d51820bdc6",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "linuxshells",
+      "title": "Linux Shells",
+      "description": "Learn about scripting and the different types of Linux shells.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxshells-1785241447675.png"
+    },
+    {
+      "_id": "68a5e04a190c638897fe1d30",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "malwareclassification",
+      "title": "Malware Classification",
+      "description": "Learn how to identify, classify, and understand common types of malware.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/66264cef7bba67a6bbbe7179-1756704997133"
+    },
+    {
+      "_id": "69372770e663ab1fd4b38594",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "virtualisationbasics",
+      "title": "Virtualisation Basics",
+      "description": "Learn why virtualisation powers modern IT, improving efficiency and safely isolating environments.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400177898-Room_Image-2.png"
+    },
+    {
+      "_id": "6938e3a1c9be1bed60c1a854",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "operatingsystemsintroduction",
+      "title": "Operating Systems: Introduction",
+      "description": "Explore the basics of operating systems and the core features that power your computer.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400208698-Room_Image-5.png"
+    },
+    {
+      "_id": "693a90f1d8b79d22e73b9392",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "linuxclibasics",
+      "title": "Linux CLI Basics",
+      "description": "Get comfortable navigating through the Linux CLI.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxclibasics-1785241446878.png"
+    },
+    {
+      "_id": "693aab34e8fd11ac6170526f",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "datarepresentation",
+      "title": "Data Representation",
+      "description": "Learn about how computers represent numbers and colors.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400279781-Room_Image-10.png"
+    },
+    {
+      "_id": "693aab7ce31a9a95a2a181b2",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "dataencoding",
+      "title": "Data Encoding",
+      "description": "Learn how computer encodes characters, from ASCII to Unicode's UTF.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400285735-Room_Image-13.png"
+    },
+    {
+      "_id": "693aabcb70d3c563289b564f",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "medium",
+      "code": "javascriptsimpledemo",
+      "title": "JavaScript: Simple Demo",
+      "description": "Explore what a basic JavaScript program looks like.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400296115-Room_Image-12.png"
+    },
+    {
+      "_id": "693aabde56b620f222796be3",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "pythonsimpledemo",
+      "title": "Python: Simple Demo",
+      "description": "Explore what a basic Python program looks like.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400291430-Room_Image-11.png"
+    },
+    {
+      "_id": "693cee8c999d17cddc880176",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "windowsbasics",
+      "title": "Windows Basics",
+      "description": "Learn to navigate Windows, manage files, and use essential system tools.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400216298-Room_Image-8.png"
+    },
+    {
+      "_id": "69405b95811b663620ca4c0c",
+      "type": "walkthrough",
+      "code": "cloudcomputingfundamentals",
+      "title": "Cloud Computing Fundamentals",
+      "description": "Discover how cloud computing helps businesses move faster, do more, and scale with less effort.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400183488-Room_Image-4.png",
+      "freeToUse": false,
+      "difficulty": "easy"
+    },
+    {
+      "_id": "69412ddb5cef0a01ebe0d967",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "windowsclibasics",
+      "title": "Windows CLI Basics",
+      "description": "Explore what Windows CLI is, how to navigate, and interact with the system using Windows CLI.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400260703-Room_Image-7.png"
+    },
+    {
+      "_id": "6942c7ef0224651089cb8fdd",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "theciatriad",
+      "title": "The CIA Triad",
+      "description": "Understand the CIA Triad and how it shapes cyber security mindset.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400312904-Room_Image-15.png"
+    },
+    {
+      "_id": "6942c91edae025de74ebb679",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "databasesqlbasics",
+      "title": "Database SQL Basics",
+      "description": "Learn the basics of databases and SQL by writing simple queries to retrieve and manage data.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400301430-Room_Image-14.png"
+    },
+    {
+      "_id": "694535c370e0d8024611aee4",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "cryptographyconcepts",
+      "title": "Cryptography Concepts",
+      "description": "This room provides an understanding of cryptography in our everyday digital encounters.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400321470-Room_Image-17.png"
+    },
+    {
+      "_id": "6945606bd6cc93efea287e7b",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "clientserverbasics",
+      "title": "Client-Server Basics",
+      "description": "This room teaches the basics of the Client-Server model.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400170483-Room_Image-1.png"
+    },
+    {
+      "_id": "694a181822d3a2e1da963a1a",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "becomeahacker",
+      "title": "Become a Hacker",
+      "description": "Explore offensive security, the hacker mindset, and hack a web app to improve security!",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5f04259cf9bf5b57aed2c476-1779874288391"
+    },
+    {
+      "_id": "694a8120d5a629e7fd635203",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "becomeadefender",
+      "title": "Become a Defender",
+      "description": "Explore defensive security, cyber infrastructure, and how to protect systems from attacks.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5f04259cf9bf5b57aed2c476-1779874303188"
+    },
+    {
+      "_id": "69668301371925b330910fdc",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "insideacomputer",
+      "title": "Inside a Computer System",
+      "description": "This room covers the basic components of a computer system.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400154829-Room_Image.png"
+    },
+    {
+      "_id": "6970f1edc98f34dac4e2aeeb",
+      "type": "walkthrough",
+      "code": "offensivesecurityintrokKx12l39",
+      "title": "Offensive Security Intro",
+      "description": "Hack your first website (legally in a safe environment) and experience an ethical hacker's job.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/2dcbc5890dd1acb0c8f69208e6bbb75faa64678860482160c5eb15346434f569.5de96d9ca744773ea7ef8c00-1767868972234",
+      "freeToUse": true,
+      "difficulty": "easy"
+    },
+    {
+      "_id": "6981d58d68f4050e3deea7a8",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "computertypes",
+      "title": "Computer Types",
+      "description": "Explore the different types of computers, from laptops to the tiny chips inside your coffee machine.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400161307-Room_Image-3.png"
+    },
+    {
+      "_id": "69a551a5af9a49ea1cf56e44",
+      "type": "walkthrough",
+      "code": "defensivesecurityintroezn39",
+      "title": "Defensive Security Intro",
+      "description": "Introducing defensive security, where you will protect FakeBank from an ongoing attack.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/60eeba4c12d185eee073d97e9a219ff1e4088f3604c9a07605f4aa8a42df9d60.5de96d9ca744773ea7ef8c00-1769425626237",
+      "freeToUse": true,
+      "difficulty": "info"
+    },
+    {
+      "_id": "69bb3605475d882825800e41",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "searchskillscS",
+      "title": "Search Skills",
+      "description": "Learn to efficiently search the Internet and use specialised services and technical docs for information",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1773877192929"
+    },
+    {
+      "_id": "69fa32c7b1116aaa4d6ecae9",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "offensivesecurityintroc101",
+      "title": "Offensive Security Intro",
+      "description": "Introducing offensive security, where you will test the security of FakeBank's systems.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1778576882026"
+    },
+    {
+      "_id": "6a439347fa0b5f85434e4c75",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "careersincybersn",
+      "title": "Careers in Cyber",
+      "description": "Discover the perks and your place within Cyber Security.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1782818141370"
+    }
+  ],
+  "badges": [
+    {
+      "_id": "5eb1f7bf5689ac81e1141bc2",
+      "name": "7-day-streak",
+      "image": "https://assets.tryhackme.com/img/badges/streak7.png",
+      "title": "7 Day Streak",
+      "description": "Achieving a 7 day hacking streak",
+      "earnedAt": "2026-07-23T12:58:16.532Z",
+      "rarityTier": "common",
+      "rarityPercent": 21.7
+    },
+    {
+      "_id": "5dcee81690735abace1e4208",
+      "name": "terminaled",
+      "image": "https://assets.tryhackme.com/img/badges/linux.png",
+      "title": "cat linux.txt",
+      "description": "Being competent in Linux",
+      "earnedAt": "2026-07-22T19:55:48.817Z",
+      "rarityTier": "common",
+      "rarityPercent": 28.2
+    },
+    {
+      "_id": "609bbc16a2323e2d0e95e057",
+      "name": "world-wide-web",
+      "image": "https://assets.tryhackme.com/img/badges/howthewebworks.png",
+      "title": "World Wide Web",
+      "description": "Completing the 'How The Web Works' module",
+      "earnedAt": "2026-07-21T18:11:00.116Z",
+      "rarityTier": "common",
+      "rarityPercent": 20.5
+    },
+    {
+      "_id": "5e6830ca7095e6fb1e9f0520",
+      "name": "web-fund",
+      "image": "https://assets.tryhackme.com/img/badges/webbed.png",
+      "title": "Webbed",
+      "description": "Understands how the world wide web works",
+      "earnedAt": "2026-07-21T15:48:20.389Z",
+      "rarityTier": "common",
+      "rarityPercent": 23.5
+    },
+    {
+      "_id": "60cf505d437056aee2cf0de3",
+      "name": "network-fundamentals",
+      "image": "https://assets.tryhackme.com/img/badges/networkfundamentals.png",
+      "title": "Networking Nerd",
+      "description": "Completing the 'Network Fundamentals' module",
+      "earnedAt": "2026-07-21T12:12:35.258Z",
+      "rarityTier": "common",
+      "rarityPercent": 17.4
+    },
+    {
+      "_id": "6a3a946a9d3cabee2bb46a08",
+      "name": "first-mobile-quiz",
+      "image": "https://assets.tryhackme.com/img/badges/first-mobile-quiz.png",
+      "title": "First Mobile Quiz",
+      "description": "Completing your first quiz or recap on the mobile app!",
+      "earnedAt": "2026-07-20T18:15:14.666Z",
+      "rarityTier": "rare",
+      "rarityPercent": 2.4
+    },
+    {
+      "_id": "688c94222f6d4c3f0120a44f",
+      "name": "3-day-streak",
+      "image": "https://assets.tryhackme.com/img/badges/streak3.png",
+      "title": "3 Day Streak",
+      "description": "Achieving a 3 day hacking streak",
+      "earnedAt": "2026-07-19T10:15:28.027Z",
+      "rarityTier": "common",
+      "rarityPercent": 34.6
+    },
+    {
+      "_id": "636ac6a866638c250cce701f",
+      "name": "first-4-rooms",
+      "image": "https://assets.tryhackme.com/img/badges/firstfour.png",
+      "title": "First Four",
+      "description": "Completing four rooms in your first week of joining!",
+      "earnedAt": "2026-07-17T12:56:22.551Z",
+      "rarityTier": "common",
+      "rarityPercent": 27.4
+    }
+  ],
+  "badge_count": 8
+}

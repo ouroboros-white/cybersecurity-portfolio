@@ -1,9 +1,13 @@
 name: Update portfolio
 
+# No schedule trigger: TryHackMe's API sits behind a Vercel bot-protection
+# firewall that consistently challenge-blocks requests from GitHub-hosted
+# runners' datacenter IPs. The daily sync now runs from a local scheduled
+# task on a home IP instead (see SETUP.md). This workflow is kept as a
+# manual fallback you can try from the Actions tab, but expect it to fail
+# the same way until/unless that changes.
 on:
-  schedule:
-    - cron: "0 7 * * *"  # daily at 07:00 UTC - adjust as you like
-  workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
+  workflow_dispatch: {}
 
 permissions:
   contents: write

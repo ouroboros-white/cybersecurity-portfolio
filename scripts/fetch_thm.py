@@ -46,11 +46,24 @@ INITIAL_BACKOFF_SECONDS = 2
 
 
 def get_with_retries(url: str) -> dict:
-    """GET a URL, retrying on rate limits (429) and server errors (5xx)."""
+    """GET a URL, retrying on rate limits (429) and server errors (5xx).
+
+    TryHackMe's API sits behind a Vercel bot-protection firewall that can
+    respond to a 429 with an X-Vercel-Mitigated: challenge header instead of
+    a plain rate limit. That's a JS/browser challenge, not a transient
+    throttle - no amount of retrying from a plain HTTP client will pass it,
+    so we fail immediately instead of burning the retry budget on it.
+    """
     last_error = None
     for attempt in range(1, MAX_ATTEMPTS + 1):
         try:
             resp = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+            if resp.status_code == 429 and resp.headers.get("X-Vercel-Mitigated") == "challenge":
+                raise RuntimeError(
+                    f"Blocked by TryHackMe's bot-protection challenge for {url}. "
+                    "This isn't a rate limit and retrying won't help - it needs "
+                    "to run from an IP/environment that isn't flagged as a bot."
+                )
             if resp.status_code == 429 or resp.status_code >= 500:
                 last_error = f"HTTP {resp.status_code} from {url}"
                 if attempt < MAX_ATTEMPTS:
