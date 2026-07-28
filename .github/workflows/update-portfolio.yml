@@ -1,0 +1,37 @@
+name: Update portfolio
+
+on:
+  schedule:
+    - cron: "0 7 * * *"  # daily at 07:00 UTC - adjust as you like
+  workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Fetch TryHackMe data
+        env:
+          THM_USERNAME: ${{ vars.THM_USERNAME }}
+        run: python scripts/fetch_thm.py
+
+      - name: Render README
+        run: python scripts/render_readme.py
+
+      - name: Commit changes if anything updated
+        run: |
+          git config user.name "portfolio-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/thm_data.json README.md
+          git diff --cached --quiet || git commit -m "chore: sync TryHackMe stats"
+          git push
