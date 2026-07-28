@@ -73,11 +73,7 @@ automatically by the daily sync.
 | First Four | 2026-07-17 | common (27.4%) |
 <!--THM:END-->
 
-## Other Platforms
 
-_If you add Hack The Box, Cisco NetAcad, or similar later, record them here._
-
-## Write-ups
 
 _Link individual room write-ups here as you produce them. A short report
 explaining what you did and what you learned is worth far more to a reader
