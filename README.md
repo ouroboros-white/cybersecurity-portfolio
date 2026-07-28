@@ -15,7 +15,7 @@ TBC
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-07-28 16:01 UTC
+**Last synced:** 2026-07-28 18:49 UTC
 
 <div align="center">
 
