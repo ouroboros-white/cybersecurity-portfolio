@@ -6,10 +6,12 @@ endpoints and saves it to data/thm_data.json.
 
 These endpoints are the same ones your browser calls when you view a
 public TryHackMe profile - they're not an officially documented/stable
-API, so this script is written defensively: if a fetch fails for any
-reason (TryHackMe changes something, times out, etc.), the previous
-data file is left untouched rather than being wiped. Your portfolio
-will show slightly stale data on a bad day, never a blank one.
+API, so this script is written defensively:
+  - if a request is rate-limited (HTTP 429) or hits a server error (5xx),
+    it waits briefly and retries a few times before giving up
+  - if it still fails after retrying, the previous data file is left
+    untouched rather than being wiped, so a bad sync never blanks your
+    portfolio - it just skips that update and logs a warning
 
 Required environment variable:
     THM_USERNAME - your TryHackMe username (e.g. ouroboroswhite)
@@ -17,6 +19,7 @@ Required environment variable:
 import json
 import os
 import sys
+import time
 from datetime import datetime, timezone
 
 import requests
@@ -31,6 +34,45 @@ HEADERS = {
 }
 TIMEOUT = 15
 
+# Retry settings: how many attempts, and how long to wait between them.
+# The wait time doubles each attempt (1s, 2s, 4s...) so we back off
+# instead of hammering a server that's already asking us to slow down.
+MAX_ATTEMPTS = 4
+INITIAL_BACKOFF_SECONDS = 2
+
+
+def get_with_retries(url: str) -> dict:
+    """GET a URL, retrying on rate limits (429) and server errors (5xx)."""
+    last_error = None
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+            if resp.status_code == 429 or resp.status_code >= 500:
+                last_error = f"HTTP {resp.status_code} from {url}"
+                if attempt < MAX_ATTEMPTS:
+                    wait = INITIAL_BACKOFF_SECONDS * (2 ** (attempt - 1))
+                    print(
+                        f"  Attempt {attempt} got {resp.status_code}; "
+                        f"waiting {wait}s before retrying...",
+                        file=sys.stderr,
+                    )
+                    time.sleep(wait)
+                    continue
+                resp.raise_for_status()
+            resp.raise_for_status()
+            return resp.json()
+        except requests.RequestException as exc:
+            last_error = str(exc)
+            if attempt < MAX_ATTEMPTS:
+                wait = INITIAL_BACKOFF_SECONDS * (2 ** (attempt - 1))
+                print(
+                    f"  Attempt {attempt} failed ({exc}); "
+                    f"waiting {wait}s before retrying...",
+                    file=sys.stderr,
+                )
+                time.sleep(wait)
+    raise RuntimeError(f"Giving up after {MAX_ATTEMPTS} attempts: {last_error}")
+
 
 def fetch_paginated(endpoint: str, page_size: int = 100) -> list:
     """Page through a TryHackMe public-profile endpoint until it stops returning results."""
@@ -41,9 +83,7 @@ def fetch_paginated(endpoint: str, page_size: int = 100) -> list:
             f"https://tryhackme.com/api/v2/public-profile/{endpoint}"
             f"?username={THM_USERNAME}&limit={page_size}&page={page}"
         )
-        resp = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
-        resp.raise_for_status()
-        payload = resp.json()
+        payload = get_with_retries(url)
         batch = payload.get("data", {}).get("docs", [])
         if not batch:
             break
@@ -79,7 +119,9 @@ def main() -> None:
     previous = load_existing()
 
     try:
+        print("Fetching completed rooms...")
         rooms = fetch_paginated("completed-rooms")
+        print("Fetching badges...")
         badges = fetch_paginated("badges")
     except Exception as exc:  # noqa: BLE001 - deliberately broad: never crash the pipeline
         print(f"Fetch failed ({exc}); keeping previous data untouched.", file=sys.stderr)
