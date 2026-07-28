@@ -75,16 +75,72 @@ _Hardest first. Within each tier, related rooms are kept together._
 
 ## Badges (8)
 
-| Badge | Earned | Rarity |
-|---|---|---|
-| 7 Day Streak | 2026-07-23 | common (21.7%) |
-| cat linux.txt | 2026-07-22 | common (28.2%) |
-| World Wide Web | 2026-07-21 | common (20.5%) |
-| Webbed | 2026-07-21 | common (23.5%) |
-| Networking Nerd | 2026-07-21 | common (17.4%) |
-| First Mobile Quiz | 2026-07-20 | rare (2.4%) |
-| 3 Day Streak | 2026-07-19 | common (34.6%) |
-| First Four | 2026-07-17 | common (27.4%) |
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/streak7.png" alt="7 Day Streak" width="90"><br>
+<strong>7 Day Streak</strong>
+</a>
+<br><sub>2026-07-23 · common (21.7%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/linux.png" alt="cat linux.txt" width="90"><br>
+<strong>cat linux.txt</strong>
+</a>
+<br><sub>2026-07-22 · common (28.2%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/howthewebworks.png" alt="World Wide Web" width="90"><br>
+<strong>World Wide Web</strong>
+</a>
+<br><sub>2026-07-21 · common (20.5%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/webbed.png" alt="Webbed" width="90"><br>
+<strong>Webbed</strong>
+</a>
+<br><sub>2026-07-21 · common (23.5%)</sub>
+</td>
+</tr>
+<tr>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/networkfundamentals.png" alt="Networking Nerd" width="90"><br>
+<strong>Networking Nerd</strong>
+</a>
+<br><sub>2026-07-21 · common (17.4%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/first-mobile-quiz.png" alt="First Mobile Quiz" width="90"><br>
+<strong>First Mobile Quiz</strong>
+</a>
+<br><sub>2026-07-20 · rare (2.4%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/streak3.png" alt="3 Day Streak" width="90"><br>
+<strong>3 Day Streak</strong>
+</a>
+<br><sub>2026-07-19 · common (34.6%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/firstfour.png" alt="First Four" width="90"><br>
+<strong>First Four</strong>
+</a>
+<br><sub>2026-07-17 · common (27.4%)</sub>
+</td>
+</tr>
+</table>
+
+</div>
 <!--THM:END-->
 
 

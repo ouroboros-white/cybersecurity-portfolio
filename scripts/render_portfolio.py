@@ -35,6 +35,23 @@ DIFFICULTY_ORDER = ["insane", "hard", "medium", "easy", "info"]
 
 RECENT_BADGE_COUNT = 5
 
+# Badge images are hotlinked from TryHackMe's CDN (verified to serve HTTP 200).
+BADGES_PER_ROW = 4
+
+# Where a badge image links to.
+#
+# TryHackMe exposes per-badge pages at /<username>/badges/<slug>, and our
+# badge "name" field is exactly that slug. Tempting - but visiting one in a
+# logged-out browser redirected to the TryHackMe home page, so a reader
+# clicking a badge would land on a marketing page rather than the badge.
+# The profile URL is a destination that reliably works for a visitor who is
+# not logged in, which is the only kind of visitor a public portfolio gets.
+#
+# To switch to per-badge deep links, return:
+#   f"https://tryhackme.com/{username}/badges/{badge.get('name', '')}"
+def badge_link(username: str, badge: dict) -> str:
+    return f"https://tryhackme.com/p/{username}"
+
 
 def natural_key(title: str) -> list:
     """Sort key that treats digit runs as numbers.
@@ -155,20 +172,37 @@ def build_training_section(data: dict) -> str:
                 lines.append(f"| {room_link(room)} |")
 
     lines += ["", f"## Badges ({len(badges)})", ""]
-    if badges:
-        lines += ["| Badge | Earned | Rarity |", "|---|---|---|"]
-        for badge in badges:
+    if not badges:
+        lines.append("_No badges recorded yet._")
+        return "\n".join(lines)
+
+    # Rendered as an HTML table rather than a Markdown one because Markdown
+    # has no way to lay images out in a grid. GitHub renders this subset of
+    # HTML inside Markdown files.
+    lines += ["<div align=\"center\">", "", "<table>"]
+    for row_start in range(0, len(badges), BADGES_PER_ROW):
+        row = badges[row_start:row_start + BADGES_PER_ROW]
+        lines.append("<tr>")
+        for badge in row:
             title = badge.get("title", badge.get("name", "badge"))
-            earned = format_date(badge.get("earnedAt", "")) or "—"
+            image = badge.get("image", "")
+            earned = format_date(badge.get("earnedAt", ""))
             tier = badge.get("rarityTier", "")
             percent = badge.get("rarityPercent")
-            if tier and percent is not None:
-                rarity = f"{tier} ({percent}%)"
-            else:
-                rarity = tier or "—"
-            lines.append(f"| {title} | {earned} | {rarity} |")
-    else:
-        lines.append("_No badges recorded yet._")
+            rarity = f"{tier} ({percent}%)" if tier and percent is not None else tier
+
+            caption = " · ".join(part for part in (earned, rarity) if part)
+            lines.append(f'<td align="center" width="130">')
+            lines.append(f'<a href="{badge_link(username, badge)}">')
+            if image:
+                lines.append(f'<img src="{image}" alt="{title}" width="90"><br>')
+            lines.append(f"<strong>{title}</strong>")
+            lines.append("</a>")
+            if caption:
+                lines.append(f"<br><sub>{caption}</sub>")
+            lines.append("</td>")
+        lines.append("</tr>")
+    lines += ["</table>", "", "</div>"]
 
     return "\n".join(lines)
 
