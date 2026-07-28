@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-07-28 18:49 UTC",
-  "rooms_completed": 45,
+  "last_synced_utc": "2026-07-28 21:45 UTC",
+  "rooms_completed": 48,
   "rooms": [
     {
       "_id": "605345a60988e711c0065e07",
@@ -452,6 +452,36 @@
       "title": "Careers in Cyber",
       "description": "Discover the perks and your place within Cyber Security.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1782818141370"
+    },
+    {
+      "_id": "6a563d46e6ac2e5ee5b45997",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "hh-thebrochure-081f3e36",
+      "title": "The Brochure",
+      "description": "The brochure's hero photo has an AI fingerprint. Follow the account that posted it, and the trail doesn't end at the hotel; it ends at someone the hotel never mentioned.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1784923108816"
+    },
+    {
+      "_id": "6a563de9049ff06dc3ed0e0f",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "hh-theconciergeknows-2d7eb4d9",
+      "title": "The Concierge Knows Too Much",
+      "description": "She knows your name, your room, your coffee order, none of which you told her. Word your next question carefully and she'll also hand over the instructions she was told to keep to herself.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785086810848"
+    },
+    {
+      "_id": "6a563e5295ff6e89a1a8c7e1",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "hh-room404-804573bf",
+      "title": "Room 404",
+      "description": "He booked the quiet room. It's not on the floor plan, not in the brochure, not on any door. But port 8080 is wide open, and the rooms it never lists are the ones worth finding.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785087675274"
     }
   ],
   "badges": [
