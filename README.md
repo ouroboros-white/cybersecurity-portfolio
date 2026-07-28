@@ -9,8 +9,7 @@ documenting what I find.
 
 ## About Me
 
-_Your background, what drew you to security, and what you're working
-towards. A few honest sentences beat a list of buzzwords._
+TBC
 
 ## Training Snapshot
 
