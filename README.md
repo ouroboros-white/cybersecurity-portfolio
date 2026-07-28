@@ -32,7 +32,7 @@ Full room-by-room history and badge log: [TRAINING.md](TRAINING.md)
 
 _Tools, scripts, or write-ups worth showing. This portfolio's own sync
 automation counts — it is Python, error handling, scheduled jobs, and
-handling a third-party API that actively pushes back._
+handling a third-party API that actively pushes back._ TBC
 
 ## Contact
 
