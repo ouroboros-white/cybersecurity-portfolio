@@ -17,11 +17,19 @@ TBC
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
 **Last synced:** 2026-07-28 16:01 UTC
 
-| Rooms completed | Badges earned |
-|---|---|
-| 45 | 8 |
+<div align="center">
 
-**Room difficulty:** 🟡 1 medium · 🟢 32 easy · ℹ️ 12 info
+<table>
+<tr>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>45</td>
+<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>8</td>
+<td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>1</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>32</td>
+<td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>12</td>
+</tr>
+</table>
+
+</div>
 
 **Recent badges:** `7 Day Streak` `cat linux.txt` `World Wide Web` `Webbed` `Networking Nerd`
 

@@ -9,17 +9,37 @@ automatically by the daily sync.
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
 **Last synced:** 2026-07-28 16:01 UTC
 
+<div align="center">
+
+<table>
+<tr>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>45</td>
+<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>8</td>
+<td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>1</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>32</td>
+<td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>12</td>
+</tr>
+</table>
+
+</div>
+
 ## Completed rooms (45)
 
 _Hardest first. Within each tier, related rooms are kept together._
 
 ### 🟡 Medium (1)
 
+<div align="center">
+
 | Room |
 |---|
 | [JavaScript: Simple Demo](https://tryhackme.com/room/javascriptsimpledemo) |
 
+</div>
+
 ### 🟢 Easy (32)
+
+<div align="center">
 
 | Room |
 |---|
@@ -56,7 +76,11 @@ _Hardest first. Within each tier, related rooms are kept together._
 | [Windows Command Line](https://tryhackme.com/room/windowscommandline) |
 | [Windows PowerShell](https://tryhackme.com/room/windowspowershell) |
 
+</div>
+
 ### ℹ️ Info (12)
+
+<div align="center">
 
 | Room |
 |---|
@@ -72,6 +96,8 @@ _Hardest first. Within each tier, related rooms are kept together._
 | [Windows Fundamentals 1](https://tryhackme.com/room/windowsfundamentals1xbx) |
 | [Windows Fundamentals 2](https://tryhackme.com/room/windowsfundamentals2x0x) |
 | [Windows Fundamentals 3](https://tryhackme.com/room/windowsfundamentals3xzx) |
+
+</div>
 
 ## Badges (8)
 

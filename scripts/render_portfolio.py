@@ -81,6 +81,34 @@ def difficulty_cell(difficulty: str) -> str:
     return f"{emoji} {difficulty}".strip() or "—"
 
 
+def build_stat_block(data: dict) -> list:
+    """A centred row of headline figures: totals, then a count per tier.
+
+    Rendered as an HTML table because Markdown cannot centre a block or lay
+    cells out side by side. Only tiers that actually have rooms appear, so
+    the row never carries a column of zeroes.
+    """
+    rooms = data.get("rooms") or []
+    counts = Counter(r.get("difficulty", "") for r in rooms)
+
+    cells = [
+        ("Rooms Completed", str(data["rooms_completed"])),
+        ("Badges Earned", str(data["badge_count"])),
+    ]
+    for difficulty in DIFFICULTY_ORDER:
+        if counts.get(difficulty):
+            emoji = DIFFICULTY_EMOJI.get(difficulty, "")
+            cells.append((f"{emoji} {difficulty.title()}".strip(), str(counts[difficulty])))
+
+    lines = ['<div align="center">', "", "<table>", "<tr>"]
+    for label, value in cells:
+        lines.append(
+            f'<td align="center">&nbsp;<strong>{label}</strong>&nbsp;<br>{value}</td>'
+        )
+    lines += ["</tr>", "</table>", "", "</div>"]
+    return lines
+
+
 def room_link(room: dict) -> str:
     title = room.get("title", "Unknown room")
     code = room.get("code", "")
@@ -93,25 +121,13 @@ def build_readme_section(data: dict) -> str:
     rooms = data.get("rooms") or []
     badges = data.get("badges") or []
 
-    counts = Counter(r.get("difficulty", "") for r in rooms)
-    breakdown = " · ".join(
-        f"{DIFFICULTY_EMOJI.get(d, '')} {counts[d]} {d}"
-        for d in DIFFICULTY_ORDER
-        if counts.get(d)
-    )
-
     lines = [
         f"**Profile:** [{username}](https://tryhackme.com/p/{username})  ",
         f"**Last synced:** {data['last_synced_utc']}",
         "",
-        "| Rooms completed | Badges earned |",
-        "|---|---|",
-        f"| {data['rooms_completed']} | {data['badge_count']} |",
-        "",
     ]
-
-    if breakdown:
-        lines += [f"**Room difficulty:** {breakdown}", ""]
+    lines += build_stat_block(data)
+    lines.append("")
 
     recent = badges[:RECENT_BADGE_COUNT]
     if recent:
@@ -133,6 +149,10 @@ def build_training_section(data: dict) -> str:
     lines = [
         f"**Profile:** [{username}](https://tryhackme.com/p/{username})  ",
         f"**Last synced:** {data['last_synced_utc']}",
+        "",
+    ]
+    lines += build_stat_block(data)
+    lines += [
         "",
         f"## Completed rooms ({len(rooms)})",
         "",
@@ -158,9 +178,13 @@ def build_training_section(data: dict) -> str:
         group = sorted(by_difficulty[difficulty], key=lambda r: natural_key(r.get("title", "")))
         emoji = DIFFICULTY_EMOJI.get(difficulty, "")
         heading = f"{emoji} {difficulty.title()}".strip()
+        # The blank lines around the table are load-bearing: GitHub only
+        # parses Markdown inside an HTML block if it is separated by them.
         lines += [
             "",
             f"### {heading} ({len(group)})",
+            "",
+            '<div align="center">',
             "",
             "| Room | Type |" if show_type else "| Room |",
             "|---|---|" if show_type else "|---|",
@@ -170,6 +194,7 @@ def build_training_section(data: dict) -> str:
                 lines.append(f"| {room_link(room)} | {room.get('type', '') or '—'} |")
             else:
                 lines.append(f"| {room_link(room)} |")
+        lines += ["", "</div>"]
 
     lines += ["", f"## Badges ({len(badges)})", ""]
     if not badges:
