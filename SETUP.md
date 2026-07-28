@@ -33,10 +33,12 @@ Windows Scheduled Task on your own machine, where the request comes from
 your home IP.
 
 - `scripts/sync_local.ps1` runs the fetch + render + commit + push in one go.
-- Set it up as a daily Scheduled Task:
+- Set it up as a daily Scheduled Task. Run this from the repository root in
+  PowerShell — `$PWD` fills in the path, so there is no machine-specific
+  path to paste (or to publish):
 
-  ```
-  schtasks /create /tn "THM Portfolio Sync" /sc daily /st 07:00 /tr "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"%USERPROFILE%\OneDrive\Desktop\Cybersecurity\thm-portfolio-sync\scripts\sync_local.ps1\""
+  ```powershell
+  schtasks /create /tn "THM Portfolio Sync" /sc daily /st 07:00 /tr "powershell.exe -NoProfile -ExecutionPolicy Bypass -File `"$PWD\scripts\sync_local.ps1`""
   ```
 
   (Only runs when your PC is on and awake at that time. Adjust `/st` for a

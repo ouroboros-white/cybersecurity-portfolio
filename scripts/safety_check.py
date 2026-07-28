@@ -30,17 +30,43 @@ Exit codes:
 import json
 import os
 import re
+import subprocess
 import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Files the sync publishes. Anything not listed here is not scanned because
-# it should not be getting committed by the sync in the first place.
-SCAN_TARGETS = [
+# Every tracked file is scanned, not a hand-maintained list.
+#
+# This used to name three files - the ones the sync rewrites - and that was
+# wrong. Everything committed to a public repo is published, whether the
+# sync touched it or not, and a hand-maintained list silently stops
+# covering files added later. A real local path (C:\Users\<name>) sat in
+# SETUP.md for days precisely because SETUP.md was not on the list.
+FALLBACK_TARGETS = [
     "data/thm_data.json",
     "README.md",
     "TRAINING.md",
 ]
+
+# Scanning the scanner would match its own pattern literals.
+SELF = "scripts/safety_check.py"
+
+SKIP_SUFFIXES = (".png", ".jpg", ".jpeg", ".gif", ".ico", ".pdf", ".zip")
+
+
+def tracked_files() -> list:
+    """List files git is tracking, falling back to a fixed list if git is absent."""
+    try:
+        result = subprocess.run(
+            ["git", "ls-files"],
+            cwd=BASE_DIR, capture_output=True, text=True, check=True,
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return FALLBACK_TARGETS
+    return [
+        line for line in result.stdout.splitlines()
+        if line and line != SELF and not line.lower().endswith(SKIP_SUFFIXES)
+    ]
 
 # JSON keys that indicate a stored secret, regardless of their value.
 #
@@ -84,10 +110,23 @@ VALUE_PATTERNS = [
 ]
 
 
+def is_exempt(label: str, snippet: str) -> bool:
+    """Known-safe matches that would otherwise be noise.
+
+    noreply addresses (git's actions@users.noreply.github.com, and the
+    co-author trailers) are non-contactable and non-identifying by design -
+    that is the entire point of the noreply convention - so flagging them
+    trains the reader to skim past real findings.
+    """
+    return label == "email address" and "noreply" in snippet.lower()
+
+
 def scan_text(text: str, where: str, findings: list) -> None:
     for label, pattern in VALUE_PATTERNS:
         for match in pattern.finditer(text):
             snippet = match.group(0)
+            if is_exempt(label, snippet):
+                continue
             if len(snippet) > 60:
                 snippet = snippet[:57] + "..."
             findings.append(f"{where}: {label} -> {snippet}")
@@ -112,13 +151,16 @@ def main() -> None:
     findings = []
     scanned = 0
 
-    for relative in SCAN_TARGETS:
+    for relative in tracked_files():
         full_path = os.path.join(BASE_DIR, relative)
         if not os.path.exists(full_path):
             continue
+        try:
+            with open(full_path, "r", encoding="utf-8") as f:
+                raw = f.read()
+        except (UnicodeDecodeError, OSError):
+            continue  # not text; nothing here for a pattern scan to read
         scanned += 1
-        with open(full_path, "r", encoding="utf-8") as f:
-            raw = f.read()
 
         if relative.endswith(".json"):
             try:
