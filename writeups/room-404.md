@@ -47,14 +47,14 @@ full commit history comes with the source, not just the current files.
 
 ```mermaid
 flowchart TD
-    A["Web app on port 8080"] --> B["Read the page source"]
-    B --> C["Footer says 'build staging'; the only real link 404s"]
-    C --> D["Content discovery: gobuster with file extensions"]
-    D --> E["/.git returns HTTP 200"]
+    A["Web app, port 8080"] --> B["Read page source"]
+    B --> C["Staging build; links dead"]
+    C --> D["gobuster content discovery"]
+    D --> E["/.git responds (200)"]
     E --> F["Exposed .git directory"]
-    F --> G["git-dumper reconstructs the repo into /tmp/loot"]
-    G --> H["Read the recovered source, find the flag"]
-    F -. "history is dumped too" .-> I["Secrets deleted in a later commit remain recoverable"]
+    F --> G["git-dumper rebuilds repo"]
+    G --> H["Read source, get flag"]
+    F -. "full history" .-> I["Deleted secrets recoverable"]
 ```
 
 ## Finding & fix
