@@ -31,7 +31,51 @@ TBC
 
 </div>
 
-**Recent badges:** `7 Day Streak` `cat linux.txt` `World Wide Web` `Webbed` `Networking Nerd`
+<div align="center"><strong>Recent badges</strong></div>
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/streak7.png" alt="7 Day Streak" width="90"><br>
+<strong>7 Day Streak</strong>
+</a>
+<br><sub>2026-07-23 · common (21.7%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/linux.png" alt="cat linux.txt" width="90"><br>
+<strong>cat linux.txt</strong>
+</a>
+<br><sub>2026-07-22 · common (28.2%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/howthewebworks.png" alt="World Wide Web" width="90"><br>
+<strong>World Wide Web</strong>
+</a>
+<br><sub>2026-07-21 · common (20.5%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/webbed.png" alt="Webbed" width="90"><br>
+<strong>Webbed</strong>
+</a>
+<br><sub>2026-07-21 · common (23.5%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/networkfundamentals.png" alt="Networking Nerd" width="90"><br>
+<strong>Networking Nerd</strong>
+</a>
+<br><sub>2026-07-21 · common (17.4%)</sub>
+</td>
+</tr>
+</table>
+
+</div>
 
 Full room-by-room history and badge log: [TRAINING.md](TRAINING.md)
 <!--THM:END-->

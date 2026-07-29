@@ -125,6 +125,41 @@ def room_link_html(room: dict) -> str:
     return f'<a href="https://tryhackme.com/room/{code}">{title}</a>'
 
 
+def build_badge_grid(username: str, badges: list, per_row: int, show_caption: bool = True) -> list:
+    """Return a centred grid of badge images as HTML table lines.
+
+    Shared by the README snapshot and the full TRAINING.md log so both render
+    badges the same way. Markdown cannot lay images out in a grid, so this
+    uses the HTML subset GitHub renders inside Markdown. `show_caption` adds
+    the earned date and rarity beneath each badge.
+    """
+    lines = ['<div align="center">', "", "<table>"]
+    for row_start in range(0, len(badges), per_row):
+        row = badges[row_start:row_start + per_row]
+        lines.append("<tr>")
+        for badge in row:
+            title = badge.get("title", badge.get("name", "badge"))
+            image = badge.get("image", "")
+            lines.append('<td align="center" width="130">')
+            lines.append(f'<a href="{badge_link(username, badge)}">')
+            if image:
+                lines.append(f'<img src="{image}" alt="{title}" width="90"><br>')
+            lines.append(f"<strong>{title}</strong>")
+            lines.append("</a>")
+            if show_caption:
+                earned = format_date(badge.get("earnedAt", ""))
+                tier = badge.get("rarityTier", "")
+                percent = badge.get("rarityPercent")
+                rarity = f"{tier} ({percent}%)" if tier and percent is not None else tier
+                caption = " · ".join(part for part in (earned, rarity) if part)
+                if caption:
+                    lines.append(f"<br><sub>{caption}</sub>")
+            lines.append("</td>")
+        lines.append("</tr>")
+    lines += ["</table>", "", "</div>"]
+    return lines
+
+
 def build_readme_section(data: dict) -> str:
     """Compact snapshot for the front page."""
     username = data["username"]
@@ -141,9 +176,9 @@ def build_readme_section(data: dict) -> str:
 
     recent = badges[:RECENT_BADGE_COUNT]
     if recent:
-        lines.append("**Recent badges:** " + " ".join(
-            f"`{b.get('title', b.get('name', 'badge'))}`" for b in recent
-        ))
+        lines.append('<div align="center"><strong>Recent badges</strong></div>')
+        lines.append("")
+        lines += build_badge_grid(username, recent, per_row=len(recent))
         lines.append("")
 
     lines.append("Full room-by-room history and badge log: [TRAINING.md](TRAINING.md)")
@@ -232,34 +267,7 @@ def build_training_section(data: dict) -> str:
         lines.append("_No badges recorded yet._")
         return "\n".join(lines)
 
-    # Rendered as an HTML table rather than a Markdown one because Markdown
-    # has no way to lay images out in a grid. GitHub renders this subset of
-    # HTML inside Markdown files.
-    lines += ["<div align=\"center\">", "", "<table>"]
-    for row_start in range(0, len(badges), BADGES_PER_ROW):
-        row = badges[row_start:row_start + BADGES_PER_ROW]
-        lines.append("<tr>")
-        for badge in row:
-            title = badge.get("title", badge.get("name", "badge"))
-            image = badge.get("image", "")
-            earned = format_date(badge.get("earnedAt", ""))
-            tier = badge.get("rarityTier", "")
-            percent = badge.get("rarityPercent")
-            rarity = f"{tier} ({percent}%)" if tier and percent is not None else tier
-
-            caption = " · ".join(part for part in (earned, rarity) if part)
-            lines.append(f'<td align="center" width="130">')
-            lines.append(f'<a href="{badge_link(username, badge)}">')
-            if image:
-                lines.append(f'<img src="{image}" alt="{title}" width="90"><br>')
-            lines.append(f"<strong>{title}</strong>")
-            lines.append("</a>")
-            if caption:
-                lines.append(f"<br><sub>{caption}</sub>")
-            lines.append("</td>")
-        lines.append("</tr>")
-    lines += ["</table>", "", "</div>"]
-
+    lines += build_badge_grid(username, badges, BADGES_PER_ROW)
     return "\n".join(lines)
 
 
