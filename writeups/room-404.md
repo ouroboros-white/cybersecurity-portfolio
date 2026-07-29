@@ -43,6 +43,20 @@ everything including hidden files, found a README in the recovered source, and
 read it to get the flag. Because git-dumper recovers the objects and refs, the
 full commit history comes with the source, not just the current files.
 
+## Attack chain
+
+```mermaid
+flowchart TD
+    A["Web app on port 8080"] --> B["Read the page source"]
+    B --> C["Footer says 'build staging'; the only real link 404s"]
+    C --> D["Content discovery: gobuster with file extensions"]
+    D --> E["/.git returns HTTP 200"]
+    E --> F["Exposed .git directory"]
+    F --> G["git-dumper reconstructs the repo into /tmp/loot"]
+    G --> H["Read the recovered source, find the flag"]
+    F -. "history is dumped too" .-> I["Secrets deleted in a later commit remain recoverable"]
+```
+
 ## Finding & fix
 
 **Finding:** the server exposed its `.git` directory, disclosing the full source
