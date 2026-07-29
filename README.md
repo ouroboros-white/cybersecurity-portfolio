@@ -45,6 +45,12 @@ For a domain-by-domain summary of what I understand and can apply, see
 [FOUNDATIONS.md](FOUNDATIONS.md): threats and vulnerabilities, access control,
 defensive measures, offensive security, and UK security law.
 
+## Write-ups
+
+Short accounts of challenge rooms I solved myself, focused on the reasoning and
+the security lesson rather than the step-by-step commands. See
+[writeups/](writeups/).
+
 ## Projects
 
 ### Portfolio Sync Automation
