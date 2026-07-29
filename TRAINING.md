@@ -7,35 +7,40 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-07-28 21:45 UTC
+**Last synced:** 2026-07-29 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>48</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>49</td>
 <td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>8</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>1</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>35</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>36</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>12</td>
 </tr>
 </table>
 
 </div>
 
-## Challenges (3)
+## Challenges (4)
 
 _Solved without a guided walkthrough. Hardest first._
 
-### 🟢 Easy (3)
+### 🟢 Easy (4)
 
 <div align="center">
 
 <table>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/neighbour">Neighbour</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-room404-804573bf">Room 404</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-thebrochure-081f3e36">The Brochure</a></td>
+</tr>
+<tr>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-theconciergeknows-2d7eb4d9">The Concierge Knows Too Much</a></td>
+<td width="300"></td>
+<td width="300"></td>
 </tr>
 </table>
 

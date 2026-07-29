@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-07-28 21:45 UTC",
-  "rooms_completed": 48,
+  "last_synced_utc": "2026-07-29 06:00 UTC",
+  "rooms_completed": 49,
   "rooms": [
     {
       "_id": "605345a60988e711c0065e07",
@@ -162,6 +162,16 @@
       "title": "Operating System Security",
       "description": "This room introduces users to operating system security and demonstrates SSH authentication on Linux.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400267726-Room_Image-9.png"
+    },
+    {
+      "_id": "622ba76891285b005eaf8b14",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "neighbour",
+      "title": "Neighbour",
+      "description": "Check out our new cloud service, Authentication Anywhere. Can you find other user's secrets?",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1737130517336"
     },
     {
       "_id": "62a79f64126bc700560fd452",
