@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-07-30 06:00 UTC",
-  "rooms_completed": 52,
+  "last_synced_utc": "2026-07-30 17:00 UTC",
+  "rooms_completed": 54,
   "rooms": [
     {
       "_id": "605345a60988e711c0065e07",
@@ -174,6 +174,16 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1737130517336"
     },
     {
+      "_id": "627bcc1fa0959a004b8b7187",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/wiresharkthebasics-1785241455534.png",
+      "description": "Learn the basics of Wireshark and how to analyse protocols and PCAPs.",
+      "title": "Wireshark: The Basics",
+      "code": "wiresharkthebasics"
+    },
+    {
       "_id": "62a79f64126bc700560fd452",
       "type": "walkthrough",
       "freeToUse": false,
@@ -222,6 +232,16 @@
       "title": "Networking Core Protocols",
       "description": "Learn about the core TCP/IP protocols.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingcoreprotocols-1785241449371.png"
+    },
+    {
+      "_id": "6641c65eb66abb32b6603ee5",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "networkingsecureprotocols",
+      "title": "Networking Secure Protocols",
+      "description": "Learn how TLS, SSH, and VPN can secure your network traffic.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingsecureprotocols-1785241449922.png"
     },
     {
       "_id": "66d1a2d041da803e3ebecd23",
@@ -424,16 +444,6 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400154829-Room_Image.png"
     },
     {
-      "_id": "6970f1edc98f34dac4e2aeeb",
-      "type": "walkthrough",
-      "code": "offensivesecurityintrokKx12l39",
-      "title": "Offensive Security Intro",
-      "description": "Hack your first website (legally in a safe environment) and experience an ethical hacker's job.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/2dcbc5890dd1acb0c8f69208e6bbb75faa64678860482160c5eb15346434f569.5de96d9ca744773ea7ef8c00-1767868972234",
-      "freeToUse": true,
-      "difficulty": "easy"
-    },
-    {
       "_id": "6981d58d68f4050e3deea7a8",
       "type": "walkthrough",
       "freeToUse": false,
@@ -501,7 +511,7 @@
       "code": "hh-theconciergeknows-2d7eb4d9",
       "title": "The Concierge Knows Too Much",
       "description": "She knows your name, your room, your coffee order, none of which you told her. Word your next question carefully and she'll also hand over the instructions she was told to keep to herself.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785086810848"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/6c2c3d540cd42fe1c40dd55fd8ff55d97af85b233a9a1ffb596ecae85613c363-1785427756215.png"
     },
     {
       "_id": "6a563e5295ff6e89a1a8c7e1",
@@ -522,6 +532,16 @@
       "title": "Complimentary",
       "description": "Install the free app and it hands your phone a set of cloud keys, the same set it hands everyone. They're read-only, but read-only of every guest's contacts, location, and passwords, not just Lambo's. She gave consent. Technically.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251342649"
+    },
+    {
+      "_id": "6a563f898d08aa27af09d276",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "hh-packedlight-02e5330c",
+      "title": "Packed Light",
+      "description": "Tiny packets. Odd hours. Suspiciously regular. Someone's smuggling out the data equivalent of a hotel towel every night, folded neatly inside traffic that looks ordinary until you decode it.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251388851"
     }
   ],
   "badges": [
