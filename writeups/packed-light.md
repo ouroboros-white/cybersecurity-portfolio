@@ -1,4 +1,4 @@
-# Packet Light
+# Packed Light
 
 **Platform:** TryHackMe (Hacker Holidays, Day 4) · **Difficulty:** Easy · **Date:** 2026-07-30
 **Tags:** Network Forensics, PCAP Analysis, Cryptography
