@@ -21,6 +21,7 @@ others. The worked examples below come from that exercise.
 | Defensive measures | Explain layered digital and physical controls and where each one actually helps |
 | Offensive security | Describe the pen-test lifecycle, standard methodologies, tooling, and how findings are prioritised |
 | Legal, ethical & compliance | Apply the Computer Misuse Act, Data Protection Act / UK GDPR, and the Data (Use and Access) Act 2025 |
+| Networking & secure protocols | Explain the OSI/TCP-IP models and core protocols, and how TLS, SSH, and VPNs secure them, including why captured TLS can be decrypted when the keys leak |
 
 ---
 
@@ -167,6 +168,37 @@ meant to *contain* a compromise rather than let one account sink the whole firm.
 - **Ethics:** the practical line between acceptable and unacceptable use of
   organisational systems, and why it matters. Confidentiality builds client
   trust, and misuse carries both legal consequences and disciplinary ones.
+
+## 6. Networking and secure protocols
+
+I can place a protocol in the **OSI (seven-layer)** and **TCP/IP (four-layer)**
+models and use that to reason about where it can be attacked or defended: ARP
+and switching at layer 2, IP routing at layer 3, TCP and UDP ports at layer 4,
+and the application protocols above.
+
+The **core application protocols**: DNS resolves names to addresses and WHOIS
+returns domain registration data (both reconnaissance staples); HTTP serves the
+web and FTP transfers files; SMTP sends email while POP3 and IMAP retrieve it
+(POP3 downloads, IMAP synchronises). In their original form these are
+**plaintext**, so anyone able to capture the traffic can read credentials,
+messages, and files straight off the wire.
+
+**Securing them** is largely a matter of wrapping them in TLS: HTTP, SMTP, POP3,
+and IMAP become HTTPS, SMTPS, POP3S, and IMAPS, gaining confidentiality,
+integrity, and authenticity. **SSH** replaces plaintext remote access (Telnet)
+and can tunnel other protocols; **SFTP and FTPS** secure file transfer; a **VPN**
+builds an encrypted tunnel across an untrusted network.
+
+**The insight worth keeping (demonstrated hands-on):** TLS protects data in
+transit only as long as the session keys stay secret. In a lab I decrypted
+captured HTTPS traffic in Wireshark by supplying the browser's TLS key log (the
+pre-master-secret log the browser had been configured to write). With those keys
+the encrypted stream became readable and a plaintext login POST was recovered,
+including the submitted password (a `THM.....` value). The lesson is that
+encryption is only as strong as key secrecy: if an attacker obtains the key
+material (malware, a debugging option left enabled, memory scraping), TLS
+confidentiality collapses. It is also why a browser's TLS key-log file is a
+debugging feature that must never be exposed in production.
 
 ---
 
