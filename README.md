@@ -15,16 +15,16 @@ TBC
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-07-29 06:00 UTC
+**Last synced:** 2026-07-30 00:34 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>49</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>52</td>
 <td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>8</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>1</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>36</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>39</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>12</td>
 </tr>
 </table>

@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-07-29 06:00 UTC",
-  "rooms_completed": 49,
+  "last_synced_utc": "2026-07-30 00:34 UTC",
+  "rooms_completed": 52,
   "rooms": [
     {
       "_id": "605345a60988e711c0065e07",
@@ -202,6 +202,26 @@
       "title": "Networking Concepts",
       "description": "Learn about the ISO OSI model and the TCP/IP protocol suite.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingconcepts-1785241449058.png"
+    },
+    {
+      "_id": "6641c4b9d27a2b5b965a5793",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "networkingessentials",
+      "title": "Networking Essentials",
+      "description": "Explore networking protocols from automatic configuration to routing packets to the destination.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingessentials-1785241449722.png"
+    },
+    {
+      "_id": "6641c5eec4714a051f56a8b4",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "networkingcoreprotocols",
+      "title": "Networking Core Protocols",
+      "description": "Learn about the core TCP/IP protocols.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingcoreprotocols-1785241449371.png"
     },
     {
       "_id": "66d1a2d041da803e3ebecd23",
@@ -492,6 +512,16 @@
       "title": "Room 404",
       "description": "He booked the quiet room. It's not on the floor plan, not in the brochure, not on any door. But port 8080 is wide open, and the rooms it never lists are the ones worth finding.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785087675274"
+    },
+    {
+      "_id": "6a563ec43e60c93a35443b2c",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "hh-complimentary-05e0b604",
+      "title": "Complimentary",
+      "description": "Install the free app and it hands your phone a set of cloud keys, the same set it hands everyone. They're read-only, but read-only of every guest's contacts, location, and passwords, not just Lambo's. She gave consent. Technically.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251342649"
     }
   ],
   "badges": [
