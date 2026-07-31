@@ -7,16 +7,16 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-07-30 17:00 UTC
+**Last synced:** 2026-07-31 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>54</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>55</td>
 <td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>8</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>1</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>41</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>42</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>12</td>
 </tr>
 </table>
@@ -46,7 +46,7 @@ _Solved without a guided walkthrough. Hardest first._
 
 </div>
 
-## Guided Rooms (48)
+## Guided Rooms (49)
 
 _Walkthrough rooms. Hardest first; related rooms grouped._
 
@@ -64,7 +64,7 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 
 </div>
 
-### 🟢 Easy (35)
+### 🟢 Easy (36)
 
 <div align="center">
 
@@ -116,18 +116,18 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </tr>
 <tr>
 <td align="left" width="300"><a href="https://tryhackme.com/room/searchskillscS">Search Skills</a></td>
+<td align="left" width="300"><a href="https://tryhackme.com/room/tcpdump">Tcpdump: The Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/theciatriad">The CIA Triad</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/virtualisationbasics">Virtualisation Basics</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/virtualisationbasics">Virtualisation Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/windowsbasics">Windows Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/windowsclibasics">Windows CLI Basics</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/windowscommandline">Windows Command Line</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/windowscommandline">Windows Command Line</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/windowspowershell">Windows PowerShell</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/wiresharkthebasics">Wireshark: The Basics</a></td>
-<td width="300"></td>
 </tr>
 </table>
 

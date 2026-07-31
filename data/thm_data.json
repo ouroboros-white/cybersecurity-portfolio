@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-07-30 17:00 UTC",
-  "rooms_completed": 54,
+  "last_synced_utc": "2026-07-31 06:00 UTC",
+  "rooms_completed": 55,
   "rooms": [
     {
       "_id": "605345a60988e711c0065e07",
@@ -212,6 +212,16 @@
       "title": "Networking Concepts",
       "description": "Learn about the ISO OSI model and the TCP/IP protocol suite.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingconcepts-1785241449058.png"
+    },
+    {
+      "_id": "6641c29fc10ce20fbe5665e1",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "tcpdump",
+      "title": "Tcpdump: The Basics",
+      "description": "Learn how to use Tcpdump to save, filter, and display packets.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/tcpdump-1785241453599.png"
     },
     {
       "_id": "6641c4b9d27a2b5b965a5793",
@@ -511,7 +521,7 @@
       "code": "hh-theconciergeknows-2d7eb4d9",
       "title": "The Concierge Knows Too Much",
       "description": "She knows your name, your room, your coffee order, none of which you told her. Word your next question carefully and she'll also hand over the instructions she was told to keep to herself.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/6c2c3d540cd42fe1c40dd55fd8ff55d97af85b233a9a1ffb596ecae85613c363-1785427756215.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1785457752559"
     },
     {
       "_id": "6a563e5295ff6e89a1a8c7e1",
