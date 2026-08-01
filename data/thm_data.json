@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-01 06:00 UTC",
-  "rooms_completed": 55,
+  "last_synced_utc": "2026-08-01 16:31 UTC",
+  "rooms_completed": 57,
   "rooms": [
     {
       "_id": "605345a60988e711c0065e07",
@@ -152,6 +152,16 @@
       "title": "Windows Fundamentals 3",
       "description": "In part 3 of the Windows Fundamentals module, learn about the built-in Microsoft tools that help keep the device secure, such as Windows Updates, Windows Security, BitLocker, and more...",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowsfundamentals3xzx-1785241455111.png"
+    },
+    {
+      "_id": "612f74c0247129004a6a4d9a",
+      "type": "challenge",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "vulnerabilitycapstone",
+      "title": "Vulnerability Capstone",
+      "description": "Apply the knowledge gained throughout the Vulnerability Module in this challenge room.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/f746d44771571a662987e9499e18aece.png"
     },
     {
       "_id": "621f396b4fee0d0044ef9d43",
@@ -541,7 +551,7 @@
       "code": "hh-complimentary-05e0b604",
       "title": "Complimentary",
       "description": "Install the free app and it hands your phone a set of cloud keys, the same set it hands everyone. They're read-only, but read-only of every guest's contacts, location, and passwords, not just Lambo's. She gave consent. Technically.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251342649"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/012759eb3d03d22c3186ff6d545d06e5bb3e5b68568b0886df89cfc6cc9ac85d-1785600151217.png"
     },
     {
       "_id": "6a563f898d08aa27af09d276",
@@ -552,6 +562,16 @@
       "title": "Packed Light",
       "description": "Tiny packets. Odd hours. Suspiciously regular. Someone's smuggling out the data equivalent of a hotel towel every night, folded neatly inside traffic that looks ordinary until you decode it.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251388851"
+    },
+    {
+      "_id": "6a5641ac1568d12a3e88015d",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "hh-beachbar-d849f7f7",
+      "title": "Beach Bar",
+      "description": "At the Beach Bar, even shell access is complimentary. The jukebox takes requests. Any kind.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785328070219"
     }
   ],
   "badges": [
