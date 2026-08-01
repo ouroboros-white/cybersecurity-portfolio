@@ -39,6 +39,13 @@ using free, publicly documented tools. The common theme is **trusting the
 client, the network boundary, or the obscurity of a path to enforce security
 that was never enforced on the server side.**
 
+Each finding also carries a **detection analysis**: the observable artifacts a
+monitored environment would generate, the logic that would catch the attack, and
+why it would or would not be caught. This is written as theory rather than
+observed fact, because the lab targets carry no instrumentation of their own.
+The intent is to document both halves of the exchange, the attack and the
+defence that should meet it.
+
 ### Findings at a glance
 
 | ID | Finding | Severity | CVSS 3.1 |
@@ -77,6 +84,14 @@ Testing Guide (WSTG):
 4. **Exploitation:** prove impact with the least intrusive action that
    demonstrates the finding.
 5. **Reporting:** rate, evidence, and provide remediation for each finding.
+
+**Detection analysis.** Because this assessment is written to cover offensive
+*and* defensive understanding, each finding additionally documents the telemetry
+a monitored environment would produce and the detection logic that would catch
+the attack. The lab targets are not instrumented, so this analysis is deliberately
+framed as theory (what a defender *would* observe), never as events that were
+actually seen. Distinguishing a claim about a real log from a reasoned model of
+one is itself a discipline the report intends to demonstrate.
 
 **Tooling:** `nmap`, `gobuster`, `git-dumper`, `searchsploit` / Exploit-DB, the
 AWS CLI, and standard browser developer tools. Severity is expressed using CVSS
@@ -136,6 +151,22 @@ Full compromise of the web server by any anonymous internet user. An attacker
 could read or alter all application data, deface or replace the site, harvest
 credentials, use the host as a pivot into the internal network, or deploy
 ransomware. This is the highest-impact class of finding.
+
+**Detection and response (theory).**
+The target is not instrumented; the following is what a monitored production
+environment *would* observe.
+- **Network layer:** web-server access logs would record requests to
+  `/fuel/pages/select/?filter=...` carrying PHP function names (`system`,
+  `exec`, `passthru`) in the parameter, a high-fidelity indicator. A published
+  IDS/WAF signature for CVE-2018-16763 would fire on this.
+- **Host layer (highest fidelity):** endpoint telemetry would show the web-server
+  process (`apache`/`php-fpm`) spawning a shell and then commands such as `id`.
+  A web server becoming the parent of a shell process is one of the most reliable
+  remote-code-execution tells there is; EDR classifies it as a process-lineage
+  anomaly.
+- **Why it evaded here:** a stock LAMP host with no endpoint agent and no
+  monitoring of its access logs. This activity is easily identifiable if it is
+  being observed; here, nothing was.
 
 **Remediation.**
 - **Immediate:** take the affected version out of service or restrict access
@@ -198,6 +229,24 @@ is a reportable data breach under data-protection regulation (e.g. UK GDPR),
 carrying regulatory, legal, and reputational consequences well beyond the
 technical fix.
 
+**Detection and response (theory).**
+Written as theory; the lab account has no monitoring configured.
+- **Credential issuance (logged by default):** the Cognito `GetId` and
+  `GetCredentialsForIdentity` calls are *management-plane* events, which
+  CloudTrail records out of the box. The attacker obtaining guest credentials is
+  therefore visible in the default audit trail.
+- **The data theft (not logged by default):** the `dynamodb:Scan` that reads
+  every record is a *data-plane* event. CloudTrail does not record data events
+  unless they are explicitly enabled, because they are high-volume and cost
+  extra. By default, the read that actually causes the breach leaves no native
+  audit trail, and anomaly detection such as GuardDuty is the only backstop.
+- **Detection logic:** with data-event logging enabled, alert on any
+  `dynamodb:Scan` by the unauthenticated identity (a `Scan`, where the
+  application only ever legitimately issues `GetItem`, is itself the anomaly),
+  and on the volume of data returned to a guest credential.
+- **Why it evaded here:** the account records management events only; neither
+  data-event logging nor GuardDuty was enabled.
+
 **Remediation.**
 - Scope the unauthenticated role to **least privilege**: permit only a
   single-record read (`GetItem`) on the caller's own key, never a table-wide
@@ -248,6 +297,17 @@ secrets (API keys, database credentials, tokens) committed to history, greatly
 accelerating further attacks. The information is often as valuable as an
 exploitable bug because it turns black-box guessing into white-box certainty.
 
+**Detection and response (theory).**
+Theory, as the target is uninstrumented.
+- **Network layer:** `git-dumper` issues hundreds of sequential requests to
+  `/.git/HEAD`, `/.git/config`, and `/.git/objects/...`. A burst of HTTP 200s to
+  `.git/*` paths from a single source is an unmistakable access-log pattern.
+- **Detection logic:** alert on any successful (`200`) response for `/.git/*` or
+  other dotfiles, and on request-rate spikes to a single dotfolder.
+- **Why it evaded here:** no access-log monitoring and no server-level block on
+  `.git/`. Adding that block (see remediation) is both the fix and the control
+  that would generate the denied requests a defender could alert on.
+
 **Remediation.**
 - Never deploy the `.git` directory to production. Deploy **build artifacts**,
   not the repository working tree.
@@ -280,6 +340,15 @@ Because people reuse passwords, a plaintext password dump enables attacks agains
 victims' accounts on *other* services, extending harm far beyond this
 application. The combination of F-02 and F-04 is the most damaging real-world
 outcome in this assessment.
+
+**Detection and response (theory).**
+Unlike the findings above, this has no live attack signature to detect: it is a
+data-at-rest weakness, not an action an attacker performs. Its controls are
+therefore **preventive and audit-based**, not detective: automated secret and
+credential scanning across code and data stores, and a data-classification review
+that would flag passwords held as recoverable fields. Knowing which findings can
+be *detected* and which can only be *prevented* is part of assessing them
+correctly.
 
 **Remediation.**
 - Never store passwords recoverably. Store only a **salted hash** using a modern,
