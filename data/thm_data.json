@@ -1,6 +1,6 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-07-31 06:00 UTC",
+  "last_synced_utc": "2026-08-01 06:00 UTC",
   "rooms_completed": 55,
   "rooms": [
     {
@@ -531,7 +531,7 @@
       "code": "hh-room404-804573bf",
       "title": "Room 404",
       "description": "He booked the quiet room. It's not on the floor plan, not in the brochure, not on any door. But port 8080 is wide open, and the rooms it never lists are the ones worth finding.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785087675274"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1785513932052"
     },
     {
       "_id": "6a563ec43e60c93a35443b2c",
@@ -563,7 +563,7 @@
       "description": "Achieving a 7 day hacking streak",
       "earnedAt": "2026-07-23T12:58:16.532Z",
       "rarityTier": "common",
-      "rarityPercent": 21.7
+      "rarityPercent": 17.2
     },
     {
       "_id": "5dcee81690735abace1e4208",
@@ -583,7 +583,7 @@
       "description": "Completing the 'How The Web Works' module",
       "earnedAt": "2026-07-21T18:11:00.116Z",
       "rarityTier": "common",
-      "rarityPercent": 20.5
+      "rarityPercent": 17.1
     },
     {
       "_id": "5e6830ca7095e6fb1e9f0520",
@@ -593,7 +593,7 @@
       "description": "Understands how the world wide web works",
       "earnedAt": "2026-07-21T15:48:20.389Z",
       "rarityTier": "common",
-      "rarityPercent": 23.5
+      "rarityPercent": 21.4
     },
     {
       "_id": "60cf505d437056aee2cf0de3",
@@ -603,7 +603,7 @@
       "description": "Completing the 'Network Fundamentals' module",
       "earnedAt": "2026-07-21T12:12:35.258Z",
       "rarityTier": "common",
-      "rarityPercent": 17.4
+      "rarityPercent": 15.5
     },
     {
       "_id": "6a3a946a9d3cabee2bb46a08",
@@ -613,7 +613,7 @@
       "description": "Completing your first quiz or recap on the mobile app!",
       "earnedAt": "2026-07-20T18:15:14.666Z",
       "rarityTier": "rare",
-      "rarityPercent": 2.4
+      "rarityPercent": 1.3
     },
     {
       "_id": "688c94222f6d4c3f0120a44f",
@@ -623,7 +623,7 @@
       "description": "Achieving a 3 day hacking streak",
       "earnedAt": "2026-07-19T10:15:28.027Z",
       "rarityTier": "common",
-      "rarityPercent": 34.6
+      "rarityPercent": 11.3
     },
     {
       "_id": "636ac6a866638c250cce701f",
@@ -633,7 +633,7 @@
       "description": "Completing four rooms in your first week of joining!",
       "earnedAt": "2026-07-17T12:56:22.551Z",
       "rarityTier": "common",
-      "rarityPercent": 27.4
+      "rarityPercent": 22
     }
   ],
   "badge_count": 8

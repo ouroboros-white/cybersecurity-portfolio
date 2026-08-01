@@ -7,7 +7,7 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-07-31 06:00 UTC
+**Last synced:** 2026-08-01 06:00 UTC
 
 <div align="center">
 
@@ -173,7 +173,7 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 <img src="https://assets.tryhackme.com/img/badges/streak7.png" alt="7 Day Streak" width="90"><br>
 <strong>7 Day Streak</strong>
 </a>
-<br><sub>2026-07-23 · common (21.7%)</sub>
+<br><sub>2026-07-23 · common (17.2%)</sub>
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
@@ -187,14 +187,14 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 <img src="https://assets.tryhackme.com/img/badges/howthewebworks.png" alt="World Wide Web" width="90"><br>
 <strong>World Wide Web</strong>
 </a>
-<br><sub>2026-07-21 · common (20.5%)</sub>
+<br><sub>2026-07-21 · common (17.1%)</sub>
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/webbed.png" alt="Webbed" width="90"><br>
 <strong>Webbed</strong>
 </a>
-<br><sub>2026-07-21 · common (23.5%)</sub>
+<br><sub>2026-07-21 · common (21.4%)</sub>
 </td>
 </tr>
 <tr>
@@ -203,28 +203,28 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 <img src="https://assets.tryhackme.com/img/badges/networkfundamentals.png" alt="Networking Nerd" width="90"><br>
 <strong>Networking Nerd</strong>
 </a>
-<br><sub>2026-07-21 · common (17.4%)</sub>
+<br><sub>2026-07-21 · common (15.5%)</sub>
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/first-mobile-quiz.png" alt="First Mobile Quiz" width="90"><br>
 <strong>First Mobile Quiz</strong>
 </a>
-<br><sub>2026-07-20 · rare (2.4%)</sub>
+<br><sub>2026-07-20 · rare (1.3%)</sub>
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/streak3.png" alt="3 Day Streak" width="90"><br>
 <strong>3 Day Streak</strong>
 </a>
-<br><sub>2026-07-19 · common (34.6%)</sub>
+<br><sub>2026-07-19 · common (11.3%)</sub>
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/firstfour.png" alt="First Four" width="90"><br>
 <strong>First Four</strong>
 </a>
-<br><sub>2026-07-17 · common (27.4%)</sub>
+<br><sub>2026-07-17 · common (22%)</sub>
 </td>
 </tr>
 </table>
