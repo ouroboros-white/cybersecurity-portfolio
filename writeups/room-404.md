@@ -59,6 +59,11 @@ flowchart TD
 
 ## Finding & fix
 
+**Severity:** High — CVSS 3.1 `AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N` (7.5).
+CWE-527 (exposure of version-control repository). **Business impact:** full
+source and secret disclosure turns black-box guessing into white-box certainty
+and exposes any credentials ever committed to history.
+
 **Finding:** the server exposed its `.git` directory, disclosing the full source
 *and its history*. This is a common real-world misconfiguration: deploying by
 copying the whole working folder instead of a built artifact. Anything ever

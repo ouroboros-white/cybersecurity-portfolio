@@ -91,6 +91,12 @@ flowchart TD
 
 ## Finding & fix
 
+**Severity:** High — CVSS 3.1 `AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N` (7.5),
+CWE-732 (incorrect permission assignment); the plaintext-password storage is a
+separate Medium (CWE-256) that amplifies this to account-takeover severity.
+**Business impact:** a reportable personal-data breach (UK GDPR) — every guest's
+PII and reusable password exposed to any anonymous visitor.
+
 **Finding:** access control lived only in the client-side JavaScript. The
 unauthenticated Cognito guest role was permitted to `Scan` the whole DynamoDB
 table, so any anonymous visitor could read every guest's plaintext password, GPS
