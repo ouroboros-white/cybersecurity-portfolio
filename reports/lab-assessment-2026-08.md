@@ -237,15 +237,21 @@ Written as theory; the lab account has no monitoring configured.
   therefore visible in the default audit trail.
 - **The data theft (not logged by default):** the `dynamodb:Scan` that reads
   every record is a *data-plane* event. CloudTrail does not record data events
-  unless they are explicitly enabled, because they are high-volume and cost
-  extra. By default, the read that actually causes the breach leaves no native
-  audit trail, and anomaly detection such as GuardDuty is the only backstop.
-- **Detection logic:** with data-event logging enabled, alert on any
-  `dynamodb:Scan` by the unauthenticated identity (a `Scan`, where the
+  unless they are explicitly enabled, because the category is too high-volume to
+  log by default. So the read that actually causes the breach leaves no native
+  audit trail.
+- **Why GuardDuty is unlikely to help either:** it does not observe DynamoDB
+  reads (DynamoDB is not one of its data sources), the source IP would be an
+  ordinary shared address rather than a flagged one, and a mass-issued anonymous
+  identity has no behavioural baseline to deviate from. The residual signal is
+  resource-level: a read-capacity spike on the table, visible in CloudWatch
+  metrics without any data-event logging.
+- **Detection logic:** deterministic detection requires data-event logging with
+  an alarm on `Scan` by the unauthenticated identity (a `Scan`, where the
   application only ever legitimately issues `GetItem`, is itself the anomaly),
-  and on the volume of data returned to a guest credential.
-- **Why it evaded here:** the account records management events only; neither
-  data-event logging nor GuardDuty was enabled.
+  backed by a CloudWatch alarm on anomalous read capacity for the table.
+- **Why it evaded here:** the account records management events only, with no
+  data-event logging, no metric alarms, and no GuardDuty.
 
 **Remediation.**
 - Scope the unauthenticated role to **least privilege**: permit only a
