@@ -79,7 +79,7 @@ def format_date(iso_string: str) -> str:
 
 def difficulty_cell(difficulty: str) -> str:
     emoji = DIFFICULTY_EMOJI.get(difficulty, "")
-    return f"{emoji} {difficulty}".strip() or "—"
+    return f"{emoji} {difficulty}".strip() or "n/a"
 
 
 def build_stat_block(data: dict) -> list:

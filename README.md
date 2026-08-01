@@ -1,4 +1,4 @@
-# ouroboroswhite — Cybersecurity Portfolio
+# ouroboroswhite: Cybersecurity Portfolio
 
 I am developing practical cybersecurity skills through hands-on labs and
 self-directed study. I learn by building and breaking real systems, then
@@ -95,6 +95,14 @@ Short accounts of challenge rooms I solved myself, focused on the reasoning and
 the security lesson rather than the step-by-step commands. See
 [writeups/](writeups/).
 
+## Sample Report
+
+A full-format security assessment report written to professional structure
+(executive summary, scope and rules of engagement, methodology, CVSS-rated
+findings, and a remediation roadmap), built from lab targets I compromised and
+clearly labelled as a lab-based assessment:
+[Security Assessment Report](reports/lab-assessment-2026-08.md).
+
 ## Projects
 
 ### Portfolio Sync Automation
@@ -103,7 +111,7 @@ _Python · this repository_
 
 The automation behind this portfolio. It pulls my TryHackMe room and badge
 history, renders it into `README.md` and `TRAINING.md`, and publishes the
-result on a schedule — without ever committing anything that shouldn't be
+result on a schedule, without ever committing anything that shouldn't be
 public.
 
 The interesting parts are the failure cases rather than the happy path:
@@ -112,7 +120,7 @@ The interesting parts are the failure cases rather than the happy path:
   untouched. A bad sync skips the update; it never publishes an empty
   portfolio over a good one.
 - **It tells apart two things that look identical.** TryHackMe's API sits
-  behind a bot-protection firewall that answers with HTTP 429 — the same
+  behind a bot-protection firewall that answers with HTTP 429, the same
   status as an ordinary rate limit. A rate limit is worth retrying; a bot
   challenge is not, because no number of retries from a plain HTTP client
   will pass one. The script inspects the response headers to distinguish
@@ -124,7 +132,7 @@ The interesting parts are the failure cases rather than the happy path:
   addresses, and local filesystem paths. It deliberately matches
   credential-shaped *field names* and secret-shaped *values* rather than
   keywords, because lab titles legitimately contain words like "password"
-  and "authentication" — and a check that fires on every run is a check
+  and "authentication"; a check that fires on every run is a check
   people learn to ignore. It was tested against deliberately poisoned data,
   which is how a gap in it was found and closed.
 - **Only an explicit allow-list of files is ever staged**, so a stray file

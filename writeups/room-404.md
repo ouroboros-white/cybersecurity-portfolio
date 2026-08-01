@@ -59,7 +59,7 @@ flowchart TD
 
 ## Finding & fix
 
-**Severity:** High — CVSS 3.1 `AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N` (7.5).
+**Severity:** High. CVSS 3.1 `AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N` (7.5),
 CWE-527 (exposure of version-control repository). **Business impact:** full
 source and secret disclosure turns black-box guessing into white-box certainty
 and exposes any credentials ever committed to history.
