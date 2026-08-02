@@ -95,13 +95,17 @@ Short accounts of challenge rooms I solved myself, focused on the reasoning and
 the security lesson rather than the step-by-step commands. See
 [writeups/](writeups/).
 
-## Sample Report
+## Sample Reports
 
-A full-format security assessment report written to professional structure
-(executive summary, scope and rules of engagement, methodology, CVSS-rated
-findings, and a remediation roadmap), built from lab targets I compromised and
-clearly labelled as a lab-based assessment:
-[Security Assessment Report](reports/lab-assessment-2026-08.md).
+Full-format security assessment reports written to professional structure
+(executive summary, scope, methodology, CVSS-rated findings with purple-team
+detection analysis, and a remediation roadmap), built from lab targets I
+compromised and clearly labelled as lab-based:
+
+- [Web & Cloud Assessment](reports/lab-assessment-2026-08.md): three lab targets,
+  isolated findings across web and cloud.
+- [Single-Host Full Compromise](reports/host-compromise-2026-08.md): one host
+  taken from anonymous to root through a chained attack path.
 
 ## Projects
 
