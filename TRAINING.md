@@ -7,27 +7,27 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-01 16:31 UTC
+**Last synced:** 2026-08-02 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>57</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>58</td>
 <td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>8</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>1</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>44</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>45</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>12</td>
 </tr>
 </table>
 
 </div>
 
-## Challenges (8)
+## Challenges (9)
 
 _Solved without a guided walkthrough. Hardest first._
 
-### 🟢 Easy (8)
+### 🟢 Easy (9)
 
 <div align="center">
 
@@ -38,14 +38,14 @@ _Solved without a guided walkthrough. Hardest first._
 <td align="left" width="300"><a href="https://tryhackme.com/room/neighbour">Neighbour</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/hh-overheardatbreakfast-6f01793c">Overheard at Breakfast</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-packedlight-02e5330c">Packed Light</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-room404-804573bf">Room 404</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/hh-thebrochure-081f3e36">The Brochure</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/hh-thebrochure-081f3e36">The Brochure</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-theconciergeknows-2d7eb4d9">The Concierge Knows Too Much</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/vulnerabilitycapstone">Vulnerability Capstone</a></td>
-<td width="300"></td>
 </tr>
 </table>
 

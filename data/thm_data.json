@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-01 16:31 UTC",
-  "rooms_completed": 57,
+  "last_synced_utc": "2026-08-02 06:00 UTC",
+  "rooms_completed": 58,
   "rooms": [
     {
       "_id": "605345a60988e711c0065e07",
@@ -572,6 +572,16 @@
       "title": "Beach Bar",
       "description": "At the Beach Bar, even shell access is complimentary. The jukebox takes requests. Any kind.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785328070219"
+    },
+    {
+      "_id": "6a56425a934818040174f155",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "hh-overheardatbreakfast-6f01793c",
+      "title": "Overheard at Breakfast",
+      "description": "Two strangers. One conversation. One profile they never meant to reveal.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251499374"
     }
   ],
   "badges": [
