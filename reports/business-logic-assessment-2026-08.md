@@ -1,7 +1,7 @@
 # Security Assessment Report: Business-Logic and API Abuse
 
 **Assessment type:** Black-box web-application business-logic assessment
-**Environment:** TryHackMe training target (Hacker Holidays), "Ponzi Portfolio" rewards web application
+**Environment:** TryHackMe training target (Hacker Holidays, "Towel on the Sunbed"), the "Ponzi Portfolio" rewards web application
 **Assessor:** ouroboros-white
 **Report date:** 2026-08-03
 **Version:** 1.0
