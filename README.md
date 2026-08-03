@@ -106,6 +106,8 @@ compromised and clearly labelled as lab-based:
   isolated findings across web and cloud.
 - [Single-Host Full Compromise](reports/host-compromise-2026-08.md): one host
   taken from anonymous to root through a chained attack path.
+- [Business-Logic & API Abuse](reports/business-logic-assessment-2026-08.md): a
+  web application defeated by a race condition in its reward logic.
 
 ## Projects
 
