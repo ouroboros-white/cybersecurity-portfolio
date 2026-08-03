@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-02 06:00 UTC",
-  "rooms_completed": 58,
+  "last_synced_utc": "2026-08-03 06:00 UTC",
+  "rooms_completed": 62,
   "rooms": [
     {
       "_id": "605345a60988e711c0065e07",
@@ -214,6 +214,16 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowscommandline-1785241454442.png"
     },
     {
+      "_id": "663c94aac1a38d3c66aeb123",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "nmap",
+      "title": "Nmap: The Basics",
+      "description": "Learn how to use Nmap to discover live hosts, find open ports, and detect service versions.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/nmap-1785241450161.png"
+    },
+    {
       "_id": "663e40d9e9ae81db98f61fd5",
       "type": "walkthrough",
       "freeToUse": true,
@@ -262,6 +272,26 @@
       "title": "Networking Secure Protocols",
       "description": "Learn how TLS, SSH, and VPN can secure your network traffic.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingsecureprotocols-1785241449922.png"
+    },
+    {
+      "_id": "66c378c0fa5a6c25ee0cb649",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "publickeycrypto",
+      "title": "Public Key Cryptography Basics",
+      "description": "Discover how public key ciphers such as RSA work and explore their role in applications such as SSH.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/publickeycrypto-1785241451973.png"
+    },
+    {
+      "_id": "66c379a1a5a29465fcae366e",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "cryptographybasics",
+      "title": "Cryptography Basics",
+      "description": "Learn the basics of cryptography and symmetric encryption.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/cryptographybasics-1785241444536.png"
     },
     {
       "_id": "66d1a2d041da803e3ebecd23",
@@ -561,7 +591,7 @@
       "code": "hh-packedlight-02e5330c",
       "title": "Packed Light",
       "description": "Tiny packets. Odd hours. Suspiciously regular. Someone's smuggling out the data equivalent of a hotel towel every night, folded neatly inside traffic that looks ordinary until you decode it.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251388851"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5f9c7574e201fe31dad228fc-1785686770292"
     },
     {
       "_id": "6a5641ac1568d12a3e88015d",
@@ -582,6 +612,16 @@
       "title": "Overheard at Breakfast",
       "description": "Two strangers. One conversation. One profile they never meant to reveal.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251499374"
+    },
+    {
+      "_id": "6a56425e257fa31a1e946e08",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "medium",
+      "code": "hh-donotdisturb-84a45644",
+      "title": "Do Not Disturb",
+      "description": "Sign's on the door. Room's active. You have access you were never given, and so does he.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251618019"
     }
   ],
   "badges": [
