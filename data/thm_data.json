@@ -1,8 +1,28 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-03 06:00 UTC",
-  "rooms_completed": 62,
+  "last_synced_utc": "2026-08-04 06:00 UTC",
+  "rooms_completed": 71,
   "rooms": [
+    {
+      "_id": "5c8edaab94a5767fa67f70ab",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/blue-1785241443587.png",
+      "description": "Deploy & hack into a Windows machine, leveraging common misconfigurations issues.",
+      "title": "Blue",
+      "code": "blue",
+      "difficulty": "easy",
+      "type": "walkthrough",
+      "freeToUse": true
+    },
+    {
+      "_id": "5fa730bf09051d48aa3bd904",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/johntheripperbasics-1785241446684.png",
+      "description": "Learn how to use John the Ripper, a powerful and adaptable hash-cracking tool.",
+      "title": "John the Ripper: The Basics",
+      "code": "johntheripperbasics",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough"
+    },
     {
       "_id": "605345a60988e711c0065e07",
       "type": "walkthrough",
@@ -154,6 +174,36 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowsfundamentals3xzx-1785241455111.png"
     },
     {
+      "_id": "60ec0f784d0ed20042873f90",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "metasploitexploitation",
+      "title": "Metasploit: Exploitation",
+      "description": "Using Metasploit for scanning, vulnerability assessment and exploitation. ",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/metasploitexploitation-1785241448092.png"
+    },
+    {
+      "_id": "60fd47daa0c4a9004968059b",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "metasploitintro",
+      "title": "Metasploit: Introduction ",
+      "description": "An introduction to the main components of the Metasploit Framework. ",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/metasploitintro-1785241448337.png"
+    },
+    {
+      "_id": "6103fa164ae75f005f557dd2",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "meterpreter",
+      "title": "Metasploit: Meterpreter",
+      "description": "Take a deep dive into Meterpreter, and see how in-memory payloads can be used for post-exploitation.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/meterpreter-1785241448519.png"
+    },
+    {
       "_id": "612f74c0247129004a6a4d9a",
       "type": "challenge",
       "freeToUse": false,
@@ -202,6 +252,16 @@
       "title": "Active Directory Basics",
       "description": "This room will introduce the basic concepts and functionality provided by Active Directory.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/winadbasics-1785241454256.png"
+    },
+    {
+      "_id": "65d34e8775488d8b700b19a0",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "monikerlink",
+      "title": "Moniker Link (CVE-2024-21413)",
+      "description": "Leak user's credentials using CVE-2024-21413 to bypass Outlook's Protected View.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/monikerlink-1785241448789.png"
     },
     {
       "_id": "6627c55f624376abfd0d86d2",
@@ -294,6 +354,16 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/cryptographybasics-1785241444536.png"
     },
     {
+      "_id": "66c45809c32192c8bbaeecff",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "hashingbasics",
+      "title": "Hashing Basics",
+      "description": "Learn about hashing functions and their uses in password verification and file integrity checking.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/hashingbasics-1785241445529.png"
+    },
+    {
       "_id": "66d1a2d041da803e3ebecd23",
       "type": "walkthrough",
       "freeToUse": false,
@@ -312,6 +382,16 @@
       "title": "Linux Shells",
       "description": "Learn about scripting and the different types of Linux shells.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxshells-1785241447675.png"
+    },
+    {
+      "_id": "683e0bfdbcc917c18fc97d50",
+      "type": "challenge",
+      "code": "hfb1cryptosystem",
+      "title": "Cryptosystem",
+      "description": "Learn public-key cryptography concepts by analyzing data.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/618b3fa52f0acc0061fb0172-1751474534239",
+      "freeToUse": false,
+      "difficulty": "easy"
     },
     {
       "_id": "68a5e04a190c638897fe1d30",
@@ -581,7 +661,7 @@
       "code": "hh-complimentary-05e0b604",
       "title": "Complimentary",
       "description": "Install the free app and it hands your phone a set of cloud keys, the same set it hands everyone. They're read-only, but read-only of every guest's contacts, location, and passwords, not just Lambo's. She gave consent. Technically.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/012759eb3d03d22c3186ff6d545d06e5bb3e5b68568b0886df89cfc6cc9ac85d-1785600151217.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1785767743721"
     },
     {
       "_id": "6a563f898d08aa27af09d276",
@@ -622,9 +702,49 @@
       "title": "Do Not Disturb",
       "description": "Sign's on the door. Room's active. You have access you were never given, and so does he.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251618019"
+    },
+    {
+      "_id": "6a564261ecfe47601b639618",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "medium",
+      "code": "hh-towelonthesunbed-61271709",
+      "title": "Towel on the Sunbed",
+      "description": "Ponzi set his towel down for one 24-hour reward claim. He came back to find the sunbed had been \"claimed\" three times over while he wasn't looking.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251667401"
     }
   ],
   "badges": [
+    {
+      "_id": "5de2514490735abaceb31f8a",
+      "name": "blue",
+      "image": "https://assets.tryhackme.com/img/badges/blue.png",
+      "title": "Blue",
+      "description": "Hacking into Windows via EternalBlue",
+      "earnedAt": "2026-08-03T19:25:08.119Z",
+      "rarityTier": "rare",
+      "rarityPercent": 8.4
+    },
+    {
+      "_id": "5dcef93e90735abace1ee526",
+      "name": "metasploitable",
+      "image": "https://assets.tryhackme.com/img/badges/metasploit.png",
+      "title": "Metasploitable",
+      "description": "Contains the knowledge to use Metasploit",
+      "earnedAt": "2026-08-03T18:49:56.984Z",
+      "rarityTier": "rare",
+      "rarityPercent": 7.6
+    },
+    {
+      "_id": "69944f5e75f7afeae11ee33f",
+      "name": "session-held",
+      "image": "/img/badges/session-held.svg",
+      "title": "Session Held",
+      "description": "Completing 4 weekly missions in a row!",
+      "earnedAt": "2026-08-03T12:31:45.538Z",
+      "rarityTier": "rare",
+      "rarityPercent": 1
+    },
     {
       "_id": "5eb1f7bf5689ac81e1141bc2",
       "name": "7-day-streak",
@@ -706,5 +826,5 @@
       "rarityPercent": 22
     }
   ],
-  "badge_count": 8
+  "badge_count": 11
 }

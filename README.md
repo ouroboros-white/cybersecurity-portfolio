@@ -15,16 +15,16 @@ TBC
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-03 06:00 UTC
+**Last synced:** 2026-08-04 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>62</td>
-<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>8</td>
-<td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>2</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>48</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>71</td>
+<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>11</td>
+<td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>3</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>56</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>12</td>
 </tr>
 </table>
@@ -39,6 +39,27 @@ TBC
 <tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/blue.png" alt="Blue" width="90"><br>
+<strong>Blue</strong>
+</a>
+<br><sub>2026-08-03 · rare (8.4%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/metasploit.png" alt="Metasploitable" width="90"><br>
+<strong>Metasploitable</strong>
+</a>
+<br><sub>2026-08-03 · rare (7.6%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="/img/badges/session-held.svg" alt="Session Held" width="90"><br>
+<strong>Session Held</strong>
+</a>
+<br><sub>2026-08-03 · rare (1%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/streak7.png" alt="7 Day Streak" width="90"><br>
 <strong>7 Day Streak</strong>
 </a>
@@ -50,27 +71,6 @@ TBC
 <strong>cat linux.txt</strong>
 </a>
 <br><sub>2026-07-22 · common (28.2%)</sub>
-</td>
-<td align="center" width="130">
-<a href="https://tryhackme.com/p/ouroboroswhite">
-<img src="https://assets.tryhackme.com/img/badges/howthewebworks.png" alt="World Wide Web" width="90"><br>
-<strong>World Wide Web</strong>
-</a>
-<br><sub>2026-07-21 · common (17.1%)</sub>
-</td>
-<td align="center" width="130">
-<a href="https://tryhackme.com/p/ouroboroswhite">
-<img src="https://assets.tryhackme.com/img/badges/webbed.png" alt="Webbed" width="90"><br>
-<strong>Webbed</strong>
-</a>
-<br><sub>2026-07-21 · common (21.4%)</sub>
-</td>
-<td align="center" width="130">
-<a href="https://tryhackme.com/p/ouroboroswhite">
-<img src="https://assets.tryhackme.com/img/badges/networkfundamentals.png" alt="Networking Nerd" width="90"><br>
-<strong>Networking Nerd</strong>
-</a>
-<br><sub>2026-07-21 · common (15.5%)</sub>
 </td>
 </tr>
 </table>
