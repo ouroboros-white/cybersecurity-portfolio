@@ -1,18 +1,22 @@
 # ouroboroswhite: Cybersecurity Portfolio
 
-I am developing practical cybersecurity skills through hands-on labs and
-self-directed study. I learn by building and breaking real systems, then
-documenting what I find.
+Offensive security lab work, documented to a professional standard: web, cloud,
+and Linux systems broken in controlled environments and written up as full
+assessment reports with findings, impact, detection, and remediation.
 
 <!-- Edit everything in this file freely - only the block below,
      between THM:START and THM:END, gets overwritten automatically. -->
 
 ## About Me
 
-I am a self-directed, career-changing learner moving into **offensive security**. I
-learn by building and breaking real systems and writing up the reasoning, not just
-the result. I bring a competitive-performance mindset to it: disciplined practice,
-fast iteration, and a habit of reviewing my own mistakes.
+I break web applications, cloud identity, and Linux hosts in lab environments, and
+write the results up as client-style assessment reports. I am working toward a
+junior penetration testing role, and from there toward independent
+**offensive-security** consulting.
+
+I learn by building and breaking real systems and writing up the reasoning, not
+just the result. I bring a competitive-performance mindset to it: disciplined
+practice, fast iteration, and a habit of reviewing my own mistakes.
 
 **Current focus:** penetration testing and red teaming, backed by enough defensive
 understanding to sharpen the offense. I write detection analysis into my own
@@ -29,8 +33,8 @@ qualification.
   injection, business-logic and race-condition flaws, broken access control
 - **Cloud:** AWS and Azure identity and access abuse, storage and secret-store
   attacks (SAS tokens, service principals, Key Vault)
-- **Linux and Windows:** exploitation, privilege escalation, post-exploitation,
-  credential dumping and cracking
+- **Linux:** exploitation, privilege escalation, post-exploitation, credential
+  reuse and lateral movement
 - **Tooling:** Burp Suite, Metasploit, nmap, the AWS and Azure CLIs, Python
 - **Reporting:** professional assessment reports with CVSS scoring, CWE mapping,
   business impact, detection analysis, and remediation
@@ -45,9 +49,8 @@ qualification.
 - [Business-Logic and API Abuse](reports/business-logic-assessment-2026-08.md): a
   reward economy defeated by a race condition.
 
-**Objective:** to build genuine depth and breadth across web, Windows, Active
-Directory, cloud, and report writing for a junior penetration testing role, and
-from there toward independent offensive-security consulting.
+**Next:** taking Windows and Active Directory to the same depth as the Linux and
+cloud work above, and adding each one to this repository as it is done.
 
 ## Training Snapshot
 
