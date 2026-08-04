@@ -107,6 +107,9 @@ compromised and clearly labelled as lab-based:
   taken from anonymous to root through a chained attack path.
 - [Business-Logic & API Abuse](reports/business-logic-assessment-2026-08.md): a
   web application defeated by a race condition in its reward logic.
+- [Azure Cloud Attack Chain](reports/cloud-attack-chain-azure-2026-08.md): a
+  low-privilege Azure user to a Key Vault secret, via a leaked SAS token and a
+  stolen service principal.
 
 ## Projects
 
