@@ -35,7 +35,10 @@ DIFFICULTY_ORDER = ["insane", "hard", "medium", "easy", "info"]
 
 RECENT_BADGE_COUNT = 5
 
-# Badge images are hotlinked from TryHackMe's CDN (verified to serve HTTP 200).
+# Badge images are hotlinked from TryHackMe's CDN. Not every badge image is a
+# ready-to-embed absolute PNG, though - some arrive as relative paths, some as
+# SVGs - so resolve_badge_image() normalises them before they hit an <img> tag.
+BADGE_CDN_BASE = "https://assets.tryhackme.com"
 BADGES_PER_ROW = 4
 ROOMS_PER_ROW = 3
 
@@ -125,6 +128,27 @@ def room_link_html(room: dict) -> str:
     return f'<a href="https://tryhackme.com/room/{code}">{title}</a>'
 
 
+def resolve_badge_image(image: str) -> str:
+    """Return a badge image URL that will actually render in a GitHub README, or "".
+
+    Two hazards, both present in real TryHackMe badge data:
+      - Some badges give a *relative* image path (e.g. "/img/badges/x.svg")
+        instead of a full URL. In a README an <img src> resolves against the
+        repository, not TryHackMe's CDN, so it 404s. We make it absolute.
+      - Some badge images are SVGs. GitHub routes external images through its
+        camo proxy, which does not reliably serve external SVGs, so the <img>
+        renders broken. We return "" for those; build_badge_grid then falls
+        back to just the badge title, which reads clean rather than broken.
+    """
+    if not image:
+        return ""
+    if image.startswith("/"):
+        image = BADGE_CDN_BASE + image
+    if image.lower().endswith(".svg"):
+        return ""
+    return image
+
+
 def build_badge_grid(username: str, badges: list, per_row: int, show_caption: bool = True) -> list:
     """Return a centred grid of badge images as HTML table lines.
 
@@ -139,7 +163,7 @@ def build_badge_grid(username: str, badges: list, per_row: int, show_caption: bo
         lines.append("<tr>")
         for badge in row:
             title = badge.get("title", badge.get("name", "badge"))
-            image = badge.get("image", "")
+            image = resolve_badge_image(badge.get("image", ""))
             lines.append('<td align="center" width="130">')
             lines.append(f'<a href="{badge_link(username, badge)}">')
             if image:

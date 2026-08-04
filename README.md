@@ -53,7 +53,6 @@ TBC
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
-<img src="/img/badges/session-held.svg" alt="Session Held" width="90"><br>
 <strong>Session Held</strong>
 </a>
 <br><sub>2026-08-03 · rare (1%)</sub>
