@@ -9,7 +9,45 @@ documenting what I find.
 
 ## About Me
 
-TBC
+I am a self-directed, career-changing learner moving into **offensive security**. I
+learn by building and breaking real systems and writing up the reasoning, not just
+the result. I bring a competitive-performance mindset to it: disciplined practice,
+fast iteration, and a habit of reviewing my own mistakes.
+
+**Current focus:** penetration testing and red teaming, backed by enough defensive
+understanding to sharpen the offense. I write detection analysis into my own
+reports, because knowing how an attack is caught makes it both easier to carry out
+and easier to explain to a client.
+
+**Working towards:** CompTIA Security+, then OSCP and CRTO, alongside the TryHackMe
+Jr Penetration Tester and SOC Level 1 paths and a Level 3 cyber security
+qualification.
+
+**Core skills**
+
+- **Web:** authentication bypass, NoSQL and SQL injection, server-side template
+  injection, business-logic and race-condition flaws, broken access control
+- **Cloud:** AWS and Azure identity and access abuse, storage and secret-store
+  attacks (SAS tokens, service principals, Key Vault)
+- **Linux and Windows:** exploitation, privilege escalation, post-exploitation,
+  credential dumping and cracking
+- **Tooling:** Burp Suite, Metasploit, nmap, the AWS and Azure CLIs, Python
+- **Reporting:** professional assessment reports with CVSS scoring, CWE mapping,
+  business impact, detection analysis, and remediation
+
+**Featured assessments**
+
+- [Single-Host Full Compromise](reports/host-compromise-2026-08.md): a web
+  application taken to root through a chained attack path.
+- [Azure Cloud Attack Chain](reports/cloud-attack-chain-azure-2026-08.md): a
+  low-privilege user to a Key Vault secret via a leaked SAS token and a stolen
+  service principal.
+- [Business-Logic and API Abuse](reports/business-logic-assessment-2026-08.md): a
+  reward economy defeated by a race condition.
+
+**Objective:** to build genuine depth and breadth across web, Windows, Active
+Directory, cloud, and report writing for a junior penetration testing role, and
+from there toward independent offensive-security consulting.
 
 ## Training Snapshot
 

@@ -76,6 +76,17 @@ instrumented.
 
 ## 4. Attack path
 
+```mermaid
+flowchart TD
+    A["Low-priv Azure user (no resource-list rights)"] --> B["Static website front-end / client JS"]
+    B --> C["Hardcoded SAS token (blob: read + list, whole account)"]
+    C --> D["List containers; find unlisted 'vault'"]
+    D --> E["Service principal credentials stored in a blob"]
+    E --> F["Authenticate as the service principal"]
+    F --> G["Key Vault access the user lacked"]
+    G --> H["Read superseded secret version = the real value"]
+```
+
 1. **Enumerated as the granted user.** `az resource list`, `az storage account
    list`, and `az keyvault list` all returned empty: the user had no
    management-plane rights. This reframed the approach from "enumerate as myself"

@@ -80,6 +80,16 @@ was used.
 
 ## 4. Attack path
 
+```mermaid
+flowchart TD
+    A["Reward app: 50 per claim, 150 unlocks the vault"] --> B["Map the API from client JS"]
+    B --> C["Claim endpoint carries no client timestamp"]
+    C --> D["Check-then-grant is not atomic (TOCTOU)"]
+    D --> E["Fire many claims in parallel on a fresh account"]
+    E --> F["All pass the check; balance overshoots 150"]
+    F --> G["Vault unlocked; reward retrieved"]
+```
+
 1. **Understand the economy.** A guest account was registered. The reward was 50
    units per 24 hours; the restricted tier required 150 (exactly three claims).
 2. **Map the API from the client.** The client script exposed the endpoints:

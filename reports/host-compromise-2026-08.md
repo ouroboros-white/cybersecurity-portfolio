@@ -84,6 +84,17 @@ used.
 
 ## 4. Attack path
 
+```mermaid
+flowchart TD
+    A["Node / Express web app"] --> B["NoSQL injection: staff session (auth bypass)"]
+    B --> C["SSTI in EJS template: RCE as poolside"]
+    C --> D["Reverse shell; user flag"]
+    D --> E["Exposed Node --inspect debugger on localhost"]
+    E --> F["Code execution as pipelinesvc"]
+    F --> G["disk group membership: raw disk read via debugfs"]
+    G --> H["Read root's files; root"]
+```
+
 The value of this engagement is the chain, so it is documented as a path before
 the findings are detailed individually.
 
