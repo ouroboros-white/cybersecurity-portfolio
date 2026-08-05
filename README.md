@@ -56,16 +56,16 @@ cloud work above, and adding each one to this repository as it is done.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-04 06:00 UTC
+**Last synced:** 2026-08-05 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>71</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>74</td>
 <td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>11</td>
-<td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>3</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>56</td>
+<td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>4</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>58</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>12</td>
 </tr>
 </table>

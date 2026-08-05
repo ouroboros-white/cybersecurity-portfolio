@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-04 06:00 UTC",
-  "rooms_completed": 71,
+  "last_synced_utc": "2026-08-05 06:00 UTC",
+  "rooms_completed": 74,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -384,6 +384,26 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxshells-1785241447675.png"
     },
     {
+      "_id": "670915f4514e358f4510691a",
+      "type": "walkthrough",
+      "code": "javascriptessentials",
+      "title": "JavaScript Essentials",
+      "description": "Learn how to use JavaScript to add interactivity to a website and understand associated vulnerabilities.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/javascriptessentials-1785241446451.png",
+      "freeToUse": false,
+      "difficulty": "easy"
+    },
+    {
+      "_id": "6709166f408e675d7a01a237",
+      "type": "walkthrough",
+      "code": "webapplicationbasics",
+      "title": "Web Application Basics",
+      "description": "Learn the basics of web applications: HTTP, URLs, request methods, response codes, and headers.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/webapplicationbasics-1785241454064.png",
+      "freeToUse": true,
+      "difficulty": "easy"
+    },
+    {
       "_id": "683e0bfdbcc917c18fc97d50",
       "type": "challenge",
       "code": "hfb1cryptosystem",
@@ -712,6 +732,16 @@
       "title": "Towel on the Sunbed",
       "description": "Ponzi set his towel down for one 24-hour reward claim. He came back to find the sunbed had been \"claimed\" three times over while he wasn't looking.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251667401"
+    },
+    {
+      "_id": "6a56429926f3faff26d1cf38",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "medium",
+      "code": "hh-cryptocabana-f81cac95",
+      "title": "CryptoCabana",
+      "description": "He never signed the transfer. The place he stashed his secret wasn't as sealed as promised.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785218019756"
     }
   ],
   "badges": [
