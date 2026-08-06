@@ -110,6 +110,16 @@ VALUE_PATTERNS = [
 ]
 
 
+# Fictional accounts that appear as *content* in a write-up - the victim host's
+# username in a DFIR room, for example - are not a leak of the assessor's
+# identity, which is what the user-path patterns guard against. They are
+# allow-listed by name so a path carrying the assessor's real username is still
+# caught: the real name is deliberately NOT listed here (listing it would leak it
+# in this public file), so any user path not on this short, vetted list still
+# fails the check. Add a name here only after confirming it is room/lab content.
+CONTENT_USERNAMES = {"sophie"}
+
+
 def is_exempt(label: str, snippet: str) -> bool:
     """Known-safe matches that would otherwise be noise.
 
@@ -117,8 +127,17 @@ def is_exempt(label: str, snippet: str) -> bool:
     co-author trailers) are non-contactable and non-identifying by design -
     that is the entire point of the noreply convention - so flagging them
     trains the reader to skim past real findings.
+
+    Windows/Unix user paths are exempt only when the trailing username is a
+    vetted content account (CONTENT_USERNAMES). A path bearing the assessor's
+    real username is not on that list and still fails.
     """
-    return label == "email address" and "noreply" in snippet.lower()
+    if label == "email address" and "noreply" in snippet.lower():
+        return True
+    if label in ("Windows user path", "Unix home path"):
+        username = re.split(r"[\\/]+", snippet)[-1].lower()
+        return username in CONTENT_USERNAMES
+    return False
 
 
 def scan_text(text: str, where: str, findings: list) -> None:
