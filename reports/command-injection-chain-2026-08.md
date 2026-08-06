@@ -50,10 +50,27 @@ severity is Critical**: the chain results in complete compromise of the host.
 | F-03 | Default credentials and a privileged API token exposed via message store | **High** | 8.1 |
 | F-04 | OS command injection in the root-privileged automation worker | **Critical** | 9.1 |
 
+**Attack chain at a glance** (severity-highlighted for a management audience):
+
+```mermaid
+flowchart LR
+    S["Unauthenticated<br/>attacker"] --> F1["F-01<br/>Edge command injection<br/>CRITICAL"]
+    F1 --> F2["F-02<br/>Internal console<br/>no auth · HIGH"]
+    F2 --> F3["F-03<br/>Default creds +<br/>token in voicemail · HIGH"]
+    F3 --> F4["F-04<br/>Root worker<br/>command injection · CRITICAL"]
+    F4 --> R["Full root<br/>compromise"]
+    classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
+    classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
+    classDef term fill:#1f2937,stroke:#111827,color:#ffffff;
+    class F1,F4 crit;
+    class F2,F3 high;
+    class S,R term;
+```
+
 Each finding also carries a **detection analysis**: the telemetry a monitored
 environment would generate and why the activity would or would not be caught. As
-with lab targets generally, this is written as theory rather than observed fact,
-because the host carries no instrumentation of its own.
+with lab targets generally, these are expected detection opportunities rather
+than observed fact, because the host carries no instrumentation of its own.
 
 ---
 
@@ -68,6 +85,17 @@ because the host carries no instrumentation of its own.
 | **Authorisation** | Performed within the TryHackMe platform terms, which authorise exploitation of the provided target. |
 | **Window** | 2026-08-06. |
 
+### Target asset
+
+| Attribute | Detail |
+|-----------|--------|
+| **Hostname** | `tryhackme-24xx` (internal hostname; redacted as it would be in a client report) |
+| **IP address** | Redacted. Single in-scope host on the lab network. |
+| **Operating system** | Ubuntu Linux (server; confirmed via the `OpenSSH … Ubuntu` service banner) |
+| **Externally exposed services** | 22/tcp SSH (OpenSSH 9.6p1); 80/tcp HTTP (gunicorn / Flask) |
+| **Internal (loopback-only) services** | 3000/tcp ops console; 8080/tcp FreePBX 16.0.45; 9000/tcp automation worker (runs as root) |
+| **Assessment date** | 2026-08-06 |
+
 ---
 
 ## 3. Methodology
@@ -77,8 +105,8 @@ Testing Execution Standard (PTES) and, for the web layer, the OWASP Web Security
 Testing Guide (WSTG): reconnaissance, enumeration, vulnerability analysis,
 exploitation, post-exploitation and privilege escalation, then reporting.
 Severity is expressed as CVSS v3.1 base score, and each finding is mapped to a
-Common Weakness Enumeration (CWE) identifier. Detection analysis is written as
-theory, since the target is not instrumented.
+Common Weakness Enumeration (CWE) identifier. Detection analysis describes
+expected detection opportunities, since the target is not instrumented.
 
 **Tooling:** `nmap`, `curl`, browser developer tools, `ss`/`systemctl`, `chisel`
 (reverse port-forwarding to reach loopback services), and standard Linux
@@ -139,6 +167,11 @@ Each rung depended on the one before it; none required insider access.
 | **Affected component** | Public web app, `/internal/netcheck` connectivity check |
 | **Status** | Open |
 
+**CVSS rationale.** `AV:N` and `PR:N` because the endpoint is reachable and
+exploitable over the network with no authentication, and `UI:N` as no victim
+interaction is required; `C:H/I:H/A:H` because arbitrary command execution
+compromises the host's confidentiality, integrity, and availability outright.
+
 **Description.** A staff "connectivity check" reachable without authentication
 accepted a `host` parameter and passed it into an operating-system `ping` command
 built by string interpolation and executed through a shell. Supplying shell
@@ -153,7 +186,7 @@ string with shell execution enabled.
 **Business impact.** Full remote code execution on the host as the web service
 account, from an unauthenticated position: the gateway to the entire compromise.
 
-**Detection and response (theory).** High-fidelity signals: the web service
+**Expected detection opportunities.** High-fidelity signals: the web service
 process spawning a shell or `ping` with an unexpected argument, and outbound
 connections from the web account (the reverse shell). At the application edge, a
 WAF can flag shell metacharacters (`;`, `|`, `` ` ``, `$(`) in the `host` field.
@@ -174,6 +207,12 @@ authentication for staff tooling.
 | **Affected component** | Internal "Watchtower" ops console (loopback, port 3000) |
 | **Status** | Open |
 
+**CVSS rationale.** `AV:L/PR:L` because reaching the loopback console requires an
+existing low-privilege foothold on the host; `S:C` (scope changed) because the
+disclosed credentials grant access to *other* components beyond this service;
+`C:H` for the credential disclosure, with `I:L/A:N` as it does not itself alter
+or deny service.
+
 **Description.** An internal operations console bound to localhost performed no
 authentication, trusting any connection that originated on the host ("authenticated
 by network position"). Its configuration endpoint returned sensitive data in clear
@@ -189,7 +228,7 @@ attacker has any foothold on the host. The disclosure directly supplied the
 credentials and target for the next stage, changing scope by exposing other
 components' secrets.
 
-**Detection and response (theory).** Primarily preventive: an internal service
+**Expected detection opportunities.** Primarily preventive: an internal service
 with no authentication is a configuration-review finding. Detectively, requests
 to a sensitive configuration endpoint from a service account, or that account
 reading credentials it never normally uses, are anomalous.
@@ -208,6 +247,12 @@ configuration responses and return only what a client needs.
 | **Affected component** | Telephony application (FreePBX) voicemail; automation bearer token |
 | **Status** | Open |
 
+**CVSS rationale.** `PR:L` because the default credentials are used from the
+existing foothold; `S:C` because the recovered token authorises action on a
+separate, higher-privileged service; `C:H` reflects exposure of a secret that
+authorises root-level action, with `I:L/A:N` as the disclosure alone changes and
+denies nothing.
+
 **Description.** The telephony application retained **default, unrotated
 credentials**. Those credentials granted access to a voicemail box that stored the
 **bearer token** for the root-privileged automation service in recoverable form
@@ -222,7 +267,7 @@ associated with the automation service on port 9000.
 secret for a root-privileged API, collapsing the distance between a low-privilege
 foothold and root (F-04).
 
-**Detection and response (theory).** Preventive controls dominate: enforced
+**Expected detection opportunities.** Preventive controls dominate: enforced
 rotation of default credentials, and secrets never stored in user-readable message
 content. Detectively, first-ever logins to the portal from a service context, and
 retrieval of the message carrying the token, are candidate signals.
@@ -241,6 +286,11 @@ a secrets manager with short lifetimes and audited access.
 | **Affected component** | Internal automation worker `/jobs/export` (loopback, port 9000), running as root |
 | **Status** | Open |
 
+**CVSS rationale.** `AV:L/PR:L` because the worker is loopback-only and requires
+the recovered token; `S:C` because a defect in the worker's context breaches the
+security authority of the entire host (root); `C:H/I:H/A:H` for full root
+compromise.
+
 **Description.** The automation worker, running as **root**, constructed a shell
 command (a `tar` export) by interpolating a caller-supplied `report` field into the
 command string, then executed it and returned its output. Shell metacharacters in
@@ -257,7 +307,7 @@ root-owned content.
 **Business impact.** Complete root compromise of the host: unrestricted read/write
 of all data, persistence, and full control.
 
-**Detection and response (theory).** The highest-fidelity signal is the root
+**Expected detection opportunities.** The highest-fidelity signal is the root
 automation process spawning unexpected children (a shell, `id`, `cat`) rather than
 only `tar`. Kernel audit rules on `execve` by that service, and egress from the
 root worker, would flag the activity. At the API edge, shell metacharacters in the
