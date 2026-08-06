@@ -7,23 +7,23 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-05 06:00 UTC
+**Last synced:** 2026-08-06 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>74</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>75</td>
 <td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>11</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>4</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>58</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>59</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>12</td>
 </tr>
 </table>
 
 </div>
 
-## Challenges (13)
+## Challenges (14)
 
 _Solved without a guided walkthrough. Hardest first._
 
@@ -41,7 +41,7 @@ _Solved without a guided walkthrough. Hardest first._
 
 </div>
 
-### 🟢 Easy (10)
+### 🟢 Easy (11)
 
 <div align="center">
 
@@ -62,8 +62,8 @@ _Solved without a guided walkthrough. Hardest first._
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-theconciergeknows-2d7eb4d9">The Concierge Knows Too Much</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/toolsrus">ToolsRus</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/vulnerabilitycapstone">Vulnerability Capstone</a></td>
-<td width="300"></td>
 <td width="300"></td>
 </tr>
 </table>

@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-05 06:00 UTC",
-  "rooms_completed": 74,
+  "last_synced_utc": "2026-08-06 06:00 UTC",
+  "rooms_completed": 75,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -12,6 +12,16 @@
       "difficulty": "easy",
       "type": "walkthrough",
       "freeToUse": true
+    },
+    {
+      "_id": "5c9e0cd05aa9d855877ce82f",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/77fd9d1804d33b5cf3adf1a2f3dcc34b.jpeg",
+      "description": "Practise using tools such as dirbuster, hydra, nmap, nikto and metasploit ",
+      "title": "ToolsRus",
+      "code": "toolsrus",
+      "difficulty": "easy",
+      "type": "challenge",
+      "freeToUse": false
     },
     {
       "_id": "5fa730bf09051d48aa3bd904",
