@@ -45,8 +45,24 @@ disclosure of the protected secret.
 | F-02 | Privileged credentials stored in attacker-readable blob storage | **High** | 8.6 |
 | F-03 | Secret "rotation" leaves the original value readable in version history | **Medium** | 6.5 |
 
-Each finding carries a **detection analysis**, written as theory, since the lab
-environment carries no monitoring of its own.
+**Attack chain at a glance** (severity-highlighted for a management audience):
+
+```mermaid
+flowchart LR
+    S["Low-privilege<br/>Azure user"] --> F1["F-01<br/>Hardcoded SAS<br/>in client JS · HIGH"]
+    F1 --> F2["F-02<br/>SP credentials in<br/>readable storage · HIGH"]
+    F2 --> F3["F-03<br/>Secret value live in<br/>version history · MEDIUM"]
+    F3 --> R["Protected Key Vault<br/>secret disclosed"]
+    classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
+    classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
+    classDef term fill:#1f2937,stroke:#111827,color:#ffffff;
+    class F1,F2 high;
+    class F3 med;
+    class S,R term;
+```
+
+Each finding carries a **detection analysis** describing expected detection
+opportunities, since the lab environment carries no monitoring of its own.
 
 ---
 
@@ -61,6 +77,16 @@ environment carries no monitoring of its own.
 | **Authorisation** | Performed within the TryHackMe platform terms, which authorise exploitation of the provided target. |
 | **Window** | 2026-08-04. |
 
+### Target assets
+
+| Attribute | Detail |
+|-----------|--------|
+| **Cloud platform** | Microsoft Azure (single subscription) |
+| **Tenant / subscription** | Redacted, as it would be in a client report |
+| **In-scope resources** | Storage account (static website + blob containers); Azure Key Vault |
+| **Starting identity** | Low-privilege Entra ID user, no management-plane (ARM) permissions |
+| **Assessment date** | 2026-08-04 |
+
 ---
 
 ## 3. Methodology
@@ -69,8 +95,8 @@ The assessment followed a standard cloud-attack workflow: enumerate the granted
 identity, pivot to what the application itself trusts, follow each credential to
 the next resource, and recover the objective. Tooling was the **Azure CLI** (`az`)
 via Cloud Shell, plus browser developer tools. Severity is CVSS v3.1 base score,
-mapped to CWE. Detection analysis is written as theory, since the target is not
-instrumented.
+mapped to CWE. Detection analysis describes expected detection opportunities,
+since the target is not instrumented.
 
 ---
 
@@ -121,6 +147,11 @@ Each rung depended on the one before it; none required elevated starting access.
 | **Affected component** | Storage static website (client-side JavaScript) |
 | **Status** | Open |
 
+**CVSS rationale.** `AV:N/PR:N` because the token is embedded in a public web page
+and usable by any anonymous visitor with no authentication; `C:H` for full read of
+the storage account, with `I:N/A:N` and `S:U` as impact stays within the storage
+resource itself.
+
 **Description.** The static web application embedded a Storage Shared Access
 Signature (SAS) token as a constant in its client-side JavaScript, so any visitor
 who loads the page obtains it. The token was scoped to the blob service at
@@ -135,7 +166,7 @@ storage account.
 **Business impact.** Full read of the entire storage account by any anonymous
 visitor, including any credentials or data stored there (see F-02).
 
-**Detection and response (theory).** Storage diagnostic logs would show read and
+**Expected detection opportunities.** Storage diagnostic logs would show read and
 list operations spanning many containers from a single SAS, a pattern inconsistent
 with the application's write-only purpose. Alert on SAS activity that exceeds the
 operations the application legitimately performs.
@@ -154,6 +185,11 @@ write-only, a single container, and a minutes-to-hours expiry.
 | **Affected component** | Blob storage container |
 | **Status** | Open |
 
+**CVSS rationale.** `PR:N` because the credentials are reachable with the anonymous
+SAS from F-01; `S:C` (scope changed) because the stored credentials unlock a
+*separate* resource (Key Vault) beyond the storage account; `C:H` for exposure of
+privileged credentials.
+
 **Description.** A service principal's credentials (client id, secret, tenant) were
 stored as a blob in the storage account, readable via the SAS from F-01. Those
 credentials granted access to a separate Azure Key Vault, crossing a trust
@@ -168,7 +204,7 @@ been rotated.
 **Business impact.** Lateral movement from storage into Key Vault, a different and
 more sensitive resource. A stored credential is a standing key waiting to be read.
 
-**Detection and response (theory).** Azure AD sign-in logs would show the service
+**Expected detection opportunities.** Azure AD sign-in logs would show the service
 principal authenticating from an unusual location or context relative to its
 automation baseline. Alert on service-principal sign-ins that deviate from that
 baseline.
@@ -187,6 +223,11 @@ exposed.
 | **Affected component** | Azure Key Vault secret |
 | **Status** | Open |
 
+**CVSS rationale.** `PR:L` because reading version history requires the secret-read
+access obtained earlier in the chain; `C:H` because the superseded version still
+discloses the real sensitive value; `S:U` as the impact is confined to the Key
+Vault secret.
+
 **Description.** The target Key Vault secret had been "rotated" by writing a new
 current value, but Azure Key Vault **retains every prior version and serves it on
 request.** The original, sensitive value remained fully readable to anyone with
@@ -200,7 +241,7 @@ sensitive value.
 the leaked value stayed live in version history. A "we rotated it" response is a
 false sense of safety.
 
-**Detection and response (theory).** Key Vault diagnostic logs would record a
+**Expected detection opportunities.** Key Vault diagnostic logs would record a
 `SecretGet` against a non-current version, which is unusual for legitimate
 automation (which reads current values). Alert on any access to a superseded
 secret version.

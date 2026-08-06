@@ -45,9 +45,26 @@ defeat of the application's core economic rule.
 | F-01 | Race condition (TOCTOU) in the reward-claim endpoint | **High** | 8.0 |
 | F-02 | No rate limiting on state-changing endpoints | **Medium** | 5.4 |
 
+**Attack chain at a glance** (severity-highlighted for a management audience): the
+missing throttle (F-02) enables the race (F-01), which defeats the reward rule.
+
+```mermaid
+flowchart LR
+    S["Authenticated<br/>guest user"] --> F2["F-02<br/>No rate limiting<br/>MEDIUM"]
+    F2 --> F1["F-01<br/>TOCTOU race in<br/>reward claim · HIGH"]
+    F1 --> R["Reward rule defeated;<br/>Whale Vault unlocked"]
+    classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
+    classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
+    classDef term fill:#1f2937,stroke:#111827,color:#ffffff;
+    class F1 high;
+    class F2 med;
+    class S,R term;
+```
+
 Each finding carries a **detection analysis**: the telemetry a monitored
-environment would generate. As with lab targets generally, this is written as
-theory, since the application carries no instrumentation of its own.
+environment would generate. As with lab targets generally, these are expected
+detection opportunities, since the application carries no instrumentation of its
+own.
 
 ---
 
@@ -62,6 +79,16 @@ theory, since the application carries no instrumentation of its own.
 | **Authorisation** | Performed within the TryHackMe platform terms, which authorise exploitation of the provided target. |
 | **Window** | 2026-08-03. |
 
+### Target asset
+
+| Attribute | Detail |
+|-----------|--------|
+| **Hostname / IP** | Redacted, as it would be in a client report |
+| **Application** | Node.js / Express web application (the "Ponzi Portfolio" rewards app) |
+| **Exposed service** | HTTP on port 3000 |
+| **Perspective** | Authenticated, self-registered guest account (open registration) |
+| **Assessment date** | 2026-08-03 |
+
 ---
 
 ## 3. Methodology
@@ -70,8 +97,8 @@ The assessment followed the OWASP Web Security Testing Guide, focused on
 **business-logic testing** (WSTG-BUSL). The application's API was mapped from its
 own client-side script, the reward mechanism was modelled, and the concurrency
 behaviour of the value-granting endpoint was tested. Severity is CVSS v3.1 base
-score, mapped to CWE. Detection analysis is written as theory, since the target
-is not instrumented.
+score, mapped to CWE. Detection analysis describes expected detection
+opportunities, since the target is not instrumented.
 
 **Tooling:** browser developer tools, `curl`. No custom or destructive tooling
 was used.
@@ -124,6 +151,11 @@ exploit was used.
 | **Affected component** | Reward-claim endpoint |
 | **Status** | Open |
 
+**CVSS rationale.** `PR:L` because any self-registered user can exploit it; `AC:L`
+because the unsynchronised implementation made the race reliable on the first
+attempt; `C:H/I:H` for full defeat of the reward rule and corruption of the balance
+ledger, with `A:N` as availability is unaffected.
+
 **Description.** The claim endpoint verified eligibility ("has the cooldown
 elapsed?") and then granted the reward and recorded the claim as **separate,
 non-atomic operations**. When requests arrive concurrently, they interleave
@@ -140,7 +172,7 @@ mint effectively unlimited in-application currency and reach privileged states
 meant to gate exclusive content. In any system where the currency has real value,
 this is direct financial loss and corruption of the economy's integrity.
 
-**Detection and response (theory).** Two signals. At the request layer, a burst of
+**Expected detection opportunities.** Two signals. At the request layer, a burst of
 near-simultaneous, identical state-changing requests from a single session is the
 signature of a race attempt. At the data layer, the reward ledger increasing
 faster than the business rule allows (more than one grant inside a single cooldown
@@ -163,6 +195,10 @@ value-granting rule with a pre-check that is separate from the action it guards.
 | **Affected component** | Application API (state-changing endpoints) |
 | **Status** | Open |
 
+**CVSS rationale.** `C:L/I:L` because on its own the missing throttle enables only
+limited abuse; its real weight is as the amplifier for F-01, which the executive
+summary captures as the combined outcome.
+
 **Description.** The claim endpoint accepted unlimited rapid requests with no
 throttling. This both enabled the race in F-01 (by allowing a large concurrent
 burst) and would permit other automated abuse of value-granting or
@@ -172,7 +208,7 @@ authentication-related endpoints.
 attacks, directly amplifying F-01 and exposing the application to resource
 exhaustion and brute-force-style abuse.
 
-**Detection and response (theory).** High request rates per session or source IP
+**Expected detection opportunities.** High request rates per session or source IP
 to state-changing endpoints are the signal; standard rate-limiting and
 anti-automation telemetry catch it.
 

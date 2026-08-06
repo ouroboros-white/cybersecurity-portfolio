@@ -41,8 +41,9 @@ that was never enforced on the server side.**
 
 Each finding also carries a **detection analysis**: the observable artifacts a
 monitored environment would generate, the logic that would catch the attack, and
-why it would or would not be caught. This is written as theory rather than
-observed fact, because the lab targets carry no instrumentation of their own.
+why it would or would not be caught. These are expected detection opportunities
+rather than observed fact, because the lab targets carry no instrumentation of
+their own.
 The intent is to document both halves of the exchange, the attack and the
 defence that should meet it.
 
@@ -54,6 +55,30 @@ defence that should meet it.
 | F-02 | Broken access control: over-permissioned cloud role enables bulk data theft | **High** | 7.5 |
 | F-03 | Source code and version-control history disclosure (exposed `.git`) | **High** | 7.5 |
 | F-04 | Sensitive data (passwords) stored in plaintext | **Medium** | 5.3 |
+
+**Findings by target** (severity-highlighted for a management audience). Unlike a
+single-host compromise, these findings are **independent** across three separate
+targets, not one chain:
+
+```mermaid
+flowchart TD
+    subgraph WEB01["WEB-01 · CMS"]
+      A1["F-01 · Unauthenticated RCE<br/>(CVE-2018-16763) · CRITICAL"]
+    end
+    subgraph WEB02["WEB-02 · staging"]
+      A3["F-03 · Exposed .git<br/>source disclosure · HIGH"]
+    end
+    subgraph CLD01["CLD-01 · cloud app"]
+      A2["F-02 · Bulk data theft<br/>HIGH"]
+      A4["F-04 · Plaintext passwords<br/>MEDIUM"]
+    end
+    classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
+    classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
+    classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
+    class A1 crit;
+    class A2,A3 high;
+    class A4 med;
+```
 
 ---
 
@@ -67,6 +92,17 @@ defence that should meet it.
 | **Excluded** | Denial-of-service, destructive actions, social engineering of platform staff, and pivoting outside the named targets. |
 | **Authorisation** | Testing performed within the TryHackMe platform's terms of use, which authorise exploitation of the provided lab targets. |
 | **Window** | 2026-07-28 to 2026-08-01. |
+
+### Target asset inventory
+
+| Asset | Type / stack | Exposed services | Platform |
+|-------|--------------|------------------|----------|
+| `WEB-01` | CMS web application (FUEL CMS 1.4) | 80/tcp HTTP (Apache 2.4.41) | Linux (LAMP) |
+| `WEB-02` | Staging web application | 8080/tcp HTTP | Linux |
+| `CLD-01` | Cloud static web app (object storage + serverless identity/data) | HTTPS (cloud-hosted) | AWS (Cognito + DynamoDB) |
+
+Hostnames and addresses redacted as they would be in a client report. Assessment
+window 2026-07-28 to 2026-08-01.
 
 ---
 
@@ -89,7 +125,7 @@ Testing Guide (WSTG):
 *and* defensive understanding, each finding additionally documents the telemetry
 a monitored environment would produce and the detection logic that would catch
 the attack. The lab targets are not instrumented, so this analysis is deliberately
-framed as theory (what a defender *would* observe), never as events that were
+framed as expected detection opportunities (what a defender *would* observe), never as events that were
 actually seen. Distinguishing a claim about a real log from a reasoned model of
 one is itself a discipline the report intends to demonstrate.
 
@@ -116,6 +152,10 @@ Findings are ordered by severity, highest first.
 | **Reference** | CVE-2018-16763 |
 | **Affected asset** | `WEB-01` |
 | **Status** | Open |
+
+**CVSS rationale.** `AV:N/PR:N/UI:N` because a published exploit runs
+unauthenticated over the network with no user interaction; `C:H/I:H/A:H` because it
+yields full command execution on the host.
 
 **Description.**
 Service enumeration identified the application as **FUEL CMS version 1.4**, with
@@ -152,7 +192,7 @@ could read or alter all application data, deface or replace the site, harvest
 credentials, use the host as a pivot into the internal network, or deploy
 ransomware. This is the highest-impact class of finding.
 
-**Detection and response (theory).**
+**Expected detection opportunities.**
 The target is not instrumented; the following is what a monitored production
 environment *would* observe.
 - **Network layer:** web-server access logs would record requests to
@@ -190,6 +230,10 @@ environment *would* observe.
 | **CWE** | CWE-732: Incorrect Permission Assignment for Critical Resource |
 | **Affected asset** | `CLD-01` |
 | **Status** | Open |
+
+**CVSS rationale.** `PR:N` because the application issues working credentials to any
+anonymous visitor; `C:H` for full disclosure of the customer database, with `I:N/A:N`
+as the role reads but does not modify data.
 
 **Description.**
 `CLD-01` is a static web application served from cloud object storage. It has no
@@ -229,8 +273,8 @@ is a reportable data breach under data-protection regulation (e.g. UK GDPR),
 carrying regulatory, legal, and reputational consequences well beyond the
 technical fix.
 
-**Detection and response (theory).**
-Written as theory; the lab account has no monitoring configured.
+**Expected detection opportunities.**
+The lab account has no monitoring configured; the following are expected detection opportunities.
 - **Credential issuance (logged by default):** the Cognito `GetId` and
   `GetCredentialsForIdentity` calls are *management-plane* events, which
   CloudTrail records out of the box. The attacker obtaining guest credentials is
@@ -275,6 +319,10 @@ Written as theory; the lab account has no monitoring configured.
 | **Affected asset** | `WEB-02` |
 | **Status** | Open |
 
+**CVSS rationale.** `PR:N` because the exposed `.git` is fetchable anonymously;
+`C:H` for full source and commit-history disclosure, with no direct integrity or
+availability impact.
+
 **Description.**
 `WEB-02` was deployed by copying the entire project working directory to the web
 root, including its `.git` version-control folder, which was left
@@ -303,8 +351,8 @@ secrets (API keys, database credentials, tokens) committed to history, greatly
 accelerating further attacks. The information is often as valuable as an
 exploitable bug because it turns black-box guessing into white-box certainty.
 
-**Detection and response (theory).**
-Theory, as the target is uninstrumented.
+**Expected detection opportunities.**
+Expected detection opportunities, as the target is uninstrumented.
 - **Network layer:** `git-dumper` issues hundreds of sequential requests to
   `/.git/HEAD`, `/.git/config`, and `/.git/objects/...`. A burst of HTTP 200s to
   `.git/*` paths from a single source is an unmistakable access-log pattern.
@@ -334,6 +382,10 @@ Theory, as the target is uninstrumented.
 | **Affected asset** | `CLD-01` |
 | **Status** | Open |
 
+**CVSS rationale.** `C:L` in isolation because it is a data-at-rest weakness that
+requires another flaw (F-02) to reach the data; its true severity is the
+account-takeover amplification the summary notes.
+
 **Description.**
 The customer records disclosed via F-02 stored user passwords in **plaintext**,
 alongside other personal data. This is an independent weakness with a different
@@ -347,7 +399,7 @@ victims' accounts on *other* services, extending harm far beyond this
 application. The combination of F-02 and F-04 is the most damaging real-world
 outcome in this assessment.
 
-**Detection and response (theory).**
+**Expected detection opportunities.**
 Unlike the findings above, this has no live attack signature to detect: it is a
 data-at-rest weakness, not an action an attacker performs. Its controls are
 therefore **preventive and audit-based**, not detective: automated secret and

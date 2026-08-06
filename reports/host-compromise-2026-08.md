@@ -46,10 +46,27 @@ everything on it.
 | F-03 | Exposed Node.js debug inspector enabling lateral movement | **High** | 7.8 |
 | F-04 | Service account with root-equivalent group membership (`disk`) | **High** | 7.8 |
 
+**Attack chain at a glance** (severity-highlighted for a management audience):
+
+```mermaid
+flowchart LR
+    S["Unauthenticated<br/>attacker"] --> F1["F-01<br/>NoSQL auth bypass<br/>HIGH"]
+    F1 --> F2["F-02<br/>SSTI → RCE<br/>CRITICAL"]
+    F2 --> F3["F-03<br/>Exposed debug<br/>inspector · HIGH"]
+    F3 --> F4["F-04<br/>disk group =<br/>root access · HIGH"]
+    F4 --> R["Full root<br/>compromise"]
+    classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
+    classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
+    classDef term fill:#1f2937,stroke:#111827,color:#ffffff;
+    class F2 crit;
+    class F1,F3,F4 high;
+    class S,R term;
+```
+
 Each finding also carries a **detection analysis**: the telemetry a monitored
 environment would generate and why the activity would or would not be caught.
-As with lab targets generally, this is written as theory rather than observed
-fact, because the host carries no instrumentation of its own.
+As with lab targets generally, these are expected detection opportunities rather
+than observed fact, because the host carries no instrumentation of its own.
 
 ---
 
@@ -64,6 +81,16 @@ fact, because the host carries no instrumentation of its own.
 | **Authorisation** | Performed within the TryHackMe platform terms, which authorise exploitation of the provided target. |
 | **Window** | 2026-08-02. |
 
+### Target asset
+
+| Attribute | Detail |
+|-----------|--------|
+| **Hostname** | Redacted, as it would be in a client report |
+| **IP address** | Redacted. Single in-scope host. |
+| **Operating system** | Linux |
+| **Exposed services** | 22/tcp SSH; 80/tcp HTTP (Node.js / Express) |
+| **Assessment date** | 2026-08-02 |
+
 ---
 
 ## 3. Methodology
@@ -73,8 +100,8 @@ Testing Execution Standard (PTES) and, for the web layer, the OWASP Web Security
 Testing Guide (WSTG): reconnaissance, enumeration, vulnerability analysis,
 exploitation, post-exploitation and privilege escalation, then reporting.
 Severity is expressed as CVSS v3.1 base score, and each finding is mapped to a
-Common Weakness Enumeration (CWE) identifier. Detection analysis is written as
-theory, since the target is not instrumented.
+Common Weakness Enumeration (CWE) identifier. Detection analysis describes
+expected detection opportunities, since the target is not instrumented.
 
 **Tooling:** `nmap`, `gobuster`, browser developer tools, `node`, standard Linux
 utilities (`ss`, `systemctl`, `debugfs`). No custom or destructive tooling was
@@ -129,6 +156,10 @@ Each rung depended on the one before it; none required insider access.
 | **Affected component** | Web application login |
 | **Status** | Open |
 
+**CVSS rationale.** `AV:N/PR:N` because the login is defeated over the network with
+no credentials; `C:H` because it grants a privileged session, with `I:N/A:N` as the
+bypass alone neither modifies nor denies data.
+
 **Description.** The login passed request parameters into a datastore query
 without constraining their type. Supplying the password as a query operator
 object rather than a string caused the query to match a user regardless of the
@@ -142,7 +173,7 @@ successfully and returned a valid session, granting access to a staff-only area.
 assume a privileged application role, which in this case was the gateway to full
 server compromise (F-02).
 
-**Detection and response (theory).** Authentication requests where the username
+**Expected detection opportunities.** Authentication requests where the username
 or password parameter arrives as an object or contains query operators
 (`[$ne]`, `[$gt]`, `[$regex]`) are a high-fidelity indicator; a WAF or
 application-layer control can alert on non-string authentication inputs. Not
@@ -162,6 +193,10 @@ sanitise all user input used in queries.
 | **Affected component** | Staff booking-confirmation template feature |
 | **Status** | Open |
 
+**CVSS rationale.** `PR:N` in effect because the staff-role requirement is nullified
+by F-01; `C:H/I:H/A:H` because template injection yields full command execution on
+the host.
+
 **Description.** A staff feature rendered a user-supplied template through a
 server-side template engine. Because the engine compiles templates to executable
 code, attacker-supplied template syntax was evaluated on the server, escalating
@@ -177,7 +212,7 @@ unauthenticated, hence the Critical rating.
 account: an attacker can read and alter application data, pivot within the
 network, and establish persistence.
 
-**Detection and response (theory).** Two layers. At the application edge,
+**Expected detection opportunities.** Two layers. At the application edge,
 template payloads (engine control sequences, references to runtime internals such
 as the process or child-process modules) submitted to the template field are
 detectable and blockable. At the host, the highest-fidelity signal is the web
@@ -198,6 +233,10 @@ templating is unavoidable, use a sandboxed, logic-less engine.
 | **Affected component** | Background telemetry service (`pipelinesvc`) |
 | **Status** | Open |
 
+**CVSS rationale.** `AV:L/PR:L` because abusing the localhost inspector requires the
+existing foothold from F-02; `C:H/I:H/A:H` because a debugger permits arbitrary code
+execution inside the target process.
+
 **Description.** A background service ran the Node.js runtime with the debug
 inspector enabled and listening on localhost. A debugger, by design, permits
 arbitrary code execution inside the target process, so an exposed inspector is a
@@ -212,7 +251,7 @@ account, `pipelinesvc`.
 service account. "Localhost only" provided no protection because the attacker
 already had a foothold on the host.
 
-**Detection and response (theory).** Production services should never run with the
+**Expected detection opportunities.** Production services should never run with the
 inspector enabled; its presence is itself the finding, detectable by
 configuration audit. At runtime, a debug client attaching to the inspector port,
 or the service process spawning unexpected children, are detectable events.
@@ -231,6 +270,10 @@ an access control.
 | **Affected component** | `pipelinesvc` service account |
 | **Status** | Open |
 
+**CVSS rationale.** `AV:L/PR:L` because the group membership is abused from an
+existing foothold; `C:H/I:H/A:H` because raw disk access is equivalent to root-level
+read and write of every file on the host.
+
 **Description.** The `pipelinesvc` account was a member of the `disk` group, which
 grants raw read/write access to the block devices. This access sits beneath the
 filesystem permission layer, so it is equivalent to root-level file access
@@ -245,7 +288,7 @@ the raw device, bypassing their restrictive permissions.
 (including credential stores and secrets) and write to any file, which trivially
 extends to full and persistent root control.
 
-**Detection and response (theory).** This is primarily a **preventive** finding:
+**Expected detection opportunities.** This is primarily a **preventive** finding:
 a service account in a root-equivalent group is a misconfiguration caught by
 periodic privilege audit, not a live signal. Detectively, raw block-device access
 by a non-root account, or invocation of a filesystem-debugging tool by a service
