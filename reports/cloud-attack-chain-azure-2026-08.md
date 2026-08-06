@@ -48,7 +48,7 @@ disclosure of the protected secret.
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid
-flowchart LR
+flowchart TD
     S["Low-privilege<br/>Azure user"] --> F1["F-01<br/>Hardcoded SAS<br/>in client JS · HIGH"]
     F1 --> F2["F-02<br/>SP credentials in<br/>readable storage · HIGH"]
     F2 --> F3["F-03<br/>Secret value live in<br/>version history · MEDIUM"]

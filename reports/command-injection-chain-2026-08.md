@@ -53,7 +53,7 @@ severity is Critical**: the chain results in complete compromise of the host.
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid
-flowchart LR
+flowchart TD
     S["Unauthenticated<br/>attacker"] --> F1["F-01<br/>Edge command injection<br/>CRITICAL"]
     F1 --> F2["F-02<br/>Internal console<br/>no auth · HIGH"]
     F2 --> F3["F-03<br/>Default creds +<br/>token in voicemail · HIGH"]

@@ -49,7 +49,7 @@ defeat of the application's core economic rule.
 missing throttle (F-02) enables the race (F-01), which defeats the reward rule.
 
 ```mermaid
-flowchart LR
+flowchart TD
     S["Authenticated<br/>guest user"] --> F2["F-02<br/>No rate limiting<br/>MEDIUM"]
     F2 --> F1["F-01<br/>TOCTOU race in<br/>reward claim · HIGH"]
     F1 --> R["Reward rule defeated;<br/>Whale Vault unlocked"]
