@@ -32,3 +32,13 @@ Every write-up follows [TEMPLATE.md](TEMPLATE.md):
 - **Check the event first.** For live events with prizes, I confirm solution
   write-ups are allowed before publishing. If unsure, I draft now and publish
   after the event.
+- **No em dashes.** Anywhere in this repo, including reports and commit
+  messages. Heavy em dash use is one of the clearest tells of machine-written
+  prose, and a reader who reads the writing as generated discounts the
+  reasoning in it. Recast the sentence rather than swapping the character; a
+  comma, colon, semicolon, brackets or a full stop is always available, and the
+  result usually reads tighter. Check before committing:
+
+  ```bash
+  grep -rn '—' --include='*.md' .
+  ```

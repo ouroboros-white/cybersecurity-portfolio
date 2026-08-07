@@ -147,7 +147,7 @@ compromised and clearly labelled as lab-based:
 - [Single-Host Full Compromise](reports/host-compromise-2026-08.md): one host
   taken from anonymous to root through a chained attack path.
 - [Command-Injection Chain to Root](reports/command-injection-chain-2026-08.md): the
-  same injection flaw exploited twice — unauthenticated at the edge, then as root.
+  same injection flaw exploited twice: unauthenticated at the edge, then as root.
 - [Business-Logic & API Abuse](reports/business-logic-assessment-2026-08.md): a
   web application defeated by a race condition in its reward logic.
 - [Azure Cloud Attack Chain](reports/cloud-attack-chain-azure-2026-08.md): a

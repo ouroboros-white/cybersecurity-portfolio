@@ -15,7 +15,7 @@ punning about ("hold it to your ear… the shell answers with a shell of your ow
 ## Recon
 
 - `nmap -sS -sV MACHINE_IP` found only **22/SSH** and **5000/**. Port 80 was
-  closed, which is why the site "wouldn't load" in the browser at first — the app
+  closed, which is why the site "wouldn't load" in the browser at first: the app
   lives on 5000, not 80.
   ```
   nmap -sS -sV MACHINE_IP
@@ -84,17 +84,17 @@ were instructive:
   ```
   All `404`. The serving route is hardened (Flask's `send_from_directory` resolves
   the real path and refuses anything outside the folder). **Read-side traversal is
-  closed** — a real finding, not wasted effort. It also told me the vulnerable
+  closed**, a real finding, not wasted effort. It also told me the vulnerable
   traversal, if any, had to be on the *write* side.
 
 ## The pivot: the session cookie remembers the path
 
-The room's refrain — *"Byte Lotus never forgets"* — is about the **Flask session
+The room's refrain, *"Byte Lotus never forgets"*, is about the **Flask session
 cookie**. Flask sessions are *signed, not encrypted*: anyone can read them. The
 baseline cookie decoded to `{"staff":"concierge"}`.
 
 The tell was that the cookie **changes after an upload**. Grabbing the fresh
-`Set-Cookie` and decoding it revealed why — and it leaked the storage path. Note
+`Set-Cookie` and decoding it revealed why, and it leaked the storage path. Note
 the leading `.` on the cookie, which means Flask **zlib-compressed** it, so the
 decode needs a decompress step:
 
@@ -111,8 +111,8 @@ Or the tidy way, which handles the compression automatically:
 flask-unsign --decode --cookie '<the-whole-cookie-value>'
 ```
 
-The decoded payload contained a Flask **`_flashes`** entry — the "brought ashore"
-banner stored *inside the session* — disclosing:
+The decoded payload contained a Flask **`_flashes`** entry, the "brought ashore"
+banner stored *inside the session*, disclosing:
 
 ```
 Stored at shells/<hex>/ and held to the room's ear.
@@ -124,7 +124,7 @@ depth below the app root.
 ## Zip Slip: proving the primitive
 
 If the extractor trusts the **filenames inside the zip**, a `../` entry escapes the
-random folder — path traversal on *extraction* (Zip Slip). Rather than fire a
+random folder: path traversal on *extraction* (Zip Slip). Rather than fire a
 payload blind, I proved the primitive with a harmless marker, writing into the
 web-served `static/` directory:
 
@@ -152,7 +152,7 @@ folder and become reachable. **Zip Slip confirmed**, non-destructively.
 
 ## RCE: a hook the worker runs
 
-This resolved the earlier "hooks" dead end. Hooks aren't a manifest field — the
+This resolved the earlier "hooks" dead end. Hooks aren't a manifest field; the
 theme worker **executes files it finds in a `hooks/` directory**. So the payload is
 a Zip Slip that drops a Python reverse shell into `../../hooks/`, which the worker
 then "applies for me":
@@ -194,7 +194,7 @@ The **flag** was in the service account's home directory.
 **Finding:** the shell uploader extracts an attacker-supplied `.zip` without
 validating the entry paths inside it (**Zip Slip**). A `../../hooks/callback.py`
 entry escapes the per-upload `shells/<hex>/` sandbox and lands in the `hooks/`
-directory, which the background "theme worker" executes — turning an upload into
+directory, which the background "theme worker" executes, turning an upload into
 remote code execution. Contributing weaknesses: seed **credentials left in an HTML
 comment**, and a **flash message that disclosed the storage path** via the session
 cookie.
@@ -212,7 +212,7 @@ cookie.
 - **Don't leak internal paths** in user-facing flash messages.
 
 The read side was done *right* here (`send_from_directory` blocked traversal on the
-serving route) — which makes the write side the lesson: the same class of bug,
+serving route), which makes the write side the lesson: the same class of bug,
 path traversal, was defended in one direction and wide open in the other. Untrusted
 archive entry names are attacker input and must be validated exactly like a URL
 path.

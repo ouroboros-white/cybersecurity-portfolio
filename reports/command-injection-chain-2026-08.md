@@ -24,8 +24,8 @@
 A single host running a Python/Flask web application was compromised from an
 unauthenticated starting point through to full **root** control. The striking
 feature of this target is that the first and last links in the chain are the
-**same vulnerability** — user input concatenated into an operating-system shell
-command — appearing first at the public edge (as a low-privilege service account)
+**same vulnerability**, user input concatenated into an operating-system shell
+command, appearing first at the public edge (as a low-privilege service account)
 and again in a privileged internal worker (as root). The intervening steps did
 not require exploitation so much as **reading what the environment volunteered**:
 an internal console with no authentication that disclosed credentials, and a
@@ -148,7 +148,7 @@ the findings are detailed individually.
 
 A dead end is worth recording: a public FreePBX authenticated-RCE exploit
 matched the version banner, but out-of-band testing proved the code path was
-patched — the API returned a success acknowledgement without executing injected
+patched: the API returned a success acknowledgement without executing injected
 commands. The genuine route was secret recovery, not that exploit.
 
 Each rung depended on the one before it; none required insider access.
@@ -337,12 +337,12 @@ cannot yield root.
 This host was taken from anonymous to root by exploiting **one weakness twice**:
 user input concatenated into a shell command, first at the public edge and again
 in a root-privileged worker. Between those two ends, the environment simply handed
-over what an attacker needed — an internal console that trusted anyone on
+over what an attacker needed: an internal console that trusted anyone on
 localhost and leaked credentials, a default login, and a root token left in a
 voicemail. The unifying lesson is that a vulnerability **class** must be fixed
 everywhere it appears, not patched at one instance while left open at another, and
-that **no single trusted assumption** — "it's only on localhost," "it's only the
-web account," "it's an internal API" — should be enough to advance an attacker to
+that **no single trusted assumption** ("it's only on localhost," "it's only the
+web account," "it's an internal API") should be enough to advance an attacker to
 the next level. Every link here was individually cheap to fix.
 
 ---
