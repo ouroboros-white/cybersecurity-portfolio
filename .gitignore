@@ -2,3 +2,14 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# Real-name material. This repo is published under a pseudonym, and the whole
+# point of that separation is that nothing here links back to the author's
+# legal identity. study/ holds CV and interview-prep documents that do.
+#
+# Do not "tidy this up" by removing the rule. scripts/safety_check.py cannot
+# catch this on its own: it only scans files git already tracks, so an
+# untracked CV is invisible to it right up until a `git add .` commits and
+# publishes it in the same breath. This line is the control; the scanner is
+# the backstop.
+study/
