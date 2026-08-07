@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-06 06:00 UTC",
-  "rooms_completed": 75,
+  "last_synced_utc": "2026-08-07 06:00 UTC",
+  "rooms_completed": 82,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -22,6 +22,16 @@
       "difficulty": "easy",
       "type": "challenge",
       "freeToUse": false
+    },
+    {
+      "_id": "5e4c7a9d21bd5359f72e2b76",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/69208399c3fe8b0416103c51e291e117.png",
+      "description": "Learn about and use Hydra, a fast network logon cracker, to bruteforce and obtain a website's credentials. ",
+      "title": "Hydra",
+      "code": "hydra",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough"
     },
     {
       "_id": "5fa730bf09051d48aa3bd904",
@@ -264,6 +274,26 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/winadbasics-1785241454256.png"
     },
     {
+      "_id": "64a56cb67ed98d005580a096",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "info",
+      "code": "burpsuitebasics",
+      "title": "Burp Suite: The Basics",
+      "description": "An introduction to using Burp Suite for web application pentesting.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/burpsuitebasics-1785241443798.png"
+    },
+    {
+      "_id": "650025f235c8713093cc3efa",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "retracted",
+      "title": "Retracted",
+      "description": "Investigate the case of the missing ransomware.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/7c857918b2d3f18cf8912aaba313f2d0.png"
+    },
+    {
       "_id": "65d34e8775488d8b700b19a0",
       "type": "walkthrough",
       "freeToUse": false,
@@ -394,6 +424,16 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxshells-1785241447675.png"
     },
     {
+      "_id": "66e199d05a908dbb489e75b4",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "gobusterthebasics",
+      "title": "Gobuster: The Basics",
+      "description": "This room focuses on an introduction to Gobuster, an offensive security tool used for enumeration.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339394962-gobusterthebasics.png"
+    },
+    {
       "_id": "670915f4514e358f4510691a",
       "type": "walkthrough",
       "code": "javascriptessentials",
@@ -411,6 +451,16 @@
       "description": "Learn the basics of web applications: HTTP, URLs, request methods, response codes, and headers.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/webapplicationbasics-1785241454064.png",
       "freeToUse": true,
+      "difficulty": "easy"
+    },
+    {
+      "_id": "670916a209bf783baffdd6eb",
+      "type": "walkthrough",
+      "code": "sqlfundamentals",
+      "title": "SQL Fundamentals",
+      "description": "Learn how to perform basic SQL queries to retrieve and manage data in a database.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/sqlfundamentals-1785241453087.png",
+      "freeToUse": false,
       "difficulty": "easy"
     },
     {
@@ -752,6 +802,26 @@
       "title": "CryptoCabana",
       "description": "He never signed the transfer. The place he stashed his secret wasn't as sealed as promised.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785218019756"
+    },
+    {
+      "_id": "6a5642a07548a5f993037001",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "medium",
+      "code": "hh-thehollowshell-ddb582ac",
+      "title": "The Hollow Shell",
+      "description": "You find it on the beach: pretty, ordinary, the kind of thing nobody thinks to check. Slip something inside and hold it to your ear.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251823751"
+    },
+    {
+      "_id": "6a5642a4950973d86f34054a",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "medium",
+      "code": "hh-infinitypool-5b3548af",
+      "title": "Infinity Pool",
+      "description": "No visible edge. You trace the network to the horizon and find three systems nobody told you about on the other side.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251854806"
     }
   ],
   "badges": [
