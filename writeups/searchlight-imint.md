@@ -5,77 +5,86 @@
 
 ## The target
 
-A series of photographs with nothing to lean on but the pixels. Each one asks
-where it was taken and, for some, who runs the place or what happened there. No
-host, no network, no metadata handed over. The only inputs are open sources and
-what sits inside the frame. The skill on show is imagery intelligence (IMINT):
-turning visual clues into a location, then into named detail. Findings below are
-kept deliberately generic, because in OSINT the specific answer is often a real
-place or a real person, and the technique is the part worth publishing.
+A series of photographs, each with questions about where it was taken and, for
+some, who operates the place or what happened there. No host, no usable metadata,
+no interaction: every answer comes from the image and open sources. The specifics
+are withheld here, because the answers are real locations and one is a small
+business's owners and contact details. The method is the transferable part.
 
-## The method I settled into
+Commercially this is imagery intelligence, the same work as geolocating a photo of
+a client's premises or a staff member's holiday post during the recon phase of a
+red team or social engineering engagement.
 
-I ran the same loop on every image rather than improvising per picture:
+## What I tried
 
-1. **Inventory the frame first.** Before searching anything, list every readable
-   clue: signage and its language, business names, architecture, road markings,
-   vegetation, and any single distinctive object. Rushing this step is where
-   people lose time.
-2. **Anchor on the most unique element.** One named business, statue, or landmark
-   collapses the search space faster than ten generic cues.
-3. **Reverse image search the anchor, cropped.** A tight crop of the distinctive
-   object beats searching the whole busy frame. Yandex first for places and
-   buildings, then Google Lens for text and objects.
-4. **Confirm on the ground.** Drop the candidate into Street View and match
-   unglamorous specifics (a sign, a doorway, a lamppost) until "probably" becomes
-   "certainly."
+I settled on one loop and ran it on every image rather than improvising: inventory
+the frame, pick the single most identifiable object, reverse image search a tight
+crop of it, then confirm in Street View. Inventorying first matters because the
+discriminating clue is usually not the subject of the photo. It is a sign in the
+background, a piece of public art, or a shop three doors down.
 
-## What the images taught
+The dead end was the hardest image. The business in the foreground was not indexed
+anywhere I could search, and I spent a while trying to identify it directly, which
+went nowhere. The mistake was treating the subject of the photo as the thing to
+search. What broke it was a different shop visible in the background, which *was*
+searchable. That reframed the problem from "identify this cafe" to "identify this
+street, then read off which unit the cafe occupies," which is a solvable problem.
 
-Each clue type rewarded a different move:
+## What worked
 
-- **A street sign in shot:** read it, done. The fastest wins are the ones you do
-  not overthink.
-- **A corporate wayfinding banner:** the brand on it named the building outright,
-  and a quick search placed the city.
-- **Public artwork and statues:** reverse image search returned the piece, its
-  artist, and even the credited photographer of that exact shot. Attribution text
-  around art is a rich, under-used source.
-- **A famous interior:** recognisable enough that the search was trivial, and a
-  linked feature article answered a follow-up about a person tied to the venue.
-- **A view across water:** I identified the far-bank landmarks, placed the
-  waterway, then walked the near bank in maps to pin the building a question asked
-  about.
+**Engine choice and cropping.** Reverse image search is not one tool. Yandex
+matches on visual features and is markedly stronger on buildings, streets and
+landscapes; Google Lens is built around text and object recognition. Searching a
+tight crop of the one distinctive object, rather than the whole frame, removes the
+background clutter that pulls a perceptual match toward the wrong result. Wrong
+engine or uncropped image is why these searches often "fail" when the answer was
+findable.
 
-## The pivot worth keeping
+**Anchoring on a unique entity.** A named business, a statue, or a company
+wayfinding sign resolves to a single location; a generic street does not. On the
+images that carried a brand name or a landmark, the anchor named the building or
+city outright and the rest of the frame was confirmation, not search.
 
-The hardest image had no direct answer. The foreground business was not
-searchable, but a shop visible in the **background** was. So I geolocated the
-background, used it to fix the street, identified the foreground business by
-proximity, and then went off-platform: a review site surfaced the operators'
-first names, and an unrelated third-party document (a community newsletter that
-happened to profile the business) confirmed a surname. The lesson: when the
-obvious sources dry up, widen to "where else on the open web would this name
-appear in writing," rather than digging deeper into the same well.
+**Attribution metadata on public art.** The sculpture images resolved through
+reverse image search to the artwork, its artist, and the photographer credited
+with that specific shot. Public art is documented, and that documentation carries
+authorship, which answered a "who took this" style question that would be
+impossible for a candid photo.
+
+**Background-to-foreground geolocation.** The pivot from the hard image. Geolocate
+whatever in the frame is searchable, use it to fix the street, then derive the
+unsearchable subject from its position on that street. The searchable thing does
+not have to be the thing you were asked about.
+
+**Switching source type, not digging the same source.** Once I had the business, I
+left mapping behind. A review site gave the operators' first names; a surname came
+from an unrelated local community newsletter that had profiled the place. A
+trading business's name propagates into corpora that have nothing to do with each
+other: directories, review sites, event listings, PDFs. When one source stops
+producing, the move is to change the *kind* of source rather than keep querying the
+one that ran out.
+
+**Confirming rather than guessing.** The river image had several candidate
+buildings. I identified the landmarks on the far bank, used them to fix which
+waterway it was, then walked the near bank in maps until one building matched the
+question. Cross-referencing two independent features before committing is what
+separates an identification from a guess that happens to be right.
 
 ## Finding & fix
 
-**Finding:** a single unstaged photo leaks far more than people assume.
-Background signage, public art, and a river-view skyline are each enough to fix a
-precise location, and a location plus a business name chains quickly through
-public listings, reviews, and third-party write-ups to real names and contact
-details. None of it needed anything but open data.
+**Finding:** a single ordinary photo gives up a precise location and, from there, a
+named person. A background sign, a public sculpture, or a skyline across a river
+each fixed a location, and a location plus a business name reached real names and
+contact details through public listings and reviews. Nothing was compromised;
+every link was published data.
 
-**Fix (opsec for individuals and small businesses):**
-- Treat backgrounds as data. Before posting, check what signage, landmarks, or
-  reflections sit behind the subject.
-- Strip EXIF, but do not rely on that alone. Here the visual content, not the
-  metadata, was the tell.
-- A storefront photo ties directly to a business's public listings and any
-  coverage of it. That is mostly benign, but staff should understand how little it
-  takes to go from a picture to a named person.
+**Fix:** the background is the exposure, not just a location tag. Check what
+signage, art and reflections sit behind a subject before publishing, and strip
+EXIF as a build step rather than a habit. A small business should assume a
+shopfront photo links directly to its listings, reviews and any third-party
+coverage, and that those together name the people who run it.
 
-The defensive framing is the point for someone heading toward offensive work: the
-exact chain that solves this room is the reconnaissance phase of a
-social-engineering engagement. Knowing how fast it runs, and how ordinary the
-sources are, is what lets you advise a client on shrinking their exposure.
+The value for offensive work is that this is exactly the reconnaissance a social
+engineering engagement opens with. Knowing which clue types resolve to a location,
+and how few hops it takes from there to a name, is what lets you scope a client's
+exposure instead of guessing at it.
