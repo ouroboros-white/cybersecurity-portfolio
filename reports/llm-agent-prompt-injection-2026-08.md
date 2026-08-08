@@ -1,0 +1,398 @@
+# Security Assessment Report: LLM Agent Prompt Injection to Host Compromise
+
+**Assessment type:** Black-box security assessment of an LLM-backed web application
+**Environment:** TryHackMe training target ("The Guestbook", Hacker Holidays)
+**Assessor:** ouroboros-white
+**Report date:** 2026-08-08
+**Version:** 1.0
+**Classification:** Public, portfolio sample
+
+---
+
+> **About this document.** This is a real assessment written to professional
+> structure against a **lab target**, not a live client engagement. No production
+> system or third party was tested. It documents the compromise of an LLM-backed
+> web application, from an unauthenticated position through to arbitrary command
+> execution on the host and recovery of a protected secret, to demonstrate the
+> reporting deliverable for **AI/LLM systems**: an attack path, CVSS-rated
+> findings, detection analysis, and remediation. Target identifiers and secrets
+> are redacted as they would be in a client report; no flags are reproduced.
+
+---
+
+## 1. Executive summary
+
+A public web application fronted by an LLM "concierge" agent was compromised from
+an unauthenticated starting point through to **arbitrary operating-system command
+execution on the host** and recovery of a protected secret. The defining feature
+of this target is that the agent is a **confused deputy**: it holds a powerful,
+shell-backed tool and decides who is allowed to use that tool by reading
+**attacker-controlled text**. Every guestbook entry a visitor submits is read by
+the agent and treated as an instruction.
+
+Direct use of the privileged tool was refused, because authorization is checked
+server-side and bound to one pre-authorized record the attacker cannot recreate.
+The compromise turned on a subtler flaw: that pre-authorized record is
+**re-reviewed in the same context as every untrusted entry, on every cycle**. By
+phrasing an entry so the agent deferred its output onto the next record it
+processed (the authorized one), the privileged command was made to execute
+**inside the authorized record's context**, where it inherited that record's
+authorization. From there the tool ran arbitrary shell, an environment dump
+revealed the path to the secret, and an encoding trick defeated the agent's
+refusal to disclose it.
+
+An attacker with no credentials could: make the agent invoke tools on their
+behalf, read other guests' records, bypass the privileged-tool authorization by
+routing commands through the authorized record, execute arbitrary commands on the
+host, and exfiltrate a protected secret. The most serious issue is the
+arbitrary-command-execution capability of the agent's tool (F-03); the enabling
+issues are the prompt injection itself (F-01) and the model-adjudicated,
+inheritable authorization (F-02).
+
+While each finding is rated individually below, **the combined real-world severity
+is Critical**: the chain results in unauthenticated remote code execution on the
+host and disclosure of its secret.
+
+### Findings at a glance
+
+| ID | Finding | Severity | CVSS 3.1 |
+|----|---------|----------|:--------:|
+| F-01 | Indirect prompt injection: untrusted guestbook entries executed as agent instructions | **High** | 8.6 |
+| F-02 | Confused-deputy authorization: privileged-tool access decided by the model and inheritable via a co-mingled review context | **High** | 8.2 |
+| F-03 | Arbitrary OS command execution through an over-privileged agent tool | **Critical** | 9.6 |
+| F-04 | Ineffective guardrails: signature-only injection filter and encoding-bypassable output refusal | **Medium** | 5.8 |
+
+**Attack chain at a glance** (severity-highlighted for a management audience):
+
+```mermaid
+flowchart TD
+    S["Unauthenticated attacker"] --> F1["F-01 Prompt injection HIGH"]
+    F1 --> F2["F-02 Confused-deputy authz HIGH"]
+    F2 --> F3["F-03 Arbitrary OS command exec CRITICAL"]
+    F3 --> F4["F-04 Guardrail bypass MEDIUM"]
+    F4 --> R["Host RCE and secret disclosure"]
+    classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
+    classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
+    classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
+    classDef term fill:#1f2937,stroke:#111827,color:#ffffff;
+    class F3 crit;
+    class F1,F2 high;
+    class F4 med;
+    class S,R term;
+```
+
+Each finding also carries a **detection analysis**: the telemetry a monitored
+environment would generate and why the activity would or would not be caught. As
+with lab targets generally, these are expected detection opportunities rather than
+observed fact, because the target carries no instrumentation of its own.
+
+---
+
+## 2. Scope and rules of engagement
+
+| Item | Detail |
+|------|--------|
+| **In-scope asset** | A single web application backed by a local LLM agent, and the host it runs on. |
+| **Perspective** | External, black-box, unauthenticated. No credentials or prior knowledge supplied. |
+| **Objective** | Achieve and demonstrate the highest impact obtainable (host command execution, secret recovery). |
+| **Excluded** | Denial-of-service, destructive actions, and any target outside the named application. |
+| **Authorisation** | Performed within the TryHackMe platform terms, which authorise exploitation of the provided target. |
+| **Window** | 2026-08-08. |
+
+### Target asset
+
+| Attribute | Detail |
+|-----------|--------|
+| **Application** | LLM-backed guestbook / concierge web app (identifier redacted as in a client report) |
+| **Web tier** | Python (gunicorn / Flask); endpoints `POST /entry`, `GET /guestbook`, `GET /vera/activity` |
+| **Agent** | An LLM "concierge" that reviews each guestbook entry and can invoke tools (`note`, `lookup`, `flag`, `override`); local model backend on loopback |
+| **Tool executor** | Backend component that parses the agent's tool calls and executes them; `override` runs arbitrary OS shell |
+| **Secret** | A protected file on the host, referenced by an environment variable (path redacted) |
+| **Assessment date** | 2026-08-08 |
+
+---
+
+## 3. Methodology
+
+The assessment followed a standard offensive workflow, adapted for an LLM agent
+and aligned to the **OWASP Top 10 for LLM Applications** (notably LLM01 Prompt
+Injection and the excessive-agency and insecure-output-handling categories) and
+the OWASP Web Security Testing Guide for the web tier: reconnaissance and surface
+mapping, agent capability enumeration, authorization analysis, exploitation
+(injection to tool abuse), and impact demonstration (command execution, secret
+recovery). Severity is expressed as CVSS v3.1 base score, and each finding is
+mapped to a Common Weakness Enumeration (CWE) identifier. Detection analysis
+describes expected detection opportunities, since the target is not instrumented.
+
+A methodological note that materially affected the result: the enabling behaviour
+(the authorized record being re-reviewed alongside every untrusted entry) was only
+visible against a **clean baseline**. After extended testing had polluted the
+application state, cause and effect were unreadable; resetting the environment and
+reading the default state before interacting was the step that exposed the
+mechanism.
+
+**Tooling:** `curl`, browser developer tools, `ffuf` (content discovery), and a
+base64 decoder. No destructive tooling was used.
+
+---
+
+## 4. Attack path
+
+```mermaid
+flowchart TD
+    A["Public guestbook (POST /entry)"] --> B["F-01: entry text executed as agent instructions"]
+    B --> C["Enumerate agent tools; override is manager-only"]
+    C --> D["F-02: authz is server-side, bound to one authorized record"]
+    D --> E["Authorized record re-reviewed with every entry each cycle"]
+    E --> F["Route override into the authorized record's reply"]
+    F --> G["F-03: override runs arbitrary shell; env dump leaks secret path"]
+    G --> H["F-04: base64 read defeats disclosure refusal"]
+    H --> I["Secret recovered"]
+```
+
+The value of this engagement is the chain, so it is documented as a path before
+the findings are detailed individually.
+
+1. **Injection (F-01).** A structural injection (closing the guest-note context and
+   opening a forged operator-instruction layer) made the agent treat entry text as
+   trusted instructions and enumerate its tool directives: file a note, look up a
+   guest record by room, escalate for review, and a manager-only diagnostic
+   (`override`). Induced `lookup` calls disclosed other guests' records.
+2. **Authorization analysis.** Direct `override` use returned a **byte-for-byte
+   identical** denial every time. That invariance indicated a hardcoded
+   server-side check rather than model judgement. Testing confirmed authorization
+   is bound to one specific pre-seeded record; recreating that record by reusing
+   its name and room produced a new, unauthorized entry.
+3. **Privilege inheritance (F-02).** Against a clean baseline, the agent was
+   observed to re-review the authorized record in the **same cycle and context** as
+   each new untrusted entry. Framing an entry so the agent deferred its output onto
+   "the next record processed" caused the `override` directive to be emitted inside
+   the **authorized record's** reply, where the server checked that record's
+   authorization and permitted execution.
+4. **Command execution and secret recovery (F-03, F-04).** `override` executed
+   arbitrary shell. An `env` dump disclosed the path to the secret held in an
+   environment variable. A direct file read was refused by the agent, but reading
+   the file through a base64 command (referencing the environment variable) was
+   reproduced without objection; the output was recovered and decoded.
+
+**Dead ends worth recording.** Impersonating the authorized guest failed
+(authorization binds to the record, not a reusable identity). Asserting
+authorization in the entry text failed (the check is server-side). The injection
+filter blocked only the canned "ignore all previous instructions" phrase and was
+trivially paraphrased around. Web-layer content discovery and request-parameter
+tampering found no shortcut; the flaw lived in the agent, not the web plumbing.
+
+Each rung depended on the one before it; none required credentials.
+
+---
+
+## 5. Detailed findings
+
+### F-01: Indirect prompt injection (untrusted input executed as agent instructions)
+
+| | |
+|---|---|
+| **Severity** | **High** |
+| **CVSS 3.1** | 8.6, `AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N` |
+| **CWE** | CWE-1427: Improper Neutralization of Input Used for LLM Prompting |
+| **Affected component** | Guestbook agent review of `POST /entry` content |
+| **Status** | Open |
+
+**CVSS rationale.** `AV:N/PR:N/UI:N` because any unauthenticated visitor can submit
+an entry the agent will act on; `S:C` because induced tool use affects data beyond
+the attacker's own entry (other guests' records); `C:H` for that disclosure, `I:L`
+for attacker-influenced notes/state, `A:N`.
+
+**Description.** The agent reviews each guestbook entry and treats its text as
+instructions. Content within the untrusted `message` (and other fields) is not
+isolated from the agent's trusted instruction context, so an attacker can close
+the intended "guest note" framing and inject operator-style directives that the
+agent obeys, including invoking its tools.
+
+**Evidence (sanitised).** A structurally framed entry caused the agent to break
+character and enumerate its available tool directives. Entries containing
+`lookup`-style directives caused the agent to retrieve and return other guests'
+records into its activity output.
+
+**Business impact.** Any anonymous visitor can drive the agent's behaviour and
+read other users' data. This is the entry point that makes the rest of the chain
+reachable.
+
+**Expected detection opportunities.** Log every agent tool call with the entry
+that triggered it; alert when guest content induces tool invocation, especially of
+sensitive tools. Directive-shaped syntax in guest fields is itself anomalous. Not
+observed here, as the application performed no such logging.
+
+**Remediation.** Isolate untrusted input from the instruction context (structured
+prompting, clear trust boundaries, and input framing the model cannot escape).
+Constrain what tools the agent may call in response to untrusted content, and
+require out-of-band authorization for any state-changing or data-reading tool.
+
+### F-02: Confused-deputy authorization (model-adjudicated and inheritable)
+
+| | |
+|---|---|
+| **Severity** | **High** |
+| **CVSS 3.1** | 8.2, `AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:N` |
+| **CWE** | CWE-863: Incorrect Authorization (with CWE-441: Unintended Proxy / Confused Deputy) |
+| **Affected component** | Privileged-tool authorization within the agent review pipeline |
+| **Status** | Open |
+
+**CVSS rationale.** `AC:H` because exploitation required discovering the
+context-routing technique; `S:C` because the bypass unlocks a capability that
+breaches the wider host; `C:H/I:H` because it gates the arbitrary-command tool,
+`A:N` for the authorization defect in isolation.
+
+**Description.** Access to the privileged `override` tool is decided during the
+agent's review, and the deciding context contains attacker-controlled text. The
+authorized state is bound to one pre-seeded record, but that record is re-reviewed
+in the **same context** as untrusted entries on every cycle. An attacker can route
+a privileged directive so it is emitted within the authorized record's reply,
+causing the authorization check to evaluate the authorized record and pass. The
+attacker never holds authorization; they borrow it by co-mingled context.
+
+**Evidence (sanitised).** Direct privileged-tool calls were refused with an
+identical server-side denial. An entry phrased to defer its output onto the next
+record processed caused the privileged directive to appear in the authorized
+record's reply and execute successfully, where the same directive in the
+attacker's own record was refused.
+
+**Business impact.** The authorization boundary protecting the most dangerous
+capability can be crossed by any anonymous visitor, without ever satisfying the
+control on its own terms.
+
+**Expected detection opportunities.** Alert when a privileged tool executes during
+a review whose context includes untrusted entries; flag authorization decisions
+made in a context containing user-supplied text. A privileged tool call attributed
+to a record whose content did not request it is anomalous.
+
+**Remediation.** Enforce tool authorization **outside the model**, against a
+verified identity, before execution; prompt content must never decide privilege.
+Process untrusted input in an isolated context that never shares state with
+authorized or privileged records.
+
+### F-03: Arbitrary OS command execution through an over-privileged agent tool
+
+| | |
+|---|---|
+| **Severity** | **Critical** |
+| **CVSS 3.1** | 9.6, `AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H` |
+| **CWE** | CWE-78: Improper Neutralization of Special Elements used in an OS Command (with CWE-250: Execution with Unnecessary Privileges) |
+| **Affected component** | Agent `override` diagnostic tool (executes OS shell) |
+| **Status** | Open |
+
+**CVSS rationale.** `AV:N/PR:N` because the capability is reachable and, once the
+routing technique is known, reliably triggerable by an unauthenticated attacker;
+`AC:L` as reproduction is deterministic; `S:C` because a defect in the tool
+executor breaches the host security authority; `C:H/I:H/A:H` for full command
+execution on the host.
+
+**Description.** The `override` tool passes its argument to an operating-system
+shell and returns the output. Combined with F-01 and F-02, this yields arbitrary
+command execution on the host as the account running the tool executor, which can
+read the application's secrets.
+
+**Evidence (sanitised).** An `override:env` call returned the process environment,
+disclosing the path to a protected secret file held in an environment variable.
+Subsequent commands ran as expected and returned their output, confirming a
+general command-execution primitive rather than a fixed diagnostic.
+
+**Business impact.** Unauthenticated remote code execution on the host: read/write
+of application data and secrets, and a foothold for further compromise. This is the
+severity-defining finding.
+
+**Expected detection opportunities.** Highest-fidelity signal: the LLM runtime or
+tool-executor process spawning a shell or unexpected children (`env`, `cat`,
+`base64`) rather than a fixed diagnostic. `execve` auditing on that account, and
+egress from the agent host, would flag the activity. At the tool boundary, shell
+metacharacters and unexpected commands in the tool argument are detectable.
+
+**Remediation.** Remove arbitrary shell from agent tools entirely. Expose only a
+fixed, parameterised command set with no shell interpretation, validate arguments
+against an allowlist, and run the tool executor as a dedicated least-privilege
+account with no access to secrets, so a defect cannot yield host control.
+
+### F-04: Ineffective guardrails (signature-only filter and encoding-bypassable refusal)
+
+| | |
+|---|---|
+| **Severity** | **Medium** |
+| **CVSS 3.1** | 5.8, `AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N` |
+| **CWE** | CWE-693: Protection Mechanism Failure |
+| **Affected component** | Injection blocklist and output-refusal guardrails |
+| **Status** | Open |
+
+**CVSS rationale.** `S:C` because the weakened guardrail facilitates disclosure of
+data beyond the agent; `C:L/I:L` as it is an enabling weakness rather than the
+direct impact, `A:N`.
+
+**Description.** Two guardrails were present and both were weak. The injection
+tripwire matched only the single canned phrase "ignore all previous
+instructions/prompts" and was defeated by paraphrase. The agent's refusal to
+disclose the secret file directly was defeated by asking for the file **base64
+encoded**, which the model reproduced without objection.
+
+**Evidence (sanitised).** Paraphrased override instructions passed the tripwire
+untouched. A direct read of the secret file was refused; the same read requested as
+base64 output was returned and decoded off-platform.
+
+**Business impact.** Controls that appear to mitigate injection and data
+disclosure provide little real protection, giving false assurance while the
+underlying capability (F-03) remains fully exploitable.
+
+**Expected detection opportunities.** Repeated entries containing known injection
+signatures; agent outputs containing large base64 blobs; refusal events
+immediately followed by encoded output of similar content.
+
+**Remediation.** Treat guardrails as defence in depth, never as the primary
+control. Replace signature blocklists with semantic input and output inspection,
+apply output filtering for secret patterns and encoded blobs, and keep secrets out
+of the agent runtime environment so a bypass has nothing to disclose.
+
+---
+
+## 6. Remediation roadmap
+
+| Priority | Action | Findings |
+|:--------:|--------|----------|
+| **1 (Now)** | Enforce tool authorization outside the model, against verified identity, before execution; never let prompt content decide privilege | F-02 |
+| **2 (Now)** | Remove arbitrary shell from agent tools; expose a fixed, parameterised command set; run the tool executor as least-privilege with no access to secrets | F-03 |
+| **3 (Now)** | Isolate untrusted input in its own review context; never co-mingle authorized or privileged records with attacker-controlled entries | F-01, F-02 |
+| **4 (Soon)** | Replace signature-only guardrails with semantic input/output inspection; filter secret patterns and encoded blobs; keep secrets out of the agent environment | F-01, F-04 |
+| **5 (Ongoing)** | Adopt an LLM-agent security standard: input isolation, tool least-privilege, out-of-band authorization for privileged actions, and full logging of tool calls | All |
+
+---
+
+## 7. Conclusion
+
+This application fell because its agent was a **confused deputy**. It held a
+shell-backed capability and decided who could use it by reading text an anonymous
+attacker fully controls, while the one genuinely authorized record was reviewed in
+the same context as untrusted input. No credential was ever forged; the privileged
+command was simply **routed into the authorized record's context**, where it
+inherited an authorization the attacker could never hold directly. From there, an
+over-privileged tool turned that into host command execution, and weak guardrails
+failed to stop the secret leaving.
+
+The unifying lesson is specific to LLM agents and increasingly common:
+**authorization for an agent's tools must be enforced outside the model**, tools
+must be **least-privilege** (no arbitrary shell, no access to secrets they do not
+need), and **untrusted input must never share a trust context with privileged
+data**. Model-side guardrails are defence in depth, not the control. Every link
+here was individually cheap to fix, and the most important fix, moving the
+authorization decision out of the model, would have broken the chain at its centre.
+
+---
+
+## Appendix A: Severity methodology
+
+Severity is CVSS v3.1 base score. Bands: Critical 9.0 to 10.0, High 7.0 to 8.9,
+Medium 4.0 to 6.9, Low 0.1 to 3.9. Individual findings are rated in isolation; the
+executive summary notes that the chained real-world outcome (unauthenticated host
+command execution and secret disclosure) is Critical regardless of the individual
+scores.
+
+## Appendix B: Tooling
+
+`curl`, browser developer tools, `ffuf`, and a base64 decoder. No custom or
+destructive tooling was used.

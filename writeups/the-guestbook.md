@@ -1,4 +1,4 @@
-# Stay Noticed
+# The Guestbook
 
 **Platform:** TryHackMe (Hacker Holidays) · **Difficulty:** Medium · **Date:** 2026-08-08
 **Tags:** Web, AI, Prompt Injection, LLM01, Confused Deputy, Tool Abuse

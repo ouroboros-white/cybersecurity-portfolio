@@ -48,6 +48,8 @@ qualification.
   service principal.
 - [Business-Logic and API Abuse](reports/business-logic-assessment-2026-08.md): a
   reward economy defeated by a race condition.
+- [LLM Agent Prompt Injection](reports/llm-agent-prompt-injection-2026-08.md): an AI
+  concierge's confused-deputy authorization routed into host command execution.
 
 **Next:** taking Windows and Active Directory to the same depth as the Linux and
 cloud work above, and adding each one to this repository as it is done.
@@ -153,6 +155,9 @@ compromised and clearly labelled as lab-based:
 - [Azure Cloud Attack Chain](reports/cloud-attack-chain-azure-2026-08.md): a
   low-privilege Azure user to a Key Vault secret, via a leaked SAS token and a
   stolen service principal.
+- [LLM Agent Prompt Injection](reports/llm-agent-prompt-injection-2026-08.md): an
+  AI concierge agent whose model-adjudicated tool authorization was bypassed by
+  routing a command through an authorized record, reaching host code execution.
 
 ## Projects
 
