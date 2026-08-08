@@ -127,20 +127,20 @@ history, and the municipal entry corroborated the coordinates independently.
 
 ```mermaid
 flowchart TD
-    A["SVG left<br/>at scene"] --> B["Editor metadata:<br/>/home path"]
+    A["SVG left at scene"] --> B["Editor metadata"]
     B --> C["OS username"]
-    C --> D["Code-hosting<br/>profile"]
-    D --> E["Unpinned repos:<br/>deleted commit"]
-    D --> F["PGP key:<br/>self-asserted<br/>name + email"]
-    E --> G["Mining config:<br/>wallet + pool"]
-    G --> H["Block explorer:<br/>payouts,<br/>exchange cash-out"]
-    F --> I["Secondary<br/>social persona"]
-    I --> J["Travel photos:<br/>route home"]
-    I --> K["Saved network list:<br/>SSID history"]
-    K --> L["Wardriving DB:<br/>BSSID +<br/>coordinates"]
+    C --> D["Code-hosting profile"]
+    D --> E["Deleted commit"]
+    D --> F["PGP key UID"]
+    E --> G["Mining config"]
+    G --> H["Block explorer"]
+    F --> I["Secondary persona"]
+    I --> J["Travel photos"]
+    I --> K["Saved SSID list"]
+    K --> L["Wardriving lookup"]
     J --> M["Home city"]
     L --> M
-    M --> N["Referral to suspect's<br/>national jurisdiction"]
+    M --> N["National referral"]
 ```
 
 ## Finding & fix
