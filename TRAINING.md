@@ -7,23 +7,23 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-07 06:00 UTC
+**Last synced:** 2026-08-08 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>82</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>83</td>
 <td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>11</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>6</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>63</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>64</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>13</td>
 </tr>
 </table>
 
 </div>
 
-## Challenges (16)
+## Challenges (17)
 
 _Solved without a guided walkthrough. Hardest first._
 
@@ -46,7 +46,7 @@ _Solved without a guided walkthrough. Hardest first._
 
 </div>
 
-### 🟢 Easy (11)
+### 🟢 Easy (12)
 
 <div align="center">
 
@@ -63,13 +63,13 @@ _Solved without a guided walkthrough. Hardest first._
 </tr>
 <tr>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-room404-804573bf">Room 404</a></td>
+<td align="left" width="300"><a href="https://tryhackme.com/room/sakura">Sakura Room</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-thebrochure-081f3e36">The Brochure</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/hh-theconciergeknows-2d7eb4d9">The Concierge Knows Too Much</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/hh-theconciergeknows-2d7eb4d9">The Concierge Knows Too Much</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/toolsrus">ToolsRus</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/vulnerabilitycapstone">Vulnerability Capstone</a></td>
-<td width="300"></td>
 </tr>
 </table>
 

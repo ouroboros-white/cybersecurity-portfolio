@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-07 06:00 UTC",
-  "rooms_completed": 82,
+  "last_synced_utc": "2026-08-08 06:00 UTC",
+  "rooms_completed": 83,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -42,6 +42,16 @@
       "difficulty": "easy",
       "freeToUse": false,
       "type": "walkthrough"
+    },
+    {
+      "_id": "600522e21c56c918a3e28518",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/9a365314266266592078724ce18b248b.png",
+      "description": "Use a variety of OSINT techniques to solve this room created by the OSINT Dojo. ",
+      "title": "Sakura Room",
+      "code": "sakura",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge"
     },
     {
       "_id": "605345a60988e711c0065e07",
