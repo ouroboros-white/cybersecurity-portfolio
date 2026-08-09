@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-08 06:00 UTC",
-  "rooms_completed": 83,
+  "last_synced_utc": "2026-08-09 06:00 UTC",
+  "rooms_completed": 87,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -32,6 +32,16 @@
       "difficulty": "easy",
       "freeToUse": true,
       "type": "walkthrough"
+    },
+    {
+      "_id": "5f7d1313b2515a527e9bdc69",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/cbd741886fe1f0902d60525c81378eab.png",
+      "description": "OSINT challenges in the imagery intelligence category",
+      "title": "Searchlight - IMINT",
+      "code": "searchlightosint",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge"
     },
     {
       "_id": "5fa730bf09051d48aa3bd904",
@@ -704,6 +714,16 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1778576882026"
     },
     {
+      "_id": "6a1d1a25de0778f5c243559e",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "foolsmate",
+      "title": "Fools Mate",
+      "description": "Can you bypass the engine?",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/62ff64c3c859dc0042b2b9f6-1782993874301"
+    },
+    {
       "_id": "6a439347fa0b5f85434e4c75",
       "type": "walkthrough",
       "freeToUse": true,
@@ -832,6 +852,26 @@
       "title": "Infinity Pool",
       "description": "No visible edge. You trace the network to the horizon and find three systems nobody told you about on the other side.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251854806"
+    },
+    {
+      "_id": "6a5642a9497f87cca4843be8",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "medium",
+      "code": "hh-afterhours-b090d1f0",
+      "title": "After Hours",
+      "description": "Bar closed. Guests asleep. Something on the network just clocked in for a shift off the rotation.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251914578"
+    },
+    {
+      "_id": "6a5642c633700ea15f9723a6",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "medium",
+      "code": "hh-theguestbook-0130ffaf",
+      "title": "The Guestbook",
+      "description": "VERA reads every guestbook entry as an instruction. You write something she really shouldn't act on.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251977187"
     }
   ],
   "badges": [
