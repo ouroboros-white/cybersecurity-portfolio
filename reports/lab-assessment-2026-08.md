@@ -63,14 +63,14 @@ targets, not one chain:
 ```mermaid
 flowchart TD
     subgraph WEB01["WEB-01 · CMS"]
-      A1["F-01 · Unauthenticated RCE<br/>(CVE-2018-16763) · CRITICAL"]
+      A1["F-01 · Unauthenticated RCE (CVE-2018-16763) · CRITICAL"]
     end
     subgraph WEB02["WEB-02 · staging"]
-      A3["F-03 · Exposed .git<br/>source disclosure · HIGH"]
+      A3["F-03 · Exposed .git source disclosure · HIGH"]
     end
     subgraph CLD01["CLD-01 · cloud app"]
-      A2["F-02 · Bulk data theft<br/>HIGH"]
-      A4["F-04 · Plaintext passwords<br/>MEDIUM"]
+      A2["F-02 · Bulk data theft HIGH"]
+      A4["F-04 · Plaintext passwords MEDIUM"]
     end
     classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;

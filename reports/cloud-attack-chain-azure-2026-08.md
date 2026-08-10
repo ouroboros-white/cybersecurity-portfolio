@@ -49,10 +49,10 @@ disclosure of the protected secret.
 
 ```mermaid
 flowchart TD
-    S["Low-privilege<br/>Azure user"] --> F1["F-01<br/>Hardcoded SAS<br/>in client JS · HIGH"]
-    F1 --> F2["F-02<br/>SP credentials in<br/>readable storage · HIGH"]
-    F2 --> F3["F-03<br/>Secret value live in<br/>version history · MEDIUM"]
-    F3 --> R["Protected Key Vault<br/>secret disclosed"]
+    S["Low-privilege Azure user"] --> F1["F-01 Hardcoded SAS in client JS · HIGH"]
+    F1 --> F2["F-02 SP credentials in readable storage · HIGH"]
+    F2 --> F3["F-03 Secret value live in version history · MEDIUM"]
+    F3 --> R["Protected Key Vault secret disclosed"]
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
     classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
     classDef term fill:#1f2937,stroke:#111827,color:#ffffff;

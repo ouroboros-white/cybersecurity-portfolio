@@ -61,11 +61,11 @@ tried to keep secret, from a laptop left in the wrong hands.
 
 ```mermaid
 flowchart TD
-    S["Attacker holds<br/>recovered laptop"] --> F1["F-01<br/>No disk encryption<br/>MEDIUM"]
-    F1 --> F2["F-02<br/>Autologon password<br/>on disk · MEDIUM"]
-    F2 --> F3["F-03<br/>Browser-saved<br/>credential · MEDIUM"]
-    F3 --> F4["F-04<br/>Container key kept<br/>on device · MEDIUM"]
-    F4 --> R["Encrypted vault<br/>fully disclosed"]
+    S["Attacker holds recovered laptop"] --> F1["F-01 No disk encryption MEDIUM"]
+    F1 --> F2["F-02 Autologon password on disk · MEDIUM"]
+    F2 --> F3["F-03 Browser-saved credential · MEDIUM"]
+    F3 --> F4["F-04 Container key kept on device · MEDIUM"]
+    F4 --> R["Encrypted vault fully disclosed"]
     classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
     classDef term fill:#1f2937,stroke:#111827,color:#ffffff;
     class F1,F2,F3,F4 med;

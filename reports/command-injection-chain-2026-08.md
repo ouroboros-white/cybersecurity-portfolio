@@ -54,11 +54,11 @@ severity is Critical**: the chain results in complete compromise of the host.
 
 ```mermaid
 flowchart TD
-    S["Unauthenticated<br/>attacker"] --> F1["F-01<br/>Edge command injection<br/>CRITICAL"]
-    F1 --> F2["F-02<br/>Unauthenticated<br/>internal console<br/>HIGH"]
-    F2 --> F3["F-03<br/>Default credentials<br/>Bearer token exposure<br/>HIGH"]
-    F3 --> F4["F-04<br/>Root automation worker<br/>command injection<br/>CRITICAL"]
-    F4 --> R["Full root<br/>compromise"]
+    S["Unauthenticated attacker"] --> F1["F-01 Edge command injection CRITICAL"]
+    F1 --> F2["F-02 Unauthenticated internal console HIGH"]
+    F2 --> F3["F-03 Default credentials Bearer token exposure HIGH"]
+    F3 --> F4["F-04 Root automation worker command injection CRITICAL"]
+    F4 --> R["Full root compromise"]
     classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
     classDef term fill:#1f2937,stroke:#111827,color:#ffffff;

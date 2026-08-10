@@ -50,11 +50,11 @@ everything on it.
 
 ```mermaid
 flowchart TD
-    S["Unauthenticated<br/>attacker"] --> F1["F-01<br/>NoSQL auth bypass<br/>HIGH"]
-    F1 --> F2["F-02<br/>SSTI → RCE<br/>CRITICAL"]
-    F2 --> F3["F-03<br/>Exposed debug<br/>inspector · HIGH"]
-    F3 --> F4["F-04<br/>disk group =<br/>root access · HIGH"]
-    F4 --> R["Full root<br/>compromise"]
+    S["Unauthenticated attacker"] --> F1["F-01 NoSQL auth bypass HIGH"]
+    F1 --> F2["F-02 SSTI → RCE CRITICAL"]
+    F2 --> F3["F-03 Exposed debug inspector · HIGH"]
+    F3 --> F4["F-04 disk group = root access · HIGH"]
+    F4 --> R["Full root compromise"]
     classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
     classDef term fill:#1f2937,stroke:#111827,color:#ffffff;

@@ -50,9 +50,9 @@ missing throttle (F-02) enables the race (F-01), which defeats the reward rule.
 
 ```mermaid
 flowchart TD
-    S["Authenticated<br/>guest user"] --> F2["F-02<br/>No rate limiting<br/>MEDIUM"]
-    F2 --> F1["F-01<br/>TOCTOU race in<br/>reward claim · HIGH"]
-    F1 --> R["Reward rule defeated;<br/>Whale Vault unlocked"]
+    S["Authenticated guest user"] --> F2["F-02 No rate limiting MEDIUM"]
+    F2 --> F1["F-01 TOCTOU race in reward claim · HIGH"]
+    F1 --> R["Reward rule defeated; Whale Vault unlocked"]
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
     classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
     classDef term fill:#1f2937,stroke:#111827,color:#ffffff;
