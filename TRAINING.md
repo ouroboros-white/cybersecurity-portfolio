@@ -7,16 +7,16 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-09 06:00 UTC
+**Last synced:** 2026-08-10 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>87</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>88</td>
 <td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>11</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>8</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>66</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>67</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>13</td>
 </tr>
 </table>
@@ -85,7 +85,7 @@ _Solved without a guided walkthrough. Hardest first._
 
 </div>
 
-## Guided Rooms (66)
+## Guided Rooms (67)
 
 _Walkthrough rooms. Hardest first; related rooms grouped._
 
@@ -103,7 +103,7 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 
 </div>
 
-### 🟢 Easy (52)
+### 🟢 Easy (53)
 
 <div align="center">
 
@@ -179,23 +179,23 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 <td align="left" width="300"><a href="https://tryhackme.com/room/searchskillscS">Search Skills</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/shellsoverview">Shells Overview</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/sqlfundamentals">SQL Fundamentals</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/tcpdump">Tcpdump: The Basics</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/theciatriad">The CIA Triad</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/theciatriad">The CIA Triad</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/virtualisationbasics">Virtualisation Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/webapplicationbasics">Web Application Basics</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/windowsbasics">Windows Basics</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/windowsbasics">Windows Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/windowsclibasics">Windows CLI Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/windowscommandline">Windows Command Line</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/windowspowershell">Windows PowerShell</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/windowspowershell">Windows PowerShell</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/wiresharkthebasics">Wireshark: The Basics</a></td>
-<td width="300"></td>
 <td width="300"></td>
 </tr>
 </table>

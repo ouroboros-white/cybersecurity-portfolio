@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-09 06:00 UTC",
-  "rooms_completed": 87,
+  "last_synced_utc": "2026-08-10 06:00 UTC",
+  "rooms_completed": 88,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -480,6 +480,16 @@
       "title": "SQL Fundamentals",
       "description": "Learn how to perform basic SQL queries to retrieve and manage data in a database.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/sqlfundamentals-1785241453087.png",
+      "freeToUse": false,
+      "difficulty": "easy"
+    },
+    {
+      "_id": "670918dc09bf783bafff346a",
+      "type": "walkthrough",
+      "code": "shellsoverview",
+      "title": "Shells Overview",
+      "description": "Learn about the different types of shells.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/shellsoverview-1785241452680.png",
       "freeToUse": false,
       "difficulty": "easy"
     },
