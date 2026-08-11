@@ -50,8 +50,8 @@ everything on it.
 
 ```mermaid
 flowchart TD
-    S["Unauthenticated attacker"] --> F1["F-01 NoSQL auth bypass HIGH"]
-    F1 --> F2["F-02 SSTI → RCE CRITICAL"]
+    S["Unauthenticated attacker"] --> F1["F-01 NoSQL auth bypass · HIGH"]
+    F1 --> F2["F-02 SSTI → RCE · CRITICAL"]
     F2 --> F3["F-03 Exposed debug inspector · HIGH"]
     F3 --> F4["F-04 disk group = root access · HIGH"]
     F4 --> R["Full root compromise"]
@@ -327,9 +327,17 @@ every link here was individually cheap to fix.
 ## Appendix A: Severity methodology
 
 Severity is CVSS v3.1 base score. Bands: Critical 9.0 to 10.0, High 7.0 to 8.9,
-Medium 4.0 to 6.9, Low 0.1 to 3.9. Individual findings are rated in isolation; the
-executive summary notes that the chained real-world outcome (full root compromise)
-is Critical regardless of the individual scores.
+Medium 4.0 to 6.9, Low 0.1 to 3.9.
+
+This finding set illustrates a limitation worth stating, because the highest score
+in the table is not the most useful number in it. F-02 already rates Critical
+(9.8) on its own, so the chain cannot raise the headline severity; what the chain
+changes is the two findings after it. F-03 and F-04 are scored `AV:L`, which
+prices them as though an attacker must first obtain local access. On this host
+they do not: F-02 supplies it unauthenticated and in one step. Read in isolation
+those two look like post-compromise hardening items, and read in sequence they are
+the reason a web flaw becomes root. Where the base score and the attack path
+disagree in that way, the remediation roadmap follows the path.
 
 ## Appendix B: Tooling
 

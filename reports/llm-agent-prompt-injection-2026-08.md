@@ -66,10 +66,10 @@ host and disclosure of its secret.
 
 ```mermaid
 flowchart TD
-    S["Unauthenticated attacker"] --> F1["F-01 Prompt injection HIGH"]
-    F1 --> F2["F-02 Confused-deputy authz HIGH"]
-    F2 --> F3["F-03 Arbitrary OS command exec CRITICAL"]
-    F3 --> F4["F-04 Guardrail bypass MEDIUM"]
+    S["Unauthenticated attacker"] --> F1["F-01 Prompt injection · HIGH"]
+    F1 --> F2["F-02 Confused-deputy authz · HIGH"]
+    F2 --> F3["F-03 Arbitrary OS command exec · CRITICAL"]
+    F3 --> F4["F-04 Guardrail bypass · MEDIUM"]
     F4 --> R["Host RCE and secret disclosure"]
     classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
@@ -281,11 +281,17 @@ authorized or privileged records.
 | **Affected component** | Agent `override` diagnostic tool (executes OS shell) |
 | **Status** | Open |
 
-**CVSS rationale.** `AV:N/PR:N` because the capability is reachable and, once the
-routing technique is known, reliably triggerable by an unauthenticated attacker;
-`AC:L` as reproduction is deterministic; `S:C` because a defect in the tool
-executor breaches the host security authority; `C:H/I:H/A:H` for full command
-execution on the host.
+**CVSS rationale.** `AV:N/PR:N` because the capability is reachable by an
+unauthenticated attacker; `AC:L` as reproduction is deterministic once the tool is
+reached; `S:C` because a defect in the tool executor breaches the host security
+authority; `C:H/I:H/A:H` for full command execution on the host. Note the
+deliberate divergence from F-02, which is scored `AC:H`: the difficulty of the
+engagement lies entirely in discovering the context-routing technique, and that
+cost is priced once, in the authorization bypass that depends on it. This finding
+scores the tool itself, which is trivially exploitable by anyone who reaches it,
+including through any future bypass unrelated to F-02. Scoring both at `AC:H`
+would imply the tool is safe if the current routing trick is fixed, which it is
+not.
 
 **Description.** The `override` tool passes its argument to an operating-system
 shell and returns the output. Combined with F-01 and F-02, this yields arbitrary
@@ -387,10 +393,17 @@ authorization decision out of the model, would have broken the chain at its cent
 ## Appendix A: Severity methodology
 
 Severity is CVSS v3.1 base score. Bands: Critical 9.0 to 10.0, High 7.0 to 8.9,
-Medium 4.0 to 6.9, Low 0.1 to 3.9. Individual findings are rated in isolation; the
-executive summary notes that the chained real-world outcome (unauthenticated host
-command execution and secret disclosure) is Critical regardless of the individual
-scores.
+Medium 4.0 to 6.9, Low 0.1 to 3.9.
+
+Scoring an agent pipeline forces a choice about where attack complexity is
+charged, because the findings are not independent: F-01 supplies the injection,
+F-02 borrows authorization, and F-03 is the capability that makes either worth
+having. The discovery cost of the context-routing technique is charged once, to
+F-02 (`AC:H`), and not again to F-03 (`AC:L`), which is rated as the standing
+capability it is rather than as the chain that currently reaches it. Each finding
+is otherwise rated in isolation; the executive summary states the chained outcome,
+unauthenticated host command execution and secret disclosure, as Critical
+independently of any individual score.
 
 ## Appendix B: Tooling
 

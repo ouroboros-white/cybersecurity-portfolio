@@ -278,9 +278,18 @@ revoked at the source, not merely superseded.**
 ## Appendix A: Severity methodology
 
 Severity is CVSS v3.1 base score. Bands: Critical 9.0 to 10.0, High 7.0 to 8.9,
-Medium 4.0 to 6.9, Low 0.1 to 3.9. Individual findings are rated in isolation; the
-executive summary notes that the chained outcome (full disclosure of the protected
-secret) is the real-world impact.
+Medium 4.0 to 6.9, Low 0.1 to 3.9.
+
+The ordering in this table is worth reading carefully, because the lowest-rated
+finding is the one that actually discloses the target. F-03 rates Medium (6.5)
+since it requires the Key Vault read permission that F-02 supplies, yet it is the
+step at which the protected secret leaves the vault. F-02 carries `S:C` because
+the credential it exposes is not used against the storage account holding it but
+against a separate resource under a different security authority, which is what a
+scope change is meant to capture. Findings are rated in isolation; the executive
+summary treats full disclosure of the protected secret as the real-world impact,
+and the remediation roadmap is ordered by position in the chain rather than by
+score.
 
 ## Appendix B: Tooling
 

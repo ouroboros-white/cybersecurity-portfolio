@@ -54,10 +54,10 @@ severity is Critical**: the chain results in complete compromise of the host.
 
 ```mermaid
 flowchart TD
-    S["Unauthenticated attacker"] --> F1["F-01 Edge command injection CRITICAL"]
-    F1 --> F2["F-02 Unauthenticated internal console HIGH"]
-    F2 --> F3["F-03 Default credentials Bearer token exposure HIGH"]
-    F3 --> F4["F-04 Root automation worker command injection CRITICAL"]
+    S["Unauthenticated attacker"] --> F1["F-01 Edge command injection · CRITICAL"]
+    F1 --> F2["F-02 Unauthenticated internal console · HIGH"]
+    F2 --> F3["F-03 Default credentials and Bearer token exposure · HIGH"]
+    F3 --> F4["F-04 Root automation worker command injection · CRITICAL"]
     F4 --> R["Full root compromise"]
     classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
@@ -350,9 +350,17 @@ the next level. Every link here was individually cheap to fix.
 ## Appendix A: Severity methodology
 
 Severity is CVSS v3.1 base score. Bands: Critical 9.0 to 10.0, High 7.0 to 8.9,
-Medium 4.0 to 6.9, Low 0.1 to 3.9. Individual findings are rated in isolation; the
-executive summary notes that the chained real-world outcome (full root compromise)
-is Critical regardless of the individual scores.
+Medium 4.0 to 6.9, Low 0.1 to 3.9.
+
+F-01 and F-04 are the same class of defect, unsanitised input reaching an OS
+shell, and they are scored differently on purpose. F-01 rates 9.8 because it is
+reachable by anyone on the network with no credential; F-04 rates 9.1 because it
+requires a foothold first (`AV:L/PR:L`) but executes as root. The lower score is
+the more dangerous flaw in engineering terms, and a reader who ranks remediation
+by score alone would fix them in the wrong order. Both are the same missing
+control and should be fixed together. Individual findings are otherwise rated in
+isolation; the executive summary states the chained outcome, full root compromise,
+as Critical independently of the individual scores.
 
 ## Appendix B: Tooling
 

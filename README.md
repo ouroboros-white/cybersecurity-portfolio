@@ -1,18 +1,21 @@
 # ouroboroswhite: Cybersecurity Portfolio
 
-Offensive security lab work, documented to a professional standard: web, cloud,
-and Linux systems broken in controlled environments and written up as full
-assessment reports with findings, impact, detection, and remediation.
+Security lab work documented to a professional standard: web applications, cloud
+identity, Linux hosts, LLM agents, and recovered devices, broken or examined in
+controlled environments and written up as full assessment reports with findings,
+impact, detection, and remediation.
 
 <!-- Edit everything in this file freely - only the block below,
      between THM:START and THM:END, gets overwritten automatically. -->
 
 ## About Me
 
-I break web applications, cloud identity, and Linux hosts in lab environments, and
-write the results up as client-style assessment reports. I am working toward a
-junior penetration testing role, and from there toward independent
-**offensive-security** consulting.
+I break web applications, cloud identity, Linux hosts, and LLM agents in lab
+environments, and write the results up as client-style assessment reports. The
+same method applies when the work runs the other way: one of the reports below is
+a forensic recovery from a lost device rather than an attack on a live target. I
+am working toward a junior penetration testing role, and from there toward
+independent **offensive-security** consulting.
 
 I learn by building and breaking real systems and writing up the reasoning, not
 just the result. I bring a competitive-performance mindset to it: disciplined
@@ -35,21 +38,13 @@ qualification.
   attacks (SAS tokens, service principals, Key Vault)
 - **Linux:** exploitation, privilege escalation, post-exploitation, credential
   reuse and lateral movement
-- **Tooling:** Burp Suite, Metasploit, nmap, the AWS and Azure CLIs, Python
+- **AI/LLM:** prompt injection, agent tool abuse, model-adjudicated authorization
+  flaws, guardrail bypass, mapped to the OWASP Top 10 for LLM Applications
+- **Forensics and IR:** offline data-at-rest recovery, Windows registry and LSA
+  secrets, DPAPI-protected credential stores, evidential handling of a disk image
+- **Tooling:** Burp Suite, Metasploit, nmap, impacket, the AWS and Azure CLIs, Python
 - **Reporting:** professional assessment reports with CVSS scoring, CWE mapping,
   business impact, detection analysis, and remediation
-
-**Featured assessments**
-
-- [Single-Host Full Compromise](reports/host-compromise-2026-08.md): a web
-  application taken to root through a chained attack path.
-- [Azure Cloud Attack Chain](reports/cloud-attack-chain-azure-2026-08.md): a
-  low-privilege user to a Key Vault secret via a leaked SAS token and a stolen
-  service principal.
-- [Business-Logic and API Abuse](reports/business-logic-assessment-2026-08.md): a
-  reward economy defeated by a race condition.
-- [LLM Agent Prompt Injection](reports/llm-agent-prompt-injection-2026-08.md): an AI
-  concierge's confused-deputy authorization routed into host command execution.
 
 **Next:** taking Windows and Active Directory to the same depth as the Linux and
 cloud work above, and adding each one to this repository as it is done.
@@ -141,23 +136,42 @@ the security lesson rather than the step-by-step commands. See
 
 Full-format security assessment reports written to professional structure
 (executive summary, scope, methodology, CVSS-rated findings with purple-team
-detection analysis, and a remediation roadmap), built from lab targets I
-compromised and clearly labelled as lab-based:
+detection analysis, and a remediation roadmap), built from lab targets and
+clearly labelled as lab-based.
 
-- [Web & Cloud Assessment](reports/lab-assessment-2026-08.md): three lab targets,
-  isolated findings across web and cloud.
+**Start with these three.** They are the three I would put in front of a reviewer,
+chosen on the strength of the analysis rather than the difficulty of the target:
+
+1. [LLM Agent Prompt Injection](reports/llm-agent-prompt-injection-2026-08.md): an
+   AI concierge agent whose model-adjudicated tool authorization was bypassed by
+   routing a privileged command through an authorized record, so it inherited an
+   authorization the attacker never held, reaching host command execution. The
+   confused-deputy analysis in F-02 is the sharpest reasoning in this repository.
+2. [Web & Cloud Assessment](reports/lab-assessment-2026-08.md): three targets,
+   independently assessed. Contains a real CVE with honest notes on adapting an
+   unreliable public exploit, and the detection analysis I am most confident in:
+   why CloudTrail's management-plane default logging records the credential theft
+   but not the data-plane read that actually causes the breach.
+3. [Lost-Device Data-at-Rest Recovery](reports/device-loss-data-at-rest-2026-08.md):
+   forensic recovery from a recovered laptop. A strongly encrypted container
+   opened without cracking anything, because the key was stored inside the device
+   it protected. Four findings that all score identically, and an appendix
+   explaining why that is the honest result rather than a copied score.
+
+**The rest:**
+
 - [Single-Host Full Compromise](reports/host-compromise-2026-08.md): one host
   taken from anonymous to root through a chained attack path.
 - [Command-Injection Chain to Root](reports/command-injection-chain-2026-08.md): the
   same injection flaw exploited twice: unauthenticated at the edge, then as root.
-- [Business-Logic & API Abuse](reports/business-logic-assessment-2026-08.md): a
-  web application defeated by a race condition in its reward logic.
 - [Azure Cloud Attack Chain](reports/cloud-attack-chain-azure-2026-08.md): a
   low-privilege Azure user to a Key Vault secret, via a leaked SAS token and a
   stolen service principal.
-- [LLM Agent Prompt Injection](reports/llm-agent-prompt-injection-2026-08.md): an
-  AI concierge agent whose model-adjudicated tool authorization was bypassed by
-  routing a command through an authorized record, reaching host code execution.
+- [Business-Logic & API Abuse](reports/business-logic-assessment-2026-08.md): a
+  web application defeated by a race condition in its reward logic.
+
+These reports were written over a concentrated period of full-time study, which
+the commit history reflects.
 
 ## Projects
 

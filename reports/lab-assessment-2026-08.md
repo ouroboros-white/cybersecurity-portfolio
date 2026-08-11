@@ -69,8 +69,8 @@ flowchart TD
       A3["F-03 · Exposed .git source disclosure · HIGH"]
     end
     subgraph CLD01["CLD-01 · cloud app"]
-      A2["F-02 · Bulk data theft HIGH"]
-      A4["F-04 · Plaintext passwords MEDIUM"]
+      A2["F-02 · Bulk data theft · HIGH"]
+      A4["F-04 · Plaintext passwords · MEDIUM"]
     end
     classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;

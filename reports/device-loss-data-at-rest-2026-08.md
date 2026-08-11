@@ -61,7 +61,7 @@ tried to keep secret, from a laptop left in the wrong hands.
 
 ```mermaid
 flowchart TD
-    S["Attacker holds recovered laptop"] --> F1["F-01 No disk encryption MEDIUM"]
+    S["Attacker holds recovered laptop"] --> F1["F-01 No disk encryption · MEDIUM"]
     F1 --> F2["F-02 Autologon password on disk · MEDIUM"]
     F2 --> F3["F-03 Browser-saved credential · MEDIUM"]
     F3 --> F4["F-04 Container key kept on device · MEDIUM"]
@@ -85,7 +85,7 @@ target.
 |------|--------|
 | **In-scope asset** | A single recovered Windows end-user laptop, supplied as a forensic triage image (registry hives, user profile, browser profile, and one encrypted container file). |
 | **Perspective** | Attacker in possession of the device or its disk image. No live network access, no user cooperation, no credentials supplied. |
-| **Objective** | Determine what data recoverable from the device, specifically the contents of the user's encrypted container. |
+| **Objective** | Determine what data is recoverable from the device, specifically the contents of the user's encrypted container. |
 | **Excluded** | Any live system, network, or third party. No destructive action; the container was mounted read-only. |
 | **Authorisation** | Performed within the TryHackMe platform terms, which authorise analysis of the provided target. |
 | **Window** | 2026-08-10. |
@@ -344,11 +344,27 @@ making sure that when it is, every layer still has to be defeated on its own.
 ## Appendix A: Severity methodology
 
 Severity is CVSS v3.1 base score. Bands: Critical 9.0 to 10.0, High 7.0 to 8.9,
-Medium 4.0 to 6.9, Low 0.1 to 3.9. All findings use the Physical attack vector
-(`AV:P`) because each requires possession of the device or its image, which caps the
-individual scores in the Medium band. Findings are rated in isolation; the executive
-summary notes that the chained real-world outcome, full disclosure of the encrypted
-container, carries a High business impact regardless of the individual scores.
+Medium 4.0 to 6.9, Low 0.1 to 3.9.
+
+All four findings carry the identical vector `AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N`
+and therefore the identical score of 4.6. This is stated plainly because it looks
+like a copied score and is not. Every step in this chain is reached the same way,
+by holding the device or its image (`AV:P`), needs nothing but ordinary offline
+tooling once held (`AC:L`), and discloses data without altering the source
+(`I:N/A:N`). The base metrics have no dimension left in which these findings
+differ, and CVSS v3.1 offers no way to express that F-01 is the enabler for the
+other three. Differentiating the scores would mean misusing a metric to encode a
+ranking it does not measure, so the ranking is carried in the remediation roadmap
+instead, where it is actionable.
+
+The physical vector also caps all four in the Medium band. Findings are rated in
+isolation; the executive summary states the chained real-world outcome, full
+disclosure of the encrypted container, as a High business impact independently of
+the individual scores. Readers who need chaining reflected in the score itself
+should note that CVSS v4.0 addresses this case more directly, through Attack
+Requirements and the supplemental metrics; v3.1 is retained here for comparability
+with the other reports in this portfolio and with most client tooling in current
+use.
 
 ## Appendix B: Tooling
 
