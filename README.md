@@ -133,12 +133,13 @@ Short accounts of challenge rooms I solved myself, focused on the reasoning and
 the security lesson rather than the step-by-step commands. See
 [writeups/](writeups/).
 
-## Sample Reports
+## Security Assessment Reports
 
 Full-format security assessment reports written to professional structure
 (executive summary, scope, methodology, CVSS-rated findings with purple-team
-detection analysis, and a remediation roadmap), built from lab targets and
-clearly labelled as lab-based.
+detection analysis, and a remediation roadmap). Each one documents an assessment
+I carried out myself against an authorised lab target, and is labelled as
+lab-based throughout.
 
 **The three I would put in front of a reviewer**, chosen on the strength of the
 analysis rather than the difficulty of the target:

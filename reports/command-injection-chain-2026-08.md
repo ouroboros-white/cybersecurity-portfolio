@@ -5,13 +5,16 @@
 **Assessor:** ouroboros-white
 **Report date:** 2026-08-06
 **Version:** 1.0
-**Classification:** Public, portfolio sample
+**Classification:** Public
 
 ---
 
-> **About this document.** This is a real assessment written to professional
-> structure against a **lab target**, not a live client engagement. No production
-> system or third party was tested. It documents a full web-application-to-root
+> **About this document.** This is a real assessment against a **lab target**,
+> written to professional structure. All reconnaissance, exploitation, and
+> evidence collection described here was carried out by me against that target.
+> Nothing in it is hypothetical, and none of it is reproduced from a walkthrough.
+> It is not a live client engagement, and no production system or third party was
+> tested. It documents a full web-application-to-root
 > compromise of a single host to demonstrate the reporting deliverable: an attack
 > path, CVSS-rated findings, detection analysis, and remediation. Target
 > identifiers and secrets are redacted as they would be in a client report; no

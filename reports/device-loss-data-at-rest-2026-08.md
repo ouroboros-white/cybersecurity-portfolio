@@ -5,13 +5,16 @@
 **Assessor:** ouroboros-white
 **Report date:** 2026-08-10
 **Version:** 1.0
-**Classification:** Public, portfolio sample
+**Classification:** Public
 
 ---
 
-> **About this document.** This is a real assessment written to professional
-> structure against a **lab target**, not a live client engagement. No production
-> system or third party was tested. It models a common commercial scenario, a
+> **About this document.** This is a real assessment against a **lab target**,
+> written to professional structure. All reconnaissance, exploitation, and
+> evidence collection described here was carried out by me against that target.
+> Nothing in it is hypothetical, and none of it is reproduced from a walkthrough.
+> It is not a live client engagement, and no production system or third party was
+> tested. It models a common commercial scenario, a
 > company laptop recovered after being lost or left behind, and asks what an
 > attacker in possession of the disk can read from it. It documents the recovery
 > as a chain of ordinary configuration weaknesses, with CVSS-rated findings,

@@ -5,17 +5,20 @@
 **Assessor:** ouroboros-white
 **Report date:** 2026-08-01
 **Version:** 1.0
-**Classification:** Public (portfolio sample)
+**Classification:** Public
 
 ---
 
-> **About this document.** This is a real assessment report written to
-> professional structure against **lab targets**, not a live client engagement.
-> No production system or third party was tested. It exists to demonstrate the
-> reporting deliverable (scoping, findings, severity rating, evidence, and
-> remediation) using vulnerabilities I identified and exploited in a training
-> environment. Target hostnames and addresses are redacted as they would be in a
-> client report; no flags or answers are reproduced.
+> **About this document.** This is a real assessment against **lab targets**,
+> written to professional structure. All reconnaissance, exploitation, and
+> evidence collection described here was carried out by me against those targets.
+> Nothing in it is hypothetical, and none of it is reproduced from a walkthrough.
+> It is not a live client engagement, and no production system or third party was
+> tested. It exists to demonstrate the reporting deliverable (scoping, findings,
+> severity rating, evidence, and remediation) using vulnerabilities I identified
+> and exploited in a training environment. Target hostnames and addresses are
+> redacted as they would be in a client report; no flags or answers are
+> reproduced.
 
 ---
 

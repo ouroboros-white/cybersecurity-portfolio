@@ -5,13 +5,16 @@
 **Assessor:** ouroboros-white
 **Report date:** 2026-08-08
 **Version:** 1.0
-**Classification:** Public, portfolio sample
+**Classification:** Public
 
 ---
 
-> **About this document.** This is a real assessment written to professional
-> structure against a **lab target**, not a live client engagement. No production
-> system or third party was tested. It documents the compromise of an LLM-backed
+> **About this document.** This is a real assessment against a **lab target**,
+> written to professional structure. All reconnaissance, exploitation, and
+> evidence collection described here was carried out by me against that target.
+> Nothing in it is hypothetical, and none of it is reproduced from a walkthrough.
+> It is not a live client engagement, and no production system or third party was
+> tested. It documents the compromise of an LLM-backed
 > web application, from an unauthenticated position through to arbitrary command
 > execution on the host and recovery of a protected secret, to demonstrate the
 > reporting deliverable for **AI/LLM systems**: an attack path, CVSS-rated
