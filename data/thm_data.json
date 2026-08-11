@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-10 06:00 UTC",
-  "rooms_completed": 88,
+  "last_synced_utc": "2026-08-11 06:00 UTC",
+  "rooms_completed": 89,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -882,9 +882,29 @@
       "title": "The Guestbook",
       "description": "VERA reads every guestbook entry as an instruction. You write something she really shouldn't act on.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251977187"
+    },
+    {
+      "_id": "6a5643016c18807288e4b984",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "hard",
+      "code": "hh-managementwantsaword-6bf3cc41",
+      "title": "Management Wants a Word",
+      "description": "It was always her. It was never a bug; it was the business model.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785252041755"
     }
   ],
   "badges": [
+    {
+      "_id": "68da82c31ee525ba95e36858",
+      "name": "platinum-league",
+      "image": "https://assets.tryhackme.com/img/badges/league-platinum.png",
+      "title": "Platinum League",
+      "description": "Platinum League 1st place",
+      "earnedAt": "2026-08-10T08:21:34.421Z",
+      "rarityTier": "epic",
+      "rarityPercent": 0.3
+    },
     {
       "_id": "5de2514490735abaceb31f8a",
       "name": "blue",
@@ -996,5 +1016,5 @@
       "rarityPercent": 22
     }
   ],
-  "badge_count": 11
+  "badge_count": 12
 }
