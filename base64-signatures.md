@@ -3,8 +3,8 @@
 A quick-reference for identifying a base64 blob *before* decoding it. Base64
 encodes 3 bytes into 4 characters, so a file's magic number (its first few bytes)
 always produces the same first few base64 characters. That makes the prefix a
-reliable fingerprint, which saves running dead-end conversions and shows you
-understand what encoding does to bytes rather than guessing in CyberChef.
+reliable fingerprint, which saves running dead-end conversions and demonstrates
+an understanding of what encoding does to bytes rather than guessing in CyberChef.
 
 ## The table
 

@@ -140,8 +140,8 @@ Full-format security assessment reports written to professional structure
 detection analysis, and a remediation roadmap), built from lab targets and
 clearly labelled as lab-based.
 
-**Start with these three.** They are the three I would put in front of a reviewer,
-chosen on the strength of the analysis rather than the difficulty of the target:
+**The three I would put in front of a reviewer**, chosen on the strength of the
+analysis rather than the difficulty of the target:
 
 1. [LLM Agent Prompt Injection](reports/llm-agent-prompt-injection-2026-08.md): an
    AI concierge agent whose model-adjudicated tool authorization was bypassed by
