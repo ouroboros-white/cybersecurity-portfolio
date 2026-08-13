@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-12 06:00 UTC",
-  "rooms_completed": 89,
+  "last_synced_utc": "2026-08-13 06:00 UTC",
+  "rooms_completed": 90,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -454,6 +454,16 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339394962-gobusterthebasics.png"
     },
     {
+      "_id": "66e7d19fb65d945175291044",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "sqlmapthebasics",
+      "title": "SQLMap: The Basics",
+      "description": "Learn about SQL injection and exploit this vulnerability through the SQLMap tool.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/sqlmapthebasics-1785241453342.png"
+    },
+    {
       "_id": "670915f4514e358f4510691a",
       "type": "walkthrough",
       "code": "javascriptessentials",
@@ -896,6 +906,16 @@
   ],
   "badges": [
     {
+      "_id": "6710f453b3eec466f102edd4",
+      "name": "swordapprenticebadge",
+      "image": "https://assets.tryhackme.com/img/badges/swordapprentice.png",
+      "title": "Sword Apprentice",
+      "description": "Completing the SQLMap room",
+      "earnedAt": "2026-08-12T17:02:56.403Z",
+      "rarityTier": "rare",
+      "rarityPercent": 2.7
+    },
+    {
       "_id": "68da82c31ee525ba95e36858",
       "name": "platinum-league",
       "image": "https://assets.tryhackme.com/img/badges/league-platinum.png",
@@ -1016,5 +1036,5 @@
       "rarityPercent": 22
     }
   ],
-  "badge_count": 12
+  "badge_count": 13
 }
