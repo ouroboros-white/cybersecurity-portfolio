@@ -171,9 +171,10 @@ analysis rather than the difficulty of the target:
   stolen service principal.
 - [Business-Logic & API Abuse](reports/business-logic-assessment-2026-08.md): a
   web application defeated by a race condition in its reward logic.
-- [Network Share to Multi-User Compromise](reports/smb-to-multiuser-compromise-2026-08.md):
-  an anonymous SMB share leaks usernames, a weak SSH password gives a foothold,
-  and a world-readable private key turns it into takeover of a second account.
+- [Network Share to Root Compromise](reports/smb-to-multiuser-compromise-2026-08.md):
+  an anonymous SMB share leaks usernames, a weak SSH password gives a foothold, a
+  world-readable private key takes over a second account, and a permissive sudo
+  grant turns a cleartext password into root.
 
 These reports were written over a concentrated period of full-time study, which
 the commit history reflects.
