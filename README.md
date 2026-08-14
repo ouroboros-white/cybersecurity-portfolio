@@ -149,8 +149,18 @@ detection analysis, and a remediation roadmap). Each one documents an assessment
 I carried out myself against an authorised lab target, and is labelled as
 lab-based throughout.
 
-**The three I would put in front of a reviewer**, chosen on the strength of the
-analysis rather than the difficulty of the target:
+**Featured work, start here.** A one-screen index of the strongest assessments;
+each row links to the full report.
+
+| Assessment | Technique | Impact |
+|---|---|---|
+| [LLM Agent Security](reports/llm-agent-prompt-injection-2026-08.md) | Prompt injection, confused-deputy tool abuse | Host command execution |
+| [Web & Cloud Assessment](reports/lab-assessment-2026-08.md) | CVE exploitation, cloud IAM abuse, exposed `.git` | Multi-target compromise, data-plane breach |
+| [Lost-Device Forensics](reports/device-loss-data-at-rest-2026-08.md) | DPAPI, LSA secrets, registry, data-at-rest recovery | Credential recovery from an encrypted device |
+| [Network Share to Root](reports/smb-to-multiuser-compromise-2026-08.md) | SMB enumeration, weak SSH credentials, key theft, sudo | Full root compromise |
+
+**Notes on the ones I would put in front of a reviewer first**, chosen on the
+strength of the analysis rather than the difficulty of the target:
 
 1. [LLM Agent Prompt Injection](reports/llm-agent-prompt-injection-2026-08.md): an
    AI concierge agent whose model-adjudicated tool authorization was bypassed by
