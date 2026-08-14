@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-13 06:00 UTC",
-  "rooms_completed": 90,
+  "last_synced_utc": "2026-08-14 06:00 UTC",
+  "rooms_completed": 91,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -392,6 +392,16 @@
       "title": "Networking Secure Protocols",
       "description": "Learn how TLS, SSH, and VPN can secure your network traffic.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingsecureprotocols-1785241449922.png"
+    },
+    {
+      "_id": "66684daedde4de46303b2a96",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "socfundamentals",
+      "title": "SOC Fundamentals",
+      "description": "Learn about the SOC team and their processes.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/socfundamentals-1785241452900.png"
     },
     {
       "_id": "66c378c0fa5a6c25ee0cb649",
