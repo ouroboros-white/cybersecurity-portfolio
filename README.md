@@ -25,7 +25,7 @@ a forensic recovery from a lost device rather than an attack on a live target. I
 am working toward a junior penetration testing role, and from there toward
 independent **offensive-security** consulting.
 
-I learn by building and breaking real systems and writing up the reasoning, not
+I learn by breaking real systems and writing up the reasoning, not
 just the result. I bring a competitive-performance mindset to it: disciplined
 practice, fast iteration, and a habit of reviewing my own mistakes.
 
