@@ -12,8 +12,9 @@ lesson.
   the answer, there is nothing to write up.
 - **Reasoning, not a command log.** The failed attempts and the "why" matter
   more than the exact commands.
-- **Short.** Around 200 to 350 words, four sections (below). One tight page
-  beats three rambling ones.
+- **Tight.** Four sections (below), no padding. One focused page beats three
+  rambling ones. Length follows the investigation: a quick room stays short, a
+  layered one earns more room.
 
 ## The shape
 

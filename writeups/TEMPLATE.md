@@ -1,7 +1,7 @@
 <!--
 Copy this file, rename it after the room (e.g. the-concierge-knows-too-much.md),
 and fill in each section. Delete these comment blocks as you go.
-Target length: 200-350 words. No flags. Reasoning over commands.
+Keep it tight, length follows the investigation. No flags. Reasoning over commands.
 -->
 
 # <Room name>

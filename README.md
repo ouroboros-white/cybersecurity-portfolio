@@ -211,14 +211,15 @@ The interesting parts are the failure cases rather than the happy path:
   them and stops immediately on the challenge instead of burning its retry
   budget. Diagnosing this is also why the scheduled job runs locally: the
   challenge fires reliably against CI datacenter IP ranges.
-- **Nothing is published without passing a safety gate.** A pre-commit
-  check blocks credentials, tokens, private keys, CTF flags, email
-  addresses, and local filesystem paths. It deliberately matches
-  credential-shaped *field names* and secret-shaped *values* rather than
-  keywords, because lab titles legitimately contain words like "password"
-  and "authentication"; a check that fires on every run is a check
-  people learn to ignore. It was tested against deliberately poisoned data,
-  which is how a gap in it was found and closed.
+- **Nothing is published without passing a safety gate.** A pre-commit,
+  pattern-based check blocks common credential, token, private-key, CTF-flag,
+  email, and local-path *shapes*. It deliberately matches credential-shaped
+  *field names* and secret-shaped *values* rather than keywords, because lab
+  titles legitimately contain words like "password" and "authentication"; a
+  check that fires on every run is a check people learn to ignore. It is a last
+  line of defence rather than comprehensive secret detection: it catches known
+  patterns, not every possible encoding. It was tested against deliberately
+  poisoned data, which is how a gap in it was found and closed.
 - **Only an explicit allow-list of files is ever staged**, so a stray file
   in the working directory cannot be swept into a public commit.
 
