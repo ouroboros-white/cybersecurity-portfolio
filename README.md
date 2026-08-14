@@ -5,6 +5,14 @@ identity, Linux hosts, LLM agents, and recovered devices, broken or examined in
 controlled environments and written up as full assessment reports with findings,
 impact, detection, and remediation.
 
+> **Every report here is my own work.** Each one documents an assessment I
+> personally carried out against intentionally vulnerable lab and training targets
+> (primarily TryHackMe), then wrote up to the structure of a commercial
+> deliverable. The exploitation, findings, and evidence are mine: not hypothetical
+> scenarios, and not reproduced from walkthroughs. These are lab exercises rather
+> than authorized client engagements, and target identifiers are redacted as they
+> would be in a real report.
+
 <!-- Edit everything in this file freely - only the block below,
      between THM:START and THM:END, gets overwritten automatically. -->
 
