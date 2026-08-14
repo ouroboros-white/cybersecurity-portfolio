@@ -1,5 +1,8 @@
 # ouroboroswhite: Cybersecurity Portfolio
 
+_Offensive security, focused on web application, cloud, and LLM security, working
+toward a junior penetration testing role._
+
 Security lab work documented to a professional standard: web applications, cloud
 identity, Linux hosts, LLM agents, and recovered devices, broken or examined in
 controlled environments and written up as full assessment reports with findings,
