@@ -55,8 +55,8 @@ more to me than speed.
   lines to every user, so any local user could read it.
 - Tried **password reuse**: `su root` with that password. It worked, because
   root reused it as its own login password.
-- The **root flag** was in root's home directory. Fittingly, it spelled out the
-  lesson: `THM.....` (credential reuse).
+- The **root flag** was in root's home directory, and fittingly the room's whole
+  lesson was credential reuse.
 
 ## Finding & fix
 
