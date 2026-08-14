@@ -11,6 +11,10 @@ Goal: user and root. The storyline's refrain, *"it was never separate
 incidents"*, turned out to be the literal solution hint: the **same class of
 bug** recurs from the front door to root.
 
+This was my first time exploiting command injection, so I made a point of proving
+execution out-of-band rather than trusting the app's own responses, a habit that
+paid off at the FreePBX dead end below.
+
 ## Recon
 
 `nmap` found only **22/SSH** and **80/HTTP** (gunicorn). `robots.txt` disclosed

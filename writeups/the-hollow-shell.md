@@ -12,6 +12,9 @@ that a "theme worker applies for you shortly after the shell comes ashore." Goal
 a single flag, via the classic upload-to-shell route the flavour text keeps
 punning about ("hold it to your ear… the shell answers with a shell of your own").
 
+This was my first time exploiting Zip Slip, so I proved every primitive with a
+harmless marker before weaponising it.
+
 ## Recon
 
 - `nmap -sS -sV MACHINE_IP` found only **22/SSH** and **5000/**. Port 80 was

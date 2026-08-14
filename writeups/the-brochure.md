@@ -10,8 +10,10 @@ following a trail from the hotel's public web presence out into social media.
 
 ## What I tried
 
-The lab site gave me the hotel's brand name, so I treated that as my starting
-lead and searched for it in the open (on my own machine, not the lab box). The
+This was my first OSINT challenge, with no methodology of my own yet, so I
+followed the most obvious lead and let each step dictate the next. The lab site
+gave me the hotel's brand name, so I treated that as my starting lead and
+searched for it in the open (on my own machine, not the lab box). The
 search turned up an Instagram account for the hotel.
 
 That account had a single follower, an account called "Vera". One follower is

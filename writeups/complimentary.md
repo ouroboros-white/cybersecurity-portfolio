@@ -10,6 +10,9 @@ sign-up: every visitor is set up as a guest the moment they arrive. The
 objective was to work out how the app knows anything about you without an
 account, then see what else those behind-the-scenes credentials would hand over.
 
+This was my first time working a cloud environment, so the shift from "find a
+hidden path" to "read what the app already trusts" was the mindset I had to build.
+
 ## What I tried
 
 The app would not load over HTTPS in my local browser (S3 website endpoints are

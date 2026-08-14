@@ -19,6 +19,9 @@ tools, on a host with a secret). The interesting question is never "can you jail
 the chatbot," it is "what can the agent's tools reach, and how does it decide who
 may use them."
 
+This was my second run at prompt injection after the Concierge room; that one
+turned on social-engineering the model, this one on abusing the tools it holds.
+
 ## Recon and the tool surface
 
 `curl` and the page source gave the whole attack surface: `POST /entry`

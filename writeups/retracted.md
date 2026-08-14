@@ -12,6 +12,9 @@ files."* The job is to reconstruct what actually happened from **Sysmon** logs i
 Event Viewer and produce an ordered timeline. The whole room is a lesson in reading
 logs against a witness statement, and the two disagree.
 
+This was my first time working an incident from the blue-team side, reading the
+evidence a host leaves behind rather than being the one who makes it.
+
 ## The one thing that made everything work
 
 Everything downstream depended on one field: **`UtcTime`** inside each event, not the

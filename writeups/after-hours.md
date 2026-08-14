@@ -12,6 +12,9 @@ the registry Run keys. No live host, no IP. The task files are five raw artifact
 plus a bundled copy of ILSpy, and the goal is a single flag: parse the artifacts,
 find the malicious class, extract and decode its payload.
 
+This was my first time reverse-engineering fileless malware and WMI persistence,
+so I let the file formats tell me where to look before running anything.
+
 ## Reading the artifacts before touching them
 
 The five files name the technique before you run anything. `OBJECTS.DATA`,

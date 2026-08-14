@@ -14,6 +14,9 @@ than the metadata. The specifics are withheld here, because the answers are real
 locations and one is a small business's owners and contact details. The method is
 the transferable part.
 
+This was my second IMINT room after Sakura, and I used it to turn the ad-hoc moves
+from that first attempt into a repeatable checklist.
+
 Commercially this is imagery intelligence: the same work as geolocating a photo of
 a client's premises, or a staff member's holiday post, during the reconnaissance
 phase of a red team or social engineering engagement.

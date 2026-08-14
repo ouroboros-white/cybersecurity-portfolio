@@ -12,7 +12,8 @@ thing checking him".
 
 ## What I tried
 
-I registered a guest account and explored. Out of habit I ran `nmap` and
+This was my first time exploiting a race condition, so the reasoning that got me
+there mattered more than the exploit. I registered a guest account and explored. Out of habit I ran `nmap` and
 `gobuster` first, which confirmed Node/Express but found nothing else, and that
 was the point: for a **business-logic** bug the network layer was never going to
 hold the answer, so I dropped scanning and read the app.

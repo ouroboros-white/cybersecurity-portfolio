@@ -8,6 +8,10 @@
 A "Beach Bar" web app with a DJ-booth sign-in that manages jukebox playlists.
 Goal: user flag, then root flag (boot2root).
 
+This was my first full boot2root chain and my first time exploiting insecure
+deserialization, so proving code execution safely before weaponising it mattered
+more to me than speed.
+
 ## Recon
 
 - `nmap -sC -sV -p-` found two ports: **22/SSH** (OpenSSH, key-only auth, so no

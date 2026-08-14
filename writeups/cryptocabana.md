@@ -10,6 +10,10 @@ Azure Storage static website, backed by Azure Key Vault. I was handed a
 low-privilege Azure user login. The objective was to recover the real secret the
 kiosk was supposed to keep behind glass.
 
+This was my first time working in Azure, coming off the AWS Complimentary box, so
+I treated the cloud-agnostic instincts as the constant and learned Azure's
+specifics as I went.
+
 ## What I tried
 
 I enumerated as my own user first: `az resource list`, `az storage account list`,

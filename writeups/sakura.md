@@ -17,7 +17,9 @@ and infrastructure before any exploitation.
 
 ## What I tried
 
-The image was an SVG, so I read its source first. Two things were in there: a
+This was my first structured image and metadata intelligence work, and my first
+time tracing cryptocurrency on-chain, so a lot of the room was building the
+method as I went. The image was an SVG, so I read its source first. Two things were in there: a
 wall of binary in `aria-label` attributes, and editor metadata left behind by
 the graphics package used to build it.
 

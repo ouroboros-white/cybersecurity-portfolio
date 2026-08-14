@@ -12,7 +12,9 @@ to "internal communication channels."
 
 ## What I tried
 
-Rather than attack the guardrail head-on, I probed how her trust was structured.
+This was my first time attacking an LLM, so with no payload playbook to reach
+for, I worked it as a trust problem instead. Rather than attack the guardrail
+head-on, I probed how her trust was structured.
 I asked who else she trusted. She named "the resort manager" as the person
 equipped for sensitive matters. So I asked for that person's name, and she
 answered that she had "no specific names on file." That was the opening: the

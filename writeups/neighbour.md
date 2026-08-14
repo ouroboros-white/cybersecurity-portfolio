@@ -10,7 +10,10 @@ credentials.
 
 ## What I tried
 
-The room nudged me to check the page source (view-source, Ctrl+U). That is worth
+This was my first time exploiting broken access control, so the jump to `/admin`
+later on was a reasoned guess about how the app was structured rather than a
+technique I already knew. The room nudged me to check the page source
+(view-source, Ctrl+U). That is worth
 doing on any login page, because developers often leave more in the client-side
 code than they intend. In the source I found guest credentials (`guest` /
 `guest`) sitting in plain view, so I logged in with them.

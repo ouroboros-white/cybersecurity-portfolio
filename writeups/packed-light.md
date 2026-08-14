@@ -11,6 +11,9 @@ brief pointed at a periodic beacon to a `:8080` host that was not a real hotel
 service. The goal: find the covert channel, reassemble the hidden data, and
 decode it.
 
+This was my first network-forensics investigation, reading a packet capture
+rather than probing a live service.
+
 ## What I tried
 
 The room's own hints did a lot of the pointing: regular beaconing to a `:8080`

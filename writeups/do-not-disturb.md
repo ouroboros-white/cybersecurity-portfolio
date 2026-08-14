@@ -10,6 +10,10 @@ briefing said someone was "already inside" and told me to "climb the way he
 climbed" and recover a user flag and a root flag. A full boot2root: web foothold,
 then privilege escalation to root.
 
+This was my first time exploiting NoSQL injection and SSTI, so at each step I
+confirmed the behaviour before trusting it: an always-true operator on the login,
+then `7*7` in the template.
+
 ## Recon
 
 `nmap -sC -sV -p-` returned two services: SSH (22) and HTTP (80, Node/Express).
