@@ -149,7 +149,7 @@ detection analysis, and a remediation roadmap). Each one documents an assessment
 I carried out myself against an authorised lab target, and is labelled as
 lab-based throughout.
 
-**Featured work, start here.** A one-screen index of the strongest assessments;
+**All eight assessments at a glance**, ordered strongest first. Start at the top;
 each row links to the full report.
 
 | Assessment | Technique | Impact |
@@ -158,9 +158,13 @@ each row links to the full report.
 | [Web & Cloud Assessment](reports/lab-assessment-2026-08.md) | CVE exploitation, cloud IAM abuse, exposed `.git` | Multi-target compromise, data-plane breach |
 | [Lost-Device Forensics](reports/device-loss-data-at-rest-2026-08.md) | DPAPI, LSA secrets, registry, data-at-rest recovery | Credential recovery from an encrypted device |
 | [Network Share to Root](reports/smb-to-multiuser-compromise-2026-08.md) | SMB enumeration, weak SSH credentials, key theft, sudo | Full root compromise |
+| [Command-Injection Chain](reports/command-injection-chain-2026-08.md) | Command injection at two privilege boundaries | Unauthenticated edge RCE, then root |
+| [Azure Cloud Attack Chain](reports/cloud-attack-chain-azure-2026-08.md) | Leaked SAS token, stolen service principal, Key Vault | Cloud secret compromise |
+| [Business-Logic & API Abuse](reports/business-logic-assessment-2026-08.md) | Race condition in reward-eligibility logic | Repeated reward grant (financial abuse) |
+| [Single-Host Full Compromise](reports/host-compromise-2026-08.md) | NoSQL auth bypass, SSTI, RCE, privilege escalation | Anonymous to root |
 
-**Notes on the ones I would put in front of a reviewer first**, chosen on the
-strength of the analysis rather than the difficulty of the target:
+**Why the top three stand out**, chosen on the strength of the analysis rather
+than the difficulty of the target:
 
 1. [LLM Agent Prompt Injection](reports/llm-agent-prompt-injection-2026-08.md): an
    AI concierge agent whose model-adjudicated tool authorization was bypassed by
@@ -177,22 +181,6 @@ strength of the analysis rather than the difficulty of the target:
    opened without cracking anything, because the key was stored inside the device
    it protected. Four findings that all score identically, and an appendix
    explaining why that is the honest result rather than a copied score.
-
-**The rest:**
-
-- [Single-Host Full Compromise](reports/host-compromise-2026-08.md): one host
-  taken from anonymous to root through a chained attack path.
-- [Command-Injection Chain to Root](reports/command-injection-chain-2026-08.md): the
-  same injection flaw exploited twice: unauthenticated at the edge, then as root.
-- [Azure Cloud Attack Chain](reports/cloud-attack-chain-azure-2026-08.md): a
-  low-privilege Azure user to a Key Vault secret, via a leaked SAS token and a
-  stolen service principal.
-- [Business-Logic & API Abuse](reports/business-logic-assessment-2026-08.md): a
-  web application defeated by a race condition in its reward logic.
-- [Network Share to Root Compromise](reports/smb-to-multiuser-compromise-2026-08.md):
-  an anonymous SMB share leaks usernames, a weak SSH password gives a foothold, a
-  world-readable private key takes over a second account, and a permissive sudo
-  grant turns a cleartext password into root.
 
 These reports were written over a concentrated period of full-time study, which
 the commit history reflects.
