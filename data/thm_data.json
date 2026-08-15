@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-14 06:00 UTC",
-  "rooms_completed": 91,
+  "last_synced_utc": "2026-08-15 06:00 UTC",
+  "rooms_completed": 93,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -22,6 +22,16 @@
       "difficulty": "easy",
       "type": "challenge",
       "freeToUse": false
+    },
+    {
+      "_id": "5d3f3faabe83462671c59eb7",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/99c72676aab814b94e3bc350ba627b71.png",
+      "description": "This is a machine that allows you to practise web app hacking and privilege escalation ",
+      "title": "Basic Pentesting",
+      "code": "basicpentestingjt",
+      "difficulty": "easy",
+      "type": "challenge",
+      "freeToUse": true
     },
     {
       "_id": "5e4c7a9d21bd5359f72e2b76",
@@ -402,6 +412,16 @@
       "title": "SOC Fundamentals",
       "description": "Learn about the SOC team and their processes.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/socfundamentals-1785241452900.png"
+    },
+    {
+      "_id": "667ab454d341e88c8d1f6f7e",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "digitalforensicsfundamentals",
+      "title": "Digital Forensics Fundamentals",
+      "description": "Learn about digital forensics and related processes and experiment with a practical example.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339531380-digitalforensicsfundamentals.png"
     },
     {
       "_id": "66c378c0fa5a6c25ee0cb649",
