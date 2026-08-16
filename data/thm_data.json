@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-15 06:00 UTC",
-  "rooms_completed": 93,
+  "last_synced_utc": "2026-08-16 06:00 UTC",
+  "rooms_completed": 94,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -296,7 +296,7 @@
     {
       "_id": "62a79f64126bc700560fd452",
       "type": "walkthrough",
-      "freeToUse": false,
+      "freeToUse": true,
       "difficulty": "easy",
       "code": "winadbasics",
       "title": "Active Directory Basics",
@@ -402,6 +402,16 @@
       "title": "Networking Secure Protocols",
       "description": "Learn how TLS, SSH, and VPN can secure your network traffic.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingsecureprotocols-1785241449922.png"
+    },
+    {
+      "_id": "665595131cd4c024d1f2ab9a",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "incidentresponsefundamentals",
+      "title": "Incident Response Fundamentals",
+      "description": "Learn how to perform Incident Response in cyber security.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/incidentresponsefundamentals-1785241445975.png"
     },
     {
       "_id": "66684daedde4de46303b2a96",
@@ -936,6 +946,16 @@
   ],
   "badges": [
     {
+      "_id": "5eb1f96f5689ac81e114b568",
+      "name": "30-day-streak",
+      "image": "https://assets.tryhackme.com/img/badges/streak30.png",
+      "title": "30 Day Streak",
+      "description": "Hacking for 30 days solid",
+      "earnedAt": "2026-08-15T15:04:03.032Z",
+      "rarityTier": "rare",
+      "rarityPercent": 6.3
+    },
+    {
       "_id": "6710f453b3eec466f102edd4",
       "name": "swordapprenticebadge",
       "image": "https://assets.tryhackme.com/img/badges/swordapprentice.png",
@@ -1066,5 +1086,5 @@
       "rarityPercent": 22
     }
   ],
-  "badge_count": 13
+  "badge_count": 14
 }

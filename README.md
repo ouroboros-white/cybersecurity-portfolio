@@ -64,17 +64,17 @@ cloud work above, and adding each one to this repository as it is done.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-15 06:00 UTC
+**Last synced:** 2026-08-16 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>93</td>
-<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>13</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>94</td>
+<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>14</td>
 <td align="center">&nbsp;<strong>🔴 Hard</strong>&nbsp;<br>1</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>8</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>71</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>72</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>13</td>
 </tr>
 </table>
@@ -87,6 +87,13 @@ cloud work above, and adding each one to this repository as it is done.
 
 <table>
 <tr>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/streak30.png" alt="30 Day Streak" width="90"><br>
+<strong>30 Day Streak</strong>
+</a>
+<br><sub>2026-08-15 · rare (6.3%)</sub>
+</td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/swordapprentice.png" alt="Sword Apprentice" width="90"><br>
@@ -114,12 +121,6 @@ cloud work above, and adding each one to this repository as it is done.
 <strong>Metasploitable</strong>
 </a>
 <br><sub>2026-08-03 · rare (7.6%)</sub>
-</td>
-<td align="center" width="130">
-<a href="https://tryhackme.com/p/ouroboroswhite">
-<strong>Session Held</strong>
-</a>
-<br><sub>2026-08-03 · rare (1%)</sub>
 </td>
 </tr>
 </table>
