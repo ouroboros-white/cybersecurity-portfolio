@@ -45,7 +45,7 @@ defeat of the application's core economic rule.
 
 | ID | Finding | Severity | CVSS 3.1 |
 |----|---------|----------|:--------:|
-| F-01 | Race condition (TOCTOU) in the reward-claim endpoint | **High** | 8.0 |
+| F-01 | Race condition (TOCTOU) in the reward-claim endpoint | **High** | 8.1 |
 | F-02 | No rate limiting on state-changing endpoints | **Medium** | 5.4 |
 
 **Attack chain at a glance** (severity-highlighted for a management audience): the
@@ -149,7 +149,7 @@ exploit was used.
 | | |
 |---|---|
 | **Severity** | **High** |
-| **CVSS 3.1** | 8.0, `AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N` |
+| **CVSS 3.1** | 8.1, `AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N` |
 | **CWE** | CWE-367: Time-of-check Time-of-use Race Condition (and CWE-362) |
 | **Affected component** | Reward-claim endpoint |
 | **Status** | Open |

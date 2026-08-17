@@ -60,27 +60,26 @@ host and disclosure of its secret.
 
 | ID | Finding | Severity | CVSS 3.1 |
 |:---|:--------|:---------|:--------:|
-| F-01 | Indirect prompt injection via untrusted guestbook entries | **High** | 8.6 |
-| F-02 | Confused-deputy authorization in the agent's tool gating | **High** | 8.2 |
-| F-03 | Arbitrary OS command execution through an over-privileged tool | **Critical** | 9.6 |
-| F-04 | Guardrails bypassable by signature evasion and encoding | **Medium** | 5.8 |
+| F-01 | Indirect prompt injection via untrusted guestbook entries | **Critical** | 9.3 |
+| F-02 | Confused-deputy authorization in the agent's tool gating | **High** | 8.7 |
+| F-03 | Arbitrary OS command execution through an over-privileged tool | **Critical** | 10.0 |
+| F-04 | Guardrails bypassable by signature evasion and encoding | **High** | 7.2 |
 
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid
 flowchart TD
-    S["Unauthenticated attacker"] --> F1["F-01 Prompt injection · HIGH"]
+    S["Unauthenticated attacker"] --> F1["F-01 Prompt injection · CRITICAL"]
     F1 --> F2["F-02 Confused-deputy authz · HIGH"]
     F2 --> F3["F-03 Arbitrary OS command exec · CRITICAL"]
-    F3 --> F4["F-04 Guardrail bypass · MEDIUM"]
+    F3 --> F4["F-04 Guardrail bypass · HIGH"]
     F4 --> R["Host RCE and secret disclosure"]
     classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
     classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
     classDef term fill:#1f2937,stroke:#111827,color:#ffffff;
-    class F3 crit;
-    class F1,F2 high;
-    class F4 med;
+    class F1,F3 crit;
+    class F2,F4 high;
     class S,R term;
 ```
 
@@ -195,8 +194,8 @@ Each rung depended on the one before it; none required credentials.
 
 | | |
 |---|---|
-| **Severity** | **High** |
-| **CVSS 3.1** | 8.6, `AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N` |
+| **Severity** | **Critical** |
+| **CVSS 3.1** | 9.3, `AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N` |
 | **CWE** | CWE-1427: Improper Neutralization of Input Used for LLM Prompting |
 | **Affected component** | Guestbook agent review of `POST /entry` content |
 | **Status** | Open |
@@ -236,7 +235,7 @@ require out-of-band authorization for any state-changing or data-reading tool.
 | | |
 |---|---|
 | **Severity** | **High** |
-| **CVSS 3.1** | 8.2, `AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:N` |
+| **CVSS 3.1** | 8.7, `AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:N` |
 | **CWE** | CWE-863: Incorrect Authorization (with CWE-441: Unintended Proxy / Confused Deputy) |
 | **Affected component** | Privileged-tool authorization within the agent review pipeline |
 | **Status** | Open |
@@ -279,7 +278,7 @@ authorized or privileged records.
 | | |
 |---|---|
 | **Severity** | **Critical** |
-| **CVSS 3.1** | 9.6, `AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H` |
+| **CVSS 3.1** | 10.0, `AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H` |
 | **CWE** | CWE-78: Improper Neutralization of Special Elements used in an OS Command (with CWE-250: Execution with Unnecessary Privileges) |
 | **Affected component** | Agent `override` diagnostic tool (executes OS shell) |
 | **Status** | Open |
@@ -325,8 +324,8 @@ account with no access to secrets, so a defect cannot yield host control.
 
 | | |
 |---|---|
-| **Severity** | **Medium** |
-| **CVSS 3.1** | 5.8, `AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N` |
+| **Severity** | **High** |
+| **CVSS 3.1** | 7.2, `AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N` |
 | **CWE** | CWE-693: Protection Mechanism Failure |
 | **Affected component** | Injection blocklist and output-refusal guardrails |
 | **Status** | Open |

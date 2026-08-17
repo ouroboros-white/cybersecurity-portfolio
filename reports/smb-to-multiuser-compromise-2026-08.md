@@ -44,7 +44,7 @@ more privileged one; the finding that produced total compromise was the
 While each finding is rated individually below, **the combined real-world
 severity is Critical**: the chain takes an unauthenticated network attacker to
 complete root control of the host. No single finding scores Critical on its own
-base metrics (the highest is 8.1); the Critical rating reflects the end-to-end
+base metrics (the highest is 8.2); the Critical rating reflects the end-to-end
 attack path, and root was demonstrated and evidenced (`id` returning
 `uid=0(root)`), not inferred.
 
@@ -53,7 +53,7 @@ attack path, and root was demonstrated and evidenced (`id` returning
 | ID | Finding | Severity | CVSS 3.1 |
 |----|---------|----------|:--------:|
 | F-01 | Anonymous SMB share exposing valid usernames | **Medium** | 5.3 |
-| F-02 | Weak SSH password with no account lockout | **High** | 8.1 |
+| F-02 | Weak SSH password with no account lockout | **High** | 8.2 |
 | F-03 | World-readable SSH private key enabling account takeover | **High** | 7.8 |
 | F-04 | Weak passphrase protecting the SSH private key | **Medium** | 5.5 |
 | F-05 | Cleartext password stored in a home-directory backup file | **Medium** | 5.5 |
@@ -215,7 +215,7 @@ for all shares and apply least-privilege share permissions.
 | | |
 |---|---|
 | **Severity** | **High** |
-| **CVSS 3.1** | 8.1, `AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N` |
+| **CVSS 3.1** | 8.2, `AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N` |
 | **CWE** | CWE-521: Weak Password Requirements |
 | **Affected component** | SSH authentication for the `jan` account |
 | **Status** | Open |
@@ -479,10 +479,14 @@ root.
 
 Third, and most important for reading the headline: **no single finding scores
 Critical, yet the engagement is rated Critical.** The highest base score in the set
-is 8.1 (F-02), and F-06, the escalation that actually yields root, scores 7.8 as a
+is 8.2 (F-02), and F-06, the escalation that actually yields root, scores 7.8 as a
 standard local privilege escalation (`S:U`; `kay` and root are one OS security
 authority, so this is not a scope-changing escape and is not inflated to force a
-higher number). The Critical rating is a property of the *chain*, not of any one
+higher number). That 7.8 is not a judgement call but an arithmetic ceiling: under
+CVSS v3.1, any `AV:L/PR:L` finding with `S:U` scores 7.8 at most, however total its
+impact. A local privilege escalation to root cannot reach the Critical band by
+construction, which is precisely why the band alone is an unsafe summary of this
+engagement. The Critical rating is a property of the *chain*, not of any one
 finding: an unauthenticated network attacker reaches complete root control of the
 host in a single unbroken sequence, and root was demonstrated with evidence
 (`id` returning `uid=0(root)` in F-06) rather than inferred. Where the base scores

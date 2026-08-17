@@ -49,9 +49,9 @@ severity is Critical**: the chain results in complete compromise of the host.
 | ID | Finding | Severity | CVSS 3.1 |
 |----|---------|----------|:--------:|
 | F-01 | Unauthenticated OS command injection in the connectivity-check feature | **Critical** | 9.8 |
-| F-02 | Internal service trusts network position; discloses credentials | **High** | 8.6 |
-| F-03 | Default credentials and a privileged API token exposed via message store | **High** | 8.1 |
-| F-04 | OS command injection in the root-privileged automation worker | **Critical** | 9.1 |
+| F-02 | Internal service trusts network position; discloses credentials | **High** | 7.3 |
+| F-03 | Default credentials and a privileged API token exposed via message store | **High** | 7.3 |
+| F-04 | OS command injection in the root-privileged automation worker | **High** | 8.8 |
 
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
@@ -60,13 +60,13 @@ flowchart TD
     S["Unauthenticated attacker"] --> F1["F-01 Edge command injection · CRITICAL"]
     F1 --> F2["F-02 Unauthenticated internal console · HIGH"]
     F2 --> F3["F-03 Default credentials and Bearer token exposure · HIGH"]
-    F3 --> F4["F-04 Root automation worker command injection · CRITICAL"]
+    F3 --> F4["F-04 Root automation worker command injection · HIGH"]
     F4 --> R["Full root compromise"]
     classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
     classDef term fill:#1f2937,stroke:#111827,color:#ffffff;
-    class F1,F4 crit;
-    class F2,F3 high;
+    class F1 crit;
+    class F2,F3,F4 high;
     class S,R term;
 ```
 
@@ -205,7 +205,7 @@ authentication for staff tooling.
 | | |
 |---|---|
 | **Severity** | **High** |
-| **CVSS 3.1** | 8.6, `AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N` |
+| **CVSS 3.1** | 7.3, `AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N` |
 | **CWE** | CWE-306: Missing Authentication for Critical Function (with CWE-200: Exposure of Sensitive Information) |
 | **Affected component** | Internal "Watchtower" ops console (loopback, port 3000) |
 | **Status** | Open |
@@ -245,7 +245,7 @@ configuration responses and return only what a client needs.
 | | |
 |---|---|
 | **Severity** | **High** |
-| **CVSS 3.1** | 8.1, `AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N` |
+| **CVSS 3.1** | 7.3, `AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N` |
 | **CWE** | CWE-1392: Use of Default Credentials (with CWE-522: Insufficiently Protected Credentials) |
 | **Affected component** | Telephony application (FreePBX) voicemail; automation bearer token |
 | **Status** | Open |
@@ -283,8 +283,8 @@ a secrets manager with short lifetimes and audited access.
 
 | | |
 |---|---|
-| **Severity** | **Critical** |
-| **CVSS 3.1** | 9.1, `AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H` |
+| **Severity** | **High** |
+| **CVSS 3.1** | 8.8, `AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H` |
 | **CWE** | CWE-78: Improper Neutralization of Special Elements used in an OS Command |
 | **Affected component** | Internal automation worker `/jobs/export` (loopback, port 9000), running as root |
 | **Status** | Open |
@@ -357,13 +357,24 @@ Medium 4.0 to 6.9, Low 0.1 to 3.9.
 
 F-01 and F-04 are the same class of defect, unsanitised input reaching an OS
 shell, and they are scored differently on purpose. F-01 rates 9.8 because it is
-reachable by anyone on the network with no credential; F-04 rates 9.1 because it
+reachable by anyone on the network with no credential; F-04 rates 8.8 because it
 requires a foothold first (`AV:L/PR:L`) but executes as root. The lower score is
 the more dangerous flaw in engineering terms, and a reader who ranks remediation
 by score alone would fix them in the wrong order. Both are the same missing
-control and should be fixed together. Individual findings are otherwise rated in
-isolation; the executive summary states the chained outcome, full root compromise,
-as Critical independently of the individual scores.
+control and should be fixed together.
+
+F-02 and F-03 carry identical vectors and therefore identical scores (7.3). This
+is stated rather than disguised: both are credential-disclosure findings reached
+from the same foothold, with the same access vector, the same privilege
+requirement, and the same confidentiality impact. CVSS v3.1 offers no base metric
+in which they differ, so the distinction between them, that F-03 exposes a secret
+authorising root-level action while F-02 exposes application credentials, is
+carried in the remediation roadmap rather than forced into a score the metric does
+not support.
+
+Individual findings are otherwise rated in isolation; the executive summary states
+the chained outcome, full root compromise, as Critical independently of the
+individual scores.
 
 ## Appendix B: Tooling
 
