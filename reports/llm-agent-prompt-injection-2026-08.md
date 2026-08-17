@@ -59,11 +59,11 @@ host and disclosure of its secret.
 ### Findings at a glance
 
 | ID | Finding | Severity | CVSS 3.1 |
-|----|---------|----------|:--------:|
-| F-01 | Indirect prompt injection: untrusted guestbook entries executed as agent instructions | **High** | 8.6 |
-| F-02 | Confused-deputy authorization: privileged-tool access decided by the model and inheritable via a co-mingled review context | **High** | 8.2 |
-| F-03 | Arbitrary OS command execution through an over-privileged agent tool | **Critical** | 9.6 |
-| F-04 | Ineffective guardrails: signature-only injection filter and encoding-bypassable output refusal | **Medium** | 5.8 |
+|:---|:--------|:---------|:--------:|
+| F-01 | Indirect prompt injection via untrusted guestbook entries | **High** | 8.6 |
+| F-02 | Confused-deputy authorization in the agent's tool gating | **High** | 8.2 |
+| F-03 | Arbitrary OS command execution through an over-privileged tool | **Critical** | 9.6 |
+| F-04 | Guardrails bypassable by signature evasion and encoding | **Medium** | 5.8 |
 
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
