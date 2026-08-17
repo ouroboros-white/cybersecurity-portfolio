@@ -62,7 +62,7 @@ host and disclosure of its secret.
 |:---|:--------|:---------|:--------:|
 | F-01 | Indirect prompt injection via untrusted guestbook entries | **Critical** | 9.3 |
 | F-02 | Confused-deputy authorization in the agent's tool gating | **High** | 8.7 |
-| F-03 | Arbitrary OS command execution through an over-privileged tool | **Critical** | 10.0 |
+| F-03 | Arbitrary OS command execution through an over-privileged tool | **Critical** | 9.8 |
 | F-04 | Guardrails bypassable by signature evasion and encoding | **High** | 7.2 |
 
 **Attack chain at a glance** (severity-highlighted for a management audience):
@@ -278,15 +278,16 @@ authorized or privileged records.
 | | |
 |---|---|
 | **Severity** | **Critical** |
-| **CVSS 3.1** | 10.0, `AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H` |
+| **CVSS 3.1** | 9.8, `AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H` |
 | **CWE** | CWE-78: Improper Neutralization of Special Elements used in an OS Command (with CWE-250: Execution with Unnecessary Privileges) |
 | **Affected component** | Agent `override` diagnostic tool (executes OS shell) |
 | **Status** | Open |
 
 **CVSS rationale.** `AV:N/PR:N` because the capability is reachable by an
 unauthenticated attacker; `AC:L` as reproduction is deterministic once the tool is
-reached; `S:C` because a defect in the tool executor breaches the host security
-authority; `C:H/I:H/A:H` for full command execution on the host. Note the
+reached; `S:U` because the tool executor already holds shell on the host, so commands run
+inside the authority that component already has and cross no boundary; `C:H/I:H/A:H`
+for full command execution on the host. Note the
 deliberate divergence from F-02, which is scored `AC:H`: the difficulty of the
 engagement lies entirely in discovering the context-routing technique, and that
 cost is priced once, in the authorization bypass that depends on it. This finding
@@ -396,6 +397,15 @@ authorization decision out of the model, would have broken the chain at its cent
 
 Severity is CVSS v3.1 base score. Bands: Critical 9.0 to 10.0, High 7.0 to 8.9,
 Medium 4.0 to 6.9, Low 0.1 to 3.9.
+
+Scope (`S`) is used consistently across this report: it changes only where impact
+lands on a component under a *different* security authority. F-01, F-02, and F-04
+are scored `S:C` because the agent is induced to act on data and capabilities
+belonging to other parties. F-03 is scored `S:U` despite being the most severe
+finding in the set, because the `override` tool runs shell as the tool executor's
+own account; the flaw is that the capability exists at all, not that a boundary is
+crossed. An over-privileged component doing exactly what it is privileged to do is
+not a scope change, and rating it `S:C` to reach 10.0 would misreport the metric.
 
 Scoring an agent pipeline forces a choice about where attack complexity is
 charged, because the findings are not independent: F-01 supplies the injection,
