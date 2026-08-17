@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-16 06:00 UTC",
-  "rooms_completed": 94,
+  "last_synced_utc": "2026-08-17 06:00 UTC",
+  "rooms_completed": 100,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -294,6 +294,16 @@
       "code": "wiresharkthebasics"
     },
     {
+      "_id": "6295b9bd99cd7b004ae9be0b",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "introtosiem",
+      "title": "Introduction to SIEM",
+      "description": "Learn the fundamentals of SIEM and explore its features and functionality.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/introtosiem-1785241446199.png"
+    },
+    {
       "_id": "62a79f64126bc700560fd452",
       "type": "walkthrough",
       "freeToUse": true,
@@ -414,6 +424,16 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/incidentresponsefundamentals-1785241445975.png"
     },
     {
+      "_id": "665ebe6227fa216d232ab8f4",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "logsfundamentals",
+      "title": "Logs Fundamentals",
+      "description": "Learn what logs are and how to analyze them for effective investigation.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/logsfundamentals-1785241447869.png"
+    },
+    {
       "_id": "66684daedde4de46303b2a96",
       "type": "walkthrough",
       "freeToUse": true,
@@ -432,6 +452,46 @@
       "title": "Digital Forensics Fundamentals",
       "description": "Learn about digital forensics and related processes and experiment with a practical example.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339531380-digitalforensicsfundamentals.png"
+    },
+    {
+      "_id": "668fd39c3d46ef00ecb70c01",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "firewallfundamentals",
+      "title": "Firewall Fundamentals",
+      "description": "Learn about firewalls and get hands-on with Windows and Linux built-in firewalls.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/firewallfundamentals-1785241445035.png"
+    },
+    {
+      "_id": "66a0d44ac3dc65c4113ea5f2",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "idsfundamentals",
+      "title": "IDS Fundamentals",
+      "description": "Learn the fundamentals of IDS, along with the experience of working with Snort.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/idsfundamentals-1785241445785.png"
+    },
+    {
+      "_id": "66aa071c4fe9e3df24f97ce9",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "vulnerabilityscanneroverview",
+      "title": "Vulnerability Scanner Overview",
+      "description": "Learn about vulnerability scanners and how they work in a practical scenario.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339641038-vulnerabilityscanneroverview.png"
+    },
+    {
+      "_id": "66b9fcdbfc8f00e1ae048983",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "cyberchefbasics",
+      "title": "CyberChef: The Basics",
+      "description": "This room is an introduction to CyberChef, the Swiss Army knife for cyber security professionals.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339692582-cyberchefbasics.png"
     },
     {
       "_id": "66c378c0fa5a6c25ee0cb649",
