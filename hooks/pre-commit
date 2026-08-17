@@ -1,0 +1,32 @@
+#!/bin/sh
+# Blocks a commit if any report's CVSS score disagrees with its own vector.
+#
+# Enabled with:  git config core.hooksPath hooks
+# Bypass once (only if you know why):  git commit --no-verify
+
+# Only run when a report or the validator itself is staged.
+if ! git diff --cached --name-only | grep -qE '^(reports/.*\.md|scripts/validate_cvss\.py)$'; then
+    exit 0
+fi
+
+for py in python python3 py; do
+    if command -v "$py" >/dev/null 2>&1; then
+        PYTHON="$py"
+        break
+    fi
+done
+
+if [ -z "$PYTHON" ]; then
+    echo "pre-commit: no python interpreter found; skipping CVSS validation." >&2
+    echo "pre-commit: run 'python scripts/validate_cvss.py' manually before pushing." >&2
+    exit 0
+fi
+
+if ! "$PYTHON" scripts/validate_cvss.py; then
+    echo >&2
+    echo "pre-commit: CVSS validation failed, commit aborted." >&2
+    echo "pre-commit: fix the scores above, or commit with --no-verify to override." >&2
+    exit 1
+fi
+
+exit 0

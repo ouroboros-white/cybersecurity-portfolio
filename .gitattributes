@@ -1,0 +1,4 @@
+# Git hooks are run by sh, which fails on CRLF line endings ("bad interpreter").
+# Keep them LF regardless of the checkout platform.
+hooks/** text eol=lf
+*.sh text eol=lf
