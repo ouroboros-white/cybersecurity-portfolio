@@ -7,18 +7,18 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-17 06:00 UTC
+**Last synced:** 2026-08-18 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>100</td>
-<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>14</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>101</td>
+<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>15</td>
 <td align="center">&nbsp;<strong>🔴 Hard</strong>&nbsp;<br>1</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>8</td>
 <td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>78</td>
-<td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>13</td>
+<td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>14</td>
 </tr>
 </table>
 
@@ -100,7 +100,7 @@ _Solved without a guided walkthrough. Hardest first._
 
 </div>
 
-## Guided Rooms (77)
+## Guided Rooms (78)
 
 _Walkthrough rooms. Hardest first; related rooms grouped._
 
@@ -232,7 +232,7 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 
 </div>
 
-### ℹ️ Info (13)
+### ℹ️ Info (14)
 
 <div align="center">
 
@@ -253,25 +253,32 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 <td align="left" width="300"><a href="https://tryhackme.com/room/packetsframes">Packets & Frames</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/training">Training Impact on Teams</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/whatisnetworking">What is Networking?</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/windowsfundamentals1xbx">Windows Fundamentals 1</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/windowsfundamentals2x0x">Windows Fundamentals 2</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/windowsfundamentals2x0x">Windows Fundamentals 2</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/windowsfundamentals3xzx">Windows Fundamentals 3</a></td>
-<td width="300"></td>
 <td width="300"></td>
 </tr>
 </table>
 
 </div>
 
-## Badges (14)
+## Badges (15)
 
 <div align="center">
 
 <table>
 <tr>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/careerready.png" alt="Cyber Ready" width="90"><br>
+<strong>Cyber Ready</strong>
+</a>
+<br><sub>2026-08-17 · rare (3.4%)</sub>
+</td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/streak30.png" alt="30 Day Streak" width="90"><br>
@@ -293,6 +300,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-10 · epic (0.3%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/blue.png" alt="Blue" width="90"><br>
@@ -300,8 +309,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-03 · rare (8.4%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/metasploit.png" alt="Metasploitable" width="90"><br>
@@ -322,6 +329,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-23 · common (17.2%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/linux.png" alt="cat linux.txt" width="90"><br>
@@ -329,8 +338,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-22 · common (28.2%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/howthewebworks.png" alt="World Wide Web" width="90"><br>
@@ -352,6 +359,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-21 · common (15.5%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/first-mobile-quiz.png" alt="First Mobile Quiz" width="90"><br>
@@ -359,8 +368,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-20 · rare (1.3%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/streak3.png" alt="3 Day Streak" width="90"><br>

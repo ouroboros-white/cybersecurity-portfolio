@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-17 06:00 UTC",
-  "rooms_completed": 100,
+  "last_synced_utc": "2026-08-18 06:00 UTC",
+  "rooms_completed": 101,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -306,7 +306,7 @@
     {
       "_id": "62a79f64126bc700560fd452",
       "type": "walkthrough",
-      "freeToUse": true,
+      "freeToUse": false,
       "difficulty": "easy",
       "code": "winadbasics",
       "title": "Active Directory Basics",
@@ -1002,9 +1002,29 @@
       "title": "Management Wants a Word",
       "description": "It was always her. It was never a bug; it was the business model.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785252041755"
+    },
+    {
+      "_id": "66e44382fd6ce645435979e3",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "info",
+      "code": "training",
+      "title": "Training Impact on Teams",
+      "description": "Discover the impact of training on teams and organisations.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/training-1785241453838.png"
     }
   ],
   "badges": [
+    {
+      "_id": "6710f453b3eec466f102ee2d",
+      "name": "careerreadybadge",
+      "image": "https://assets.tryhackme.com/img/badges/careerready.png",
+      "title": "Cyber Ready",
+      "description": "Understanding impact of training on teams",
+      "earnedAt": "2026-08-17T22:52:00.626Z",
+      "rarityTier": "rare",
+      "rarityPercent": 3.4
+    },
     {
       "_id": "5eb1f96f5689ac81e114b568",
       "name": "30-day-streak",
@@ -1146,5 +1166,5 @@
       "rarityPercent": 22
     }
   ],
-  "badge_count": 14
+  "badge_count": 15
 }
