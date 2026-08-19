@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-18 06:00 UTC",
-  "rooms_completed": 101,
+  "last_synced_utc": "2026-08-19 06:00 UTC",
+  "rooms_completed": 102,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -554,6 +554,16 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339394962-gobusterthebasics.png"
     },
     {
+      "_id": "66e44382fd6ce645435979e3",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "info",
+      "code": "training",
+      "title": "Training Impact on Teams",
+      "description": "Discover the impact of training on teams and organisations.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/training-1785241453838.png"
+    },
+    {
       "_id": "66e7d19fb65d945175291044",
       "type": "walkthrough",
       "freeToUse": false,
@@ -844,16 +854,6 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/62ff64c3c859dc0042b2b9f6-1782993874301"
     },
     {
-      "_id": "6a439347fa0b5f85434e4c75",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "careersincybersn",
-      "title": "Careers in Cyber",
-      "description": "Discover the perks and your place within Cyber Security.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1782818141370"
-    },
-    {
       "_id": "6a563d46e6ac2e5ee5b45997",
       "type": "challenge",
       "freeToUse": true,
@@ -1004,14 +1004,24 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785252041755"
     },
     {
-      "_id": "66e44382fd6ce645435979e3",
+      "_id": "62bae2b9dc6a500060047287",
       "type": "walkthrough",
       "freeToUse": true,
-      "difficulty": "info",
-      "code": "training",
-      "title": "Training Impact on Teams",
-      "description": "Discover the impact of training on teams and organisations.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/training-1785241453838.png"
+      "difficulty": "easy",
+      "code": "securityprinciples",
+      "title": "Security Principles",
+      "description": "Learn about the security triad and common security models and principles.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/securityprinciples-1785241452480.png"
+    },
+    {
+      "_id": "6a439347fa0b5f85434e4c75",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "careersincybersn",
+      "title": "Careers in Cyber",
+      "description": "Discover the perks and your place within Cyber Security.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1782818141370"
     }
   ],
   "badges": [
