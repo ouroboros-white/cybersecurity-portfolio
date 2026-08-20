@@ -75,6 +75,8 @@ flowchart TD
       A2["F-02 · Bulk data theft · HIGH"]
       A4["F-04 · Plaintext passwords · MEDIUM"]
     end
+    A1 ~~~ A3
+    A3 ~~~ A2
     classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
     classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
@@ -141,21 +143,33 @@ v3.1 base scores; each finding is also mapped to a Common Weakness Enumeration
 
 Attacker behaviour is mapped to MITRE ATT&CK (Enterprise) so the work can be read
 against a defender's coverage matrix. Unlike a single-host chain, these are three
-independently assessed targets, so the mapping is grouped by target rather than
-presented as one sequence.
+independently assessed targets, so the mapping is presented as one table per
+target rather than as a single sequence.
 
-| Target | Stage | Finding | Tactic | Technique |
-|---|---|---|---|---|
-| WEB-01 | Port, service and version fingerprinting | n/a | Reconnaissance | T1595.002 Active Scanning: Vulnerability Scanning |
-| WEB-01 | Exploiting CVE-2018-16763 in an end-of-life CMS | F-01 | Initial Access | T1190 Exploit Public-Facing Application |
-| WEB-01 | Commands run on the host through the exploit | F-01 | Execution | T1059.004 Command and Scripting Interpreter: Unix Shell |
-| CLD-01 | Collecting the credentials the application issues to anonymous visitors | F-02 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
-| CLD-01 | Authenticating to the cloud API with those credentials | F-02 | Defense Evasion | T1078.004 Valid Accounts: Cloud Accounts |
-| CLD-01 | Establishing which identity the credentials actually hold | F-02 | Discovery | T1087.004 Account Discovery: Cloud Account |
-| CLD-01 | Full-table read of the managed database | F-02 | Collection | T1530 Data from Cloud Storage |
-| WEB-02 | Content discovery locating the exposed repository | F-03 | Reconnaissance | T1595.003 Active Scanning: Wordlist Scanning |
-| WEB-02 | Reconstructing the working tree and commit history | F-03 | Collection | T1213.003 Data from Information Repositories: Code Repositories |
-| WEB-02 | Secrets recovered from history that a later commit had "removed" | F-03 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
+**WEB-01** (end-of-life CMS)
+
+| Stage | Finding | Tactic | Technique |
+|---|---|---|---|
+| Port, service and version fingerprinting | n/a | Reconnaissance | T1595.002 Active Scanning: Vulnerability Scanning |
+| Exploiting CVE-2018-16763 in an end-of-life CMS | F-01 | Initial Access | T1190 Exploit Public-Facing Application |
+| Commands run on the host through the exploit | F-01 | Execution | T1059.004 Command and Scripting Interpreter: Unix Shell |
+
+**CLD-01** (client-side cloud application)
+
+| Stage | Finding | Tactic | Technique |
+|---|---|---|---|
+| Collecting the credentials the application issues to anonymous visitors | F-02 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
+| Authenticating to the cloud API with those credentials | F-02 | Defense Evasion | T1078.004 Valid Accounts: Cloud Accounts |
+| Establishing which identity the credentials actually hold | F-02 | Discovery | T1087.004 Account Discovery: Cloud Account |
+| Full-table read of the managed database | F-02 | Collection | T1530 Data from Cloud Storage |
+
+**WEB-02** (exposed version-control repository)
+
+| Stage | Finding | Tactic | Technique |
+|---|---|---|---|
+| Content discovery locating the exposed repository | F-03 | Reconnaissance | T1595.003 Active Scanning: Wordlist Scanning |
+| Reconstructing the working tree and commit history | F-03 | Collection | T1213.003 Data from Information Repositories: Code Repositories |
+| Secrets recovered from history that a later commit had "removed" | F-03 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
 
 Reconnaissance produced no reportable finding, so those rows carry `n/a` in the
 Finding column rather than being tied to one.
