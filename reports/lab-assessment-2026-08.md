@@ -62,18 +62,17 @@ defence that should meet it.
 **Findings by target** (severity-highlighted for a management audience). Unlike a
 single-host compromise, these findings are **independent** across three separate
 targets, not one chain, which is why only one connector is drawn: F-04 has no
-impact of its own until F-02 reaches the data it describes. Findings appear in
-severity order here rather than numerical order, because the question this
-graphic answers is what to fix first; the table above lists them by number.
+impact of its own until F-02 reaches the data it describes.
 
 ```mermaid
 flowchart TD
     A1["WEB-01 · CMS<br/>F-01 · Unauthenticated RCE (CVE-2018-16763) · CRITICAL"]
-    A3["WEB-02 · staging<br/>F-03 · Exposed .git source disclosure · HIGH"]
     A2["CLD-01 · cloud app<br/>F-02 · Bulk data theft · HIGH"]
+    A3["WEB-02 · staging<br/>F-03 · Exposed .git source disclosure · HIGH"]
     A4["CLD-01 · cloud app<br/>F-04 · Plaintext passwords · MEDIUM"]
-    A1 ~~~ A3
-    A3 ~~~ A2
+    A1 ~~~ A2
+    A2 ~~~ A3
+    A3 ~~~ A4
     A2 -->|"amplifies"| A4
     classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
