@@ -100,9 +100,9 @@ flowchart TD
 
 | Asset | Type / stack | Exposed services | Platform |
 |-------|--------------|------------------|----------|
-| `WEB-01` | CMS web application (FUEL CMS 1.4) | 80/tcp HTTP (Apache 2.4.41) | Linux (LAMP) |
-| `WEB-02` | Staging web application | 8080/tcp HTTP | Linux |
-| `CLD-01` | Cloud static web app (object storage + serverless identity/data) | HTTPS (cloud-hosted) | AWS (Cognito + DynamoDB) |
+| WEB-01 | CMS web application (FUEL CMS 1.4) | 80/tcp HTTP (Apache 2.4.41) | Linux (LAMP) |
+| WEB-02 | Staging web application | 8080/tcp HTTP | Linux |
+| CLD-01 | Cloud static web app (object storage + serverless identity/data) | HTTPS (cloud-hosted) | AWS (Cognito + DynamoDB) |
 
 Hostnames and addresses redacted as they would be in a client report. Assessment
 window 2026-07-28 to 2026-08-01.
@@ -146,16 +146,19 @@ presented as one sequence.
 
 | Target | Stage | Finding | Tactic | Technique |
 |---|---|---|---|---|
-| `WEB-01` | Port, service and version fingerprinting | Recon | Reconnaissance | T1595.002 Active Scanning: Vulnerability Scanning |
-| `WEB-01` | Exploiting CVE-2018-16763 in an end-of-life CMS | F-01 | Initial Access | T1190 Exploit Public-Facing Application |
-| `WEB-01` | Commands run on the host through the exploit | F-01 | Execution | T1059.004 Command and Scripting Interpreter: Unix Shell |
-| `CLD-01` | Collecting the credentials the application issues to anonymous visitors | F-02 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
-| `CLD-01` | Authenticating to the cloud API with those credentials | F-02 | Defense Evasion | T1078.004 Valid Accounts: Cloud Accounts |
-| `CLD-01` | Establishing which identity the credentials actually hold | F-02 | Discovery | T1087.004 Account Discovery: Cloud Account |
-| `CLD-01` | Full-table read of the managed database | F-02 | Collection | T1530 Data from Cloud Storage |
-| `WEB-02` | Content discovery locating the exposed repository | F-03 | Reconnaissance | T1595.003 Active Scanning: Wordlist Scanning |
-| `WEB-02` | Reconstructing the working tree and commit history | F-03 | Collection | T1213.003 Data from Information Repositories: Code Repositories |
-| `WEB-02` | Secrets recovered from history that a later commit had "removed" | F-03 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
+| WEB-01 | Port, service and version fingerprinting | n/a | Reconnaissance | T1595.002 Active Scanning: Vulnerability Scanning |
+| WEB-01 | Exploiting CVE-2018-16763 in an end-of-life CMS | F-01 | Initial Access | T1190 Exploit Public-Facing Application |
+| WEB-01 | Commands run on the host through the exploit | F-01 | Execution | T1059.004 Command and Scripting Interpreter: Unix Shell |
+| CLD-01 | Collecting the credentials the application issues to anonymous visitors | F-02 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
+| CLD-01 | Authenticating to the cloud API with those credentials | F-02 | Defense Evasion | T1078.004 Valid Accounts: Cloud Accounts |
+| CLD-01 | Establishing which identity the credentials actually hold | F-02 | Discovery | T1087.004 Account Discovery: Cloud Account |
+| CLD-01 | Full-table read of the managed database | F-02 | Collection | T1530 Data from Cloud Storage |
+| WEB-02 | Content discovery locating the exposed repository | F-03 | Reconnaissance | T1595.003 Active Scanning: Wordlist Scanning |
+| WEB-02 | Reconstructing the working tree and commit history | F-03 | Collection | T1213.003 Data from Information Repositories: Code Repositories |
+| WEB-02 | Secrets recovered from history that a later commit had "removed" | F-03 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
+
+Reconnaissance produced no reportable finding, so those rows carry `n/a` in the
+Finding column rather than being tied to one.
 
 Three mappings need their reasoning stated.
 
@@ -199,7 +202,7 @@ Findings are ordered by severity, highest first.
 | **CVSS 3.1** | 9.8, `AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H` |
 | **CWE** | CWE-94: Improper Control of Generation of Code ('Code Injection') |
 | **Reference** | CVE-2018-16763 |
-| **Affected asset** | `WEB-01` |
+| **Affected asset** | WEB-01 |
 | **Status** | Open |
 
 **CVSS rationale.** `AV:N/PR:N/UI:N` because a published exploit runs
@@ -277,7 +280,7 @@ environment *would* observe.
 | **Severity** | **High** |
 | **CVSS 3.1** | 7.5, `AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N` |
 | **CWE** | CWE-732: Incorrect Permission Assignment for Critical Resource |
-| **Affected asset** | `CLD-01` |
+| **Affected asset** | CLD-01 |
 | **Status** | Open |
 
 **CVSS rationale.** `PR:N` because the application issues working credentials to any
@@ -365,7 +368,7 @@ The lab account has no monitoring configured; the following are expected detecti
 | **Severity** | **High** |
 | **CVSS 3.1** | 7.5, `AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N` |
 | **CWE** | CWE-527: Exposure of Version-Control Repository to an Unauthorized Control Sphere |
-| **Affected asset** | `WEB-02` |
+| **Affected asset** | WEB-02 |
 | **Status** | Open |
 
 **CVSS rationale.** `PR:N` because the exposed `.git` is fetchable anonymously;
@@ -428,7 +431,7 @@ Expected detection opportunities, as the target is uninstrumented.
 | **Severity** | **Medium** |
 | **CVSS 3.1** | 5.3, `AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N` |
 | **CWE** | CWE-256: Plaintext Storage of a Password |
-| **Affected asset** | `CLD-01` |
+| **Affected asset** | CLD-01 |
 | **Status** | Open |
 
 **CVSS rationale.** `C:L` in isolation because it is a data-at-rest weakness that

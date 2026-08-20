@@ -179,8 +179,8 @@ narrative. Reconnaissance stages carried out before any access use PRE technique
 
 | Stage | Finding | Tactic | Technique |
 |---|---|---|---|
-| Port and service scan | Recon | Reconnaissance | T1595.002 Active Scanning: Vulnerability Scanning |
-| Web content brute force (`gobuster`) | Recon | Reconnaissance | T1595.003 Active Scanning: Wordlist Scanning |
+| Port and service scan | n/a | Reconnaissance | T1595.002 Active Scanning: Vulnerability Scanning |
+| Web content brute force (`gobuster`) | n/a | Reconnaissance | T1595.003 Active Scanning: Wordlist Scanning |
 | Anonymous SMB session, share listing | F-01 | Discovery | T1135 Network Share Discovery |
 | Usernames read from the exposed share | F-01 | Reconnaissance | T1589.003 Gather Victim Identity Information: Employee Names |
 | SSH password guessing against `jan` | F-02 | Credential Access | T1110.001 Brute Force: Password Guessing |
@@ -190,6 +190,9 @@ narrative. Reconnaissance stages carried out before any access use PRE technique
 | Authenticating as `kay` over SSH with the key | F-03, F-04 | Lateral Movement | T1021.004 Remote Services: SSH |
 | Cleartext password read from a backup file | F-05 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
 | `sudo -i` to an interactive root shell | F-06 | Privilege Escalation | T1548.003 Abuse Elevation Control Mechanism: Sudo and Sudo Caching |
+
+Reconnaissance produced no reportable finding, so those rows carry `n/a` in the
+Finding column rather than being tied to one.
 
 Two mappings are judgement calls worth stating. The anonymous SMB session is
 listed under Discovery (T1135) because shares were listed and read, while the
