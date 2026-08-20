@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-19 06:00 UTC",
-  "rooms_completed": 102,
+  "last_synced_utc": "2026-08-20 06:00 UTC",
+  "rooms_completed": 103,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -1012,6 +1012,16 @@
       "title": "Security Principles",
       "description": "Learn about the security triad and common security models and principles.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/securityprinciples-1785241452480.png"
+    },
+    {
+      "_id": "6377195d0ad5321456c8e926",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "compiled",
+      "title": "Compiled",
+      "description": "Strings can only help you so far.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/574f66376f860a91d9e576ce1abfc135.svg"
     },
     {
       "_id": "6a439347fa0b5f85434e4c75",
