@@ -62,7 +62,9 @@ defence that should meet it.
 **Findings by target** (severity-highlighted for a management audience). Unlike a
 single-host compromise, these findings are **independent** across three separate
 targets, not one chain, which is why only one connector is drawn: F-04 has no
-impact of its own until F-02 reaches the data it describes.
+impact of its own until F-02 reaches the data it describes. Findings appear in
+severity order here rather than numerical order, because the question this
+graphic answers is what to fix first; the table above lists them by number.
 
 ```mermaid
 flowchart TD
