@@ -137,6 +137,49 @@ AWS CLI, and standard browser developer tools. Severity is expressed using CVSS
 v3.1 base scores; each finding is also mapped to a Common Weakness Enumeration
 (CWE) identifier.
 
+### ATT&CK technique mapping
+
+Attacker behaviour is mapped to MITRE ATT&CK (Enterprise) so the work can be read
+against a defender's coverage matrix. Unlike a single-host chain, these are three
+independently assessed targets, so the mapping is grouped by target rather than
+presented as one sequence.
+
+| Target | Stage | Finding | Tactic | Technique |
+|---|---|---|---|---|
+| `WEB-01` | Port, service and version fingerprinting | Recon | Reconnaissance | T1595.002 Active Scanning: Vulnerability Scanning |
+| `WEB-01` | Exploiting CVE-2018-16763 in an end-of-life CMS | F-01 | Initial Access | T1190 Exploit Public-Facing Application |
+| `WEB-01` | Commands run on the host through the exploit | F-01 | Execution | T1059.004 Command and Scripting Interpreter: Unix Shell |
+| `CLD-01` | Collecting the credentials the application issues to anonymous visitors | F-02 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
+| `CLD-01` | Authenticating to the cloud API with those credentials | F-02 | Defense Evasion | T1078.004 Valid Accounts: Cloud Accounts |
+| `CLD-01` | Establishing which identity the credentials actually hold | F-02 | Discovery | T1087.004 Account Discovery: Cloud Account |
+| `CLD-01` | Full-table read of the managed database | F-02 | Collection | T1530 Data from Cloud Storage |
+| `WEB-02` | Content discovery locating the exposed repository | F-03 | Reconnaissance | T1595.003 Active Scanning: Wordlist Scanning |
+| `WEB-02` | Reconstructing the working tree and commit history | F-03 | Collection | T1213.003 Data from Information Repositories: Code Repositories |
+| `WEB-02` | Secrets recovered from history that a later commit had "removed" | F-03 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
+| `CLD-01` | Reuse of the recovered plaintext passwords against other services | F-04 | Credential Access | T1110.004 Brute Force: Credential Stuffing |
+
+Three mappings need their reasoning stated.
+
+**F-02 splits across four techniques** because the finding is one weakness but
+four distinct behaviours, and they are not detected by the same telemetry. The
+credential collection happens in the victim's browser and is invisible to the
+cloud provider. The authentication and the identity check appear in
+management-plane logs. The full-table read appears only in data-plane logs, which
+are off by default. That split is the entire argument of the detection analysis in
+F-02, and the mapping is what makes it legible to a defender.
+
+**T1530 is an imperfect fit for the database read.** ATT&CK describes it as data
+from cloud storage, and the target here is a managed NoSQL database rather than an
+object store. T1213 Data from Information Repositories is the alternative reading.
+T1530 is used because the access path was the cloud provider's own API with cloud
+credentials, which is the behaviour a defender would be hunting.
+
+**F-04 has no attacker technique of its own.** Plaintext password storage is a
+data-protection failure, not something an adversary does, so what is mapped is the
+behaviour the weakness enables: credential stuffing against other services using
+the recovered passwords. That step was not performed during this assessment, and
+the row is a statement of what the finding permits rather than of what was done.
+
 ---
 
 ## 4. Detailed findings

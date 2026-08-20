@@ -113,8 +113,10 @@ then reconstruct the offline key-recovery path from lowest-privilege data upward
 Analysis was performed on a copy; the encrypted container was mounted **read-only**
 to preserve evidential integrity. Severity is expressed as CVSS v3.1 base score,
 and each finding is mapped to a Common Weakness Enumeration (CWE) identifier.
-Detection analysis describes expected preventive and monitoring opportunities,
-since offline recovery from a held device produces no signal on the device itself.
+Attacker behaviour is additionally mapped to MITRE ATT&CK in section 4, with the
+limits of that framework for an offline scenario stated alongside it. Detection
+analysis describes expected preventive and monitoring opportunities, since offline
+recovery from a held device produces no signal on the device itself.
 
 **Tooling:** `impacket` (`secretsdump`, `dpapi`), an SQLite client, Python
 (`cryptography`) for AES-GCM verification, and `cryptsetup` for read-only container
@@ -155,6 +157,43 @@ the findings are detailed individually.
 
 Each rung depended on the one before it; none required cracking, insider access,
 or any interaction with a live system.
+
+### ATT&CK technique mapping
+
+| Stage | Finding | Tactic | Technique |
+|---|---|---|---|
+| Registry hives and user profile read directly from an unencrypted image | F-01 | Credential Access | T1003.002 OS Credential Dumping: Security Account Manager |
+| Automatic-logon password held as an LSA secret | F-02 | Credential Access | T1003.004 OS Credential Dumping: LSA Secrets |
+| The same password as a credential stored in the registry | F-02 | Credential Access | T1552.002 Unsecured Credentials: Credentials in Registry |
+| DPAPI master key decrypted with the recovered password | F-03 | Credential Access | T1555 Credentials from Password Stores |
+| Chrome `Local State` AES key and saved credential recovered | F-03 | Credential Access | T1555.003 Credentials from Password Stores: Credentials from Web Browsers |
+| Encrypted container opened and its contents read | F-04 | Collection | T1005 Data from Local System |
+
+This mapping carries a caveat that does not apply to the other assessments in this
+repository, and it is worth stating plainly rather than presenting the table as
+equivalent to the others.
+
+**ATT&CK describes adversary behaviour on running systems.** Every technique above
+was carried out offline, against a powered-down disk image, on an analysis
+workstation. The techniques are mapped by what was done to the data, not by
+anything observable on the target, and the honest consequence is that a defender
+watching the device would have seen none of it. That is not a gap in the mapping;
+it is the finding. It is why the detection analysis throughout this report is
+framed as preventive rather than detective, and why full-disk encryption is the
+only control in the remediation roadmap that would have stopped the chain at step
+one.
+
+**F-02 is mapped twice on purpose.** The automatic-logon password is both an LSA
+secret extracted by credential dumping (T1003.004) and a credential left in the
+registry (T1552.002). The two identifiers describe the same value from the
+attacker's side and the defender's side respectively: one is how it was taken, the
+other is why it was there to take.
+
+**There is no technique for the first step.** ATT&CK's scope begins once an
+adversary has access, so physical acquisition of a lost or stolen device has no
+identifier in the matrix. The entire premise of this assessment therefore sits
+outside the framework, which is a limitation of ATT&CK for device-loss scenarios
+rather than a limitation of the analysis.
 
 ---
 

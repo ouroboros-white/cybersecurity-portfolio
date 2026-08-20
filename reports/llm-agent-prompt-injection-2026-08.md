@@ -123,7 +123,9 @@ the OWASP Web Security Testing Guide for the web tier: reconnaissance and surfac
 mapping, agent capability enumeration, authorization analysis, exploitation
 (injection to tool abuse), and impact demonstration (command execution, secret
 recovery). Severity is expressed as CVSS v3.1 base score, and each finding is
-mapped to a Common Weakness Enumeration (CWE) identifier. Detection analysis
+mapped to a Common Weakness Enumeration (CWE) identifier. Attacker behaviour is
+additionally mapped to MITRE ATLAS in section 4, with ATT&CK Enterprise used for
+the stages that become conventional after command execution. Detection analysis
 describes expected detection opportunities, since the target is not instrumented.
 
 A methodological note that materially affected the result: the enabling behaviour
@@ -185,6 +187,54 @@ trivially paraphrased around. Web-layer content discovery and request-parameter
 tampering found no shortcut; the flaw lived in the agent, not the web plumbing.
 
 Each rung depended on the one before it; none required credentials.
+
+### ATT&CK and ATLAS technique mapping
+
+This engagement is mapped primarily to **MITRE ATLAS**, the adversarial technique
+matrix for AI systems, rather than to ATT&CK Enterprise. That is a deliberate
+choice: the flaws exploited here live in the agent's reasoning and tool
+authorization, and ATT&CK Enterprise has no vocabulary for prompt injection or
+for a model being persuaded to invoke a privileged tool. Enterprise techniques
+are used alongside ATLAS for the stages after command execution, where the
+activity becomes conventional.
+
+| Stage | Finding | Matrix | Tactic | Technique |
+|---|---|---|---|---|
+| Guestbook entry text processed as trusted agent instructions | F-01 | ATLAS | Initial Access | AML.T0051.001 LLM Prompt Injection: Indirect |
+| Enumerating the agent's available tool directives | F-01 | ATLAS | Discovery | AML.T0069 Discover LLM System Information |
+| Induced `lookup` calls disclosing other guests' records | F-01 | ATLAS | Exfiltration | AML.T0057 LLM Data Leakage |
+| Routing `override` through the pre-authorized record | F-02 | ATLAS | Privilege Escalation | AML.T0053 AI Agent Tool Invocation |
+| `override` executing arbitrary shell commands | F-03 | ATLAS | Execution | AML.T0050 Command and Scripting Interpreter |
+| The same execution, in conventional terms | F-03 | ATT&CK | Execution | T1059.004 Command and Scripting Interpreter: Unix Shell |
+| `env` dump locating the secret in the process environment | F-03 | ATT&CK | Discovery | T1082 System Information Discovery |
+| Paraphrasing around the signature-based injection filter | F-04 | ATLAS | Defense Evasion | AML.T0054 LLM Jailbreak |
+| Base64 file read defeating the disclosure refusal | F-04 | ATLAS | Defense Evasion | AML.T0054 LLM Jailbreak |
+| The encoding itself, in conventional terms | F-04 | ATT&CK | Defense Evasion | T1027 Obfuscated Files or Information |
+
+Four points about this mapping are worth stating rather than leaving implicit.
+
+**F-02 is the weakest fit, and it is the most important finding.** AML.T0053 was
+published as *LLM Plugin Compromise* and renamed *AI Agent Tool Invocation* in the
+2026.06 ATLAS release, which is the closest available description of an agent
+being induced to invoke a tool it holds. It does not capture what actually made
+this finding interesting: that authorization was inherited by routing the
+instruction through a record the server had already authorized, rather than the
+tool being invoked directly. The confused-deputy mechanism described in F-02 has
+no clean technique identifier in either matrix. Where the framework and the
+finding disagree, the finding is the more accurate document.
+
+**F-04 maps twice to the same technique** because a signature filter bypass and an
+encoding bypass of a refusal are the same ATLAS behaviour, guardrail evasion,
+reached by two different routes. They are separated in the findings because they
+fail for different reasons and need different fixes.
+
+**ATLAS tactic names mirror ATT&CK's** deliberately, so Initial Access, Discovery
+and Defense Evasion carry their usual meanings here.
+
+**Identifiers were verified against the published ATLAS matrix at the time of
+writing** rather than recalled. ATLAS is revised more often than ATT&CK
+Enterprise, and AML.T0053 has already been renamed once, so any reader checking
+these should expect drift.
 
 ---
 
