@@ -1,0 +1,47 @@
+title: SSH Password Brute Force Against a Single Account
+id: 8f3c1a94-6d2e-4b71-9c05-2ad7e4f11b83
+status: experimental
+description: >
+  Detects a burst of failed SSH password authentications targeting one account
+  from one source address, the signature produced by finding F-02 in the
+  Network Share to Root assessment. A success shortly after a burst of this
+  shape is the high-confidence case and is covered by the paired rule below.
+references:
+  - reports/smb-to-multiuser-compromise-2026-08.md
+author: ouroboros-white
+date: 2026/08/20
+tags:
+  - attack.credential_access
+  - attack.t1110.001
+logsource:
+  product: linux
+  service: sshd
+detection:
+  selection:
+    - 'Failed password for'
+  condition: selection
+falsepositives:
+  - Users or automation with a stale cached password, typically a low and
+    steady failure rate against one account rather than a burst.
+  - Vulnerability scanners and authorised credential-testing activity.
+level: low
+---
+title: SSH Brute Force Burst
+id: 2b6d0c17-45ae-4f8a-8de3-9c1f7a55e402
+status: experimental
+description: >
+  Correlation over the base rule. Ten or more failed SSH password attempts for
+  the same account from the same source inside five minutes. On the assessed
+  host neither lockout nor rate limiting was in place, so this pattern ran to a
+  successful login without interruption.
+correlation:
+  type: event_count
+  rules:
+    - 8f3c1a94-6d2e-4b71-9c05-2ad7e4f11b83
+  group-by:
+    - user
+    - src_ip
+  timespan: 5m
+  condition:
+    gte: 10
+level: high

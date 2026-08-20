@@ -189,6 +189,12 @@ than the difficulty of the target:
 These reports were written over a concentrated period of full-time study, which
 the commit history reflects.
 
+## Detection Rules
+
+Sigma detection rules written from the attacker behaviour I produced during my
+own assessments, so each offensive finding has a corresponding defensive
+artefact a SOC could load. See [detections/](detections/).
+
 ## Projects
 
 ### Portfolio Sync Automation

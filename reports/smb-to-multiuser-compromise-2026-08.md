@@ -115,8 +115,11 @@ Testing Execution Standard (PTES): reconnaissance, enumeration, vulnerability
 analysis, exploitation, post-exploitation / lateral movement, and privilege
 escalation, then reporting.
 Severity is expressed as CVSS v3.1 base score, and each finding is mapped to a
-Common Weakness Enumeration (CWE) identifier. Detection analysis describes
-expected detection opportunities, since the target is not instrumented.
+Common Weakness Enumeration (CWE) identifier. Attacker behaviour is additionally
+mapped to MITRE ATT&CK technique identifiers in section 4, so the chain can be
+compared against a defender's coverage. Detection analysis describes expected
+detection opportunities, since the target is not instrumented, and a retesting
+procedure in section 7 states how each fix would be verified.
 
 **Tooling:** `nmap`, `gobuster`, `enum4linux-ng`, `smbclient`, `hydra`,
 `ssh2john` / `john`, and standard SSH and Linux utilities. No custom or
@@ -167,6 +170,35 @@ the findings are detailed individually.
    host compromise.
 
 Each rung depended on the one before it; none required insider access.
+
+### ATT&CK technique mapping
+
+Each stage of the path above is mapped to MITRE ATT&CK (Enterprise, Linux) so the
+chain can be read against a defender's coverage matrix rather than only as a
+narrative. Reconnaissance stages carried out before any access use PRE techniques.
+
+| Stage | Finding | Tactic | Technique |
+|---|---|---|---|
+| Port and service scan | Recon | Reconnaissance | T1595.002 Active Scanning: Vulnerability Scanning |
+| Web content brute force (`gobuster`) | Recon | Reconnaissance | T1595.003 Active Scanning: Wordlist Scanning |
+| Anonymous SMB session, share listing | F-01 | Discovery | T1135 Network Share Discovery |
+| Usernames read from the exposed share | F-01 | Reconnaissance | T1589.003 Gather Victim Identity Information: Employee Names |
+| SSH password guessing against `jan` | F-02 | Credential Access | T1110.001 Brute Force: Password Guessing |
+| Interactive shell as a valid local account | F-02 | Initial Access | T1078.003 Valid Accounts: Local Accounts |
+| Reading `kay`'s world-readable private key | F-03 | Credential Access | T1552.004 Unsecured Credentials: Private Keys |
+| Offline recovery of the key passphrase | F-04 | Credential Access | T1110.002 Brute Force: Password Cracking |
+| Authenticating as `kay` over SSH with the key | F-03, F-04 | Lateral Movement | T1021.004 Remote Services: SSH |
+| Cleartext password read from a backup file | F-05 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
+| `sudo -i` to an interactive root shell | F-06 | Privilege Escalation | T1548.003 Abuse Elevation Control Mechanism: Sudo and Sudo Caching |
+
+Two mappings are judgement calls worth stating. The anonymous SMB session is
+listed under Discovery (T1135) because shares were listed and read, while the
+usernames obtained from that share are listed separately under Reconnaissance
+(T1589.003) because the value taken was identity information about the target
+rather than the share itself; a defender who prefers to treat the whole step as
+post-access enumeration would map it to T1087 Account Discovery instead. The
+`sudo` escalation is T1548.003 rather than T1078 because the account was already
+held; what was abused was the elevation mechanism, not a new set of credentials.
 
 ---
 
@@ -246,7 +278,10 @@ from which the rest of the host was compromised (F-03).
 single account from one source, followed by a success, is a high-fidelity
 brute-force signature that authentication logs and any SIEM or fail2ban-style
 control detect reliably. The absence of a lockout policy is itself a preventive
-finding surfaced by configuration review.
+finding surfaced by configuration review. A Sigma rule implementing this
+detection, written from the behaviour observed during this assessment, is
+included at
+[`detections/ssh_bruteforce_then_success.yml`](../detections/ssh_bruteforce_then_success.yml).
 
 **Remediation.** Enforce strong password requirements and, preferably, disable
 password authentication for SSH in favour of keys. Introduce account lockout or
@@ -440,7 +475,36 @@ disclosed user password translate directly into root.
 
 ---
 
-## 7. Conclusion
+## 7. Retesting
+
+Each finding below states the specific check that confirms the fix, so a retest
+produces a pass or fail rather than an opinion. A retest should be run from the
+same external, unauthenticated position as the original assessment, and the
+chain should be re-walked end to end afterwards: individually fixed findings can
+still leave a viable path if a replacement weakness is introduced.
+
+| Finding | Retest check | Pass condition |
+|---|---|---|
+| F-01 | Attempt an anonymous SMB null session and enumerate shares | Session is refused; no share is listable or readable without credentials |
+| F-02 | Attempt SSH password authentication for the affected account; review the effective password and lockout policy | Password authentication is disabled, or the policy enforces strong passwords and the account locks or throttles before a wordlist run completes |
+| F-03 | Enumerate permissions on all private keys under user home directories from an unprivileged account | Every private key is `600` and owned by its user; no key is readable by another account |
+| F-04 | Confirm key rotation records, and attempt offline recovery against a newly issued key using the original wordlist | The exposed key is revoked and no longer accepted; the replacement passphrase does not fall to the wordlist |
+| F-05 | Search home directories and backups for cleartext credentials; confirm rotation of the disclosed password | No plaintext credential is present, and the previously disclosed password no longer authenticates anywhere |
+| F-06 | From the affected account, run `sudo -l` and attempt an interactive root shell | Only the specific commands the role requires are permitted; `sudo -i` and equivalent general-purpose root shells are refused |
+
+Two points that decide whether the retest is meaningful. **Rotation is part of the
+fix, not an extra.** F-04 and F-05 both disclosed live credential material, so
+removing the file or correcting the permission does not close them while the
+exposed key and password remain valid; the retest has to confirm the old values
+fail, not merely that the storage is tidy. **Confirm F-06 from the account
+itself.** Reading `/etc/sudoers` shows the intended grant, but group membership
+and drop-in files in `/etc/sudoers.d` can restore the capability without changing
+the main file, so the authoritative check is what `sudo -l` reports in a live
+session as that user.
+
+---
+
+## 8. Conclusion
 
 This host was taken from anonymous to full root through six commonplace weaknesses,
 none sophisticated, chained so that each unlocked the next: an anonymously readable
@@ -499,3 +563,30 @@ follow the path.
 `enum4linux-ng` (SMB enumeration), `smbclient` (share access), `hydra` (SSH
 password attack), `ssh2john` and `john` (offline passphrase recovery), and
 standard SSH and Linux utilities. No custom or destructive tooling was used.
+
+
+## Appendix C: What I learnt
+
+Three things from this engagement changed how I work rather than just what I know.
+
+**Assumed root is not root.** I reached `kay` and inferred from the `sudo` grant
+that root was available, then redeployed the target and went back to prove it,
+because a finding that says "would likely permit" is worth much less to a client
+than one carrying `uid=0(root)` in the evidence. Confirming it cost one redeploy.
+Reporting it unproven would have been the kind of claim that falls apart under
+challenge.
+
+**A private key is a credential, and permissions are where that gets forgotten.**
+The passphrase on `kay`'s key was the control that should have contained the
+readable-key mistake, and it lasted seconds against a wordlist. The lesson is not
+that passphrases are useless; it is that a defence-in-depth control gets treated
+as the real control once the primary one has already failed, so the primary one
+(file permissions) is where the attention belongs.
+
+**Chain severity and base scores measure different things.** Working through the
+CVSS for F-06 is what taught me that an `AV:L/PR:L/S:U` finding cannot exceed 7.8
+whatever its impact, so a local escalation to root can never reach the Critical
+band on base metrics alone. That is an arithmetic property of the standard, not a
+scoring judgement, and it is why the executive summary here rates the chain
+Critical while every individual finding sits below it. Being able to explain that
+gap is more useful than being able to calculate a vector.
