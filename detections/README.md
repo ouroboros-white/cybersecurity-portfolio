@@ -60,6 +60,32 @@ statement of intent rather than something that drops into a SIEM unaided. On a
 platform without temporal correlation it would be implemented natively, using the
 Sigma rule as the specification.
 
+## Reading the generated Splunk query
+
+The committed SPL maps line for line back to the YAML: the quoted string is the
+base rule, `bin _time span=5m` is the timespan, the `stats ... by` clause is the
+group-by, and the final `search` is the threshold. Three properties of that
+output are worth stating, because they are limitations of the detection rather
+than of the format.
+
+**The time buckets are fixed, not sliding.** `bin` divides time into rigid
+five-minute blocks. Nine failed attempts at 12:04:59 followed by nine more at
+12:05:01 is eighteen attempts in two seconds, and this query catches neither,
+because they fall either side of a bucket boundary. That is an evasion path
+against my own rule. A sliding window closes it, implemented in Splunk with
+`streamstats` over a time window in place of `bin`.
+
+**The grouping assumes fields the search does not create.** The search matches
+raw event text, but the grouping is by `user` and `src_ip`, which exist only if
+the platform has already parsed sshd messages into fields. A correctly configured
+`linux_secure` sourcetype provides them. This is the concrete cost of keyword
+matching described above.
+
+**There is no index or sourcetype constraint.** The query was generated with
+`--without-pipeline`, so it omits the environment-specific mapping that a
+production query would carry (`index=... sourcetype=linux_secure`). It
+demonstrates the logic; it is not a query to schedule as-is.
+
 ## Honesty note
 
 These rules are written against the log formats the techniques produce, and the
