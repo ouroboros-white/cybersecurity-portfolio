@@ -1,0 +1,11 @@
+# Splunk SPL, generated from ssh_bruteforce_then_success.yml
+# Rule: ssh_bruteforce_burst (event_count correlation over ssh_failed_password)
+# Command: sigma convert -t splunk --without-pipeline detections/ssh_bruteforce_then_success.yml
+# Generated: 2026-08-20 with sigma-cli and pysigma-backend-splunk
+
+"Failed password for"
+
+| bin _time span=5m
+| stats count as event_count by _time user src_ip
+
+| search event_count >= 10
