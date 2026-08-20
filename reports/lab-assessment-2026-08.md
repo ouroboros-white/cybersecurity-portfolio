@@ -156,7 +156,6 @@ presented as one sequence.
 | `WEB-02` | Content discovery locating the exposed repository | F-03 | Reconnaissance | T1595.003 Active Scanning: Wordlist Scanning |
 | `WEB-02` | Reconstructing the working tree and commit history | F-03 | Collection | T1213.003 Data from Information Repositories: Code Repositories |
 | `WEB-02` | Secrets recovered from history that a later commit had "removed" | F-03 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
-| `CLD-01` | Reuse of the recovered plaintext passwords against other services | F-04 | Credential Access | T1110.004 Brute Force: Credential Stuffing |
 
 Three mappings need their reasoning stated.
 
@@ -174,11 +173,15 @@ object store. T1213 Data from Information Repositories is the alternative readin
 T1530 is used because the access path was the cloud provider's own API with cloud
 credentials, which is the behaviour a defender would be hunting.
 
-**F-04 has no attacker technique of its own.** Plaintext password storage is a
-data-protection failure, not something an adversary does, so what is mapped is the
-behaviour the weakness enables: credential stuffing against other services using
-the recovered passwords. That step was not performed during this assessment, and
-the row is a statement of what the finding permits rather than of what was done.
+**F-04 is deliberately absent from the table.** Plaintext password storage is a
+data-protection failure rather than something an adversary does, so it has no
+attacker technique of its own. The technique it would enable is T1110.004 Brute
+Force: Credential Stuffing, reusing the recovered passwords against other
+services, and that was neither performed nor in scope: those services belong to
+third parties and testing them would sit outside the authorisation this assessment
+was carried out under. It is named here rather than tabulated because this table
+records what was done, and every row in it is an action taken against an in-scope
+target.
 
 ---
 
