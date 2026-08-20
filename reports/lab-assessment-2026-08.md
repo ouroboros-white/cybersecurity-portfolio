@@ -61,7 +61,8 @@ defence that should meet it.
 
 **Findings by target** (severity-highlighted for a management audience). Unlike a
 single-host compromise, these findings are **independent** across three separate
-targets, not one chain:
+targets, not one chain, which is why only one connector is drawn: F-04 has no
+impact of its own until F-02 reaches the data it describes.
 
 ```mermaid
 flowchart TD
@@ -71,7 +72,7 @@ flowchart TD
     A4["CLD-01 · cloud app<br/>F-04 · Plaintext passwords · MEDIUM"]
     A1 ~~~ A3
     A3 ~~~ A2
-    A2 ~~~ A4
+    A2 -->|"amplifies"| A4
     classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
     classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
