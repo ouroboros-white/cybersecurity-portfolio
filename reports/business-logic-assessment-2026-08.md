@@ -140,6 +140,30 @@ flowchart TD
 Each step depended on understanding the application's own rules; no technical
 exploit was used.
 
+### ATT&CK technique mapping
+
+**No ATT&CK mapping is offered for this assessment, and the reason is worth
+stating.**
+
+ATT&CK Enterprise catalogues techniques for intruding on systems: exploiting
+software, stealing credentials, evading controls, moving laterally. Nothing in
+this engagement did any of that. The application was used exactly as built, over
+its documented endpoints, with a legitimately registered account, and no request
+sent was individually invalid. The flaw was that the application's own rules did
+not hold when its endpoints were called concurrently.
+
+Forcing a mapping would mean choosing a technique that describes the network
+traffic rather than the attack, and that misleads in both directions: it suggests
+to a defender that ATT&CK-derived detection covers this class of flaw, and it
+misrepresents what was actually done. Business-logic abuse is a known blind spot
+in the framework rather than an oversight in this report.
+
+The coverage that does apply is **OWASP**: this is API6:2023 Unrestricted Access
+to Sensitive Business Flows, with the concurrency defect itself recorded as
+CWE-367 (TOCTOU) in F-01. Detection for it lives in application telemetry rather
+than host or network telemetry, which is the argument made in the detection
+analysis for both findings.
+
 ---
 
 ## 5. Detailed findings

@@ -366,7 +366,39 @@ the custody of its key.
 
 ---
 
-## 7. Conclusion
+## 7. Retesting
+
+Retesting a device-loss scenario differs from retesting a live target: the
+question is not whether an attack still succeeds against a running system, but
+whether a rebuilt device would still surrender its contents to someone holding it.
+The checks below are therefore performed against a freshly imaged device
+configured to the corrected standard, not against the recovered one.
+
+| Finding | Retest check | Pass condition |
+|---|---|---|
+| F-01 | Attempt to mount the device's volume from a separate analysis host | The volume is encrypted at rest and unreadable without the recovery key. Registry hives and user profile are not accessible offline |
+| F-02 | Inspect the automatic-logon configuration and attempt LSA secret extraction from the offline hives | Automatic logon is disabled and no `DefaultPassword` secret exists to recover |
+| F-03 | With the account password, attempt DPAPI master-key decryption and browser credential-store recovery | No credential for the protected resource is present in the browser store. Sensitive credentials are held in a managed password manager rather than the browser |
+| F-04 | Search the whole device for the container passphrase in any form | The passphrase is not present anywhere on the device it protects, including browser stores, notes, scripts and configuration files |
+
+Two conditions decide whether the retest means anything.
+
+**Every credential recovered during this assessment must be treated as
+compromised and rotated.** A rebuilt device that is correctly configured but still
+uses the same container passphrase has not been remediated; it has been
+reconfigured around a key an attacker already holds. The retest should confirm the
+old passphrase no longer opens anything.
+
+**F-01 is the only check that can fail safe.** The remaining three depend on an
+attacker reaching the filesystem, so full-disk encryption stops all of them at
+once. If F-01 passes, F-02 to F-04 become defence in depth rather than the
+controls the device relies on, which is the correct relationship between them and
+the reason F-01 leads the remediation roadmap.
+
+---
+
+
+## 8. Conclusion
 
 The one thing this user tried hardest to protect, an encrypted container, was the
 one thing fully disclosed, and not because its encryption was weak. It was

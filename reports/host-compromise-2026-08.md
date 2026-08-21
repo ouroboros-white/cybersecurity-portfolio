@@ -145,6 +145,32 @@ the findings are detailed individually.
 
 Each rung depended on the one before it; none required insider access.
 
+### ATT&CK technique mapping
+
+| Stage | Finding | Tactic | Technique |
+|---|---|---|---|
+| NoSQL operator injection defeating the login | F-01 | Initial Access | T1190 Exploit Public-Facing Application |
+| Template injection in the staff-area template editor | F-02 | Execution | T1059.004 Command and Scripting Interpreter: Unix Shell |
+| Reverse shell established as the `poolside` account | F-02 | Execution | T1059.004 Command and Scripting Interpreter: Unix Shell |
+| Node.js debug inspector found listening on localhost | F-03 | Discovery | T1046 Network Service Discovery |
+| Code executed through the inspector as `pipelinesvc` | F-03 | Execution | T1059.007 Command and Scripting Interpreter: JavaScript |
+| Raw partition read with `debugfs` via `disk` group membership | F-04 | Defense Evasion | T1006 Direct Volume Access |
+
+Two notes on the choices above.
+
+**F-04 is the mapping worth understanding.** T1006 Direct Volume Access describes
+reading a volume directly rather than through the filesystem, which is precisely
+what `disk` group membership permits: file permissions are never consulted, so
+root's files are readable without ever becoming root. ATT&CK files it under
+Defense Evasion rather than Privilege Escalation, which is the more accurate
+reading of what happened. No privilege boundary was crossed; the boundary was
+bypassed.
+
+**F-03 uses the JavaScript sub-technique** because the Node.js inspector protocol
+executes JavaScript inside the target process. Mapping it to a generic shell
+technique would lose the detail that matters for detection, which is an inspector
+port accepting a connection.
+
 ---
 
 ## 5. Detailed findings

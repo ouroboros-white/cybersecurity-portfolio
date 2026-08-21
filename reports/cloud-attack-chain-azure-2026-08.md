@@ -136,6 +136,33 @@ flowchart TD
 
 Each rung depended on the one before it; none required elevated starting access.
 
+### ATT&CK technique mapping
+
+| Stage | Finding | Tactic | Technique |
+|---|---|---|---|
+| SAS token embedded in the static site's client-side JavaScript | F-01 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
+| Listing storage containers with the over-scoped token | F-01 | Discovery | T1619 Cloud Storage Object Discovery |
+| Reading the unreferenced container's contents | F-02 | Collection | T1530 Data from Cloud Storage |
+| Service principal credential file recovered from that container | F-02 | Credential Access | T1552.001 Unsecured Credentials: Credentials In Files |
+| Authenticating to Azure as the service principal | F-02 | Defense Evasion | T1078.004 Valid Accounts: Cloud Accounts |
+| Listing and reading Key Vault secrets | F-03 | Credential Access | T1555.006 Credentials from Password Stores: Cloud Secrets Management Stores |
+| Retrieving the superseded version of the rotated secret | F-03 | Credential Access | T1555.006 Credentials from Password Stores: Cloud Secrets Management Stores |
+
+Two notes on the choices above.
+
+**F-03 maps to the same technique twice, and that is the finding.** Listing the
+secret and reading its previous version use the same API surface and the same
+permission. The rotation was believed to have removed the value, but retrieving an
+older version is not a separate technique a defender could detect independently;
+it is the ordinary read path used one step further back. A control that only
+watches for the current secret being read never fires.
+
+**T1078.004 sits under Defense Evasion** rather than Privilege Escalation,
+following ATT&CK's own placement. The service principal is a legitimate identity
+being used in a legitimate way, which is what made this step quiet: nothing about
+the authentication itself looks anomalous without knowing where the credential
+came from.
+
 ---
 
 ## 5. Detailed findings

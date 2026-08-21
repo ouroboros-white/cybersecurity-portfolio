@@ -158,6 +158,31 @@ commands. The genuine route was secret recovery, not that exploit.
 
 Each rung depended on the one before it; none required insider access.
 
+### ATT&CK technique mapping
+
+| Stage | Finding | Tactic | Technique |
+|---|---|---|---|
+| Command injection in the public connectivity-check feature | F-01 | Initial Access | T1190 Exploit Public-Facing Application |
+| Commands and a reverse shell run as the `web` account | F-01 | Execution | T1059.004 Command and Scripting Interpreter: Unix Shell |
+| Enumerating loopback-only services from the foothold | F-02 | Discovery | T1046 Network Service Discovery |
+| Configuration endpoint disclosing application credentials | F-02 | Credential Access | T1552 Unsecured Credentials |
+| Unrotated default credentials accepted by the telephony application | F-03 | Initial Access | T1078.001 Valid Accounts: Default Accounts |
+| Bearer token for the automation worker recovered from a stored message | F-03 | Credential Access | T1528 Steal Application Access Token |
+| Command injection in the root-privileged automation worker | F-04 | Privilege Escalation | T1068 Exploitation for Privilege Escalation |
+| Commands run as root through that worker | F-04 | Execution | T1059.004 Command and Scripting Interpreter: Unix Shell |
+
+Two notes on the choices above.
+
+**T1046 is used here in its proper post-compromise sense.** The loopback-only
+services were invisible from outside and only became enumerable once F-01 provided
+a shell on the host, which is exactly the situation the technique describes.
+
+**T1528 is an imperfect fit for the bearer token.** ATT&CK frames it around cloud
+and OAuth application tokens, and this was an API token for an on-host automation
+service. It is used because the behaviour is the same, stealing a token that
+authenticates as an application rather than a user, and no closer identifier
+exists.
+
 ---
 
 ## 5. Detailed findings

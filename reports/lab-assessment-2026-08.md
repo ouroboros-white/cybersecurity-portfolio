@@ -494,7 +494,41 @@ correctly.
 
 ---
 
-## 6. Conclusion
+## 6. Retesting
+
+Each check below is stated so a retest returns a pass or a fail rather than an
+impression. Because these are three independent targets, each can be retested and
+signed off separately.
+
+| Finding | Retest check | Pass condition |
+|---|---|---|
+| F-01 | Re-fingerprint the application version, then attempt the published exploit | The version is beyond the affected release, or the platform is replaced. The exploit fails against the live endpoint rather than merely being blocked by a rule |
+| F-02 | From an anonymous browser session, obtain the issued credentials and attempt a full-table read of the database | The role permits reading only the caller's own record. A `Scan` or equivalent bulk read is denied server-side, not hidden in client JavaScript |
+| F-03 | Request `/.git/HEAD` and attempt to reconstruct the repository | The path returns 404 or 403 and the working tree holds no `.git` directory. Any secret found in the recovered history has been rotated and no longer authenticates |
+| F-04 | Inspect stored customer records directly | Passwords are stored as salted hashes produced by a modern password-hashing function. No recoverable password remains, and previously exposed passwords have been forced to reset |
+
+Three conditions decide whether the retest means anything.
+
+**F-02 must be tested from outside the application.** The original weakness was
+that the restriction existed only in client-side JavaScript. A retest performed
+through the web interface would pass while the flaw remains, because the interface
+is the thing that was never the problem. The check has to be made directly against
+the cloud API with the issued credentials.
+
+**F-03 is not closed by removing the directory.** The exposure disclosed commit
+history, so anything sensitive that was ever committed is already out. Removing
+`.git` stops future disclosure and does nothing about what was taken, which is why
+the pass condition includes rotation.
+
+**F-04 is not closed by hashing alone.** Existing plaintext values must be
+destroyed rather than left alongside new hashes, and the exposed passwords must be
+treated as compromised elsewhere, because reuse across services is the actual
+business impact.
+
+---
+
+
+## 7. Conclusion
 
 Every target fell to a known, preventable weakness rather than a novel exploit.
 The unifying lesson across all four findings is a single principle: **security
