@@ -61,26 +61,27 @@ defence that should meet it.
 
 **Findings by target** (severity-highlighted for a management audience). Unlike a
 single-host compromise, these findings are **independent** across three separate
-targets, not one chain, so no connectors are drawn between them. The one
+targets, not one chain, so the findings fan out from the assessment rather than
+running into one another. The one
 relationship that does exist is that F-04 has no impact of its own until F-02
 reaches the data it describes, which is set out in that finding rather than in
 the graphic.
 
 ```mermaid
-flowchart TD
-    A1["WEB-01 · F-01 Unauthenticated RCE · CRITICAL"]
-    A2["CLD-01 · F-02 Bulk data theft · HIGH"]
-    A3["WEB-02 · F-03 Exposed .git source · HIGH"]
-    A4["CLD-01 · F-04 Plaintext passwords · MEDIUM"]
-    A1 ~~~ A2
-    A2 ~~~ A3
-    A3 ~~~ A4
+flowchart LR
+    S["Three targets<br/>assessed independently"]
+    S --> A1["WEB-01 · F-01 Unauthenticated RCE · CRITICAL"]
+    S --> A2["CLD-01 · F-02 Bulk data theft · HIGH"]
+    S --> A3["WEB-02 · F-03 Exposed .git source · HIGH"]
+    S --> A4["CLD-01 · F-04 Plaintext passwords · MEDIUM"]
     classDef crit fill:#b91c1c,stroke:#7f1d1d,color:#ffffff;
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
     classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
+    classDef term fill:#1f2937,stroke:#111827,color:#ffffff;
     class A1 crit;
     class A2,A3 high;
     class A4 med;
+    class S term;
 ```
 
 ---
