@@ -153,7 +153,7 @@ detection analysis, and a remediation roadmap). Each one documents an assessment
 I carried out myself against an authorised lab target, and is labelled as
 lab-based throughout.
 
-**All eight assessments at a glance**, ordered strongest first. Start at the top;
+**All nine assessments at a glance**, ordered strongest first. Start at the top;
 each row links to the full report.
 
 | Assessment | Technique | Impact |
@@ -166,6 +166,7 @@ each row links to the full report.
 | [Azure Cloud Attack Chain](reports/cloud-attack-chain-azure-2026-08.md) | Leaked SAS token, stolen service principal, Key Vault | Cloud secret compromise |
 | [Business-Logic & API Abuse](reports/business-logic-assessment-2026-08.md) | Race condition in reward-eligibility logic | Repeated reward grant (financial abuse) |
 | [Single-Host Full Compromise](reports/host-compromise-2026-08.md) | NoSQL auth bypass, SSTI, RCE, privilege escalation | Anonymous to root |
+| [Recoverable XOR Cryptosystem](reports/xor-cryptosystem-2026-08.md) | Known-plaintext key recovery against repeating-key XOR | Full secret disclosure |
 
 **Why the top three stand out**, chosen on the strength of the analysis rather
 than the difficulty of the target:

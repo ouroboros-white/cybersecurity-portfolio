@@ -43,6 +43,7 @@ CATEGORIES = [
     ("Digital Forensics and Blue Team", {
         "Forensics", "Network Forensics", "DFIR", "Blue Team", "PCAP Analysis",
     }),
+    ("Cryptography", {"Cryptography", "XOR", "Known-Plaintext", "Hashing"}),
     ("Web Application", {"Web"}),
 ]
 FALLBACK_CATEGORY = "Other"

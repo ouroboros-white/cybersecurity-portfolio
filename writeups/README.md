@@ -16,7 +16,7 @@ For full assessment reports written to commercial deliverable standard, see
 ## Index
 
 <!--INDEX:START-->
-**20 write-ups across 5 disciplines.** Each one is a challenge solved without a walkthrough. Hardest first.
+**21 write-ups across 6 disciplines.** Each one is a challenge solved without a walkthrough. Hardest first.
 
 ### AI and LLM Security
 
@@ -49,6 +49,12 @@ For full assessment reports written to commercial deliverable standard, see
 | [After Hours](after-hours.md) | Windows, Forensics, WMI, Persistence, Fileless, .NET, Reverse Engineering | Medium | 2026-08-08 |
 | [Retracted](retracted.md) | Blue Team, DFIR, Sysmon, Event Viewer, Ransomware, Incident Timeline | Easy | 2026-08-06 |
 | [Packed Light](packed-light.md) | Network Forensics, PCAP Analysis, Cryptography | Easy | 2026-07-30 |
+
+### Cryptography
+
+| Write-up | Focus | Difficulty | Date |
+| --- | --- | --- | --- |
+| [Wise Guy](wise-guy.md) | Cryptography, XOR, Known-Plaintext, Python | Easy | 2026-08-21 |
 
 ### Web Application
 
