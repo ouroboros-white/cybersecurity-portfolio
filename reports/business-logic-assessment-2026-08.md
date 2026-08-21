@@ -45,22 +45,22 @@ defeat of the application's core economic rule.
 
 | ID | Finding | Severity | CVSS 3.1 |
 |----|---------|----------|:--------:|
-| F-01 | Race condition (TOCTOU) in the reward-claim endpoint | **High** | 8.1 |
-| F-02 | No rate limiting on state-changing endpoints | **Medium** | 5.4 |
+| F-01 | No rate limiting on state-changing endpoints | **Medium** | 5.4 |
+| F-02 | Race condition (TOCTOU) in the reward-claim endpoint | **High** | 8.1 |
 
 **Attack chain at a glance** (severity-highlighted for a management audience): the
-missing throttle (F-02) enables the race (F-01), which defeats the reward rule.
+missing throttle (F-01) enables the race (F-02), which defeats the reward rule.
 
 ```mermaid
 flowchart TD
-    S["Authenticated guest user"] --> F2["F-02 No rate limiting · MEDIUM"]
-    F2 --> F1["F-01 TOCTOU race in reward claim · HIGH"]
-    F1 --> R["Reward rule defeated; Whale Vault unlocked"]
+    S["Authenticated guest user"] --> F1["F-01 No rate limiting · MEDIUM"]
+    F1 --> F2["F-02 TOCTOU race in reward claim · HIGH"]
+    F2 --> R["Reward rule defeated; Whale Vault unlocked"]
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
     classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
     classDef term fill:#1f2937,stroke:#111827,color:#ffffff;
-    class F1 high;
-    class F2 med;
+    class F2 high;
+    class F1 med;
     class S,R term;
 ```
 
@@ -160,7 +160,7 @@ in the framework rather than an oversight in this report.
 
 The coverage that does apply is **OWASP**: this is API6:2023 Unrestricted Access
 to Sensitive Business Flows, with the concurrency defect itself recorded as
-CWE-367 (TOCTOU) in F-01. Detection for it lives in application telemetry rather
+CWE-367 (TOCTOU) in F-02. Detection for it lives in application telemetry rather
 than host or network telemetry, which is the argument made in the detection
 analysis for both findings.
 
@@ -168,7 +168,38 @@ analysis for both findings.
 
 ## 5. Detailed findings
 
-### F-01: Race condition (TOCTOU) in the reward-claim endpoint
+### F-01: No rate limiting on state-changing endpoints
+
+| | |
+|---|---|
+| **Severity** | **Medium** |
+| **CVSS 3.1** | 5.4, `AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N` |
+| **CWE** | CWE-770: Allocation of Resources Without Limits or Throttling |
+| **Affected component** | Application API (state-changing endpoints) |
+| **Status** | Open |
+
+**CVSS rationale.** `C:L/I:L` because on its own the missing throttle enables only
+limited abuse; its real weight is as the amplifier for F-02, which the executive
+summary captures as the combined outcome.
+
+**Description.** The claim endpoint accepted unlimited rapid requests with no
+throttling. This both enabled the race in F-02 (by allowing a large concurrent
+burst) and would permit other automated abuse of value-granting or
+authentication-related endpoints.
+
+**Business impact.** Removes the practical barrier to concurrency and automation
+attacks, directly amplifying F-02 and exposing the application to resource
+exhaustion and brute-force-style abuse.
+
+**Expected detection opportunities.** High request rates per session or source IP
+to state-changing endpoints are the signal; standard rate-limiting and
+anti-automation telemetry catch it.
+
+**Remediation.** Apply per-user and per-IP rate limiting to state-changing
+endpoints, especially those that grant value, in combination with the atomic fix
+in F-02.
+
+### F-02: Race condition (TOCTOU) in the reward-claim endpoint
 
 | | |
 |---|---|
@@ -212,45 +243,14 @@ layer with a database transaction and row lock, or a single conditional update
 concurrent requests serialise and exactly one succeeds. Never enforce a
 value-granting rule with a pre-check that is separate from the action it guards.
 
-### F-02: No rate limiting on state-changing endpoints
-
-| | |
-|---|---|
-| **Severity** | **Medium** |
-| **CVSS 3.1** | 5.4, `AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N` |
-| **CWE** | CWE-770: Allocation of Resources Without Limits or Throttling |
-| **Affected component** | Application API (state-changing endpoints) |
-| **Status** | Open |
-
-**CVSS rationale.** `C:L/I:L` because on its own the missing throttle enables only
-limited abuse; its real weight is as the amplifier for F-01, which the executive
-summary captures as the combined outcome.
-
-**Description.** The claim endpoint accepted unlimited rapid requests with no
-throttling. This both enabled the race in F-01 (by allowing a large concurrent
-burst) and would permit other automated abuse of value-granting or
-authentication-related endpoints.
-
-**Business impact.** Removes the practical barrier to concurrency and automation
-attacks, directly amplifying F-01 and exposing the application to resource
-exhaustion and brute-force-style abuse.
-
-**Expected detection opportunities.** High request rates per session or source IP
-to state-changing endpoints are the signal; standard rate-limiting and
-anti-automation telemetry catch it.
-
-**Remediation.** Apply per-user and per-IP rate limiting to state-changing
-endpoints, especially those that grant value, in combination with the atomic fix
-in F-01.
-
 ---
 
 ## 6. Remediation roadmap
 
 | Priority | Action | Findings |
 |:--------:|--------|----------|
-| **1 (Now)** | Make the claim check-and-grant atomic (transaction, row lock, or conditional update) | F-01 |
-| **2 (Now)** | Add per-user and per-IP rate limiting to state-changing endpoints | F-02 |
+| **1 (Now)** | Make the claim check-and-grant atomic (transaction, row lock, or conditional update) | F-02 |
+| **2 (Now)** | Add per-user and per-IP rate limiting to state-changing endpoints | F-01 |
 | **3 (Ongoing)** | Review every "once per period" and value-granting operation for concurrency safety; treat business rules as data-layer invariants, not application-layer pre-checks | All |
 
 ---
