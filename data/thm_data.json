@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-20 06:00 UTC",
-  "rooms_completed": 103,
+  "last_synced_utc": "2026-08-21 06:00 UTC",
+  "rooms_completed": 106,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -1022,6 +1022,36 @@
       "title": "Compiled",
       "description": "Strings can only help you so far.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/574f66376f860a91d9e576ce1abfc135.svg"
+    },
+    {
+      "_id": "66d072bdbfe6a374dec77b45",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "capabasics",
+      "title": "CAPA: The Basics",
+      "description": "Learn to use CAPA to identify malicious capabilities.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/capabasics-1785241444061.png"
+    },
+    {
+      "_id": "6910eb9d8579d857d2b195f5",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "owasptopten2025one",
+      "title": "OWASP Top 10 2025: IAAA Failures",
+      "description": "Learn about A01, A07, and A09 in how they related to failures in the applied IAAA model.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025one-1785241451372.png"
+    },
+    {
+      "_id": "6910ebccbbf6510418138ebd",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "owasptopten2025two",
+      "title": "OWASP Top 10 2025: Application Design Flaws",
+      "description": "Learn about A02, A03, A06, and A10 and how they related to design flaws in the application.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025two-1785241451787.png"
     },
     {
       "_id": "6a439347fa0b5f85434e4c75",
