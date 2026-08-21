@@ -32,6 +32,9 @@ jobs:
       - name: Render README and TRAINING.md
         run: python scripts/render_portfolio.py
 
+      - name: Render write-up index
+        run: python scripts/render_writeups.py
+
       - name: Safety check before publishing
         run: python scripts/safety_check.py
 
@@ -39,6 +42,6 @@ jobs:
         run: |
           git config user.name "portfolio-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add README.md TRAINING.md data/thm_data.json
+          git add README.md TRAINING.md writeups/README.md data/thm_data.json
           git diff --cached --quiet || git commit -m "chore: sync TryHackMe stats"
           git push

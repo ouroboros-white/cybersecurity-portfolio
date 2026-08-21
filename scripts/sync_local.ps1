@@ -23,13 +23,14 @@ $env:THM_USERNAME = "ouroboroswhite"
 
 python scripts/fetch_thm.py
 python scripts/render_portfolio.py
+python scripts/render_writeups.py
 
 # Refuse to publish if anything credential-shaped made it into the output.
 python scripts/safety_check.py
 
 # Explicit allow-list: only these paths are ever staged, so a stray file in
 # the working tree can never be swept into a public commit by accident.
-git add README.md TRAINING.md data/thm_data.json
+git add README.md TRAINING.md writeups/README.md data/thm_data.json
 
 git diff --cached --quiet
 if ($LASTEXITCODE -eq 0) {
