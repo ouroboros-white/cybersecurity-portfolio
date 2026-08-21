@@ -42,9 +42,10 @@ An unauthenticated attacker can therefore decrypt the protected value on any
 connection and, by replaying the recovered key in the same session, retrieve the
 second secret the service gates behind it.
 
-The most serious issue is the **use of a structurally broken cipher** (F-01); the
-enabling issue is the **short key combined with known plaintext** (F-02), which
-collapses the work to seconds.
+The most serious issue is the **use of a structurally broken cipher** (F-01),
+which known plaintext reverses to recover most of the key; the **short key space**
+(F-02) then reduces the remainder to a trivial brute force, collapsing the work to
+seconds.
 
 ### Findings at a glance
 
@@ -53,15 +54,16 @@ collapses the work to seconds.
 | F-01 | Recoverable repeating-key XOR cipher (known-plaintext key recovery) | **High** | 7.5 |
 | F-02 | Short key and fixed known plaintext prefix collapse the key space | **Medium** | 5.3 |
 
-**Attack chain at a glance** (severity-highlighted for a management audience): the
-short key and known prefix (F-02) make the broken cipher (F-01) instantly
-reversible, disclosing the protected secret.
+**Attack chain at a glance** (severity-highlighted for a management audience):
+known-plaintext XOR reversal (F-01) recovers most of the key directly, and the
+short key space (F-02) makes the remainder a trivial brute force, disclosing the
+protected secret.
 
 ```mermaid
 flowchart TD
-    S["Unauthenticated attacker on TCP 1337"] --> F2["F-02 Short key + known prefix · MEDIUM"]
-    F2 --> F1["F-01 Reversible repeating-key XOR · HIGH"]
-    F1 --> R["Secret disclosed; key replayed for second secret"]
+    S["Unauthenticated attacker on TCP 1337"] --> F1["F-01 Reversible repeating-key XOR · HIGH"]
+    F1 --> F2["F-02 Short key space finishes recovery · MEDIUM"]
+    F2 --> R["Secret disclosed; key replayed for second secret"]
     classDef high fill:#c2410c,stroke:#7c2d12,color:#ffffff;
     classDef med fill:#a16207,stroke:#713f12,color:#ffffff;
     classDef term fill:#1f2937,stroke:#111827,color:#ffffff;
