@@ -68,10 +68,10 @@ the graphic.
 
 ```mermaid
 flowchart TD
-    A1["WEB-01 · CMS<br/>F-01 · Unauthenticated RCE (CVE-2018-16763) · CRITICAL"]
-    A2["CLD-01 · cloud app<br/>F-02 · Bulk data theft · HIGH"]
-    A3["WEB-02 · staging<br/>F-03 · Exposed .git source disclosure · HIGH"]
-    A4["CLD-01 · cloud app<br/>F-04 · Plaintext passwords · MEDIUM"]
+    A1["WEB-01 · F-01 Unauthenticated RCE · CRITICAL"]
+    A2["CLD-01 · F-02 Bulk data theft · HIGH"]
+    A3["WEB-02 · F-03 Exposed .git source · HIGH"]
+    A4["CLD-01 · F-04 Plaintext passwords · MEDIUM"]
     A1 ~~~ A2
     A2 ~~~ A3
     A3 ~~~ A4
