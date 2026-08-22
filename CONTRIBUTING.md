@@ -22,12 +22,14 @@ Working notes for maintaining this repo. Not part of the portfolio itself.
   result usually reads tighter. Check before committing:
 
   ```bash
-  git grep -n '—' -- '*.md'
+  git grep -nP '\x{2014}' -- '*.md'
   ```
 
   Use `git grep`, not plain `grep -r`. It searches only tracked files, so it
   will not report hits from `study/` and other gitignored paths. Those are
-  private notes, and the rule is about published prose.
+  private notes, and the rule is about published prose. The character is written
+  as a PCRE escape (`-P`) rather than typed literally, so this file does not
+  match the check it documents: a clean run means zero hits, not one.
 
 - **Write-ups follow [writeups/TEMPLATE.md](writeups/TEMPLATE.md)** and must
   carry the full metadata header (title, platform, difficulty, date, tags). The
