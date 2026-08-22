@@ -27,7 +27,7 @@ stage the allow-list, commit. Drop `-NoPush` to publish. Individual stages:
 | `THM_USERNAME=ouroboroswhite python scripts/fetch_thm.py` | Pulls rooms and badges into `data/thm_data.json`. Fails safe: a failed fetch leaves the old file intact. |
 | `python scripts/render_portfolio.py` | Rewrites the `THM` marker regions in `README.md` and `TRAINING.md` from that JSON. |
 | `python scripts/render_writeups.py` | Rewrites the `INDEX` marker region in `writeups/README.md` from each write-up's metadata header. |
-| `python scripts/safety_check.py` | Scans every git-tracked text file for secrets, flags, emails, and real-name paths. Non-zero exit aborts the sync. |
+| `python scripts/safety_check.py` | Scans every git-tracked text file for secrets, flags, emails, and identifying local paths. Non-zero exit aborts the sync. |
 | `python scripts/validate_cvss.py` | Recomputes every CVSS score in `reports/` from its own vector. |
 
 There is no test suite and no linter. `safety_check.py` and `validate_cvss.py`
@@ -65,11 +65,10 @@ a Windows Scheduled Task calling `sync_local.ps1`. See `SETUP.md`.
 
 ### Publishing safety, three layers
 
-1. **`.gitignore` excludes `study/`.** That directory holds real-name CV and
-   interview material, and the whole point of the pseudonym is that nothing here
-   links back to it. Do not remove that rule. `safety_check.py` cannot cover it:
-   the scanner only sees files git already tracks, so an untracked CV is invisible
-   right up until a `git add .` publishes it.
+1. **`.gitignore` excludes `study/`.** Private local notes that must never be
+   published. Do not remove that rule. `safety_check.py` cannot cover it: the
+   scanner only sees files git already tracks, so an untracked file there is
+   invisible right up until a `git add .` publishes it.
 2. **`safety_check.py` is the backstop.** It matches credential-shaped JSON *keys*
    and secret-shaped *values*, deliberately not keywords, because room titles
    legitimately contain "password" and "authentication" and a check that fires
@@ -80,8 +79,8 @@ a Windows Scheduled Task calling `sync_local.ps1`. See `SETUP.md`.
    a stray file in the working tree cannot be swept into a public commit.
 
 `CONTENT_USERNAMES` in `safety_check.py` allow-lists usernames that are lab
-content rather than the author's. Add to it only after confirming the name is
-room content, and never add the author's real name (listing it would leak it).
+content. Add to it only after confirming the name is room content. Never add a
+name in order to silence a finding: that is the finding working as intended.
 
 ## Content conventions
 
