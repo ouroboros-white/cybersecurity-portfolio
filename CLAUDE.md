@@ -87,12 +87,12 @@ name in order to silence a finding: that is the finding working as intended.
 - **No flags, answers, or cracked credentials**, in files or in commit messages.
   If one slips into history, rewrite the history.
 - **No em dashes.** They read as an AI tell. Recast the sentence rather than
-  swapping the character. Check with the command below, which searches tracked
-  files only so private notes in `study/` are not reported. It spells the
-  character as an escape so this file is not itself a permanent hit:
+  swapping the character. Check with the command below. It searches tracked files
+  only, so private notes in `study/` are not reported, and it writes the character
+  as a PCRE escape so this file is not itself a permanent hit:
 
   ```bash
-  git grep -n "$(printf '—')" -- '*.md'
+  git grep -nP '\x{2014}' -- '*.md'
   ```
 - **Write-ups** follow `writeups/TEMPLATE.md` and must carry the full metadata
   header (`# Title`, `**Difficulty:**`, `**Date:**`, `**Tags:**`).
