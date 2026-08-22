@@ -84,21 +84,20 @@ name in order to silence a finding: that is the finding working as intended.
 
 ## Content conventions
 
-- **No flags, answers, or cracked credentials**, in files or in commit messages.
-  If one slips into history, rewrite the history.
-- **No em dashes.** They read as an AI tell. Recast the sentence rather than
-  swapping the character. Check with the command below. It searches tracked files
-  only, so private notes in `study/` are not reported, and it writes the character
-  as a PCRE escape so this file is not itself a permanent hit:
+Authoring rules for published prose live in `CONTRIBUTING.md`: house style, the
+write-up metadata header, and the check to run before publishing a solution to a
+live prize event. Read it before editing Markdown. One rule is repeated here
+because the cost of getting it wrong cannot be undone by a later commit: **no
+flags, answers, or cracked credentials**, in files or in commit messages. If one
+slips into history, rewrite the history.
 
-  ```bash
-  git grep -nP '\x{2014}' -- '*.md'
-  ```
-- **Write-ups** follow `writeups/TEMPLATE.md` and must carry the full metadata
-  header (`# Title`, `**Difficulty:**`, `**Date:**`, `**Tags:**`).
-  `render_writeups.py` parses that header and raises loudly if it is incomplete.
-  Tags drive categorisation via the `CATEGORIES` list, which is ordered most
-  specific first, so a write-up lands in the first category it matches.
+The structures below are parsed by the scripts, so they belong next to the code.
+
+- **Write-ups** must carry the full metadata header (`# Title`, `**Difficulty:**`,
+  `**Date:**`, `**Tags:**`) from `writeups/TEMPLATE.md`. `render_writeups.py`
+  parses that header and raises loudly if it is incomplete. Tags drive
+  categorisation via the `CATEGORIES` list, which is ordered most specific first,
+  so a write-up lands in the first category it matches.
 - **Reports** follow a fixed commercial structure: executive summary with a
   findings-at-a-glance table, scope and rules of engagement with an asset table,
   methodology, attack path with ATT&CK mapping, detailed findings, remediation
