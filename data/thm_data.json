@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-21 06:00 UTC",
-  "rooms_completed": 106,
+  "last_synced_utc": "2026-08-22 06:00 UTC",
+  "rooms_completed": 108,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -1024,6 +1024,16 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/574f66376f860a91d9e576ce1abfc135.svg"
     },
     {
+      "_id": "649caba75b61780062e77cf1",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "w1seguy",
+      "title": "W1seGuy",
+      "description": "A w1se guy 0nce said, the answer is usually as plain as day.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/9a13d8dcbd8940d14352ba2edbf66735.png"
+    },
+    {
       "_id": "66d072bdbfe6a374dec77b45",
       "type": "walkthrough",
       "freeToUse": false,
@@ -1052,6 +1062,16 @@
       "title": "OWASP Top 10 2025: Application Design Flaws",
       "description": "Learn about A02, A03, A06, and A10 and how they related to design flaws in the application.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025two-1785241451787.png"
+    },
+    {
+      "_id": "69d11794a4b37712cfb0bdc4",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "aithreatmodellingassessment",
+      "title": "AI Threat Modelling Assessment",
+      "description": "Put your AI threat modelling skills to the test using an interactive assessment application.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/6228f0d4ca8e57005149c3e3-1775755617179"
     },
     {
       "_id": "6a439347fa0b5f85434e4c75",

@@ -7,24 +7,24 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-21 06:00 UTC
+**Last synced:** 2026-08-22 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>106</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>108</td>
 <td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>15</td>
 <td align="center">&nbsp;<strong>🔴 Hard</strong>&nbsp;<br>1</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>8</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>83</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>85</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>14</td>
 </tr>
 </table>
 
 </div>
 
-## Challenges (24)
+## Challenges (26)
 
 _Solved without a guided walkthrough. Hardest first._
 
@@ -66,40 +66,40 @@ _Solved without a guided walkthrough. Hardest first._
 
 </div>
 
-### 🟢 Easy (16)
+### 🟢 Easy (18)
 
 <div align="center">
 
 <table>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/aithreatmodellingassessment">AI Threat Modelling Assessment</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/basicpentestingjt">Basic Pentesting</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-beachbar-d849f7f7">Beach Bar</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/compiled">Compiled</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/compiled">Compiled</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-complimentary-05e0b604">Complimentary</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hfb1cryptosystem">Cryptosystem</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/foolsmate">Fools Mate</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/foolsmate">Fools Mate</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/neighbour">Neighbour</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-overheardatbreakfast-6f01793c">Overheard at Breakfast</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/hh-packedlight-02e5330c">Packed Light</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/hh-packedlight-02e5330c">Packed Light</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-room404-804573bf">Room 404</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/sakura">Sakura Room</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/searchlightosint">Searchlight - IMINT</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/searchlightosint">Searchlight - IMINT</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-thebrochure-081f3e36">The Brochure</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-theconciergeknows-2d7eb4d9">The Concierge Knows Too Much</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/toolsrus">ToolsRus</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/toolsrus">ToolsRus</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/vulnerabilitycapstone">Vulnerability Capstone</a></td>
-<td width="300"></td>
-<td width="300"></td>
+<td align="left" width="300"><a href="https://tryhackme.com/room/w1seguy">W1seGuy</a></td>
 </tr>
 </table>
 
