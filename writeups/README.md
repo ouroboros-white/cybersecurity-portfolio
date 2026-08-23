@@ -16,7 +16,7 @@ For full assessment reports written to commercial deliverable standard, see
 ## Index
 
 <!--INDEX:START-->
-**21 write-ups across 6 disciplines.** Each one is a challenge solved without a walkthrough. Hardest first.
+**22 write-ups across 6 disciplines.** Each one is a challenge solved without a walkthrough. Hardest first.
 
 ### AI and LLM Security
 
@@ -36,6 +36,7 @@ For full assessment reports written to commercial deliverable standard, see
 
 | Write-up | Focus | Difficulty | Date |
 | --- | --- | --- | --- |
+| [OhSINT](ohsint.md) | OSINT, BSSID Geolocation, Metadata, Username Pivoting, Reverse Image Search | Easy | 2026-08-23 |
 | [Searchlight IMINT](searchlight-imint.md) | OSINT, IMINT, Geolocation, Reverse Image Search | Easy | 2026-08-08 |
 | [Sakura](sakura.md) | OSINT, Metadata, Git Forensics, Blockchain Analysis, IMINT | Easy | 2026-08-07 |
 | [Overheard at Breakfast](overheard-at-breakfast.md) | OSINT, Social Media, Hashing, Gravatar | Easy | 2026-08-02 |
