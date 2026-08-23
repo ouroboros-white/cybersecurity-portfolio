@@ -16,7 +16,7 @@ For full assessment reports written to commercial deliverable standard, see
 ## Index
 
 <!--INDEX:START-->
-**23 write-ups across 6 disciplines.** Each one is a challenge solved without a walkthrough. Hardest first.
+**24 write-ups across 6 disciplines.** Each one is a challenge solved without a walkthrough. Hardest first.
 
 ### AI and LLM Security
 
@@ -65,6 +65,7 @@ For full assessment reports written to commercial deliverable standard, see
 | [The Hollow Shell](the-hollow-shell.md) | Web, File Upload, Zip Slip, Path Traversal, Flask Sessions, RCE, Reverse Shell | Medium | 2026-08-06 |
 | [Towel on the Sunbed](towel-on-the-sunbed.md) | Web, Business Logic, Race Condition, API Abuse | Medium | 2026-08-03 |
 | [Do Not Disturb](do-not-disturb.md) | Web, Boot2Root, NoSQL Injection, SSTI, Node.js, Privilege Escalation | Medium | 2026-08-02 |
+| [Pickle Rick](pickle-rick.md) | Web, Command Injection, Filter Bypass, Privilege Escalation, Enumeration | Easy | 2026-08-23 |
 | [Simple CTF](simple-ctf.md) | Web, SQL Injection, CVE, Hash Cracking, Privilege Escalation, GTFOBins | Easy | 2026-08-23 |
 | [Beach Bar](beach-bar.md) | Web, Insecure Deserialization, Reverse Shell, Privilege Escalation, Credential Reuse | Easy | 2026-08-01 |
 | [Vulnerability Capstone](vulnerability-capstone.md) | Web, Vulnerability Research, CVE, Public Exploit, RCE | Easy | 2026-08-01 |
