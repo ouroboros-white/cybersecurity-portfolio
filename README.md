@@ -64,17 +64,17 @@ cloud work above, and adding each one to this repository as it is done.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-22 06:00 UTC
+**Last synced:** 2026-08-23 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>108</td>
-<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>15</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>109</td>
+<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>16</td>
 <td align="center">&nbsp;<strong>🔴 Hard</strong>&nbsp;<br>1</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>8</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>85</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>86</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>14</td>
 </tr>
 </table>
@@ -87,6 +87,13 @@ cloud work above, and adding each one to this repository as it is done.
 
 <table>
 <tr>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/ohsint.png" alt="OhSINT" width="90"><br>
+<strong>OhSINT</strong>
+</a>
+<br><sub>2026-08-22 · rare (5%)</sub>
+</td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/careerready.png" alt="Cyber Ready" width="90"><br>
@@ -114,13 +121,6 @@ cloud work above, and adding each one to this repository as it is done.
 <strong>Platinum League</strong>
 </a>
 <br><sub>2026-08-10 · epic (0.3%)</sub>
-</td>
-<td align="center" width="130">
-<a href="https://tryhackme.com/p/ouroboroswhite">
-<img src="https://assets.tryhackme.com/img/badges/blue.png" alt="Blue" width="90"><br>
-<strong>Blue</strong>
-</a>
-<br><sub>2026-08-03 · rare (8.4%)</sub>
 </td>
 </tr>
 </table>

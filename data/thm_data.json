@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-22 06:00 UTC",
-  "rooms_completed": 108,
+  "last_synced_utc": "2026-08-23 06:00 UTC",
+  "rooms_completed": 109,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -1004,6 +1004,16 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785252041755"
     },
     {
+      "_id": "5cb0b1b8779909395702c6d5",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/9c6bc7e6db746ea68ecaa99e328923f1.png",
+      "description": "Are you able to use open source intelligence to solve this challenge?",
+      "title": "OhSINT",
+      "code": "ohsint",
+      "difficulty": "easy",
+      "type": "challenge",
+      "freeToUse": true
+    },
+    {
       "_id": "62bae2b9dc6a500060047287",
       "type": "walkthrough",
       "freeToUse": true,
@@ -1085,6 +1095,16 @@
     }
   ],
   "badges": [
+    {
+      "_id": "5cb0b82cea5ebc64acd45953",
+      "name": "ohsint",
+      "image": "https://assets.tryhackme.com/img/badges/ohsint.png",
+      "title": "OhSINT",
+      "description": "Completing the OhSINT room",
+      "earnedAt": "2026-08-22T21:41:14.205Z",
+      "rarityTier": "rare",
+      "rarityPercent": 5
+    },
     {
       "_id": "6710f453b3eec466f102ee2d",
       "name": "careerreadybadge",
@@ -1236,5 +1256,5 @@
       "rarityPercent": 22
     }
   ],
-  "badge_count": 15
+  "badge_count": 16
 }

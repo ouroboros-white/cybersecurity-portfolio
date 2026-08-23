@@ -7,24 +7,24 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-22 06:00 UTC
+**Last synced:** 2026-08-23 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>108</td>
-<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>15</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>109</td>
+<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>16</td>
 <td align="center">&nbsp;<strong>🔴 Hard</strong>&nbsp;<br>1</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>8</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>85</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>86</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>14</td>
 </tr>
 </table>
 
 </div>
 
-## Challenges (26)
+## Challenges (27)
 
 _Solved without a guided walkthrough. Hardest first._
 
@@ -66,7 +66,7 @@ _Solved without a guided walkthrough. Hardest first._
 
 </div>
 
-### 🟢 Easy (18)
+### 🟢 Easy (19)
 
 <div align="center">
 
@@ -84,22 +84,27 @@ _Solved without a guided walkthrough. Hardest first._
 <tr>
 <td align="left" width="300"><a href="https://tryhackme.com/room/foolsmate">Fools Mate</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/neighbour">Neighbour</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/hh-overheardatbreakfast-6f01793c">Overheard at Breakfast</a></td>
+<td align="left" width="300"><a href="https://tryhackme.com/room/ohsint">OhSINT</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/hh-overheardatbreakfast-6f01793c">Overheard at Breakfast</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-packedlight-02e5330c">Packed Light</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-room404-804573bf">Room 404</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/sakura">Sakura Room</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/sakura">Sakura Room</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/searchlightosint">Searchlight - IMINT</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-thebrochure-081f3e36">The Brochure</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/hh-theconciergeknows-2d7eb4d9">The Concierge Knows Too Much</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/hh-theconciergeknows-2d7eb4d9">The Concierge Knows Too Much</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/toolsrus">ToolsRus</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/vulnerabilitycapstone">Vulnerability Capstone</a></td>
+</tr>
+<tr>
 <td align="left" width="300"><a href="https://tryhackme.com/room/w1seguy">W1seGuy</a></td>
+<td width="300"></td>
+<td width="300"></td>
 </tr>
 </table>
 
@@ -281,12 +286,19 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 
 </div>
 
-## Badges (15)
+## Badges (16)
 
 <div align="center">
 
 <table>
 <tr>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/ohsint.png" alt="OhSINT" width="90"><br>
+<strong>OhSINT</strong>
+</a>
+<br><sub>2026-08-22 · rare (5%)</sub>
+</td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/careerready.png" alt="Cyber Ready" width="90"><br>
@@ -308,6 +320,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-12 · rare (2.7%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/league-platinum.png" alt="Platinum League" width="90"><br>
@@ -315,8 +329,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-10 · epic (0.3%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/blue.png" alt="Blue" width="90"><br>
@@ -337,6 +349,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-03 · rare (1%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/streak7.png" alt="7 Day Streak" width="90"><br>
@@ -344,8 +358,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-23 · common (17.2%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/linux.png" alt="cat linux.txt" width="90"><br>
@@ -367,6 +379,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-21 · common (21.4%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/networkfundamentals.png" alt="Networking Nerd" width="90"><br>
@@ -374,8 +388,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-21 · common (15.5%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/first-mobile-quiz.png" alt="First Mobile Quiz" width="90"><br>
