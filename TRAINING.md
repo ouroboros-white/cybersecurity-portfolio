@@ -7,24 +7,24 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-23 06:00 UTC
+**Last synced:** 2026-08-24 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>109</td>
-<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>16</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>115</td>
+<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>18</td>
 <td align="center">&nbsp;<strong>🔴 Hard</strong>&nbsp;<br>1</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>8</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>86</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>92</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>14</td>
 </tr>
 </table>
 
 </div>
 
-## Challenges (27)
+## Challenges (30)
 
 _Solved without a guided walkthrough. Hardest first._
 
@@ -66,7 +66,7 @@ _Solved without a guided walkthrough. Hardest first._
 
 </div>
 
-### 🟢 Easy (19)
+### 🟢 Easy (22)
 
 <div align="center">
 
@@ -83,17 +83,22 @@ _Solved without a guided walkthrough. Hardest first._
 </tr>
 <tr>
 <td align="left" width="300"><a href="https://tryhackme.com/room/foolsmate">Fools Mate</a></td>
+<td align="left" width="300"><a href="https://tryhackme.com/room/lofi">Lo-Fi</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/neighbour">Neighbour</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/ohsint">OhSINT</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/ohsint">OhSINT</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-overheardatbreakfast-6f01793c">Overheard at Breakfast</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-packedlight-02e5330c">Packed Light</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/hh-room404-804573bf">Room 404</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/picklerick">Pickle Rick</a></td>
+<td align="left" width="300"><a href="https://tryhackme.com/room/hh-room404-804573bf">Room 404</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/sakura">Sakura Room</a></td>
+</tr>
+<tr>
 <td align="left" width="300"><a href="https://tryhackme.com/room/searchlightosint">Searchlight - IMINT</a></td>
+<td align="left" width="300"><a href="https://tryhackme.com/room/easyctf">Simple CTF</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hh-thebrochure-081f3e36">The Brochure</a></td>
 </tr>
 <tr>
@@ -110,7 +115,7 @@ _Solved without a guided walkthrough. Hardest first._
 
 </div>
 
-## Guided Rooms (82)
+## Guided Rooms (85)
 
 _Walkthrough rooms. Hardest first; related rooms grouped._
 
@@ -128,7 +133,7 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 
 </div>
 
-### 🟢 Easy (67)
+### 🟢 Easy (70)
 
 <div align="center">
 
@@ -164,58 +169,63 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 <td align="left" width="300"><a href="https://tryhackme.com/room/firewallfundamentals">Firewall Fundamentals</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/flarevmarsenaloftools">FlareVM: Arsenal of Tools</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/gobusterthebasics">Gobuster: The Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hashingbasics">Hashing Basics</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/howwebsiteswork">How Websites Work</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/howwebsiteswork">How Websites Work</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/httpindetail">HTTP in Detail</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hydra">Hydra</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/idsfundamentals">IDS Fundamentals</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/idsfundamentals">IDS Fundamentals</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/incidentresponsefundamentals">Incident Response Fundamentals</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/insideacomputer">Inside a Computer System</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/introtosiem">Introduction to SIEM</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/introtosiem">Introduction to SIEM</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/javascriptessentials">JavaScript Essentials</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/johntheripperbasics">John the Ripper: The Basics</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/linuxclibasics">Linux CLI Basics</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/linuxclibasics">Linux CLI Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/linuxshells">Linux Shells</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/logsfundamentals">Logs Fundamentals</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/malwareclassification">Malware Classification</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/malwareclassification">Malware Classification</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/metasploitexploitation">Metasploit: Exploitation</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/metasploitintro">Metasploit: Introduction </a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/meterpreter">Metasploit: Meterpreter</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/meterpreter">Metasploit: Meterpreter</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/monikerlink">Moniker Link (CVE-2024-21413)</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/networkingconcepts">Networking Concepts</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/networkingcoreprotocols">Networking Core Protocols</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/networkingcoreprotocols">Networking Core Protocols</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/networkingessentials">Networking Essentials</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/networkingsecureprotocols">Networking Secure Protocols</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/nmap">Nmap: The Basics</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/nmap">Nmap: The Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/offensivesecurityintroc101">Offensive Security Intro</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/operatingsystemsecurity">Operating System Security</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/operatingsystemsintroduction">Operating Systems: Introduction</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/operatingsystemsintroduction">Operating Systems: Introduction</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/owasptopten2025two">OWASP Top 10 2025: Application Design Flaws</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/owasptopten2025one">OWASP Top 10 2025: IAAA Failures</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/publickeycrypto">Public Key Cryptography Basics</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/owasptopten2025three">OWASP Top 10 2025: Insecure Data Handling</a></td>
+<td align="left" width="300"><a href="https://tryhackme.com/room/publickeycrypto">Public Key Cryptography Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/puttingitalltogether">Putting it all together</a></td>
+</tr>
+<tr>
 <td align="left" width="300"><a href="https://tryhackme.com/room/pythonsimpledemo">Python: Simple Demo</a></td>
+<td align="left" width="300"><a href="https://tryhackme.com/room/remnuxgettingstarted">REMnux: Getting Started</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/retracted">Retracted</a></td>
 </tr>
 <tr>
@@ -286,12 +296,26 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 
 </div>
 
-## Badges (16)
+## Badges (18)
 
 <div align="center">
 
 <table>
 <tr>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/owasptop10.png" alt="OWASP Top 10" width="90"><br>
+<strong>OWASP Top 10</strong>
+</a>
+<br><sub>2026-08-23 · rare (8.2%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/shieldapprentice.png" alt="Shield Apprentice" width="90"><br>
+<strong>Shield Apprentice</strong>
+</a>
+<br><sub>2026-08-23 · rare (2.3%)</sub>
+</td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/ohsint.png" alt="OhSINT" width="90"><br>
@@ -306,6 +330,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-17 · rare (3.4%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/streak30.png" alt="30 Day Streak" width="90"><br>
@@ -320,8 +346,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-12 · rare (2.7%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/league-platinum.png" alt="Platinum League" width="90"><br>
@@ -336,6 +360,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-03 · rare (8.4%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/metasploit.png" alt="Metasploitable" width="90"><br>
@@ -349,8 +375,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-03 · rare (1%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/streak7.png" alt="7 Day Streak" width="90"><br>
@@ -365,6 +389,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-22 · common (28.2%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/howthewebworks.png" alt="World Wide Web" width="90"><br>
@@ -379,8 +405,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-21 · common (21.4%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/networkfundamentals.png" alt="Networking Nerd" width="90"><br>
@@ -395,6 +419,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-20 · rare (1.3%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/streak3.png" alt="3 Day Streak" width="90"><br>

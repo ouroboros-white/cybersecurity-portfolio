@@ -64,17 +64,17 @@ cloud work above, and adding each one to this repository as it is done.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-23 06:00 UTC
+**Last synced:** 2026-08-24 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>109</td>
-<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>16</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>115</td>
+<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>18</td>
 <td align="center">&nbsp;<strong>🔴 Hard</strong>&nbsp;<br>1</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>8</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>86</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>92</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>14</td>
 </tr>
 </table>
@@ -87,6 +87,20 @@ cloud work above, and adding each one to this repository as it is done.
 
 <table>
 <tr>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/owasptop10.png" alt="OWASP Top 10" width="90"><br>
+<strong>OWASP Top 10</strong>
+</a>
+<br><sub>2026-08-23 · rare (8.2%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/shieldapprentice.png" alt="Shield Apprentice" width="90"><br>
+<strong>Shield Apprentice</strong>
+</a>
+<br><sub>2026-08-23 · rare (2.3%)</sub>
+</td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/ohsint.png" alt="OhSINT" width="90"><br>
@@ -107,20 +121,6 @@ cloud work above, and adding each one to this repository as it is done.
 <strong>30 Day Streak</strong>
 </a>
 <br><sub>2026-08-15 · rare (6.3%)</sub>
-</td>
-<td align="center" width="130">
-<a href="https://tryhackme.com/p/ouroboroswhite">
-<img src="https://assets.tryhackme.com/img/badges/swordapprentice.png" alt="Sword Apprentice" width="90"><br>
-<strong>Sword Apprentice</strong>
-</a>
-<br><sub>2026-08-12 · rare (2.7%)</sub>
-</td>
-<td align="center" width="130">
-<a href="https://tryhackme.com/p/ouroboroswhite">
-<img src="https://assets.tryhackme.com/img/badges/league-platinum.png" alt="Platinum League" width="90"><br>
-<strong>Platinum League</strong>
-</a>
-<br><sub>2026-08-10 · epic (0.3%)</sub>
 </td>
 </tr>
 </table>

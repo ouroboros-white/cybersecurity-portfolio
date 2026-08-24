@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-23 06:00 UTC",
-  "rooms_completed": 109,
+  "last_synced_utc": "2026-08-24 06:00 UTC",
+  "rooms_completed": 115,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -1004,6 +1004,16 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785252041755"
     },
     {
+      "_id": "5c85078bf4bde85b94d830f5",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/47d2d3ade1795f81a155d0aca6e4da96.jpeg",
+      "description": "A Rick and Morty CTF. Help turn Rick back into a human!",
+      "title": "Pickle Rick",
+      "code": "picklerick",
+      "difficulty": "easy",
+      "type": "challenge",
+      "freeToUse": true
+    },
+    {
       "_id": "5cb0b1b8779909395702c6d5",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/9c6bc7e6db746ea68ecaa99e328923f1.png",
       "description": "Are you able to use open source intelligence to solve this challenge?",
@@ -1012,6 +1022,26 @@
       "difficulty": "easy",
       "type": "challenge",
       "freeToUse": true
+    },
+    {
+      "_id": "5d5a29456986bf350804765d",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/f28ade2b51eb7aeeac91002d41f29c47.png",
+      "description": "Beginner level ctf",
+      "title": "Simple CTF",
+      "code": "easyctf",
+      "difficulty": "easy",
+      "type": "challenge",
+      "freeToUse": true
+    },
+    {
+      "_id": "622bacc144211102a293ac4e",
+      "type": "challenge",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "lofi",
+      "title": "Lo-Fi",
+      "description": "Want to hear some lo-fi beats, to relax or study to? We've got you covered!",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1737110160739"
     },
     {
       "_id": "62bae2b9dc6a500060047287",
@@ -1054,6 +1084,26 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/capabasics-1785241444061.png"
     },
     {
+      "_id": "66d47c1fec25139641ddc806",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "flarevmarsenaloftools",
+      "title": "FlareVM: Arsenal of Tools",
+      "description": "Learn the arsenal of investigative tools in FlareVM.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/flarevmarsenaloftools-1785241445313.png"
+    },
+    {
+      "_id": "66d47c4361586bcfba27bd08",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "remnuxgettingstarted",
+      "title": "REMnux: Getting Started",
+      "description": "Learn how you can use the tools inside the REMnux VM.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339707192-remnuxgettingstarted.png"
+    },
+    {
       "_id": "6910eb9d8579d857d2b195f5",
       "type": "walkthrough",
       "freeToUse": true,
@@ -1072,6 +1122,16 @@
       "title": "OWASP Top 10 2025: Application Design Flaws",
       "description": "Learn about A02, A03, A06, and A10 and how they related to design flaws in the application.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025two-1785241451787.png"
+    },
+    {
+      "_id": "6910ebfda2ab0bcc10166e90",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "owasptopten2025three",
+      "title": "OWASP Top 10 2025: Insecure Data Handling",
+      "description": "Learn about A04, A05, and A08 as they related to insecure data handling.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025three-1785241451582.png"
     },
     {
       "_id": "69d11794a4b37712cfb0bdc4",
@@ -1095,6 +1155,26 @@
     }
   ],
   "badges": [
+    {
+      "_id": "5f1b30268b57fa13a65e3508",
+      "name": "owasp-10",
+      "image": "https://assets.tryhackme.com/img/badges/owasptop10.png",
+      "title": "OWASP Top 10",
+      "description": "Understanding every OWASP vulnerability",
+      "earnedAt": "2026-08-23T13:14:53.029Z",
+      "rarityTier": "rare",
+      "rarityPercent": 8.2
+    },
+    {
+      "_id": "6710f453b3eec466f102ed91",
+      "name": "shieldapprentice",
+      "image": "https://assets.tryhackme.com/img/badges/shieldapprentice.png",
+      "title": "Shield Apprentice",
+      "description": "Completing the FlareVM room",
+      "earnedAt": "2026-08-23T11:35:48.055Z",
+      "rarityTier": "rare",
+      "rarityPercent": 2.3
+    },
     {
       "_id": "5cb0b82cea5ebc64acd45953",
       "name": "ohsint",
@@ -1256,5 +1336,5 @@
       "rarityPercent": 22
     }
   ],
-  "badge_count": 16
+  "badge_count": 18
 }
