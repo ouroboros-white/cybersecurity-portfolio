@@ -15,6 +15,23 @@ to a phase list, this document is the long form behind it.
 
 ---
 
+## The core loop: discover, then interrogate
+
+Every phase below, at every tier, runs the same two beats, and naming them is
+what stops recon becoming a directionless tool-dump:
+
+1. **Discover.** Enumerate a surface for what it exposes: ports on a host, paths
+   on a web app, shares on SMB, records in DNS.
+2. **Interrogate.** Open and read *every single thing* discovery returned. The
+   tool provides the doors; each one still has to be walked through. This is the
+   half skipped most often and where the finding usually is.
+
+More tools and bigger wordlists is the beginner trap: it widens *discover* while
+starving *interrogate*. Depth on what you have already found beats breadth of
+what you scanned.
+
+---
+
 ## Step 0: Read the brief and fix the scope
 
 Before touching the target:
@@ -31,6 +48,34 @@ Before touching the target:
   over-testing.
 
 Nothing is scanned until this is settled.
+
+---
+
+## Passive reconnaissance (before you touch the target)
+
+On a real external engagement or a bug-bounty scope you are handed a name, not a
+single IP, and the largest wins come from surface nobody else is testing. This
+tier gathers intelligence **without sending a packet to the target**, so it
+carries no risk and needs no active-testing authorisation.
+
+- **Subdomain enumeration** (`subfinder`, `amass` passive, `assetfinder`). Each
+  subdomain is a separate application with its own bugs; a forgotten `staging.`
+  or `dev.` host is a classic way in.
+- **Certificate transparency** (`crt.sh`). Every TLS certificate an organisation
+  issues is logged publicly, so this leaks internal and staging hostnames for
+  free.
+- **Historical URLs** (`waybackurls`, `gau`). The Wayback Machine and common
+  crawl remember endpoints, parameters, and files removed from the live site that
+  often still work.
+- **Search dorking** (`site:`, `inurl:admin`, `filetype:`) to surface documents
+  and panels the site never linked.
+- **Public code and leaks.** Search GitHub for the org name, hardcoded keys, and
+  internal URLs.
+
+**On a single-IP lab box (most TryHackMe rooms) this tier is nearly empty** - no
+domain, no certificate history, no public code - which is why the active scan
+below comes almost first. Note the tier so the habit exists when a real scope
+arrives; do not invent it where it does not apply.
 
 ---
 
@@ -72,6 +117,11 @@ nmap -sU --top-ports 20 <ip>
 SNMP (161), DNS (53), TFTP and IKE live here, and open SNMP in particular can
 disclose a large amount of the host.
 
+**Do not wait on the full scan.** `-p-` takes minutes; the fast top-1000 pass,
+and browsing any web service the scan has already revealed, run in parallel with
+it. Browsing as a user is the least intrusive active step there is and has no
+dependency on the full scan finishing.
+
 Record **every** open port and its version, not only the obvious web ports. If
 version detection is thin, follow up with targeted scripts
 (`nmap -p <port> --script <category>`), or grab the banner manually
@@ -110,6 +160,15 @@ Skipping this is the most common reason a target looks empty when it is not.
 
 When a web service is present, the surface is mapped before anything is attacked.
 
+**Run everything through an intercepting proxy (Burp Suite, or OWASP ZAP).** A
+proxy sits between your browser and the target and records every request and
+response, then lets you pause, edit, and replay any of them. It is the spine of
+web testing: it is how you see the real request behind a button click, tamper
+with a value the interface will not let you change, and resend a request as a
+different user. Browser dev tools and `curl` cover the light cases; the proxy is
+what you work inside.
+
+
 1. **Browse it like a user first.** Understand what the application is for. The
    intended function is where business-logic flaws live.
 2. **View source on every page.** Comments, hidden fields, and linked JavaScript
@@ -137,6 +196,22 @@ When a web service is present, the surface is mapped before anything is attacked
    hidden parameters (`ffuf`, `arjun`) where the surface looks thin.
 9. **Map the API from its own client-side script** where the app is JS-driven,
    so the real endpoints and parameters are known before testing.
+10. **Test access control across privilege levels.** Where the app has roles
+    (anonymous, user, admin), this is the highest-yield web bug class and the one
+    scanners miss, because it needs a human who understands who is allowed to do
+    what. Log in as a low-privilege user, capture a request, then: change an
+    object identifier in it (`id=1` to `id=2`) to reach another user's data - an
+    **IDOR**; replay a privileged action's request while authenticated as the low
+    user - **broken function-level access control**; request an admin-only path
+    directly as the low user or anonymous. Keep an access-control matrix: for each
+    role, which endpoints *should* work, and test every cell that should not.
+11. **Test every input against the injection classes, systematically.** For each
+    parameter, header, and body field, ask which interpreter it might reach and
+    probe accordingly: **SQL / NoSQL** (database), **command injection** (shell),
+    **SSTI** (template engine), **path traversal / LFI** (filesystem), **XSS**
+    (other users' browsers), **SSRF** (server-side requests), **XXE** (XML
+    parsers). One unsanitised input reaching any of these is usually the whole
+    finding. The WSTG input-validation section is the full checklist.
 
 ---
 
