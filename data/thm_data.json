@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-24 06:00 UTC",
-  "rooms_completed": 115,
+  "last_synced_utc": "2026-08-25 06:00 UTC",
+  "rooms_completed": 119,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -1104,6 +1104,16 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339707192-remnuxgettingstarted.png"
     },
     {
+      "_id": "68126ccc243043eb516d5745",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "writingpentestreports",
+      "title": "Writing Pentest Reports",
+      "description": "Learn how to write professional pentesting reports that communicate risk to business stakeholders.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/6093e17fa004d20049b6933e-1746290313524"
+    },
+    {
       "_id": "6910eb9d8579d857d2b195f5",
       "type": "walkthrough",
       "freeToUse": true,
@@ -1134,6 +1144,26 @@
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025three-1785241451582.png"
     },
     {
+      "_id": "69a9a62e283ecec248f71fb4",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "reportwritingsocl2",
+      "title": "Report Writing for SOC L2",
+      "description": "Explore a vital skill for any senior role in a SOC: report writing.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1774324622687"
+    },
+    {
+      "_id": "69b3b6ed1ddb43f8f434b187",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "guidedpentestinfrastructure",
+      "title": "Guided Pentest: Infrastructure",
+      "description": "Understand the steps involved in a real-life pentest and follow them to compromise your target.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/6989b1062386d3517f652edd-1778494472489"
+    },
+    {
       "_id": "69d11794a4b37712cfb0bdc4",
       "type": "challenge",
       "freeToUse": true,
@@ -1152,6 +1182,16 @@
       "title": "Careers in Cyber",
       "description": "Discover the perks and your place within Cyber Security.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1782818141370"
+    },
+    {
+      "_id": "6a4cbfc37199dd172593af47",
+      "type": "walkthrough",
+      "freeToUse": true,
+      "difficulty": "easy",
+      "code": "guidedpentestnn",
+      "title": "Guided Pentest: Web",
+      "description": "Learn web app pentesting by chaining vulnerabilities from recon to full server compromise.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1783492472566"
     }
   ],
   "badges": [
