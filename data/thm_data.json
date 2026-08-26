@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-25 06:00 UTC",
-  "rooms_completed": 119,
+  "last_synced_utc": "2026-08-26 06:00 UTC",
+  "rooms_completed": 120,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -1142,6 +1142,16 @@
       "title": "OWASP Top 10 2025: Insecure Data Handling",
       "description": "Learn about A04, A05, and A08 as they related to insecure data handling.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025three-1785241451582.png"
+    },
+    {
+      "_id": "6989a6e05c1b0ffbd12c5df6",
+      "type": "walkthrough",
+      "freeToUse": false,
+      "difficulty": "easy",
+      "code": "diveintopentesting",
+      "title": "Dive Into Pentesting",
+      "description": "Learn the basics of penetration testing, from methodology to responsible practice.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/645b19f5d5848d004ab9c9e2-1779773270969"
     },
     {
       "_id": "69a9a62e283ecec248f71fb4",
