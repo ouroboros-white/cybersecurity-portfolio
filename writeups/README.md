@@ -16,7 +16,7 @@ For full assessment reports written to commercial deliverable standard, see
 ## Index
 
 <!--INDEX:START-->
-**26 write-ups across 7 disciplines.** Each one is a challenge solved without a walkthrough. Hardest first.
+**25 write-ups across 6 disciplines.** Each one is a challenge solved without a walkthrough. Hardest first.
 
 ### AI and LLM Security
 
@@ -72,12 +72,6 @@ For full assessment reports written to commercial deliverable standard, see
 | [Vulnerability Capstone](vulnerability-capstone.md) | Web, Vulnerability Research, CVE, Public Exploit, RCE | Easy | 2026-08-01 |
 | [Neighbour](neighbour.md) | Web, Information Disclosure, Broken Access Control | Easy | 2026-07-28 |
 | [Room 404](room-404.md) | Web, Source Disclosure, Recon | Easy | 2026-07-28 |
-
-### Other
-
-| Write-up | Focus | Difficulty | Date |
-| --- | --- | --- | --- |
-| [Guided: Pentesting an Infrastructure](guided-pentest-infrastructure.md) | Network Pentest, Metasploit, UnrealIRCd, CVE-2010-2075, Credential Reuse | Easy | 2026-08-24 |
 <!--INDEX:END-->
 
 ## The bar
