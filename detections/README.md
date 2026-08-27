@@ -77,7 +77,14 @@ These three rules convert cleanly on every backend tested, and two of them are
 still weaker detections than the SSH or process-creation rules. That is not a
 tooling failure. It is a property of what the underlying findings actually look
 like in a log, and it is worth stating plainly rather than presenting three rules
-as three equivalent controls.
+as three equivalent controls. The table below is ordered strongest detection
+first rather than in file order, because that ordering is the point.
+
+| Rule | Level | What it means |
+|---|---|---|
+| `azure_sas_container_enumeration` | medium | A blob listing authenticated by a Shared Access Signature. A correctly scoped write-only token produces no list operations at all. |
+| `azure_keyvault_versioned_secret_read` | high | A secret read pinned to an explicit version. Rotation exists so that callers read the current value, so pinning is unusual by construction. |
+| `azure_keyvault_first_seen_identity` | informational | A service principal reading a vault. Not an alert: the malicious call and the legitimate one are identical, and only a baseline separates them. |
 
 **`azure_sas_container_enumeration` is a real detection.** A correctly scoped
 write-only SAS produces no list operations at all, so a SAS-authenticated listing
