@@ -1,0 +1,187 @@
+title: Web Service Account Spawning a Shell Interpreter
+name: webservice_shell_child
+id: 1c9f4e07-8a35-4d62-b0e1-77c3a9f2e5d4
+status: experimental
+description: >
+  A process running as the web application's service account spawns a shell
+  interpreter. This is the signature produced by finding F-01 in the
+  Command-Injection Chain assessment, where user input was concatenated into a
+  shell command and any metacharacter in it yielded arbitrary execution.
+  A web application that serves requests has no ordinary reason to start a
+  shell. Where a specific application legitimately does, the exception belongs
+  in this rule as a named filter rather than as a reason to lower its severity.
+references:
+  - reports/command-injection-chain-2026-08.md
+author: ouroboros-white
+date: 2026/08/27
+tags:
+  - attack.execution
+  - attack.t1059.004
+  - attack.initial-access
+  - attack.t1190
+logsource:
+  category: process_creation
+  product: linux
+detection:
+  service_account:
+    User:
+      - 'www-data'
+      - 'nginx'
+      - 'apache'
+      - 'uwsgi'
+      - 'gunicorn'
+  shell:
+    Image|endswith:
+      - '/sh'
+      - '/bash'
+      - '/dash'
+      - '/zsh'
+      - '/ksh'
+  condition: service_account and shell
+falsepositives:
+  - Applications that legitimately shell out, most often to image, video, or
+    document conversion utilities. These are identifiable by a stable, small
+    set of command lines and should be filtered explicitly by that command line
+    rather than by suppressing the rule.
+  - Deployment, migration, and healthcheck scripts running under the service
+    account, which are usually distinguishable by running at deploy time rather
+    than continuously.
+level: high
+---
+title: Web Service Account Running Host Reconnaissance
+name: webservice_recon_child
+id: 7d2b6a51-4e08-49c7-9f3a-2b85ce104f6b
+status: experimental
+description: >
+  A process running as the web application's service account executes a host
+  reconnaissance command. In the Command-Injection Chain assessment this is what
+  immediately followed the injection at both privilege tiers: the first action
+  after proving execution was to establish which account had been obtained.
+  This rule is deliberately separate from the shell rule above, because
+  injection into an argument array or a non-shell exec path produces this
+  without ever spawning a shell.
+references:
+  - reports/command-injection-chain-2026-08.md
+author: ouroboros-white
+date: 2026/08/27
+tags:
+  - attack.discovery
+  - attack.t1033
+  - attack.t1082
+logsource:
+  category: process_creation
+  product: linux
+detection:
+  service_account:
+    User:
+      - 'www-data'
+      - 'nginx'
+      - 'apache'
+      - 'uwsgi'
+      - 'gunicorn'
+  recon:
+    Image|endswith:
+      - '/id'
+      - '/whoami'
+      - '/uname'
+      - '/hostname'
+      - '/ifconfig'
+      - '/netstat'
+  condition: service_account and recon
+falsepositives:
+  - Monitoring agents and healthcheck scripts calling hostname or uname on a
+    schedule, which produce a regular interval rather than a burst alongside
+    other discovery commands.
+level: high
+---
+title: Root Automation Worker Spawning an Unexpected Child Process
+name: root_worker_unexpected_child
+id: 3a80f5c2-91d7-4b64-8e15-6c4d9a2e70b8
+status: experimental
+description: >
+  A root-privileged automation worker spawns a process other than the single
+  utility its function requires. This is finding F-04 in the Command-Injection
+  Chain assessment, where the export worker interpolated a caller-supplied field
+  into a tar command and ran it as root, so any metacharacter in that field
+  executed as root.
+  This rule is critical rather than high because of what the parent is, not what
+  the child is. The identical child process under an unprivileged account is
+  finding F-01 and is already covered above; here it is immediate root
+  compromise of the host.
+  The worker's executable path and its one expected child are environment
+  specific and must be set for the deployment before this rule is used. The
+  values below reflect the assessed target.
+references:
+  - reports/command-injection-chain-2026-08.md
+author: ouroboros-white
+date: 2026/08/27
+tags:
+  - attack.execution
+  - attack.t1059.004
+  - attack.privilege-escalation
+  - attack.t1068
+logsource:
+  category: process_creation
+  product: linux
+detection:
+  worker_as_root:
+    ParentImage|contains: 'export-worker'
+    User: 'root'
+  expected_child:
+    Image|endswith: '/tar'
+  condition: worker_as_root and not expected_child
+falsepositives:
+  - A genuine change to the worker's implementation, for example adding
+    compression by calling gzip directly. This is a rule-maintenance event
+    rather than a false positive, and the allowed child list should be updated
+    deliberately when the worker changes.
+  - Package upgrades that restart the worker under a wrapper script, which
+    briefly produces unexpected children at a predictable time.
+level: critical
+---
+title: Archive Utility Invoked With Execution-Capable Flags
+name: tar_execution_flags
+id: 6f13d9b4-2c57-4e80-a3f9-8d05be7c1a92
+status: experimental
+description: >
+  tar or a comparable archive utility invoked with a flag that executes an
+  arbitrary command. This closes an evasion path against the root worker rule
+  above, which permits tar because tar is the worker's legitimate function.
+  An attacker who reads that rule, or who simply works within the command the
+  worker already runs, does not need to spawn anything else: tar's own
+  checkpoint-action, --to-command, and --use-compress-program flags each execute
+  a supplied command, so the injection succeeds while the child process remains
+  the expected one.
+  This is the rule the F-04 finding most needs, because the allowed-child
+  approach on its own is defeated by the allowed child.
+references:
+  - reports/command-injection-chain-2026-08.md
+author: ouroboros-white
+date: 2026/08/27
+tags:
+  - attack.execution
+  - attack.t1059.004
+  - attack.stealth
+  - attack.t1202
+logsource:
+  category: process_creation
+  product: linux
+detection:
+  archive_utility:
+    Image|endswith:
+      - '/tar'
+      - '/bsdtar'
+  execution_flags:
+    CommandLine|contains:
+      - '--checkpoint-action'
+      - '--to-command'
+      - '--use-compress-program'
+      - '-I '
+  condition: archive_utility and execution_flags
+falsepositives:
+  - Backup tooling legitimately using --use-compress-program to select a
+    compressor such as pigz or zstd. This is common and should be filtered by
+    the specific program named, not by removing the flag from the rule.
+  - Build scripts using -I to select a decompressor, which is distinguishable
+    by running under a build account rather than a service account.
+level: high

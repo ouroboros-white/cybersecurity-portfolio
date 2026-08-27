@@ -197,8 +197,17 @@ the commit history reflects.
 ## Detection Rules
 
 Sigma detection rules written from the attacker behaviour I produced during my
-own assessments, so each offensive finding has a corresponding defensive
-artefact a SOC could load. See [detections/](detections/).
+own assessments, so the offensive work and the defensive artefact can be read
+against each other. Eleven rules across three log sources: Linux authentication,
+Linux process creation, and Azure resource logs.
+
+Two of them are the parts worth reading. One is written against an evasion of my
+own rule, because allowing a process by name is defeated when the allowed process
+can itself execute arbitrary commands. Another is labelled informational rather
+than presented as an alert, because the finding it comes from resists signature
+detection entirely: a stolen cloud identity making authorised API calls looks
+exactly like the legitimate one, and only a baseline separates them. See
+[detections/](detections/).
 
 ## Tools
 

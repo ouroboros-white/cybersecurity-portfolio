@@ -1,0 +1,10 @@
+# Splunk SPL, generated from webservice_command_injection.yml
+# Rule: root_worker_unexpected_child (allowed-child negation)
+# Command: sigma convert -t splunk --without-pipeline detections/webservice_command_injection.yml
+# Generated: 2026-08-27 with sigma-cli and pysigma-backend-splunk
+
+ParentImage="*export-worker*" User="root" NOT Image="*/tar"
+
+# Companion rule: tar_execution_flags, which covers the evasion this one allows.
+
+Image IN ("*/tar", "*/bsdtar") CommandLine IN ("*--checkpoint-action*", "*--to-command*", "*--use-compress-program*", "*-I *")

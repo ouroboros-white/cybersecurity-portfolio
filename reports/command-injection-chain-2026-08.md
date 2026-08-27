@@ -348,7 +348,12 @@ of all data, persistence, and full control.
 automation process spawning unexpected children (a shell, `id`, `cat`) rather than
 only `tar`. Kernel audit rules on `execve` by that service, and egress from the
 root worker, would flag the activity. At the API edge, shell metacharacters in the
-`report` field are detectable and blockable.
+`report` field are detectable and blockable. Sigma rules covering this finding and
+F-01 are published at
+[`detections/webservice_command_injection.yml`](../detections/webservice_command_injection.yml),
+including one written against an evasion of the allowed-child approach: `tar`'s own
+flags execute arbitrary commands, so the injection can succeed without ever
+spawning an unexpected child.
 
 **Remediation.** Build the export with an argument array and no shell; strictly
 validate `report` against an allowlist of known report names. Run the worker as a

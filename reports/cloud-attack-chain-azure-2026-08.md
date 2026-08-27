@@ -275,7 +275,12 @@ false sense of safety.
 **Expected detection opportunities.** Key Vault diagnostic logs would record a
 `SecretGet` against a non-current version, which is unusual for legitimate
 automation (which reads current values). Alert on any access to a superseded
-secret version.
+secret version. Sigma rules for this chain are published at
+[`detections/azure_credential_chain.yml`](../detections/azure_credential_chain.yml),
+with an honest account of why two of the three are weaker than the equivalent
+host-based rules: cloud credential abuse largely consists of authorised API calls
+by a legitimate identity, so the detection has to come from baseline deviation
+rather than from matching the request.
 
 **Remediation.** Treat rotation as insufficient for a *leaked* secret. Disable or
 delete superseded versions, and invalidate the value at its source (revoke the
