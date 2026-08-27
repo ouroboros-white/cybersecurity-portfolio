@@ -160,17 +160,17 @@ lab-based throughout.
 **All nine assessments at a glance**, ordered strongest first. Start at the top;
 each row links to the full report.
 
-| Assessment | Technique | Impact |
-|---|---|---|
-| [LLM Agent Security](reports/llm-agent-prompt-injection-2026-08.md) | Prompt injection, confused-deputy tool abuse | Host command execution |
-| [Web & Cloud Assessment](reports/lab-assessment-2026-08.md) | CVE exploitation, cloud IAM abuse, exposed `.git` | Multi-target compromise, data-plane breach |
-| [Lost-Device Forensics](reports/device-loss-data-at-rest-2026-08.md) | DPAPI, LSA secrets, registry, data-at-rest recovery | Credential recovery from an encrypted device |
-| [Network Share to Root](reports/smb-to-multiuser-compromise-2026-08.md) | SMB enumeration, weak SSH credentials, key theft, sudo | Full root compromise |
-| [Command-Injection Chain](reports/command-injection-chain-2026-08.md) | Command injection at two privilege boundaries | Unauthenticated edge RCE, then root |
-| [Azure Cloud Attack Chain](reports/cloud-attack-chain-azure-2026-08.md) | Leaked SAS token, stolen service principal, Key Vault | Cloud secret compromise |
-| [Business-Logic & API Abuse](reports/business-logic-assessment-2026-08.md) | Race condition in reward-eligibility logic | Repeated reward grant (financial abuse) |
-| [Single-Host Full Compromise](reports/host-compromise-2026-08.md) | NoSQL auth bypass, SSTI, RCE, privilege escalation | Anonymous to root |
-| [Recoverable XOR Cryptosystem](reports/xor-cryptosystem-2026-08.md) | Known-plaintext key recovery against repeating-key XOR | Full secret disclosure |
+| Assessment | Technique | Impact | Demonstrates |
+|---|---|---|---|
+| [LLM Agent Security](reports/llm-agent-prompt-injection-2026-08.md) | Prompt injection, confused-deputy tool abuse | Host command execution | AI/LLM security, authorization analysis, OWASP LLM Top 10, ATT&CK and ATLAS mapping |
+| [Web & Cloud Assessment](reports/lab-assessment-2026-08.md) | CVE exploitation, cloud IAM abuse, exposed `.git` | Multi-target compromise, data-plane breach | Multi-host scoping, public exploit adaptation, AWS IAM, control-plane vs data-plane logging |
+| [Lost-Device Forensics](reports/device-loss-data-at-rest-2026-08.md) | DPAPI, LSA secrets, registry, data-at-rest recovery | Credential recovery from an encrypted device | Digital forensics, evidential handling, Windows credential stores, defensible equal scoring |
+| [Network Share to Root](reports/smb-to-multiuser-compromise-2026-08.md) | SMB enumeration, weak SSH credentials, key theft, sudo | Full root compromise | Linux privilege escalation, chain severity vs base scores, proving root rather than inferring it |
+| [Command-Injection Chain](reports/command-injection-chain-2026-08.md) | Command injection at two privilege boundaries | Unauthenticated edge RCE, then root | Injection at multiple privilege tiers, internal pivoting, Sigma detection engineering |
+| [Azure Cloud Attack Chain](reports/cloud-attack-chain-azure-2026-08.md) | Leaked SAS token, stolen service principal, Key Vault | Cloud secret compromise | Azure identity, secret lifecycle, why cloud credential abuse resists signature detection |
+| [Business-Logic & API Abuse](reports/business-logic-assessment-2026-08.md) | Race condition in reward-eligibility logic | Repeated reward grant (financial abuse) | Business-logic testing, concurrency flaws, the bug class scanners cannot find |
+| [Single-Host Full Compromise](reports/host-compromise-2026-08.md) | NoSQL auth bypass, SSTI, RCE, privilege escalation | Anonymous to root | Web exploitation depth, root-equivalent group abuse, chaining four findings |
+| [Recoverable XOR Cryptosystem](reports/xor-cryptosystem-2026-08.md) | Known-plaintext key recovery against repeating-key XOR | Full secret disclosure | Applied cryptanalysis, known-plaintext attacks, turning a one-off result into tooling |
 
 **Why the top three stand out**, chosen on the strength of the analysis rather
 than the difficulty of the target:
