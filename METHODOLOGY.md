@@ -39,9 +39,16 @@ Before touching the target:
 - Read the brief in full. Note the stated goal, the starting position
   (unauthenticated, credentialed, black or white box), and any hint about the
   target's nature.
-- Establish **scope and rules of engagement**: which hosts, IP ranges, and
-  services are in bounds, and what is explicitly out. Testing outside scope risks
-  breaching the Computer Misuse Act.
+- Establish **scope and rules of engagement** as a hard gate. Before a single
+  packet, confirm each of these, because a technically correct test outside them
+  is an unauthorised one under the Computer Misuse Act:
+  - **In-scope** hosts, IP ranges, domains, and accounts, and what is explicitly out.
+  - **Allowed techniques**, and any that are prohibited.
+  - **Rate limits**, and whether any denial-of-service or load testing is barred.
+  - Whether **credential attacks** (brute force, spraying) are permitted.
+  - Whether **exploitation and privilege escalation** are permitted, or proof-of-vulnerability only.
+  - **Data-handling and evidence** rules: what may be accessed, stored, or exfiltrated.
+  - **Stop conditions**: findings or events that require pausing and reporting at once.
 - Note the **answer format or objective** where the brief gives one. It often
   tells you what class of finding to expect and how far the intended path goes.
 - Decide what "done" looks like for this target, so I stop at proof rather than
@@ -191,20 +198,29 @@ what you work inside.
    login endpoints, and any exposed version. On HTTPS, read the TLS certificate,
    which often leaks hostnames, internal names, and emails. Feed anything
    versioned into Step 5.
-8. **Test authentication and inputs.** On any login, try default and weak
-   credentials and the injection classes the stack invites (SQL, NoSQL). Fuzz for
-   hidden parameters (`ffuf`, `arjun`) where the surface looks thin.
+8. **Test authentication and the account lifecycle**, not just the login. Weak
+   and default credentials are one part. Also examine registration, password
+   reset, MFA, account recovery, session invalidation on logout, session
+   fixation, account enumeration (does a wrong username differ from a wrong
+   password), and lockout or rate limiting. Then the injection classes the login
+   invites (SQL, NoSQL), and fuzz for hidden parameters (`ffuf`, `arjun`).
 9. **Map the API from its own client-side script** where the app is JS-driven,
    so the real endpoints and parameters are known before testing.
-10. **Test access control across privilege levels.** Where the app has roles
-    (anonymous, user, admin), this is the highest-yield web bug class and the one
-    scanners miss, because it needs a human who understands who is allowed to do
-    what. Log in as a low-privilege user, capture a request, then: change an
-    object identifier in it (`id=1` to `id=2`) to reach another user's data - an
-    **IDOR**; replay a privileged action's request while authenticated as the low
-    user - **broken function-level access control**; request an admin-only path
-    directly as the low user or anonymous. Keep an access-control matrix: for each
-    role, which endpoints *should* work, and test every cell that should not.
+10. **Test authorization, in every direction.** This is the highest-yield web
+    bug class and the one scanners miss, because it needs a human who understands
+    who is allowed to do what. Changing `id=1` to `id=2` is one instance, not the
+    whole class. Test:
+    - **Horizontal**: user A reaching user B's data (classic IDOR).
+    - **Vertical**: an ordinary user performing a privileged action.
+    - **Object-level**: any reference to a record, including non-numeric ones
+      (UUIDs, slugs, filenames) and references leaked in responses.
+    - **Function-level**: an admin-only endpoint or path requested directly as a
+      low user or anonymous.
+    - **API-level**: the same checks against the API, where the UI hid the control
+      but the server never enforced it.
+    Keep an authorization matrix: for each role, which endpoints *should* work,
+    and test every cell that should not. Authorization enforced in the UI but not
+    server-side is the recurring finding.
 11. **Test every input against the injection classes, systematically.** For each
     parameter, header, and body field, ask which interpreter it might reach and
     probe accordingly: **SQL / NoSQL** (database), **command injection** (shell),
@@ -212,6 +228,12 @@ what you work inside.
     (other users' browsers), **SSRF** (server-side requests), **XXE** (XML
     parsers). One unsanitised input reaching any of these is usually the whole
     finding. The WSTG input-validation section is the full checklist.
+12. **Sweep the configuration and the edges.** Security headers and their absence,
+    cookie attributes and token handling, CORS policy, CSRF protection on
+    state-changing requests, file upload and download handling, error pages and
+    stack traces (information disclosure), rate limiting and abuse controls, and
+    any GraphQL or WebSocket surface. Then the **business-logic invariants**: the
+    rules the application assumes but never enforces.
 
 ---
 
@@ -219,11 +241,22 @@ what you work inside.
 
 Turn what recon found into candidate weaknesses.
 
+**Model the trust boundaries first.** Before firing vulnerability categories at
+inputs, map where untrusted data crosses into trusted execution: which inputs an
+attacker controls, where each one flows, and which component finally acts on it.
+Weakness categories are then aimed at those boundaries, not sprayed at everything.
+OWASP-style lists are a coverage reference, not a script to run blindly.
+
 ```bash
 searchsploit <service> <version>
 ```
 
 - Match services and versions against known vulnerabilities (CVE / Exploit-DB).
+- **A version string is a candidate, not a confirmed vulnerability.** Confirm the
+  exact product, version or build, configuration, and affected component, then
+  establish applicability to this target before claiming it. Prefer the vendor
+  advisory or primary source over an exploit title, and validate with the safest
+  check that proves it.
 - Map application behaviour to weakness classes (CWE) and to logic or
   configuration flaws that no scanner names.
 - Prioritise by likely impact before spending effort on exploitation.
@@ -303,17 +336,22 @@ defender can see and drives the detection analysis.
 
 ### Forensic / data-at-rest target
 
-Not a live attack. Inventory the supplied artifacts, identify the sensitive
-target and the controls protecting it, then reconstruct the offline recovery path
-from lowest-privilege data upward. Work on a **copy**; mount containers
-**read-only** to preserve evidential integrity. Tooling such as `impacket`
-(`secretsdump`, `dpapi`) and `cryptsetup`.
+Not a live attack. Preservation comes first: **hash the original on
+acquisition, record the acquisition metadata, and never modify the evidence.**
+All work happens on a verified **copy**, with containers mounted **read-only**.
+Only then inventory the artifacts, identify the sensitive target and the controls
+protecting it, and reconstruct the offline recovery path from lowest-privilege
+data upward. Tooling such as `impacket` (`secretsdump`, `dpapi`) and `cryptsetup`.
 
 ### LLM-agent target
 
-Aligned to the OWASP Top 10 for LLM Applications. Recon is surface mapping plus
-**agent capability enumeration**: what tools the agent holds and how it decides
-who may use them. Then authorization analysis, then injection to tool abuse.
-A hard-won note: read and, where needed, **reset to a clean baseline** before
-interacting. Polluted application state makes cause and effect unreadable, and
-the enabling behaviour is often only visible against the default state.
+Aligned to the OWASP Top 10 for LLM Applications. Recon is trust-boundary
+mapping: the model, its system and developer instructions, its tools, each
+tool's permissions, its data sources, its memory or state, its users, and its
+external side effects. The core question is then whether **attacker-controlled
+input can cross one of those boundaries** and drive the agent to take an action
+the attacker is not authorised to take. Prompt injection is one mechanism for
+that crossing, not the whole test. A hard-won note: read and, where needed,
+**reset to a clean baseline** before interacting, because polluted state makes
+cause and effect unreadable and the enabling behaviour is often only visible
+against the default state.
