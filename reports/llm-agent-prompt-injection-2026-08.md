@@ -501,3 +501,35 @@ independently of any individual score.
 
 `curl`, browser developer tools, `ffuf`, and a base64 decoder. No custom or
 destructive tooling was used.
+
+## Appendix C: What I learnt
+
+Three things from this engagement stayed with me.
+
+**Spotting the mechanism and working it are two separate stages.** The agent
+printed a second reply aimed at an already-authorised user from very early in the
+task. I could not leverage it yet, but I recognised it for what it was: a lock,
+and one I was meant to find a key for rather than force. The same was true of the
+manager-only `override`. Getting the injection to fall into place took patient
+fiddling, but the avenue was never in doubt once I had read the agent's own tool
+directives back out of it, and a combination of the override and the
+confused-deputy routing was clearly the intended path long before I had a working
+payload. The lesson is that identifying the enabling behaviour and exploiting it
+are different jobs, and confidence in the first is what makes the second worth the
+time it costs.
+
+**A polluted workspace is a polluted read.** More than any tool, what slowed me on
+this box was my own noise: every failed attempt, every verbose agent reply, and
+far more text than the task needed, stacked up in front of the behaviour I was
+trying to observe. Resetting to a clean baseline and keeping only what mattered was
+not housekeeping, it was what made cause and effect legible again. Against an agent
+whose enabling behaviour only shows against the default state, keeping a clean
+workspace is part of the technique rather than separate from it.
+
+**The safety rails are trusted far more than they earn.** People see guardrails and
+canary refusals fire often and conclude the model is defended. What that misses is
+the threat model. A guardrail that holds against a casual user says nothing about
+one that a malicious actor hammers for hours on end, paraphrasing around every
+filter until the model becomes dysfunctional and does what they want. The refusal I
+defeated here fell to a single encoding trick. Treating a probabilistic refusal as
+a security control is the assumption this whole engagement was built on.

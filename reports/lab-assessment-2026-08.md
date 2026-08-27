@@ -553,3 +553,34 @@ consequences (notably the personal-data exposure in F-02/F-04).
 `nmap`, `gobuster`, `git-dumper`, `searchsploit` / Exploit-DB, AWS CLI, browser
 developer tools. No custom or destructive tooling was used; the single public
 exploit employed was reviewed and adapted before execution.
+
+## Appendix C: What I learnt
+
+**The most useful detection insight came from an analogy, not a log.** I worked out
+why default cloud logging records the credential theft but not the data-plane read
+that actually causes the breach without reading a configuration page, by reasoning
+about it the way I would a building. A front desk logs who enters. It does not log
+every time someone opens a filing cabinet, because it would drown in its own noise.
+Management-plane logging is the front desk: it records the identity being assumed,
+while the bulk data read inside the account is the cabinet, and logging every object
+access by default would be unworkable. Reaching that from first principles, rather
+than looking it up, is what made me confident enough to write it into the report as
+the detection gap that matters.
+
+**A public exploit is a starting point, not a tool.** The four-year-old CVE had a
+public exploit that did not simply run. Making it work took only a couple of
+changes and was not hard, but that is the point worth recording: the move from a
+faulty payload to a working one is small in effort and large in prerequisite. It
+needs enough understanding of what the exploit is actually doing to see why it is
+failing. Anyone can download the code; adapting it is where the knowledge shows,
+and it is why I note in the tooling appendix that the exploit was reviewed and
+adapted rather than run blind.
+
+**Scope can be security theatre.** Assessing three targets in a row made a pattern
+visible that one alone would not have, and it is not only a technical one. A limited
+scope can be used, deliberately or otherwise, to feign stability: draw the boundary
+so it lacks the breadth and depth to reach the issues that exist, and to an outside
+observer the result looks clean. The organisation presents as secure while having
+arranged not to look where it is not. That is worth naming, because a tester who
+accepts a scope uncritically becomes part of the performance rather than a check on
+it.

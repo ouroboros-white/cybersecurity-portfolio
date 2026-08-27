@@ -445,3 +445,36 @@ use.
 `impacket` (`secretsdump`, `dpapi`), SQLite client, Python `cryptography`
 (AES-256-GCM verification), `cryptsetup` (read-only VeraCrypt mount). No custom or
 destructive tooling was used.
+
+## Appendix C: What I learnt
+
+**Working defensively is the same logic run backwards, and it is harder.**
+Recovering data rather than exhausting a system was an unfamiliar posture, and I
+will admit I found it more of a struggle than the offensive side. The thinking
+underneath was the same, though. I see cybersecurity, offensive or defensive, as
+breaking logic and human assumptions more than anything purely digital, because
+there is always a person behind the system who built those assumptions in. Here
+that was someone deciding a strong container was enough while storing its key on the
+same device. The tooling recovered the key; the finding was a human one. Even as AI
+begins to change who builds the system, its logic is assembled from human examples,
+so the analysis stays fundamentally human.
+
+**The honest score was the close call, and I would still defend it.** Rating all
+four findings identically at 4.6 was a genuinely even decision rather than an
+obvious one, and I would rather say that plainly than present it as settled
+certainty. On the information in front of me, the base metrics had no dimension left
+in which the four findings differed, and inventing a spread would have meant
+encoding a ranking the metric does not measure. I put the ranking in the
+remediation roadmap instead, where it is actionable. If someone made a strong
+enough case for differentiating them I would look again, but "the honest result is
+an awkward-looking one" was the right tie-breaker.
+
+**Encryption fails at the point the key is stored, not at the algorithm.** The
+container here was cryptographically sound and opened anyway, because the passphrase
+lived on the device it was meant to protect. A key stored locally, alongside what it
+protects, is barely a second control at all. Keys, much like IoT devices, belong
+isolated from the system that uses them: an offline USB key kept separate beats a
+perfectly encrypted "passwords for everything.txt" on the desktop every time. The
+uncomfortable half of it is that any encrypted store, however well implemented, can
+eventually be broken given possession and time. Where the key is kept is what
+decides whether "eventually" ever arrives.
