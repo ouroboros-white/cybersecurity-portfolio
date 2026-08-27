@@ -292,7 +292,13 @@ fixed flag prefix guarantees that availability, which is the substance of F-02.
 
 `nc` (Netcat) for interacting with the service, Python 3 (`bytes.fromhex` and a
 hand-written XOR routine) for key recovery and decryption, and standard shell
-utilities. No custom or destructive tooling was used.
+utilities. No destructive tooling was used.
+
+The XOR routine used during the assessment was written inline. It has since been
+generalised and published as
+[`tools/xor_known_plaintext.py`](../tools/xor_known_plaintext.py), which takes the
+key length, the known plaintext, and the brute-force alphabet as arguments rather
+than assuming the ones this target happened to use.
 
 ## Appendix C: What I learnt
 

@@ -200,6 +200,12 @@ Sigma detection rules written from the attacker behaviour I produced during my
 own assessments, so each offensive finding has a corresponding defensive
 artefact a SOC could load. See [detections/](detections/).
 
+## Tools
+
+Small utilities written during the assessments above and published so the code
+behind a technique can be read, not just described. Currently a known-plaintext
+XOR key-recovery script from the cryptosystem assessment. See [tools/](tools/).
+
 ## Projects
 
 ### Portfolio Sync Automation
