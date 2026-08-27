@@ -104,7 +104,8 @@ Testing Guide (WSTG): reconnaissance, enumeration, vulnerability analysis,
 exploitation, post-exploitation and privilege escalation, then reporting.
 Severity is expressed as CVSS v3.1 base score, and each finding is mapped to a
 Common Weakness Enumeration (CWE) identifier. Detection analysis describes
-expected detection opportunities, since the target is not instrumented.
+expected detection opportunities, since the target is not instrumented, and a
+retesting procedure in section 7 states how each fix would be verified.
 
 **Tooling:** `nmap`, `gobuster`, browser developer tools, `node`, standard Linux
 utilities (`ss`, `systemctl`, `debugfs`). No custom or destructive tooling was
@@ -341,7 +342,57 @@ membership and remove any that is not strictly required.
 
 ---
 
-## 7. Conclusion
+## 7. Retesting
+
+Each finding below states the specific check that confirms the fix, so a retest
+produces a pass or fail rather than an opinion. A retest should begin from the same
+external, unauthenticated position as the original assessment, and the chain should
+be re-walked end to end afterwards: individually fixed findings can still leave a
+viable path if a replacement weakness is introduced.
+
+| Finding | Retest check | Pass condition |
+|---|---|---|
+| F-01 | Submit the login with the password parameter as an object and as each common query operator (`[$ne]`, `[$gt]`, `[$regex]`, `[$in]`), including nested and JSON-body forms | Every non-string authentication input is rejected before the query runs; no operator form authenticates |
+| F-02 | Submit template expressions in each user-controlled field that reaches a rendered response, testing both the original engine's syntax and a simple arithmetic probe | No field evaluates an expression; user input is rendered as literal text |
+| F-03 | Scan the host for a listening inspector port, and inspect the running service's command line for inspector flags | No inspector port is listening on any interface, and no debug flag is present in the live process arguments |
+| F-04 | From a foothold as the service account, list its group membership and attempt a raw read of the root block device | The account is in no root-equivalent group, and raw device access is refused |
+
+Three points decide whether this retest is meaningful.
+
+**Test F-02 with an arithmetic probe, not the original payload.** The wrong fix for
+template injection is a blocklist of the syntax that appeared in this report, and a
+retest that replays only that payload will pass against it while the flaw survives
+through a different construct. A neutral probe that returns a computed value proves
+the input still reaches an evaluator, independently of which escape sequence was
+filtered. Confirm the fix at implementation level where possible: the correct
+remediation is that user input is passed as template *data* rather than compiled as
+template *source*, and that distinction is visible in code but not always in
+responses.
+
+**Localhost binding is not the fix for F-03, so do not retest it as one.** The
+original finding was reachable precisely because a foothold on the host made
+loopback local. A retest that confirms the inspector no longer answers from
+off-host records a pass on a control that never applied. The check has to be run
+from on the host, and the authoritative evidence is the live process command line
+rather than the service definition file, since a drop-in override or a wrapper
+script can reintroduce the flag without the original file changing.
+
+**F-04 is a class of finding, not one group.** Removing `pipelinesvc` from `disk`
+closes the path that was used and leaves the pattern intact if the account or its
+peers sit in `docker`, `lxd`, `shadow`, `adm`, or hold equivalent capabilities or
+setuid access. The retest should enumerate every service account's full group
+membership rather than checking the single group named in the finding, because the
+underlying failure was that root-equivalence was granted without being recognised
+as root-equivalence.
+
+F-01 and F-02 should also be confirmed independently. Fixing the authentication
+bypass makes the template injection harder to reach but does not remove it, and an
+unauthenticated route to the same rendering path would restore critical impact on
+its own.
+
+---
+
+## 8. Conclusion
 
 This host was taken from anonymous to root through four commonplace weaknesses,
 none sophisticated, chained so that each unlocked the next: a login that trusted

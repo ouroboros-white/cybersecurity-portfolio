@@ -111,7 +111,8 @@ Testing Guide (WSTG): reconnaissance, enumeration, vulnerability analysis,
 exploitation, post-exploitation and privilege escalation, then reporting.
 Severity is expressed as CVSS v3.1 base score, and each finding is mapped to a
 Common Weakness Enumeration (CWE) identifier. Detection analysis describes
-expected detection opportunities, since the target is not instrumented.
+expected detection opportunities, since the target is not instrumented, and a
+retesting procedure in section 7 states how each fix would be verified.
 
 **Tooling:** `nmap`, `curl`, browser developer tools, `ss`/`systemctl`, `chisel`
 (reverse port-forwarding to reach loopback services), and standard Linux
@@ -368,7 +369,54 @@ cannot yield root.
 
 ---
 
-## 7. Conclusion
+## 7. Retesting
+
+Each finding below states the specific check that confirms the fix, so a retest
+produces a pass or fail rather than an opinion. A retest should begin from the same
+external, unauthenticated position as the original assessment, and the chain should
+be re-walked end to end afterwards: individually fixed findings can still leave a
+viable path if a replacement weakness is introduced.
+
+| Finding | Retest check | Pass condition |
+|---|---|---|
+| F-01 | Submit a metacharacter set (`;`, `\|`, `` ` ``, `$( )`, `&`, newline) in the `host` field, and separately confirm the endpoint now requires authentication | No payload alters the command executed; `host` is rejected unless it matches a valid IP or hostname; the endpoint is not reachable unauthenticated |
+| F-02 | From a foothold on the host, request the internal service's configuration endpoint with no credentials | The service refuses unauthenticated callers, and no response field contains credential material |
+| F-03 | Attempt a portal login with the previously disclosed default credentials, and replay the **originally captured** API token against the worker | Both are rejected; the default password is changed and the exposed token is revoked, not merely moved |
+| F-04 | With a valid token, submit the same metacharacter set in the `report` field; separately, confirm the worker's runtime account | No payload alters the command executed; `report` is rejected unless it matches an allowlisted report name; the worker process runs as an unprivileged account, not root |
+
+Three points decide whether this retest is meaningful.
+
+**A payload list that fails is weak evidence for an injection fix.** The common
+wrong fix here is a blocklist that strips the characters seen in the original
+report. A retest built from those same characters then passes while the flaw
+survives, because shell metacharacter space is larger than any blocklist: newline,
+`&`, `$()`, backticks, `${IFS}`, and encoded variants all reach the shell by
+different routes. The strong evidence is the implementation, so the retest should
+confirm at code or configuration level that the command is invoked with an argument
+array and no shell, and treat the payload run as a supporting check rather than the
+finding's pass condition. Where source access is unavailable, an error message that
+rejects the input by *format* ("not a valid hostname") rather than by *content*
+("illegal character") is the observable tell that validation is an allowlist.
+
+**F-04 carries two independent fixes and both need testing.** Correcting the
+injection while leaving the worker as root means the next defect in that service is
+root again. Dropping root while leaving the injection means arbitrary execution as
+the service account, which is still a foothold and still a finding. Verify the
+runtime account with a live process listing rather than from the unit file, since a
+drop-in override can restore `User=root` without the original file changing.
+
+**Rotation is part of the fix, not an extra.** F-03 disclosed a live default
+password and a live bearer token. Removing the token from the message store does
+nothing about the copy already captured, so the retest has to confirm the old
+values fail, not that the message store is clean.
+
+Finally, the edge fix and the worker fix should be confirmed independently. They are
+the same weakness class at two privilege tiers, and a single shared patch to one
+code path can leave the other untouched while appearing to resolve both.
+
+---
+
+## 8. Conclusion
 
 This host was taken from anonymous to root by exploiting **one weakness twice**:
 user input concatenated into a shell command, first at the public edge and again

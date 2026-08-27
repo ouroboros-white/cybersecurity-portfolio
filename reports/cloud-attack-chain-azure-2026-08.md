@@ -99,7 +99,8 @@ identity, pivot to what the application itself trusts, follow each credential to
 the next resource, and recover the objective. Tooling was the **Azure CLI** (`az`)
 via Cloud Shell, plus browser developer tools. Severity is CVSS v3.1 base score,
 mapped to CWE. Detection analysis describes expected detection opportunities,
-since the target is not instrumented.
+since the target is not instrumented, and a retesting procedure in section 7
+states how each fix would be verified.
 
 ---
 
@@ -293,7 +294,53 @@ key/credential) rather than only writing a new current value over it.
 
 ---
 
-## 7. Conclusion
+## 7. Retesting
+
+Each finding below states the specific check that confirms the fix, so a retest
+produces a pass or fail rather than an opinion. Retesting should be run from the
+same external, unauthenticated position as the original assessment, and the chain
+re-walked end to end afterwards.
+
+| Finding | Retest check | Pass condition |
+|---|---|---|
+| F-01 | Load the static site and search the delivered JavaScript and any bundled assets for SAS query parameters; then replay the **originally captured** token against the storage account | No SAS is present in client-delivered code, and the captured token is rejected rather than merely absent from the page |
+| F-02 | With the F-01 token replayed and with any newly issued token, attempt to list and read the storage containers for credential material; then attempt to authenticate as the **original** service principal | No credential file is reachable, and the previously disclosed service-principal secret no longer authenticates |
+| F-03 | With secret-read access, list every version of the target secret and attempt to read each superseded version | Superseded versions are disabled or deleted and return an error, and the leaked value is invalid at its source |
+
+Three points decide whether this retest is meaningful.
+
+**Removal is not revocation, and this is the whole point of the retest.** Every
+finding here disclosed live credential material, and a SAS token is a bearer
+credential: it is signed, not stored, so the storage account has no record of it to
+delete and no way to refuse it while the signing key remains valid. Taking the
+token out of the page stops the *next* visitor from collecting it and does nothing
+about the copy an attacker already holds, which stays valid until its expiry years
+away. The only fixes that close F-01 are rotating the storage account key the SAS
+was signed with, or revoking the user-delegation key if a delegation SAS was used.
+A retest that confirms the page is clean and stops there records a pass on a
+finding that is still fully exploitable.
+
+**The same logic applies one level up.** F-02's service-principal secret and F-03's
+leaked Key Vault value both remain usable until revoked at source. Switching to a
+managed identity removes the *reason* the credential existed but does not
+invalidate the credential that leaked, so the retest has to confirm the old values
+fail to authenticate, not that the storage container is tidy.
+
+**Verify F-03 by listing versions, not by reading the secret.** Reading the current
+value returns the placeholder and looks like a pass under any fix or none at all.
+The authoritative check is enumerating the secret's version history and confirming
+that each superseded version is disabled or purged, because that history is the
+thing that actually disclosed the value.
+
+A complete retest should also confirm the SAS issued to replace F-01 is genuinely
+least-privilege: write-only, scoped to the single container the application uses,
+and expiring in hours rather than years. A correctly relocated token that still
+carries read and list across the account has moved the finding rather than fixed
+it.
+
+---
+
+## 8. Conclusion
 
 A protected secret was recovered from a low-privilege starting point through four
 commonplace cloud mistakes, chained so each unlocked the next: a credential handed

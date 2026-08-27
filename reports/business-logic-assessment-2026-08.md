@@ -101,7 +101,8 @@ The assessment followed the OWASP Web Security Testing Guide, focused on
 own client-side script, the reward mechanism was modelled, and the concurrency
 behaviour of the value-granting endpoint was tested. Severity is CVSS v3.1 base
 score, mapped to CWE. Detection analysis describes expected detection
-opportunities, since the target is not instrumented.
+opportunities, since the target is not instrumented, and a retesting procedure in
+section 7 states how each fix would be verified.
 
 **Tooling:** browser developer tools, `curl`. No custom or destructive tooling
 was used.
@@ -255,7 +256,48 @@ value-granting rule with a pre-check that is separate from the action it guards.
 
 ---
 
-## 7. Conclusion
+## 7. Retesting
+
+Each finding below states the specific check that confirms the fix, so a retest
+produces a pass or fail rather than an opinion. Retesting should be run from the
+same position as the original assessment: an ordinary self-registered account with
+no special privileges.
+
+| Finding | Retest check | Pass condition |
+|---|---|---|
+| F-01 | Issue a sustained series of requests to each state-changing endpoint from one account, and again from one source IP across several accounts | Both per-user and per-IP limits engage and the endpoint throttles or rejects, rather than serving every request |
+| F-02 | From a freshly registered, eligible account, send a burst of genuinely parallel `POST /claim` requests inside one cooldown window | Exactly one claim succeeds; every other request is rejected, and the ledger records exactly one grant |
+
+Three points decide whether this retest is meaningful.
+
+**Sequential requests do not test a race.** A retest that sends claims one after
+another will pass against the unfixed code, because the vulnerability only appears
+when requests interleave between the check and the update. The requests have to be
+genuinely concurrent, issued in parallel and timed to arrive together, or the
+retest is a false pass.
+
+**The rate limit can hide an unfixed race.** F-01 and F-02 have to be retested
+independently, because a per-user throttle prevents the burst that triggers the
+race without making the check-and-grant atomic. Verified together, a working rate
+limit produces a passing result for F-02 while the underlying flaw is untouched,
+and it then reappears the moment the limit is raised, bypassed with distributed
+sources, or removed during a performance fix. Confirm F-02 with the rate limit
+lifted in a test environment, so what is being measured is the atomicity of the
+claim itself.
+
+**Check the ledger, not just the response.** The endpoint returning a single
+success message is not proof. The authoritative check is the stored balance and
+the claim record after the burst, because a non-atomic implementation can return
+one visible success while having written several grants.
+
+Where the fix is a database transaction or conditional update, the retest should
+also confirm it holds under the deployment's real concurrency model. A row lock
+that works on a single application instance can still be defeated if the fix was
+implemented in application code and the service is horizontally scaled.
+
+---
+
+## 8. Conclusion
 
 The application was defeated not by a technical exploit but by a logical one: it
 trusted that a "check, then act" sequence would run without interruption.
