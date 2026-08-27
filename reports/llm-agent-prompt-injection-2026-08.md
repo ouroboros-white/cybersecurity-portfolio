@@ -65,6 +65,8 @@ host and disclosure of its secret.
 | F-03 | Arbitrary OS command execution through an over-privileged tool | **Critical** | 9.8 |
 | F-04 | Guardrails bypassable by signature evasion and encoding | **High** | 7.2 |
 
+**Overall risk: Critical.** The chain reaches unauthenticated remote code execution on the host and disclosure of its secret, so despite two findings being rated High in isolation the engagement as a whole is Critical. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
+
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid
@@ -496,6 +498,8 @@ capability it is rather than as the chain that currently reaches it. Each findin
 is otherwise rated in isolation; the executive summary states the chained outcome,
 unauthenticated host command execution and secret disclosure, as Critical
 independently of any individual score.
+
+**Why there is no single overall CVSS score.** CVSS 3.1 scores an individual vulnerability, and the standard is explicit that it is not designed to express the aggregate risk of a system or an engagement. Summing, averaging, or taking the maximum of the findings' scores would misuse the metric, so the overall exposure is stated instead as a qualitative risk band in the executive summary, while the per-finding scores are left to mean exactly what CVSS defines them to mean.
 
 ## Appendix B: Tooling
 

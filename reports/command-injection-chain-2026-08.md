@@ -53,6 +53,8 @@ severity is Critical**: the chain results in complete compromise of the host.
 | F-03 | Default credentials and a privileged API token exposed via message store | **Medium** | 6.5 |
 | F-04 | OS command injection in the root-privileged automation worker | **High** | 7.8 |
 
+**Overall risk: Critical.** The chain runs from unauthenticated OS command injection at the public edge (F-01) through to command execution in a root-privileged worker (F-04), so an anonymous attacker reaches full root compromise of the host. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
+
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid
@@ -481,6 +483,8 @@ into a score the metric does not support.
 Individual findings are otherwise rated in isolation; the executive summary states
 the chained outcome, full root compromise, as Critical independently of the
 individual scores.
+
+**Why there is no single overall CVSS score.** CVSS 3.1 scores an individual vulnerability, and the standard is explicit that it is not designed to express the aggregate risk of a system or an engagement. Summing, averaging, or taking the maximum of the findings' scores would misuse the metric, so the overall exposure is stated instead as a qualitative risk band in the executive summary, while the per-finding scores are left to mean exactly what CVSS defines them to mean.
 
 ## Appendix B: Tooling
 

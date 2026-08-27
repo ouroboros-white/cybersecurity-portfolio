@@ -49,6 +49,8 @@ everything on it.
 | F-03 | Exposed Node.js debug inspector enabling lateral movement | **High** | 7.8 |
 | F-04 | Service account with root-equivalent group membership (`disk`) | **High** | 7.8 |
 
+**Overall risk: Critical.** The findings chain from an unauthenticated NoSQL bypass through SSTI-driven RCE to root-equivalent access, taking an anonymous attacker to full root compromise, so the engagement as a whole is Critical. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
+
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid
@@ -418,6 +420,8 @@ they do not: F-02 supplies it unauthenticated and in one step. Read in isolation
 those two look like post-compromise hardening items, and read in sequence they are
 the reason a web flaw becomes root. Where the base score and the attack path
 disagree in that way, the remediation roadmap follows the path.
+
+**Why there is no single overall CVSS score.** CVSS 3.1 scores an individual vulnerability, and the standard is explicit that it is not designed to express the aggregate risk of a system or an engagement. Summing, averaging, or taking the maximum of the findings' scores would misuse the metric, so the overall exposure is stated instead as a qualitative risk band in the executive summary, while the per-finding scores are left to mean exactly what CVSS defines them to mean.
 
 ## Appendix B: Tooling
 

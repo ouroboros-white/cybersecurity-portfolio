@@ -59,6 +59,8 @@ defence that should meet it.
 | F-03 | Source code and version-control history disclosure (exposed `.git`) | **High** | 7.5 |
 | F-04 | Sensitive data (passwords) stored in plaintext | **Medium** | 5.3 |
 
+**Overall risk: Critical.** These are three independent targets rather than one chain, so the overall rating reflects the most severe exposure rather than a combined path: an unauthenticated, four-year-old RCE (F-01) that grants full control of a server to any anonymous visitor. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
+
 **Findings by target** (severity-highlighted for a management audience). Unlike a
 single-host compromise, these findings are **independent** across three separate
 targets, not one chain, so the findings fan out from the assessment rather than
@@ -547,6 +549,8 @@ Severity is CVSS v3.1 base score. Bands: Critical 9.0–10.0, High 7.0–8.9,
 Medium 4.0–6.9, Low 0.1–3.9. Business-impact narrative is provided per finding
 because a base score alone does not capture regulatory or reputational
 consequences (notably the personal-data exposure in F-02/F-04).
+
+**Why there is no single overall CVSS score.** CVSS 3.1 scores an individual vulnerability, and the standard is explicit that it is not designed to express the aggregate risk of a system or an engagement. Summing, averaging, or taking the maximum of the findings' scores would misuse the metric, so the overall exposure is stated instead as a qualitative risk band in the executive summary, while the per-finding scores are left to mean exactly what CVSS defines them to mean.
 
 ## Appendix B: Tooling
 

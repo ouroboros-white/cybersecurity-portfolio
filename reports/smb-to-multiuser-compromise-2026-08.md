@@ -59,6 +59,8 @@ attack path, and root was demonstrated and evidenced (`id` returning
 | F-05 | Cleartext password stored in a home-directory backup file | **Medium** | 5.5 |
 | F-06 | Permissive `sudo` configuration enabling escalation to root | **High** | 7.8 |
 
+**Overall risk: Critical.** No individual finding exceeds High, but the six chained together take an anonymous attacker from a null SMB session to full root, so the realised risk of the engagement is Critical, above any single finding. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
+
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid
@@ -559,6 +561,8 @@ host in a single unbroken sequence, and root was demonstrated with evidence
 (`id` returning `uid=0(root)` in F-06) rather than inferred. Where the base scores
 and the attack path disagree in that way, the headline and the remediation roadmap
 follow the path.
+
+**Why there is no single overall CVSS score.** CVSS 3.1 scores an individual vulnerability, and the standard is explicit that it is not designed to express the aggregate risk of a system or an engagement. Summing, averaging, or taking the maximum of the findings' scores would misuse the metric, so the overall exposure is stated instead as a qualitative risk band in the executive summary, while the per-finding scores are left to mean exactly what CVSS defines them to mean.
 
 ## Appendix B: Tooling
 

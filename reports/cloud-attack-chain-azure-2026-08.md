@@ -48,6 +48,8 @@ disclosure of the protected secret.
 | F-02 | Privileged credentials stored in attacker-readable blob storage | **High** | 8.6 |
 | F-03 | Secret "rotation" leaves the original value readable in version history | **Medium** | 6.5 |
 
+**Overall risk: High.** Chaining the three findings takes a low-privilege user to full disclosure of a protected Key Vault secret, crossing from storage into a more sensitive resource; the exposure peaks at High, driven by F-02. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
+
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid
@@ -372,6 +374,8 @@ scope change is meant to capture. Findings are rated in isolation; the executive
 summary treats full disclosure of the protected secret as the real-world impact,
 and the remediation roadmap is ordered by position in the chain rather than by
 score.
+
+**Why there is no single overall CVSS score.** CVSS 3.1 scores an individual vulnerability, and the standard is explicit that it is not designed to express the aggregate risk of a system or an engagement. Summing, averaging, or taking the maximum of the findings' scores would misuse the metric, so the overall exposure is stated instead as a qualitative risk band in the executive summary, while the per-finding scores are left to mean exactly what CVSS defines them to mean.
 
 ## Appendix B: Tooling
 

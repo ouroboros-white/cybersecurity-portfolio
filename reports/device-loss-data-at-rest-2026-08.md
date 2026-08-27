@@ -60,6 +60,8 @@ tried to keep secret, from a laptop left in the wrong hands.
 | F-03 | Sensitive credential saved in browser store, recoverable offline via DPAPI | **Medium** | 4.6 |
 | F-04 | Encrypted-container passphrase stored on the device it protects | **Medium** | 4.6 |
 
+**Overall risk: High.** Every finding scores Medium in isolation because each needs physical possession, but chained they disclose the encrypted container in full, so the realised outcome is High, above any individual score. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
+
 **Recovery chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid
@@ -439,6 +441,8 @@ should note that CVSS v4.0 addresses this case more directly, through Attack
 Requirements and the supplemental metrics; v3.1 is retained here for comparability
 with the other reports in this portfolio and with most client tooling in current
 use.
+
+**Why there is no single overall CVSS score.** CVSS 3.1 scores an individual vulnerability, and the standard is explicit that it is not designed to express the aggregate risk of a system or an engagement. Summing, averaging, or taking the maximum of the findings' scores would misuse the metric, so the overall exposure is stated instead as a qualitative risk band in the executive summary, while the per-finding scores are left to mean exactly what CVSS defines them to mean.
 
 ## Appendix B: Tooling
 

@@ -48,6 +48,8 @@ defeat of the application's core economic rule.
 | F-01 | No rate limiting on state-changing endpoints | **Medium** | 5.4 |
 | F-02 | Race condition (TOCTOU) in the reward-claim endpoint | **High** | 8.1 |
 
+**Overall risk: High.** The individual findings are Medium and High, but the engagement turns on F-02, a reliable race that fully defeats the reward-rate rule and mints unlimited in-application currency, so the realised business risk sits at High. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
+
 **Attack chain at a glance** (severity-highlighted for a management audience): the
 missing throttle (F-01) enables the race (F-02), which defeats the reward rule.
 
@@ -314,6 +316,8 @@ Severity is CVSS v3.1 base score. Bands: Critical 9.0 to 10.0, High 7.0 to 8.9,
 Medium 4.0 to 6.9, Low 0.1 to 3.9. The race condition is rated with Attack
 Complexity Low because the naive, unsynchronised implementation made it reliably
 exploitable on the first attempt; a hardened implementation would raise complexity.
+
+**Why there is no single overall CVSS score.** CVSS 3.1 scores an individual vulnerability, and the standard is explicit that it is not designed to express the aggregate risk of a system or an engagement. Summing, averaging, or taking the maximum of the findings' scores would misuse the metric, so the overall exposure is stated instead as a qualitative risk band in the executive summary, while the per-finding scores are left to mean exactly what CVSS defines them to mean.
 
 ## Appendix B: Tooling
 
