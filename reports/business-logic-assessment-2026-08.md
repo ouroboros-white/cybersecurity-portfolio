@@ -50,6 +50,8 @@ defeat of the application's core economic rule.
 
 **Overall risk: High.** The individual findings are Medium and High, but the engagement turns on F-02, a reliable race that fully defeats the reward-rate rule and mints unlimited in-application currency, so the realised business risk sits at High. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
 
+**Strategic remediation path.** One change closes this engagement: make the eligibility check and the grant a single atomic operation at the data layer (a transaction, row lock, or conditional update), so the window between them cannot be entered. Rate limiting (F-01) is worth adding but should be understood as a cost control rather than the fix, because a rate limit slows a race without preventing it. The broader task is to review every "once per period" and value-granting operation against the same test: is the business rule enforced as a data-layer invariant, or only as an application-layer pre-check?
+
 **Attack chain at a glance** (severity-highlighted for a management audience): the
 missing throttle (F-01) enables the race (F-02), which defeats the reward rule.
 

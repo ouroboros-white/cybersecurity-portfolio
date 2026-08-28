@@ -61,6 +61,8 @@ defence that should meet it.
 
 **Overall risk: Critical.** These are three independent targets rather than one chain, so the overall rating reflects the most severe exposure rather than a combined path: an unauthenticated, four-year-old RCE (F-01) that grants full control of a server to any anonymous visitor. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
 
+**Strategic remediation path.** These are three independent targets rather than one chain, so there is no single choke point and priority follows exposure. Take the end-of-life CMS out of service immediately (F-01), because it hands full server control to any anonymous visitor and a working public exploit already exists; then restrict the over-permissioned cloud role to least privilege (F-02), as that is the finding that reaches customer data, and remove `.git` from the web root while rotating anything its history exposed (F-03). The plaintext password storage (F-04) has no impact of its own once F-02 is closed, but should still be remediated so that it does not amplify a future access.
+
 **Findings by target** (severity-highlighted for a management audience). Unlike a
 single-host compromise, these findings are **independent** across three separate
 targets, not one chain, so the findings fan out from the assessment rather than

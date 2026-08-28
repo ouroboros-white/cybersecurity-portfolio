@@ -56,6 +56,8 @@ seconds.
 
 **Overall risk: High.** Known-plaintext recovery (F-01) plus the collapsed key space (F-02) disclose the protected secret in full and allow the key to be replayed, so the engagement peaks at High. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
 
+**Strategic remediation path.** There is no configuration fix available here, because the routine is recoverable by design: the remediation is to replace the custom XOR cipher with a vetted authenticated construction such as AES-256-GCM or ChaCha20-Poly1305 from a maintained library (F-01). Key generation must move to a cryptographically secure source at full length in the same change (F-02), since a strong cipher keyed from a short, guessable secret inherits the weakness it was brought in to remove. Everything protected under the old scheme should be treated as disclosed and re-encrypted, not merely re-keyed.
+
 **Attack chain at a glance** (severity-highlighted for a management audience):
 known-plaintext XOR reversal (F-01) recovers most of the key directly, and the
 short key space (F-02) makes the remainder a trivial brute force, disclosing the

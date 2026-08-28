@@ -61,6 +61,8 @@ attack path, and root was demonstrated and evidenced (`id` returning
 
 **Overall risk: Critical.** No individual finding exceeds High, but the six chained together take an anonymous attacker from a null SMB session to full root, so the realised risk of the engagement is Critical, above any single finding. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
 
+**Strategic remediation path.** The chain can be broken at four points, and the two cheapest are worth taking first: disable anonymous SMB access so valid usernames are no longer published (F-01), and enforce account lockout or rate limiting on SSH so a wordlist run cannot complete (F-02). Either one alone denies the attacker the foothold that everything downstream depends on. The two structural fixes are then correcting private-key permissions to `600` while auditing home directories for readable secrets (F-03, F-05), and restricting the `sudo` grant to least privilege instead of blanket root (F-06); that last change must be verified against the `/etc/sudoers.d` drop-ins and group membership rather than `/etc/sudoers` alone, and the disclosed password rotated everywhere else it is used.
+
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid

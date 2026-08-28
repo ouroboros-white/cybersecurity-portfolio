@@ -50,6 +50,8 @@ disclosure of the protected secret.
 
 **Overall risk: High.** Chaining the three findings takes a low-privilege user to full disclosure of a protected Key Vault secret, crossing from storage into a more sensitive resource; the exposure peaks at High, driven by F-02. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
 
+**Strategic remediation path.** The chain breaks at either end and both ends should be closed: remove the hardcoded SAS token from client-delivered code (F-01), and stop storing service-principal credentials in blob storage in favour of a managed identity (F-02). Both actions must be paired with rotation at source, because every credential in this chain is a bearer credential, and deleting the copy an attacker found does not invalidate the copy an attacker already holds. Disabling the superseded Key Vault secret versions (F-03) then removes the last readable copy of the original value.
+
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid

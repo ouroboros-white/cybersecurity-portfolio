@@ -51,6 +51,8 @@ everything on it.
 
 **Overall risk: Critical.** The findings chain from an unauthenticated NoSQL bypass through SSTI-driven RCE to root-equivalent access, taking an anonymous attacker to full root compromise, so the engagement as a whole is Critical. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
 
+**Strategic remediation path.** Two changes cut the chain at its load-bearing joints: stop rendering user-controlled input as templates (F-02), which is the step that converts an authentication bypass into code execution, and remove the service account from the root-equivalent `disk` group (F-04), which is the step that converts code execution into full compromise. The authentication bypass (F-01) and the exposed debug inspector (F-03) should be fixed alongside them, but neither reaches root on its own once those two joints are closed. The same underlying pattern runs through three of the four findings: input and privilege are both trusted by default.
+
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid

@@ -67,6 +67,8 @@ host and disclosure of its secret.
 
 **Overall risk: Critical.** The chain reaches unauthenticated remote code execution on the host and disclosure of its secret, so despite two findings being rated High in isolation the engagement as a whole is Critical. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
 
+**Strategic remediation path.** Two architectural changes break this chain, and neither of them is a filtering improvement: enforce tool authorization outside the model, against verified caller identity, before execution (F-02), and remove arbitrary shell access from the agent's tool set in favour of a fixed, parameterised command list (F-03). Together these mean a successful injection reaches no privileged action and no shell, which is the right design goal because prompt injection should be assumed to succeed eventually rather than treated as preventable. Strengthening the guardrails (F-04) is worth doing but must not be the primary control, since F-04 is itself the demonstration that signature-based filtering falls to a paraphrase.
+
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid

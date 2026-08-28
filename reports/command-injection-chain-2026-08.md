@@ -55,6 +55,8 @@ severity is Critical**: the chain results in complete compromise of the host.
 
 **Overall risk: Critical.** The chain runs from unauthenticated OS command injection at the public edge (F-01) through to command execution in a root-privileged worker (F-04), so an anonymous attacker reaches full root compromise of the host. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
 
+**Strategic remediation path.** Two changes break the chain at its ends: eliminate shell string-building at both injection points by executing commands as argument arrays with input allowlists (F-01, F-04), and drop root from the automation worker so that a future injection there no longer yields the host. The credential findings in between (F-02, F-03) need rotation rather than relocation, since the exposed API token and default password stay valid until they are revoked at source. Fixing the public edge alone is not sufficient: F-04 remains reachable by any authenticated user.
+
 **Attack chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid

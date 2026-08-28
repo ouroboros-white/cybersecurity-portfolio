@@ -62,6 +62,8 @@ tried to keep secret, from a laptop left in the wrong hands.
 
 **Overall risk: High.** Every finding scores Medium in isolation because each needs physical possession, but chained they disclose the encrypted container in full, so the realised outcome is High, above any individual score. This is a qualitative risk rating for the whole engagement, not an aggregate CVSS score (see Appendix A).
 
+**Strategic remediation path.** A single control removes the entire chain: full-disk encryption enforced across the fleet and gated at enrolment (F-01), because every finding here depends on the disk being readable offline. The on-device credential stores (F-02, F-03, F-04) should still be cleaned up as defence in depth, since encryption protects a powered-off device and not one lost while running or unlocked. Independently of any fix, every credential recovered from this device must be treated as disclosed and rotated, because that exposure has already occurred.
+
 **Recovery chain at a glance** (severity-highlighted for a management audience):
 
 ```mermaid
