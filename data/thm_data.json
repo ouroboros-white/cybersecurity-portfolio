@@ -1,1207 +1,2368 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-27 06:00 UTC",
-  "rooms_completed": 120,
+  "last_synced_utc": "2026-08-28 06:00 UTC",
+  "rooms_completed": 121,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/blue-1785241443587.png",
-      "description": "Deploy & hack into a Windows machine, leveraging common misconfigurations issues.",
       "title": "Blue",
       "code": "blue",
+      "description": "Deploy & hack into a Windows machine, leveraging common misconfigurations issues.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/blue-1785241443587.png",
       "difficulty": "easy",
+      "freeToUse": true,
       "type": "walkthrough",
-      "freeToUse": true
+      "timeToComplete": 30,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Nmap",
+        "Penetration testing",
+        "Red teaming"
+      ]
     },
     {
       "_id": "5c9e0cd05aa9d855877ce82f",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/77fd9d1804d33b5cf3adf1a2f3dcc34b.jpeg",
-      "description": "Practise using tools such as dirbuster, hydra, nmap, nikto and metasploit ",
       "title": "ToolsRus",
       "code": "toolsrus",
+      "description": "Practise using tools such as dirbuster, hydra, nmap, nikto and metasploit ",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/77fd9d1804d33b5cf3adf1a2f3dcc34b.jpeg",
       "difficulty": "easy",
+      "freeToUse": false,
       "type": "challenge",
-      "freeToUse": false
+      "timeToComplete": 45,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Web",
+        "Dirbuster",
+        "Nmap",
+        "Hydra",
+        "Nikto",
+        "Penetration testing",
+        "Red teaming",
+        "Password cracking"
+      ]
     },
     {
       "_id": "5d3f3faabe83462671c59eb7",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/99c72676aab814b94e3bc350ba627b71.png",
-      "description": "This is a machine that allows you to practise web app hacking and privilege escalation ",
       "title": "Basic Pentesting",
       "code": "basicpentestingjt",
+      "description": "This is a machine that allows you to practise web app hacking and privilege escalation ",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/99c72676aab814b94e3bc350ba627b71.png",
       "difficulty": "easy",
+      "freeToUse": true,
       "type": "challenge",
-      "freeToUse": true
+      "timeToComplete": 45,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Nmap",
+        "Gobuster",
+        "Enum4linux",
+        "Hydra",
+        "LinPeas",
+        "John the Ripper",
+        "Penetration testing",
+        "Red teaming"
+      ]
     },
     {
       "_id": "5e4c7a9d21bd5359f72e2b76",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/69208399c3fe8b0416103c51e291e117.png",
-      "description": "Learn about and use Hydra, a fast network logon cracker, to bruteforce and obtain a website's credentials. ",
       "title": "Hydra",
       "code": "hydra",
+      "description": "Learn about and use Hydra, a fast network logon cracker, to bruteforce and obtain a website's credentials. ",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/69208399c3fe8b0416103c51e291e117.png",
       "difficulty": "easy",
       "freeToUse": true,
-      "type": "walkthrough"
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Hydra",
+        "Network penetration testing",
+        "Red teaming",
+        "Penetration testing"
+      ]
     },
     {
       "_id": "5f7d1313b2515a527e9bdc69",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/cbd741886fe1f0902d60525c81378eab.png",
-      "description": "OSINT challenges in the imagery intelligence category",
       "title": "Searchlight - IMINT",
       "code": "searchlightosint",
+      "description": "OSINT challenges in the imagery intelligence category",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/cbd741886fe1f0902d60525c81378eab.png",
       "difficulty": "easy",
       "freeToUse": true,
-      "type": "challenge"
+      "type": "challenge",
+      "timeToComplete": 45,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "John the Ripper",
+        "Hashcat",
+        "Red teaming"
+      ]
     },
     {
       "_id": "5fa730bf09051d48aa3bd904",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/johntheripperbasics-1785241446684.png",
-      "description": "Learn how to use John the Ripper, a powerful and adaptable hash-cracking tool.",
       "title": "John the Ripper: The Basics",
       "code": "johntheripperbasics",
+      "description": "Learn how to use John the Ripper, a powerful and adaptable hash-cracking tool.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/johntheripperbasics-1785241446684.png",
       "difficulty": "easy",
       "freeToUse": false,
-      "type": "walkthrough"
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "John the Ripper",
+        "Haiti",
+        "Penetration testing",
+        "Red teaming"
+      ]
     },
     {
       "_id": "600522e21c56c918a3e28518",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/9a365314266266592078724ce18b248b.png",
-      "description": "Use a variety of OSINT techniques to solve this room created by the OSINT Dojo. ",
       "title": "Sakura Room",
       "code": "sakura",
+      "description": "Use a variety of OSINT techniques to solve this room created by the OSINT Dojo. ",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/9a365314266266592078724ce18b248b.png",
       "difficulty": "easy",
       "freeToUse": true,
-      "type": "challenge"
+      "type": "challenge",
+      "timeToComplete": 45,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Security operations"
+      ]
     },
     {
       "_id": "605345a60988e711c0065e07",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "info",
-      "code": "linuxfundamentalspart1",
       "title": "Linux Fundamentals Part 1",
+      "code": "linuxfundamentalspart1",
       "description": "Embark on the journey of learning the fundamentals of Linux.  Learn to run some of the first essential commands on an interactive terminal.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxfundamentalspart1-1785241447142.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxfundamentalspart1-1785241447142.png",
+      "difficulty": "info",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 20,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Penetration testing",
+        "File system navigation"
+      ]
     },
     {
       "_id": "605c991a51a66f03a514770f",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "info",
-      "code": "linuxfundamentalspart2",
       "title": "Linux Fundamentals Part 2",
+      "code": "linuxfundamentalspart2",
       "description": "Continue your learning Linux journey with part two. You will be learning how to log in to a Linux machine using SSH, how to advance your commands, file system interaction.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxfundamentalspart2-1785241447270.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxfundamentalspart2-1785241447270.png",
+      "difficulty": "info",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 20,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Penetration testing",
+        "File system navigation"
+      ]
     },
     {
       "_id": "605cbd7de3e045775d2172f1",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "howwebsiteswork",
       "title": "How Websites Work",
+      "code": "howwebsiteswork",
       "description": "To exploit a website, you first need to know how they are created.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image11.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image11.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 25,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Web",
+        "Security analysis"
+      ]
     },
     {
       "_id": "6065a8575a27121513f5bf1f",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "info",
-      "code": "linuxfundamentalspart3",
       "title": "Linux Fundamentals Part 3",
+      "code": "linuxfundamentalspart3",
       "description": "Power-up your Linux skills and get hands-on with some common utilities that you are likely to use day-to-day!",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxfundamentalspart3-1785241447458.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxfundamentalspart3-1785241447458.png",
+      "difficulty": "info",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 18,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Penetration testing",
+        "File system navigation",
+        "Logging"
+      ]
     },
     {
       "_id": "606d6c850562674d2e98c999",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "puttingitalltogether",
       "title": "Putting it all together",
+      "code": "puttingitalltogether",
       "description": "Learn how all the individual components of the web work together to bring you access to your favourite web sites.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image12.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image12.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 15,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Web",
+        "Application security engineering"
+      ]
     },
     {
       "_id": "606d751bb5dea76d5e3d03b6",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "dnsindetail",
       "title": "DNS in Detail",
+      "code": "dnsindetail",
       "description": "Learn how DNS works and how it helps you access internet services.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image9.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image9.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Security analysis",
+        "Security operations"
+      ]
     },
     {
       "_id": "606d755ba3918f6d3df0c89d",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "httpindetail",
       "title": "HTTP in Detail",
+      "code": "httpindetail",
       "description": "Learn about how you request content from a web server using the HTTP protocol",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image10.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image10.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Web",
+        "Burp Suite",
+        "Security analysis",
+        "Security operations"
+      ]
     },
     {
       "_id": "607ffcaa92e6443f8396591c",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "info",
-      "code": "windowsfundamentals1xbx",
       "title": "Windows Fundamentals 1",
+      "code": "windowsfundamentals1xbx",
       "description": "In part 1 of the Windows Fundamentals module, we'll start our journey learning about the Windows desktop, the NTFS file system, UAC, the Control Panel, and more..",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowsfundamentals1xbx-1785241454665.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowsfundamentals1xbx-1785241454665.png",
+      "difficulty": "info",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Wireshark",
+        "Exploitation",
+        "File system navigation",
+        "Security analysis"
+      ]
     },
     {
       "_id": "6091e4ac2c5440004fa7ecd8",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "info",
-      "code": "windowsfundamentals2x0x",
       "title": "Windows Fundamentals 2",
+      "code": "windowsfundamentals2x0x",
       "description": "In part 2 of the Windows Fundamentals module, discover more about System Configuration, UAC Settings, Resource Monitoring, the Windows Registry and more..",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowsfundamentals2x0x-1785241454868.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowsfundamentals2x0x-1785241454868.png",
+      "difficulty": "info",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Windows",
+        "compmgmt",
+        "Device Manager",
+        "msinfo32",
+        "Resmon (Resource Manager)",
+        "Exploitation",
+        "File system navigation",
+        "Security analysis"
+      ]
     },
     {
       "_id": "60ae443a4c7e1d004a677ce8",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "info",
-      "code": "whatisnetworking",
       "title": "What is Networking?",
+      "code": "whatisnetworking",
       "description": "Begin learning the fundamentals of computer networking in this bite-sized and interactive module.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image4.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image4.png",
+      "difficulty": "info",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Network troubleshooting"
+      ]
     },
     {
       "_id": "60ae44e51358bc00489f1ef8",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "info",
-      "code": "introtolan",
       "title": "Intro to LAN",
+      "code": "introtolan",
       "description": "Learn about some of the technologies and designs that power private networks",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image5.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image5.png",
+      "difficulty": "info",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 15,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Security analysis"
+      ]
     },
     {
       "_id": "60ae4535530c3c004f246c1d",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "info",
-      "code": "osimodelzi",
       "title": "OSI Model",
+      "code": "osimodelzi",
       "description": "Learn about the fundamental networking framework that determines the various stages in which data is handled across a network",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image6.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image6.png",
+      "difficulty": "info",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Windows",
+        "Security analysis",
+        "Security operations",
+        "Network monitoring",
+        "Network security engineering"
+      ]
     },
     {
       "_id": "60ae457149fbb00041e0e766",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "info",
-      "code": "packetsframes",
       "title": "Packets & Frames",
+      "code": "packetsframes",
       "description": "Understand how data is divided into smaller pieces and transmitted across a network to another device.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image7.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image7.png",
+      "difficulty": "info",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Linux",
+        "MacOs",
+        "Security analysis",
+        "Network security engineering",
+        "Network monitoring"
+      ]
     },
     {
       "_id": "60ae459a1358bc00489f1f25",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "info",
-      "code": "extendingyournetwork",
       "title": "Extending Your Network",
+      "code": "extendingyournetwork",
       "description": "Learn about some of the technologies used to extend networks out onto the Internet and the motivations for this.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image8.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/presec-room-image8.png",
+      "difficulty": "info",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 20,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Network security engineering"
+      ]
     },
     {
       "_id": "60ba3f01ad9ff1004266e1cb",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "info",
-      "code": "windowsfundamentals3xzx",
       "title": "Windows Fundamentals 3",
+      "code": "windowsfundamentals3xzx",
       "description": "In part 3 of the Windows Fundamentals module, learn about the built-in Microsoft tools that help keep the device secure, such as Windows Updates, Windows Security, BitLocker, and more...",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowsfundamentals3xzx-1785241455111.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowsfundamentals3xzx-1785241455111.png",
+      "difficulty": "info",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Windows Defender",
+        "Exploitation",
+        "File system navigation",
+        "Security analysis"
+      ]
     },
     {
       "_id": "60ec0f784d0ed20042873f90",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "metasploitexploitation",
       "title": "Metasploit: Exploitation",
+      "code": "metasploitexploitation",
       "description": "Using Metasploit for scanning, vulnerability assessment and exploitation. ",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/metasploitexploitation-1785241448092.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/metasploitexploitation-1785241448092.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 20,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Nmap",
+        "msfdb",
+        "Penetration testing",
+        "Red teaming",
+        "Vulnerability analysis",
+        "Exploit development"
+      ]
     },
     {
       "_id": "60fd47daa0c4a9004968059b",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "metasploitintro",
       "title": "Metasploit: Introduction ",
+      "code": "metasploitintro",
       "description": "An introduction to the main components of the Metasploit Framework. ",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/metasploitintro-1785241448337.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/metasploitintro-1785241448337.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "pattern_create",
+        "pattern_offset",
+        "Red teaming",
+        "Vulnerability analysis",
+        "Exploit development"
+      ]
     },
     {
       "_id": "6103fa164ae75f005f557dd2",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "meterpreter",
       "title": "Metasploit: Meterpreter",
+      "code": "meterpreter",
       "description": "Take a deep dive into Meterpreter, and see how in-memory payloads can be used for post-exploitation.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/meterpreter-1785241448519.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/meterpreter-1785241448519.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 20,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "getpid",
+        "getsystem",
+        "Penetration testing",
+        "Vulnerability analysis",
+        "Exploit development"
+      ]
     },
     {
       "_id": "612f74c0247129004a6a4d9a",
-      "type": "challenge",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "vulnerabilitycapstone",
       "title": "Vulnerability Capstone",
+      "code": "vulnerabilitycapstone",
       "description": "Apply the knowledge gained throughout the Vulnerability Module in this challenge room.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/f746d44771571a662987e9499e18aece.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/f746d44771571a662987e9499e18aece.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "challenge",
+      "timeToComplete": 20,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Web",
+        "Penetration testing",
+        "Red teaming",
+        "Application penetration testing",
+        "Vulnerability analysis",
+        "Exploitation"
+      ]
     },
     {
       "_id": "621f396b4fee0d0044ef9d43",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "operatingsystemsecurity",
       "title": "Operating System Security",
+      "code": "operatingsystemsecurity",
       "description": "This room introduces users to operating system security and demonstrates SSH authentication on Linux.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400267726-Room_Image-9.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400267726-Room_Image-9.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Windows",
+        "Security analysis",
+        "Vulnerability analysis"
+      ]
     },
     {
       "_id": "622ba76891285b005eaf8b14",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "neighbour",
       "title": "Neighbour",
+      "code": "neighbour",
       "description": "Check out our new cloud service, Authentication Anywhere. Can you find other user's secrets?",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1737130517336"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1737130517336",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 4,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Application penetration testing",
+        "Code review"
+      ]
     },
     {
       "_id": "627bcc1fa0959a004b8b7187",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/wiresharkthebasics-1785241455534.png",
-      "description": "Learn the basics of Wireshark and how to analyse protocols and PCAPs.",
       "title": "Wireshark: The Basics",
-      "code": "wiresharkthebasics"
+      "code": "wiresharkthebasics",
+      "description": "Learn the basics of Wireshark and how to analyse protocols and PCAPs.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/wiresharkthebasics-1785241455534.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Wireshark",
+        "Network traffic analysis",
+        "Security analysis"
+      ]
     },
     {
       "_id": "6295b9bd99cd7b004ae9be0b",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "introtosiem",
       "title": "Introduction to SIEM",
+      "code": "introtosiem",
       "description": "Learn the fundamentals of SIEM and explore its features and functionality.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/introtosiem-1785241446199.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/introtosiem-1785241446199.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 120,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Splunk",
+        "Event Viewer NEW",
+        "Qrader",
+        "Security operations",
+        "Incident response",
+        "Incident handling",
+        "Detection engineering",
+        "SIEM engineering",
+        "Endpoint security monitoring"
+      ]
     },
     {
       "_id": "62a79f64126bc700560fd452",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "winadbasics",
       "title": "Active Directory Basics",
+      "code": "winadbasics",
       "description": "This room will introduce the basic concepts and functionality provided by Active Directory.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/winadbasics-1785241454256.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/winadbasics-1785241454256.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Active Directory",
+        "GPO (Group Policy Objects)",
+        "Penetration testing",
+        "Exploitation",
+        "System administration",
+        "Identity and access management (IAC)"
+      ]
     },
     {
       "_id": "64a56cb67ed98d005580a096",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "info",
-      "code": "burpsuitebasics",
       "title": "Burp Suite: The Basics",
+      "code": "burpsuitebasics",
       "description": "An introduction to using Burp Suite for web application pentesting.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/burpsuitebasics-1785241443798.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/burpsuitebasics-1785241443798.png",
+      "difficulty": "info",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Burp Suite",
+        "FoxyProxy",
+        "Penetration testing",
+        "Application penetration testing",
+        "Cross-site scripting (XSS)"
+      ]
     },
     {
       "_id": "650025f235c8713093cc3efa",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "retracted",
       "title": "Retracted",
+      "code": "retracted",
       "description": "Investigate the case of the missing ransomware.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/7c857918b2d3f18cf8912aaba313f2d0.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/7c857918b2d3f18cf8912aaba313f2d0.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Incident response"
+      ]
     },
     {
       "_id": "65d34e8775488d8b700b19a0",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "monikerlink",
       "title": "Moniker Link (CVE-2024-21413)",
+      "code": "monikerlink",
       "description": "Leak user's credentials using CVE-2024-21413 to bypass Outlook's Protected View.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/monikerlink-1785241448789.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/monikerlink-1785241448789.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Responder",
+        "Wireshark",
+        "Vulnerability analysis",
+        "Penetration testing",
+        "Exploitation",
+        "Detection engineering"
+      ]
     },
     {
       "_id": "6627c55f624376abfd0d86d2",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "windowscommandline",
       "title": "Windows Command Line",
+      "code": "windowscommandline",
       "description": "Learn the essential Windows commands.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowscommandline-1785241454442.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowscommandline-1785241454442.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "technologyTags": [
+        "Windows"
+      ]
     },
     {
       "_id": "663c94aac1a38d3c66aeb123",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "nmap",
       "title": "Nmap: The Basics",
+      "code": "nmap",
       "description": "Learn how to use Nmap to discover live hosts, find open ports, and detect service versions.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/nmap-1785241450161.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/nmap-1785241450161.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue",
+        "Red",
+        "Purple"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Linux",
+        "MacOs",
+        "Nmap",
+        "Network penetration testing",
+        "Port scanning"
+      ]
     },
     {
       "_id": "663e40d9e9ae81db98f61fd5",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "networkingconcepts",
       "title": "Networking Concepts",
+      "code": "networkingconcepts",
       "description": "Learn about the ISO OSI model and the TCP/IP protocol suite.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingconcepts-1785241449058.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingconcepts-1785241449058.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "technologyTags": [
+        "Linux",
+        "Wireshark"
+      ]
     },
     {
       "_id": "6641c29fc10ce20fbe5665e1",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "tcpdump",
       "title": "Tcpdump: The Basics",
+      "code": "tcpdump",
       "description": "Learn how to use Tcpdump to save, filter, and display packets.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/tcpdump-1785241453599.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/tcpdump-1785241453599.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Linux",
+        "MacOs",
+        "Tcpdump",
+        "Security analysis",
+        "Malware analysis",
+        "Digital forensics"
+      ]
     },
     {
       "_id": "6641c4b9d27a2b5b965a5793",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "networkingessentials",
       "title": "Networking Essentials",
+      "code": "networkingessentials",
       "description": "Explore networking protocols from automatic configuration to routing packets to the destination.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingessentials-1785241449722.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingessentials-1785241449722.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Purple",
+        "Blue",
+        "Red"
+      ],
+      "technologyTags": [
+        "Wireshark",
+        "Tcpdump",
+        "Network penetration testing",
+        "Network security engineering"
+      ]
     },
     {
       "_id": "6641c5eec4714a051f56a8b4",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "networkingcoreprotocols",
       "title": "Networking Core Protocols",
+      "code": "networkingcoreprotocols",
       "description": "Learn about the core TCP/IP protocols.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingcoreprotocols-1785241449371.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingcoreprotocols-1785241449371.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Wireshark"
+      ]
     },
     {
       "_id": "6641c65eb66abb32b6603ee5",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "networkingsecureprotocols",
       "title": "Networking Secure Protocols",
+      "code": "networkingsecureprotocols",
       "description": "Learn how TLS, SSH, and VPN can secure your network traffic.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingsecureprotocols-1785241449922.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/networkingsecureprotocols-1785241449922.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue",
+        "Red",
+        "Purple"
+      ],
+      "technologyTags": [
+        "Wireshark"
+      ]
     },
     {
       "_id": "665595131cd4c024d1f2ab9a",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "incidentresponsefundamentals",
       "title": "Incident Response Fundamentals",
+      "code": "incidentresponsefundamentals",
       "description": "Learn how to perform Incident Response in cyber security.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/incidentresponsefundamentals-1785241445975.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/incidentresponsefundamentals-1785241445975.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Splunk",
+        "Incident response",
+        "Incident handling",
+        "Incident management"
+      ]
     },
     {
       "_id": "665ebe6227fa216d232ab8f4",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "logsfundamentals",
       "title": "Logs Fundamentals",
+      "code": "logsfundamentals",
       "description": "Learn what logs are and how to analyze them for effective investigation.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/logsfundamentals-1785241447869.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/logsfundamentals-1785241447869.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Linux",
+        "Web",
+        "Splunk",
+        "Security operations",
+        "Incident response",
+        "Digital forensics",
+        "Incident handling"
+      ]
     },
     {
       "_id": "66684daedde4de46303b2a96",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "socfundamentals",
       "title": "SOC Fundamentals",
+      "code": "socfundamentals",
       "description": "Learn about the SOC team and their processes.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/socfundamentals-1785241452900.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/socfundamentals-1785241452900.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Security operations",
+        "Security analysis"
+      ]
     },
     {
       "_id": "667ab454d341e88c8d1f6f7e",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "digitalforensicsfundamentals",
       "title": "Digital Forensics Fundamentals",
+      "code": "digitalforensicsfundamentals",
       "description": "Learn about digital forensics and related processes and experiment with a practical example.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339531380-digitalforensicsfundamentals.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339531380-digitalforensicsfundamentals.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Windows",
+        "FTK Imager",
+        "Volatility",
+        "Autopsy",
+        "Digital forensics",
+        "Security operations",
+        "Security analysis",
+        "Incident handling"
+      ]
     },
     {
       "_id": "668fd39c3d46ef00ecb70c01",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "firewallfundamentals",
       "title": "Firewall Fundamentals",
+      "code": "firewallfundamentals",
       "description": "Learn about firewalls and get hands-on with Windows and Linux built-in firewalls.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/firewallfundamentals-1785241445035.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/firewallfundamentals-1785241445035.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Linux",
+        "Security operations"
+      ]
     },
     {
       "_id": "66a0d44ac3dc65c4113ea5f2",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "idsfundamentals",
       "title": "IDS Fundamentals",
+      "code": "idsfundamentals",
       "description": "Learn the fundamentals of IDS, along with the experience of working with Snort.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/idsfundamentals-1785241445785.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/idsfundamentals-1785241445785.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Snort",
+        "Incident response",
+        "Incident handling",
+        "Security operations"
+      ]
     },
     {
       "_id": "66aa071c4fe9e3df24f97ce9",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "vulnerabilityscanneroverview",
       "title": "Vulnerability Scanner Overview",
+      "code": "vulnerabilityscanneroverview",
       "description": "Learn about vulnerability scanners and how they work in a practical scenario.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339641038-vulnerabilityscanneroverview.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339641038-vulnerabilityscanneroverview.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Linux",
+        "Nessus",
+        "OpenVAS",
+        "Nexpose",
+        "Network penetration testing",
+        "Vulnerability analysis"
+      ]
     },
     {
       "_id": "66b9fcdbfc8f00e1ae048983",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "cyberchefbasics",
       "title": "CyberChef: The Basics",
+      "code": "cyberchefbasics",
       "description": "This room is an introduction to CyberChef, the Swiss Army knife for cyber security professionals.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339692582-cyberchefbasics.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339692582-cyberchefbasics.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "CyberChef",
+        "Security analysis"
+      ]
     },
     {
       "_id": "66c378c0fa5a6c25ee0cb649",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "publickeycrypto",
       "title": "Public Key Cryptography Basics",
+      "code": "publickeycrypto",
       "description": "Discover how public key ciphers such as RSA work and explore their role in applications such as SSH.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/publickeycrypto-1785241451973.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/publickeycrypto-1785241451973.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Linux"
+      ]
     },
     {
       "_id": "66c379a1a5a29465fcae366e",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "cryptographybasics",
       "title": "Cryptography Basics",
+      "code": "cryptographybasics",
       "description": "Learn the basics of cryptography and symmetric encryption.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/cryptographybasics-1785241444536.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/cryptographybasics-1785241444536.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Blue",
+        "Red",
+        "Purple"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Cryptography"
+      ]
     },
     {
       "_id": "66c45809c32192c8bbaeecff",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "hashingbasics",
       "title": "Hashing Basics",
+      "code": "hashingbasics",
       "description": "Learn about hashing functions and their uses in password verification and file integrity checking.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/hashingbasics-1785241445529.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/hashingbasics-1785241445529.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 75,
+      "povTags": [
+        "Blue",
+        "Red",
+        "Purple"
+      ],
+      "technologyTags": [
+        "Linux",
+        "John the Ripper",
+        "Hashcat",
+        "Password cracking",
+        "Hash cracking",
+        "Cryptography"
+      ]
     },
     {
       "_id": "66d1a2d041da803e3ebecd23",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "windowspowershell",
       "title": "Windows PowerShell",
+      "code": "windowspowershell",
       "description": "Discover the \"Power\" in PowerShell and learn the basics.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowspowershell-1785241455299.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/windowspowershell-1785241455299.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red",
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "PowerShell"
+      ]
     },
     {
       "_id": "66d6ae5b117a88d51820bdc6",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "linuxshells",
       "title": "Linux Shells",
+      "code": "linuxshells",
       "description": "Learn about scripting and the different types of Linux shells.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxshells-1785241447675.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxshells-1785241447675.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Automation"
+      ]
     },
     {
       "_id": "66e199d05a908dbb489e75b4",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "gobusterthebasics",
       "title": "Gobuster: The Basics",
+      "code": "gobusterthebasics",
       "description": "This room focuses on an introduction to Gobuster, an offensive security tool used for enumeration.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339394962-gobusterthebasics.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339394962-gobusterthebasics.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Gobuster",
+        "Brute force attacks",
+        "Enumeration"
+      ]
     },
     {
       "_id": "66e44382fd6ce645435979e3",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "info",
-      "code": "training",
       "title": "Training Impact on Teams",
+      "code": "training",
       "description": "Discover the impact of training on teams and organisations.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/training-1785241453838.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/training-1785241453838.png",
+      "difficulty": "info",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Blue",
+        "Purple",
+        "Red"
+      ],
+      "technologyTags": [
+        "General Cyber",
+        "Penetration Tester/ Red Team",
+        "Security Analyst/ Blue Team",
+        "Security Engineer",
+        "cyber security training",
+        "security training",
+        "tryhackme"
+      ]
     },
     {
       "_id": "66e7d19fb65d945175291044",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "sqlmapthebasics",
       "title": "SQLMap: The Basics",
+      "code": "sqlmapthebasics",
       "description": "Learn about SQL injection and exploit this vulnerability through the SQLMap tool.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/sqlmapthebasics-1785241453342.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/sqlmapthebasics-1785241453342.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "SQLMap",
+        "Penetration testing"
+      ]
     },
     {
       "_id": "670915f4514e358f4510691a",
-      "type": "walkthrough",
-      "code": "javascriptessentials",
       "title": "JavaScript Essentials",
+      "code": "javascriptessentials",
       "description": "Learn how to use JavaScript to add interactivity to a website and understand associated vulnerabilities.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/javascriptessentials-1785241446451.png",
+      "difficulty": "easy",
       "freeToUse": false,
-      "difficulty": "easy"
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Web",
+        "Code review",
+        "Debugging",
+        "Authentication bypass",
+        "Vulnerability analysis",
+        "Security analysis"
+      ]
     },
     {
       "_id": "6709166f408e675d7a01a237",
-      "type": "walkthrough",
-      "code": "webapplicationbasics",
       "title": "Web Application Basics",
+      "code": "webapplicationbasics",
       "description": "Learn the basics of web applications: HTTP, URLs, request methods, response codes, and headers.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/webapplicationbasics-1785241454064.png",
+      "difficulty": "easy",
       "freeToUse": true,
-      "difficulty": "easy"
+      "type": "walkthrough",
+      "timeToComplete": 120,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Web",
+        "Burp Suite",
+        "Application security engineering",
+        "Application penetration testing"
+      ]
     },
     {
       "_id": "670916a209bf783baffdd6eb",
-      "type": "walkthrough",
-      "code": "sqlfundamentals",
       "title": "SQL Fundamentals",
+      "code": "sqlfundamentals",
       "description": "Learn how to perform basic SQL queries to retrieve and manage data in a database.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/sqlfundamentals-1785241453087.png",
+      "difficulty": "easy",
       "freeToUse": false,
-      "difficulty": "easy"
+      "type": "walkthrough",
+      "timeToComplete": 120,
+      "povTags": [
+        "Red",
+        "Blue",
+        "Purple"
+      ],
+      "technologyTags": [
+        "Web",
+        "Application penetration testing",
+        "Penetration testing",
+        "Network penetration testing"
+      ]
     },
     {
       "_id": "670918dc09bf783bafff346a",
-      "type": "walkthrough",
-      "code": "shellsoverview",
       "title": "Shells Overview",
+      "code": "shellsoverview",
       "description": "Learn about the different types of shells.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/shellsoverview-1785241452680.png",
+      "difficulty": "easy",
       "freeToUse": false,
-      "difficulty": "easy"
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "nc",
+        "Netcat NEW",
+        "Bind shell techniques",
+        "Reverse shell techniques",
+        "Penetration testing"
+      ]
     },
     {
       "_id": "683e0bfdbcc917c18fc97d50",
-      "type": "challenge",
-      "code": "hfb1cryptosystem",
       "title": "Cryptosystem",
+      "code": "hfb1cryptosystem",
       "description": "Learn public-key cryptography concepts by analyzing data.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/618b3fa52f0acc0061fb0172-1751474534239",
+      "difficulty": "easy",
       "freeToUse": false,
-      "difficulty": "easy"
+      "type": "challenge",
+      "timeToComplete": 20,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Cryptography"
+      ]
     },
     {
       "_id": "68a5e04a190c638897fe1d30",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "malwareclassification",
       "title": "Malware Classification",
+      "code": "malwareclassification",
       "description": "Learn how to identify, classify, and understand common types of malware.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/66264cef7bba67a6bbbe7179-1756704997133"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/66264cef7bba67a6bbbe7179-1756704997133",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Malware analysis"
+      ]
     },
     {
       "_id": "69372770e663ab1fd4b38594",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "virtualisationbasics",
       "title": "Virtualisation Basics",
+      "code": "virtualisationbasics",
       "description": "Learn why virtualisation powers modern IT, improving efficiency and safely isolating environments.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400177898-Room_Image-2.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400177898-Room_Image-2.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "technologyTags": [
+        "Hypervisor"
+      ]
     },
     {
       "_id": "6938e3a1c9be1bed60c1a854",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "operatingsystemsintroduction",
       "title": "Operating Systems: Introduction",
+      "code": "operatingsystemsintroduction",
       "description": "Explore the basics of operating systems and the core features that power your computer.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400208698-Room_Image-5.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400208698-Room_Image-5.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Linux",
+        "File system navigation"
+      ]
     },
     {
       "_id": "693a90f1d8b79d22e73b9392",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "linuxclibasics",
       "title": "Linux CLI Basics",
+      "code": "linuxclibasics",
       "description": "Get comfortable navigating through the Linux CLI.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxclibasics-1785241446878.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/linuxclibasics-1785241446878.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Linux"
+      ]
     },
     {
       "_id": "693aab34e8fd11ac6170526f",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "datarepresentation",
       "title": "Data Representation",
+      "code": "datarepresentation",
       "description": "Learn about how computers represent numbers and colors.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400279781-Room_Image-10.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400279781-Room_Image-10.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "technologyTags": [
+        "General Cyber",
+        "base",
+        "encode",
+        "basics",
+        "binary",
+        "data",
+        "hexadecimal",
+        "computer",
+        "conversions",
+        "octal",
+        "segment 1",
+        "segment 2"
+      ]
     },
     {
       "_id": "693aab7ce31a9a95a2a181b2",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "dataencoding",
       "title": "Data Encoding",
+      "code": "dataencoding",
       "description": "Learn how computer encodes characters, from ASCII to Unicode's UTF.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400285735-Room_Image-13.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400285735-Room_Image-13.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "technologyTags": [
+        "General Cyber",
+        "encode",
+        "basics",
+        "data",
+        "unicode",
+        "computer",
+        "ASCII",
+        "encoding",
+        "utf-8",
+        "segment 1"
+      ]
     },
     {
       "_id": "693aabcb70d3c563289b564f",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "medium",
-      "code": "javascriptsimpledemo",
       "title": "JavaScript: Simple Demo",
+      "code": "javascriptsimpledemo",
       "description": "Explore what a basic JavaScript program looks like.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400296115-Room_Image-12.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400296115-Room_Image-12.png",
+      "difficulty": "medium",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "technologyTags": [
+        "Scripting"
+      ]
     },
     {
       "_id": "693aabde56b620f222796be3",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "pythonsimpledemo",
       "title": "Python: Simple Demo",
+      "code": "pythonsimpledemo",
       "description": "Explore what a basic Python program looks like.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400291430-Room_Image-11.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400291430-Room_Image-11.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "technologyTags": [
+        "Python",
+        "Scripting"
+      ]
     },
     {
       "_id": "693cee8c999d17cddc880176",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "windowsbasics",
       "title": "Windows Basics",
+      "code": "windowsbasics",
       "description": "Learn to navigate Windows, manage files, and use essential system tools.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400216298-Room_Image-8.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400216298-Room_Image-8.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Windows Defender",
+        "File system navigation"
+      ]
     },
     {
       "_id": "69405b95811b663620ca4c0c",
-      "type": "walkthrough",
-      "code": "cloudcomputingfundamentals",
       "title": "Cloud Computing Fundamentals",
+      "code": "cloudcomputingfundamentals",
       "description": "Discover how cloud computing helps businesses move faster, do more, and scale with less effort.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400183488-Room_Image-4.png",
+      "difficulty": "easy",
       "freeToUse": false,
-      "difficulty": "easy"
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "technologyTags": [
+        "Cloud",
+        "cloud computing",
+        "segment 1"
+      ]
     },
     {
       "_id": "69412ddb5cef0a01ebe0d967",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "windowsclibasics",
       "title": "Windows CLI Basics",
+      "code": "windowsclibasics",
       "description": "Explore what Windows CLI is, how to navigate, and interact with the system using Windows CLI.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400260703-Room_Image-7.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400260703-Room_Image-7.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "technologyTags": [
+        "Windows"
+      ]
     },
     {
       "_id": "6942c7ef0224651089cb8fdd",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "theciatriad",
       "title": "The CIA Triad",
+      "code": "theciatriad",
       "description": "Understand the CIA Triad and how it shapes cyber security mindset.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400312904-Room_Image-15.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400312904-Room_Image-15.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "General Cyber",
+        "CIA",
+        "integrity",
+        "availability",
+        "Confidentiality",
+        "segment 1",
+        "segment 2"
+      ]
     },
     {
       "_id": "6942c91edae025de74ebb679",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "databasesqlbasics",
       "title": "Database SQL Basics",
+      "code": "databasesqlbasics",
       "description": "Learn the basics of databases and SQL by writing simple queries to retrieve and manage data.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400301430-Room_Image-14.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400301430-Room_Image-14.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Web"
+      ]
     },
     {
       "_id": "694535c370e0d8024611aee4",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "cryptographyconcepts",
       "title": "Cryptography Concepts",
+      "code": "cryptographyconcepts",
       "description": "This room provides an understanding of cryptography in our everyday digital encounters.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400321470-Room_Image-17.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400321470-Room_Image-17.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "N/A",
+        "Cryptography"
+      ]
     },
     {
       "_id": "6945606bd6cc93efea287e7b",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "clientserverbasics",
       "title": "Client-Server Basics",
+      "code": "clientserverbasics",
       "description": "This room teaches the basics of the Client-Server model.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400170483-Room_Image-1.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400170483-Room_Image-1.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "technologyTags": [
+        "Developer Tool"
+      ]
     },
     {
       "_id": "694a181822d3a2e1da963a1a",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "becomeahacker",
       "title": "Become a Hacker",
+      "code": "becomeahacker",
       "description": "Explore offensive security, the hacker mindset, and hack a web app to improve security!",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5f04259cf9bf5b57aed2c476-1779874288391"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5f04259cf9bf5b57aed2c476-1779874288391",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Web",
+        "Hydra",
+        "Gobuster",
+        "Penetration testing",
+        "Web application security"
+      ]
     },
     {
       "_id": "694a8120d5a629e7fd635203",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "becomeadefender",
       "title": "Become a Defender",
+      "code": "becomeadefender",
       "description": "Explore defensive security, cyber infrastructure, and how to protect systems from attacks.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5f04259cf9bf5b57aed2c476-1779874303188"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5f04259cf9bf5b57aed2c476-1779874303188",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Web",
+        "Web application security"
+      ]
     },
     {
       "_id": "69668301371925b330910fdc",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "insideacomputer",
       "title": "Inside a Computer System",
+      "code": "insideacomputer",
       "description": "This room covers the basic components of a computer system.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400154829-Room_Image.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400154829-Room_Image.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "N/A"
+      ]
     },
     {
       "_id": "6981d58d68f4050e3deea7a8",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "computertypes",
       "title": "Computer Types",
+      "code": "computertypes",
       "description": "Explore the different types of computers, from laptops to the tiny chips inside your coffee machine.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400161307-Room_Image-3.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773400161307-Room_Image-3.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "General Cyber",
+        "basics",
+        "server",
+        "embedded devices",
+        "computer",
+        "embedded systems",
+        "iot devices",
+        "IOT",
+        "segment 1",
+        "segment 2"
+      ]
     },
     {
       "_id": "69a551a5af9a49ea1cf56e44",
-      "type": "walkthrough",
-      "code": "defensivesecurityintroezn39",
       "title": "Defensive Security Intro",
+      "code": "defensivesecurityintroezn39",
       "description": "Introducing defensive security, where you will protect FakeBank from an ongoing attack.",
       "imageURL": "https://cdn-images.tryhackme.com/room-icons/60eeba4c12d185eee073d97e9a219ff1e4088f3604c9a07605f4aa8a42df9d60.5de96d9ca744773ea7ef8c00-1769425626237",
+      "difficulty": "info",
       "freeToUse": true,
-      "difficulty": "info"
+      "type": "walkthrough",
+      "timeToComplete": 15,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Web",
+        "Log Viewer NEW"
+      ]
     },
     {
       "_id": "69bb3605475d882825800e41",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "searchskillscS",
       "title": "Search Skills",
+      "code": "searchskillscS",
       "description": "Learn to efficiently search the Internet and use specialised services and technical docs for information",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1773877192929"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1773877192929",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 15
     },
     {
       "_id": "69fa32c7b1116aaa4d6ecae9",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "offensivesecurityintroc101",
       "title": "Offensive Security Intro",
+      "code": "offensivesecurityintroc101",
       "description": "Introducing offensive security, where you will test the security of FakeBank's systems.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1778576882026"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1778576882026",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 15,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Web",
+        "dirb",
+        "Dirbuster",
+        "Enumeration"
+      ]
     },
     {
       "_id": "6a1d1a25de0778f5c243559e",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "foolsmate",
       "title": "Fools Mate",
+      "code": "foolsmate",
       "description": "Can you bypass the engine?",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/62ff64c3c859dc0042b2b9f6-1782993874301"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/62ff64c3c859dc0042b2b9f6-1782993874301",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 15,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Enumeration",
+        "Web application security"
+      ]
     },
     {
       "_id": "6a563d46e6ac2e5ee5b45997",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "hh-thebrochure-081f3e36",
       "title": "The Brochure",
+      "code": "hh-thebrochure-081f3e36",
       "description": "The brochure's hero photo has an AI fingerprint. Follow the account that posted it, and the trail doesn't end at the hotel; it ends at someone the hotel never mentioned.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1784923108816"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1784923108816",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 20,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "N/A",
+        "OSINT",
+        "Enumeration"
+      ]
     },
     {
       "_id": "6a563de9049ff06dc3ed0e0f",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "hh-theconciergeknows-2d7eb4d9",
       "title": "The Concierge Knows Too Much",
+      "code": "hh-theconciergeknows-2d7eb4d9",
       "description": "She knows your name, your room, your coffee order, none of which you told her. Word your next question carefully and she'll also hand over the instructions she was told to keep to herself.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1785457752559"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1785457752559",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 20,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Artificial intelligence",
+        "AI Pentesting"
+      ]
     },
     {
       "_id": "6a563e5295ff6e89a1a8c7e1",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "hh-room404-804573bf",
       "title": "Room 404",
+      "code": "hh-room404-804573bf",
       "description": "He booked the quiet room. It's not on the floor plan, not in the brochure, not on any door. But port 8080 is wide open, and the rooms it never lists are the ones worth finding.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1785513932052"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1785513932052",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 30,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Web application security"
+      ]
     },
     {
       "_id": "6a563ec43e60c93a35443b2c",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "hh-complimentary-05e0b604",
       "title": "Complimentary",
+      "code": "hh-complimentary-05e0b604",
       "description": "Install the free app and it hands your phone a set of cloud keys, the same set it hands everyone. They're read-only, but read-only of every guest's contacts, location, and passwords, not just Lambo's. She gave consent. Technically.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1785767743721"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1785767743721",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "AWS",
+        "Cloud penetration testing"
+      ]
     },
     {
       "_id": "6a563f898d08aa27af09d276",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "hh-packedlight-02e5330c",
       "title": "Packed Light",
+      "code": "hh-packedlight-02e5330c",
       "description": "Tiny packets. Odd hours. Suspiciously regular. Someone's smuggling out the data equivalent of a hotel towel every night, folded neatly inside traffic that looks ordinary until you decode it.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5f9c7574e201fe31dad228fc-1785686770292"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5f9c7574e201fe31dad228fc-1785686770292",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Wireshark",
+        "Packet analysis"
+      ]
     },
     {
       "_id": "6a5641ac1568d12a3e88015d",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "hh-beachbar-d849f7f7",
       "title": "Beach Bar",
+      "code": "hh-beachbar-d849f7f7",
       "description": "At the Beach Bar, even shell access is complimentary. The jukebox takes requests. Any kind.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785328070219"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785328070219",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Nmap",
+        "curl",
+        "Netcat NEW",
+        "Privilege escalation",
+        "Enumeration",
+        "Web application security"
+      ]
     },
     {
       "_id": "6a56425a934818040174f155",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "hh-overheardatbreakfast-6f01793c",
       "title": "Overheard at Breakfast",
+      "code": "hh-overheardatbreakfast-6f01793c",
       "description": "Two strangers. One conversation. One profile they never meant to reveal.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251499374"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251499374",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 45,
+      "povTags": [
+        "Blue",
+        "Red",
+        "Purple"
+      ],
+      "technologyTags": [
+        "N/A",
+        "OSINT"
+      ]
     },
     {
       "_id": "6a56425e257fa31a1e946e08",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "medium",
-      "code": "hh-donotdisturb-84a45644",
       "title": "Do Not Disturb",
+      "code": "hh-donotdisturb-84a45644",
       "description": "Sign's on the door. Room's active. You have access you were never given, and so does he.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251618019"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251618019",
+      "difficulty": "medium",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Privilege escalation",
+        "Exploitation",
+        "Enumeration",
+        "Web application security"
+      ]
     },
     {
       "_id": "6a564261ecfe47601b639618",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "medium",
-      "code": "hh-towelonthesunbed-61271709",
       "title": "Towel on the Sunbed",
+      "code": "hh-towelonthesunbed-61271709",
       "description": "Ponzi set his towel down for one 24-hour reward claim. He came back to find the sunbed had been \"claimed\" three times over while he wasn't looking.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251667401"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251667401",
+      "difficulty": "medium",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 45,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Burp Suite",
+        "Web application security"
+      ]
     },
     {
       "_id": "6a56429926f3faff26d1cf38",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "medium",
-      "code": "hh-cryptocabana-f81cac95",
       "title": "CryptoCabana",
+      "code": "hh-cryptocabana-f81cac95",
       "description": "He never signed the transfer. The place he stashed his secret wasn't as sealed as promised.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785218019756"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785218019756",
+      "difficulty": "medium",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Azure",
+        "Cloud penetration testing"
+      ]
     },
     {
       "_id": "6a5642a07548a5f993037001",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "medium",
-      "code": "hh-thehollowshell-ddb582ac",
       "title": "The Hollow Shell",
+      "code": "hh-thehollowshell-ddb582ac",
       "description": "You find it on the beach: pretty, ordinary, the kind of thing nobody thinks to check. Slip something inside and hold it to your ear.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251823751"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251823751",
+      "difficulty": "medium",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Nmap",
+        "Exploitation",
+        "Enumeration",
+        "Web application security"
+      ]
     },
     {
       "_id": "6a5642a4950973d86f34054a",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "medium",
-      "code": "hh-infinitypool-5b3548af",
       "title": "Infinity Pool",
+      "code": "hh-infinitypool-5b3548af",
       "description": "No visible edge. You trace the network to the horizon and find three systems nobody told you about on the other side.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251854806"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251854806",
+      "difficulty": "medium",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Nmap",
+        "curl",
+        "Privilege escalation",
+        "Enumeration",
+        "Web application security"
+      ]
     },
     {
       "_id": "6a5642a9497f87cca4843be8",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "medium",
-      "code": "hh-afterhours-b090d1f0",
       "title": "After Hours",
+      "code": "hh-afterhours-b090d1f0",
       "description": "Bar closed. Guests asleep. Something on the network just clocked in for a shift off the rotation.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251914578"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251914578",
+      "difficulty": "medium",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "DnSpy",
+        "CyberChef",
+        "strings utility",
+        "Incident response",
+        "Digital forensics",
+        "Reverse engineering"
+      ]
     },
     {
       "_id": "6a5642c633700ea15f9723a6",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "medium",
-      "code": "hh-theguestbook-0130ffaf",
       "title": "The Guestbook",
+      "code": "hh-theguestbook-0130ffaf",
       "description": "VERA reads every guestbook entry as an instruction. You write something she really shouldn't act on.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251977187"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785251977187",
+      "difficulty": "medium",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "curl",
+        "Web application security",
+        "AI Pentesting",
+        "Prompt injection"
+      ]
     },
     {
       "_id": "6a5643016c18807288e4b984",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "hard",
-      "code": "hh-managementwantsaword-6bf3cc41",
       "title": "Management Wants a Word",
+      "code": "hh-managementwantsaword-6bf3cc41",
       "description": "It was always her. It was never a bug; it was the business model.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785252041755"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5dbea226085ab6182a2ee0f7-1785252041755",
+      "difficulty": "hard",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Hashcat",
+        "Digital forensics"
+      ]
     },
     {
       "_id": "5c85078bf4bde85b94d830f5",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/47d2d3ade1795f81a155d0aca6e4da96.jpeg",
-      "description": "A Rick and Morty CTF. Help turn Rick back into a human!",
       "title": "Pickle Rick",
       "code": "picklerick",
+      "description": "A Rick and Morty CTF. Help turn Rick back into a human!",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/47d2d3ade1795f81a155d0aca6e4da96.jpeg",
       "difficulty": "easy",
+      "freeToUse": true,
       "type": "challenge",
-      "freeToUse": true
+      "timeToComplete": 30,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Dirbuster",
+        "Burp Suite",
+        "Red teaming",
+        "Penetration testing",
+        "Application penetration testing"
+      ]
     },
     {
       "_id": "5cb0b1b8779909395702c6d5",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/9c6bc7e6db746ea68ecaa99e328923f1.png",
-      "description": "Are you able to use open source intelligence to solve this challenge?",
       "title": "OhSINT",
       "code": "ohsint",
+      "description": "Are you able to use open source intelligence to solve this challenge?",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/9c6bc7e6db746ea68ecaa99e328923f1.png",
       "difficulty": "easy",
+      "freeToUse": true,
       "type": "challenge",
-      "freeToUse": true
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Web",
+        "OSINT",
+        "Red teaming",
+        "Information gathering"
+      ]
     },
     {
       "_id": "5d5a29456986bf350804765d",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/f28ade2b51eb7aeeac91002d41f29c47.png",
-      "description": "Beginner level ctf",
       "title": "Simple CTF",
       "code": "easyctf",
+      "description": "Beginner level ctf",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/f28ade2b51eb7aeeac91002d41f29c47.png",
       "difficulty": "easy",
+      "freeToUse": true,
       "type": "challenge",
-      "freeToUse": true
+      "timeToComplete": 45,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Web",
+        "Penetration testing",
+        "Vulnerability analysis"
+      ]
     },
     {
       "_id": "622bacc144211102a293ac4e",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "lofi",
       "title": "Lo-Fi",
+      "code": "lofi",
       "description": "Want to hear some lo-fi beats, to relax or study to? We've got you covered!",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1737110160739"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1737110160739",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 5,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux"
+      ]
     },
     {
       "_id": "62bae2b9dc6a500060047287",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "securityprinciples",
       "title": "Security Principles",
+      "code": "securityprinciples",
       "description": "Learn about the security triad and common security models and principles.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/securityprinciples-1785241452480.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/securityprinciples-1785241452480.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 90,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Threat modelling",
+        "Security analysis"
+      ]
     },
     {
       "_id": "6377195d0ad5321456c8e926",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "compiled",
       "title": "Compiled",
+      "code": "compiled",
       "description": "Strings can only help you so far.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/574f66376f860a91d9e576ce1abfc135.svg"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/574f66376f860a91d9e576ce1abfc135.svg",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 5,
+      "povTags": [
+        "Purple"
+      ],
+      "technologyTags": [
+        "Security analysis",
+        "Exploit development",
+        "Vulnerability analysis",
+        "Penetration testing"
+      ]
     },
     {
       "_id": "649caba75b61780062e77cf1",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "w1seguy",
       "title": "W1seGuy",
+      "code": "w1seguy",
       "description": "A w1se guy 0nce said, the answer is usually as plain as day.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/9a13d8dcbd8940d14352ba2edbf66735.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/9a13d8dcbd8940d14352ba2edbf66735.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 30,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Code review"
+      ]
     },
     {
       "_id": "66d072bdbfe6a374dec77b45",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "capabasics",
       "title": "CAPA: The Basics",
+      "code": "capabasics",
       "description": "Learn to use CAPA to identify malicious capabilities.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/capabasics-1785241444061.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/capabasics-1785241444061.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60
     },
     {
       "_id": "66d47c1fec25139641ddc806",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "flarevmarsenaloftools",
       "title": "FlareVM: Arsenal of Tools",
+      "code": "flarevmarsenaloftools",
       "description": "Learn the arsenal of investigative tools in FlareVM.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/flarevmarsenaloftools-1785241445313.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/flarevmarsenaloftools-1785241445313.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 40,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Sysinternals Suite",
+        "Process Explorer",
+        "Procmon",
+        "PEstudio",
+        "Malware analysis"
+      ]
     },
     {
       "_id": "66d47c4361586bcfba27bd08",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "remnuxgettingstarted",
       "title": "REMnux: Getting Started",
+      "code": "remnuxgettingstarted",
       "description": "Learn how you can use the tools inside the REMnux VM.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339707192-remnuxgettingstarted.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/1773339707192-remnuxgettingstarted.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 40,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Volatility",
+        "Oletools",
+        "Malware analysis"
+      ]
+    },
+    {
+      "_id": "67d172043b13d50faa66fd76",
+      "title": "Cyber Kill Chain",
+      "code": "cyberkillchain",
+      "description": "Explore the Cyber Kill Chain by Lockheed Martin.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5f04259cf9bf5b57aed2c476-1748005316630",
+      "difficulty": "medium",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 50,
+      "povTags": [
+        "Blue",
+        "Red"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Linux",
+        "Active Directory",
+        "Adversary emulation"
+      ]
     },
     {
       "_id": "68126ccc243043eb516d5745",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "writingpentestreports",
       "title": "Writing Pentest Reports",
+      "code": "writingpentestreports",
       "description": "Learn how to write professional pentesting reports that communicate risk to business stakeholders.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/6093e17fa004d20049b6933e-1746290313524"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/6093e17fa004d20049b6933e-1746290313524",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Web",
+        "Burp Suite",
+        "Application penetration testing",
+        "Penetration testing"
+      ]
     },
     {
       "_id": "6910eb9d8579d857d2b195f5",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "owasptopten2025one",
       "title": "OWASP Top 10 2025: IAAA Failures",
+      "code": "owasptopten2025one",
       "description": "Learn about A01, A07, and A09 in how they related to failures in the applied IAAA model.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025one-1785241451372.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025one-1785241451372.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 30
     },
     {
       "_id": "6910ebccbbf6510418138ebd",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "owasptopten2025two",
       "title": "OWASP Top 10 2025: Application Design Flaws",
+      "code": "owasptopten2025two",
       "description": "Learn about A02, A03, A06, and A10 and how they related to design flaws in the application.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025two-1785241451787.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025two-1785241451787.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 30
     },
     {
       "_id": "6910ebfda2ab0bcc10166e90",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "owasptopten2025three",
       "title": "OWASP Top 10 2025: Insecure Data Handling",
+      "code": "owasptopten2025three",
       "description": "Learn about A04, A05, and A08 as they related to insecure data handling.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025three-1785241451582.png"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/owasptopten2025three-1785241451582.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 30
     },
     {
       "_id": "6989a6e05c1b0ffbd12c5df6",
-      "type": "walkthrough",
-      "freeToUse": false,
-      "difficulty": "easy",
-      "code": "diveintopentesting",
       "title": "Dive Into Pentesting",
+      "code": "diveintopentesting",
       "description": "Learn the basics of penetration testing, from methodology to responsible practice.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/645b19f5d5848d004ab9c9e2-1779773270969"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/645b19f5d5848d004ab9c9e2-1779773270969",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Web",
+        "Application penetration testing",
+        "Network penetration testing",
+        "Penetration testing",
+        "Web application security"
+      ]
     },
     {
       "_id": "69a9a62e283ecec248f71fb4",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "reportwritingsocl2",
       "title": "Report Writing for SOC L2",
+      "code": "reportwritingsocl2",
       "description": "Explore a vital skill for any senior role in a SOC: report writing.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1774324622687"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/678ecc92c80aa206339f0f23-1774324622687",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Security Analyst/ Blue Team",
+        "communication",
+        "soc",
+        "report writing",
+        "segment 2",
+        "segment 2.5",
+        "segment 3"
+      ]
     },
     {
       "_id": "69b3b6ed1ddb43f8f434b187",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "guidedpentestinfrastructure",
       "title": "Guided Pentest: Infrastructure",
+      "code": "guidedpentestinfrastructure",
       "description": "Understand the steps involved in a real-life pentest and follow them to compromise your target.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/6989b1062386d3517f652edd-1778494472489"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/6989b1062386d3517f652edd-1778494472489",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Nmap",
+        "Metasploit Framework",
+        "Network penetration testing",
+        "Penetration testing"
+      ]
     },
     {
       "_id": "69d11794a4b37712cfb0bdc4",
-      "type": "challenge",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "aithreatmodellingassessment",
       "title": "AI Threat Modelling Assessment",
+      "code": "aithreatmodellingassessment",
       "description": "Put your AI threat modelling skills to the test using an interactive assessment application.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/6228f0d4ca8e57005149c3e3-1775755617179"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/6228f0d4ca8e57005149c3e3-1775755617179",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 15,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Artificial intelligence",
+        "AI Pentesting"
+      ]
     },
     {
       "_id": "6a439347fa0b5f85434e4c75",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "careersincybersn",
       "title": "Careers in Cyber",
+      "code": "careersincybersn",
       "description": "Discover the perks and your place within Cyber Security.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1782818141370"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1782818141370",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 10
     },
     {
       "_id": "6a4cbfc37199dd172593af47",
-      "type": "walkthrough",
-      "freeToUse": true,
-      "difficulty": "easy",
-      "code": "guidedpentestnn",
       "title": "Guided Pentest: Web",
+      "code": "guidedpentestnn",
       "description": "Learn web app pentesting by chaining vulnerabilities from recon to full server compromise.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1783492472566"
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1783492472566",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 25,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Web",
+        "Nmap",
+        "Gobuster",
+        "Application penetration testing"
+      ]
     }
   ],
   "badges": [
