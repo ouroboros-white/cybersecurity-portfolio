@@ -1,11 +1,24 @@
 #!/bin/sh
-# Blocks a commit if any report's CVSS score disagrees with its own vector.
+# Blocks a commit if a report's CVSS score disagrees with its own vector, or if
+# the checks that guard publishing no longer pass their own tests.
 #
 # Enabled with:  git config core.hooksPath hooks
 # Bypass once (only if you know why):  git commit --no-verify
+#
+# Both stages are conditional on what is staged. The routine commit here is a
+# stats sync that touches only generated Markdown and JSON, and a hook that
+# runs on every commit regardless of relevance is a hook people start
+# bypassing.
 
-# Only run when a report or the validator itself is staged.
-if ! git diff --cached --name-only | grep -qE '^(reports/.*\.md|scripts/validate_cvss\.py)$'; then
+STAGED=$(git diff --cached --name-only)
+
+echo "$STAGED" | grep -qE '^(reports/.*\.md|scripts/validate_cvss\.py)$'
+NEEDS_CVSS=$?
+
+echo "$STAGED" | grep -qE '^(scripts/.*\.py|tests/.*\.py)$'
+NEEDS_TESTS=$?
+
+if [ $NEEDS_CVSS -ne 0 ] && [ $NEEDS_TESTS -ne 0 ]; then
     exit 0
 fi
 
@@ -17,16 +30,30 @@ for py in python python3 py; do
 done
 
 if [ -z "$PYTHON" ]; then
-    echo "pre-commit: no python interpreter found; skipping CVSS validation." >&2
-    echo "pre-commit: run 'python scripts/validate_cvss.py' manually before pushing." >&2
+    echo "pre-commit: no python interpreter found; skipping checks." >&2
+    echo "pre-commit: run 'python scripts/validate_cvss.py' and" >&2
+    echo "pre-commit: 'python -m unittest discover -s tests -t .' before pushing." >&2
     exit 0
 fi
 
-if ! "$PYTHON" scripts/validate_cvss.py; then
-    echo >&2
-    echo "pre-commit: CVSS validation failed, commit aborted." >&2
-    echo "pre-commit: fix the scores above, or commit with --no-verify to override." >&2
-    exit 1
+if [ $NEEDS_CVSS -eq 0 ]; then
+    if ! "$PYTHON" scripts/validate_cvss.py; then
+        echo >&2
+        echo "pre-commit: CVSS validation failed, commit aborted." >&2
+        echo "pre-commit: fix the scores above, or commit with --no-verify to override." >&2
+        exit 1
+    fi
+fi
+
+if [ $NEEDS_TESTS -eq 0 ]; then
+    if ! "$PYTHON" -m unittest discover -s tests -t . ; then
+        echo >&2
+        echo "pre-commit: test suite failed, commit aborted." >&2
+        echo "pre-commit: the safety check and CVSS validator are what stop a" >&2
+        echo "pre-commit: secret or a wrong score being published; fix the" >&2
+        echo "pre-commit: failure rather than bypassing it." >&2
+        exit 1
+    fi
 fi
 
 exit 0

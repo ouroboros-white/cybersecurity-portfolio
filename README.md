@@ -250,6 +250,17 @@ The interesting parts are the failure cases rather than the happy path:
   poisoned data, which is how a gap in it was found and closed.
 - **Only an explicit allow-list of files is ever staged**, so a stray file
   in the working directory cannot be swept into a public commit.
+- **The checks themselves are tested.** A safety check nobody has tested is
+  an assumption, not a control, so `tests/` covers both guards: that the
+  scanner catches each secret shape, that it stays quiet on lab prose
+  containing words like "password" and "authentication", that a user path
+  not on the vetted content allow-list still fails, and that the CVSS
+  validator reproduces published scores from the specification rather than
+  from itself. The test fixtures are assembled at runtime from fragments, so
+  the test files contain no literal secret pattern and the scanner keeps
+  covering `tests/` instead of being given a blind spot. Stdlib `unittest`,
+  no added dependency, run by the pre-commit hook whenever a script or test
+  changes.
 
 Documented in [SETUP.md](SETUP.md).
 

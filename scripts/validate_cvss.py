@@ -83,7 +83,8 @@ def band(score):
 
 def check(path):
     problems = []
-    lines = open(path, encoding="utf-8").read().splitlines()
+    with open(path, encoding="utf-8") as handle:
+        lines = handle.read().splitlines()
 
     # Findings-at-a-glance rows: {finding id: (severity, score)}
     table = {}

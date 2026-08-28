@@ -30,13 +30,19 @@ stage the allow-list, commit. Drop `-NoPush` to publish. Individual stages:
 | `python scripts/safety_check.py` | Scans every git-tracked text file for secrets, flags, emails, and identifying local paths. Non-zero exit aborts the sync. |
 | `python scripts/validate_cvss.py` | Recomputes every CVSS score in `reports/` from its own vector. |
 
-There is no test suite and no linter. `safety_check.py` and `validate_cvss.py`
-are the checks; run both before committing anything you changed by hand.
+| `python -m unittest discover -s tests -t .` | Runs the test suite against `safety_check.py` and `validate_cvss.py`. Stdlib `unittest`, no extra dependency. |
+
+There is no linter. `safety_check.py` and `validate_cvss.py` are the checks, and
+the test suite is what checks the checks; run all three before committing
+anything you changed by hand.
 
 The git hook lives in `hooks/`, not `.git/hooks`, and is already wired up via
-`git config core.hooksPath hooks`. It runs `validate_cvss.py` only when a report
-or the validator itself is staged. If a clone loses that setting, restore it with
-the same command.
+`git config core.hooksPath hooks`. It runs `validate_cvss.py` when a report or
+the validator itself is staged, and the test suite when anything under
+`scripts/` or `tests/` is staged. Both stages are conditional because the
+routine commit is a stats sync touching only generated Markdown, and a hook that
+runs regardless of relevance is one people learn to bypass. If a clone loses the
+`core.hooksPath` setting, restore it with the same command.
 
 ## Architecture
 
