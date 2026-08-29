@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-28 06:00 UTC",
-  "rooms_completed": 121,
+  "last_synced_utc": "2026-08-29 06:00 UTC",
+  "rooms_completed": 122,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -2292,6 +2292,25 @@
         "segment 2",
         "segment 2.5",
         "segment 3"
+      ]
+    },
+    {
+      "_id": "69b15688c6bfdefd7cac134b",
+      "title": "Penetration Testing Frameworks",
+      "code": "penetrationtestingframeworks",
+      "description": "Explore the landscape of penetration testing frameworks.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5f04259cf9bf5b57aed2c476-1779119105504",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Application penetration testing",
+        "Network penetration testing",
+        "Penetration testing"
       ]
     },
     {
