@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-29 06:00 UTC",
-  "rooms_completed": 122,
+  "last_synced_utc": "2026-08-30 06:00 UTC",
+  "rooms_completed": 123,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -2048,6 +2048,28 @@
         "Web",
         "Penetration testing",
         "Vulnerability analysis"
+      ]
+    },
+    {
+      "_id": "60f820a3cbada70055e07e47",
+      "title": "Passive Reconnaissance",
+      "code": "passiverecon",
+      "description": "Learn about the essential tools for passive reconnaissance, such as whois, nslookup, and dig.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/66704dd0e54a1f39bff7b1a1-1735574284071",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Information gathering",
+        "Reconnaissance",
+        "OSINT",
+        "Domain enumeration",
+        "Subdomain enumeration"
       ]
     },
     {
