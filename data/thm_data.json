@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-08-30 06:00 UTC",
-  "rooms_completed": 123,
+  "last_synced_utc": "2026-08-31 06:00 UTC",
+  "rooms_completed": 124,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -2070,6 +2070,27 @@
         "OSINT",
         "Domain enumeration",
         "Subdomain enumeration"
+      ]
+    },
+    {
+      "_id": "60f9529c58feb80049f89db4",
+      "title": "Active Reconnaissance",
+      "code": "activerecon",
+      "description": "Learn how to use simple tools such as traceroute, ping, telnet, and a web browser to gather information.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/66704dd0e54a1f39bff7b1a1-1735574230785",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Web",
+        "Linux",
+        "Red teaming",
+        "Security analysis",
+        "Penetration testing"
       ]
     },
     {
