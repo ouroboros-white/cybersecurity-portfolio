@@ -12,14 +12,20 @@ firm end to end (threat model, access-control system, an ethical-hacking brief,
 and a legal/compliance induction), then keeping each part consistent with the
 others. The worked examples below come from that exercise.
 
+Where later hands-on work has taken a domain past what the coursework covered,
+the section says so and links to the evidence rather than restating it. The
+assessments themselves live in [reports/](reports/) and the process behind them
+in [METHODOLOGY.md](METHODOLOGY.md).
+
 ## Domains at a glance
 
 | Domain | What I can do |
 |---|---|
 | Threats & vulnerabilities | Classify human, digital, and physical/environmental threats and explain what makes a system vulnerable |
 | Access control & identity | Design an RBAC model with least privilege, MFA, and a joiner/mover/leaver lifecycle |
-| Defensive measures | Explain layered digital and physical controls and where each one actually helps |
-| Offensive security | Describe the pen-test lifecycle, standard methodologies, tooling, and how findings are prioritised |
+| Defensive measures | Explain layered digital and physical controls and where each one actually helps, and write detection rules for the behaviour an intrusion leaves behind |
+| Offensive security | Run a scoped assessment end to end, from rules of engagement through recon and exploitation to a CVSS-rated report |
+| Cloud security | Reason about identity as the cloud perimeter, secret lifecycle, and why control-plane logging can miss the breach |
 | Legal, ethical & compliance | Apply the Computer Misuse Act, Data Protection Act / UK GDPR, and the Data (Use and Access) Act 2025 |
 | Networking & secure protocols | Explain the OSI/TCP-IP models and core protocols, and how TLS, SSH, and VPNs secure them, including why captured TLS can be decrypted when the keys leak |
 
@@ -118,7 +124,7 @@ Computer Misuse Act, and where the target holds personal data the engagement
 also needs a Data Processing Agreement, since the tester acts as a data
 processor.
 
-I can describe:
+### The framework
 
 - **Test styles:** open/transparent ("white box", full information) vs.
   opaque/closed ("black box", outsider's view), and the trade-off between
@@ -127,13 +133,53 @@ I can describe:
   metrics-driven scientific approach), and MITRE ATT&CK (a knowledge base of
   real-world tactics and techniques, ideal for scenario-driven tests). In the UK,
   NCSC **CHECK** and industry **CREST** signal tester quality.
-- **Tooling:** Nmap (host and port discovery), Wireshark (traffic capture and
-  confirming data is encrypted in transit), Metasploit (exploitation framework),
-  Hashcat (offline password cracking to test policy strength).
 - **Prioritisation:** CVSS scores a finding 0-10 (Low 0.1-3.9, Medium 4.0-6.9,
   High 7.0-8.9, Critical 9.0-10) from factors like access required, privileges
   needed, and impact to confidentiality, integrity, and availability, turning
   "here are some findings" into "fix these first."
+
+### Applied
+
+The notes above were written before I had run an assessment. I have since
+carried out nine against authorised lab targets and written each to commercial
+structure. The repeatable process is documented separately in
+[METHODOLOGY.md](METHODOLOGY.md): a discover-then-interrogate loop with branches
+for web-application, cloud, forensic, and LLM-agent targets, because the spine
+stays the same while the questions change. What running it changed:
+
+- **Scope is a gate, not a preamble.** Step 0 of that methodology is reading the
+  brief and fixing the scope before touching anything, and every report carries a
+  scope and rules-of-engagement section with an asset table, so what was tested
+  and what was deliberately left alone are both on the record.
+- **Tooling in anger.** Burp Suite, nmap, Metasploit, impacket, Hashcat, and the
+  AWS and Azure CLIs, plus Python where nothing off the shelf fitted. The
+  cryptosystem assessment produced a
+  [known-plaintext XOR key-recovery script](tools/xor_known_plaintext.py),
+  published so the technique can be read as code rather than described.
+- **CVSS is arithmetic, not assertion.** Every score in the reports is recomputed
+  from its own vector by [scripts/validate_cvss.py](scripts/validate_cvss.py),
+  which also cross-checks the severity band and the findings-at-a-glance row. Two
+  lessons that only arrive through use: a chain can warrant a higher severity
+  than any of its individual base scores, and in the
+  [lost-device assessment](reports/device-loss-data-at-rest-2026-08.md) four
+  findings score identically, which is the honest result rather than a spread
+  invented to look considered.
+- **Findings are numbered in attack order, not severity order,** because the
+  order is the argument. The
+  [single-host compromise](reports/host-compromise-2026-08.md) chains four
+  findings from anonymous to root, and no single link in it is the story.
+- **ATT&CK as mapping, not decoration.** Each report maps its attack path to
+  technique IDs, which is also what makes the defensive half possible.
+- **Every finding states its expected detection opportunities,** and where the
+  behaviour was worth a rule I wrote one. The Sigma rules in
+  [detections/](detections/) come from activity I generated myself, including one
+  written against an evasion of my own earlier rule, and one labelled
+  informational because a stolen cloud identity making authorised API calls
+  cannot be separated from the legitimate one by signature alone.
+
+Honest limits on that claim: every target has been a lab environment, the work is
+self-directed rather than client engagements, and I hold no CHECK or CREST
+standing. Windows and Active Directory are the next depth gap I am closing.
 
 **Case study: NotPetya / DLA Piper (2017).** I use this to show why the controls
 above matter together. NotPetya spread not through a phishing click but through
@@ -200,8 +246,38 @@ material (malware, a debugging option left enabled, memory scraping), TLS
 confidentiality collapses. It is also why a browser's TLS key-log file is a
 debugging feature that must never be exposed in production.
 
+## 7. Cloud security
+
+Not part of the original coursework, and included because two assessments have
+since taken it past passing familiarity: an AWS environment in the
+[training lab assessment](reports/lab-assessment-2026-08.md) and an Azure chain
+in the [cloud attack chain](reports/cloud-attack-chain-azure-2026-08.md).
+
+- **Shared responsibility** decides who is accountable for what. The provider
+  secures the infrastructure; the tenant secures identity, configuration, and
+  data. Everything I found sat on the tenant's side of that line.
+- **Identity is the perimeter.** There is no network edge to hide behind, so a
+  leaked SAS token, a stolen service principal, or a misconfigured identity pool
+  is the breach rather than a step toward it. Credentials are the attack surface.
+- **Secret lifecycle matters more than secret storage.** A vault protects a
+  secret at rest and does nothing about one that was already read, still valid,
+  and never rotated. That is why versioned secret reads are worth watching.
+- **The confused deputy** generalises beyond cloud but is sharpest there: a
+  component holding legitimate privilege can be induced to use it on an
+  attacker's behalf, so the attacker inherits an authorisation they were never
+  granted. The same pattern drives the
+  [LLM agent assessment](reports/llm-agent-prompt-injection-2026-08.md).
+- **Control plane and data plane log differently, and the gap is where the breach
+  hides.** Default management-plane logging records the call that stole the
+  credential but not the data-plane read that actually exposed the data.
+  Detection built on default logging misses the half that causes the harm.
+
+Limits: both environments were labs, and I have not worked in a production
+tenancy or against a mature cloud security posture baseline.
+
 ---
 
 _The name-bearing coursework these notes are drawn from is kept private;
 this page is a synthesis of the underlying knowledge, corrected to current
-guidance. Practical lab evidence lives in [TRAINING.md](TRAINING.md)._
+guidance. Practical lab evidence lives in [TRAINING.md](TRAINING.md), and the
+assessments themselves in [reports/](reports/)._
