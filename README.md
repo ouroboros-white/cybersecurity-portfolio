@@ -64,17 +64,17 @@ cloud work above, and adding each one to this repository as it is done.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-08-31 06:00 UTC
+**Last synced:** 2026-09-01 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>124</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>126</td>
 <td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>18</td>
 <td align="center">&nbsp;<strong>🔴 Hard</strong>&nbsp;<br>1</td>
-<td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>9</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>100</td>
+<td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>10</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>101</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>14</td>
 </tr>
 </table>
@@ -92,35 +92,35 @@ cloud work above, and adding each one to this repository as it is done.
 <img src="https://assets.tryhackme.com/img/badges/owasptop10.png" alt="OWASP Top 10" width="90"><br>
 <strong>OWASP Top 10</strong>
 </a>
-<br><sub>2026-08-23 · rare (8.2%)</sub>
+<br><sub>2026-08-23 · common (13%)</sub>
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/shieldapprentice.png" alt="Shield Apprentice" width="90"><br>
 <strong>Shield Apprentice</strong>
 </a>
-<br><sub>2026-08-23 · rare (2.3%)</sub>
+<br><sub>2026-08-23 · rare (3.1%)</sub>
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/ohsint.png" alt="OhSINT" width="90"><br>
 <strong>OhSINT</strong>
 </a>
-<br><sub>2026-08-22 · rare (5%)</sub>
+<br><sub>2026-08-22 · rare (7.3%)</sub>
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/careerready.png" alt="Cyber Ready" width="90"><br>
 <strong>Cyber Ready</strong>
 </a>
-<br><sub>2026-08-17 · rare (3.4%)</sub>
+<br><sub>2026-08-17 · rare (4.7%)</sub>
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/streak30.png" alt="30 Day Streak" width="90"><br>
 <strong>30 Day Streak</strong>
 </a>
-<br><sub>2026-08-15 · rare (6.3%)</sub>
+<br><sub>2026-08-15 · rare (9.3%)</sub>
 </td>
 </tr>
 </table>
