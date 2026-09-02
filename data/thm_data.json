@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-09-01 06:00 UTC",
-  "rooms_completed": 126,
+  "last_synced_utc": "2026-09-02 06:00 UTC",
+  "rooms_completed": 127,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -2091,6 +2091,29 @@
         "Red teaming",
         "Security analysis",
         "Penetration testing"
+      ]
+    },
+    {
+      "_id": "60f952c158feb80049f89dc0",
+      "title": "Nmap Live Host Discovery",
+      "code": "nmap01",
+      "description": "Learn how to use Nmap to discover live hosts using ARP, ICMP, and TCP/UDP ping scan.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/62a7685ca6e7ce005d3f3afe-1778939441152",
+      "difficulty": "medium",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 75,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Nmap",
+        "Wireshark",
+        "Penetration testing",
+        "Red teaming",
+        "Vulnerability analysis",
+        "Reconnaissance"
       ]
     },
     {

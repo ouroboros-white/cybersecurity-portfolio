@@ -7,16 +7,16 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-09-01 06:00 UTC
+**Last synced:** 2026-09-02 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>126</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>127</td>
 <td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>18</td>
 <td align="center">&nbsp;<strong>🔴 Hard</strong>&nbsp;<br>1</td>
-<td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>10</td>
+<td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>11</td>
 <td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>101</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>14</td>
 </tr>
@@ -115,11 +115,11 @@ _Solved without a guided walkthrough. Hardest first._
 
 </div>
 
-## Guided Rooms (96)
+## Guided Rooms (97)
 
 _Walkthrough rooms. Hardest first; related rooms grouped._
 
-### 🟡 Medium (3)
+### 🟡 Medium (4)
 
 <div align="center">
 
@@ -127,7 +127,12 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 <tr>
 <td align="left" width="300"><a href="https://tryhackme.com/room/cyberkillchain">Cyber Kill Chain</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/javascriptsimpledemo">JavaScript: Simple Demo</a></td>
+<td align="left" width="300"><a href="https://tryhackme.com/room/nmap01">Nmap Live Host Discovery</a></td>
+</tr>
+<tr>
 <td align="left" width="300"><a href="https://tryhackme.com/room/protocolsandservers2">Protocols and Servers 2</a></td>
+<td width="300"></td>
+<td width="300"></td>
 </tr>
 </table>
 
