@@ -7,17 +7,17 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-09-02 06:00 UTC
+**Last synced:** 2026-09-03 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>127</td>
+<td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>128</td>
 <td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>18</td>
 <td align="center">&nbsp;<strong>🔴 Hard</strong>&nbsp;<br>1</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>11</td>
-<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>101</td>
+<td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>102</td>
 <td align="center">&nbsp;<strong>ℹ️ Info</strong>&nbsp;<br>14</td>
 </tr>
 </table>
@@ -115,7 +115,7 @@ _Solved without a guided walkthrough. Hardest first._
 
 </div>
 
-## Guided Rooms (97)
+## Guided Rooms (98)
 
 _Walkthrough rooms. Hardest first; related rooms grouped._
 
@@ -138,7 +138,7 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 
 </div>
 
-### 🟢 Easy (79)
+### 🟢 Easy (80)
 
 <div align="center">
 
@@ -235,47 +235,47 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </tr>
 <tr>
 <td align="left" width="300"><a href="https://tryhackme.com/room/penetrationtestingframeworks">Penetration Testing Frameworks</a></td>
+<td align="left" width="300"><a href="https://tryhackme.com/room/phishing-aoc2025-h2tkye9fzU">Phishing - Merry Clickmas</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/protocolsandservers">Protocols and Servers</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/publickeycrypto">Public Key Cryptography Basics</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/publickeycrypto">Public Key Cryptography Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/puttingitalltogether">Putting it all together</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/pythonsimpledemo">Python: Simple Demo</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/remnuxgettingstarted">REMnux: Getting Started</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/remnuxgettingstarted">REMnux: Getting Started</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/reportwritingsocl2">Report Writing for SOC L2</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/retracted">Retracted</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/searchskillscS">Search Skills</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/searchskillscS">Search Skills</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/securityprinciples">Security Principles</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/shellsoverview">Shells Overview</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/socfundamentals">SOC Fundamentals</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/socfundamentals">SOC Fundamentals</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/sqlfundamentals">SQL Fundamentals</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/sqlmapthebasics">SQLMap: The Basics</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/tcpdump">Tcpdump: The Basics</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/tcpdump">Tcpdump: The Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/theciatriad">The CIA Triad</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/virtualisationbasics">Virtualisation Basics</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/vulnerabilityscanneroverview">Vulnerability Scanner Overview</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/vulnerabilityscanneroverview">Vulnerability Scanner Overview</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/webapplicationbasics">Web Application Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/windowsbasics">Windows Basics</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/windowsclibasics">Windows CLI Basics</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/windowsclibasics">Windows CLI Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/windowscommandline">Windows Command Line</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/windowspowershell">Windows PowerShell</a></td>
-<td align="left" width="300"><a href="https://tryhackme.com/room/wiresharkthebasics">Wireshark: The Basics</a></td>
 </tr>
 <tr>
+<td align="left" width="300"><a href="https://tryhackme.com/room/wiresharkthebasics">Wireshark: The Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/writingpentestreports">Writing Pentest Reports</a></td>
-<td width="300"></td>
 <td width="300"></td>
 </tr>
 </table>

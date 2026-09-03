@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-09-02 06:00 UTC",
-  "rooms_completed": 127,
+  "last_synced_utc": "2026-09-03 06:00 UTC",
+  "rooms_completed": 128,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -2327,6 +2327,25 @@
         "Burp Suite",
         "Application penetration testing",
         "Penetration testing"
+      ]
+    },
+    {
+      "_id": "68e3b10a550ee62e5e253249",
+      "title": "Phishing - Merry Clickmas",
+      "code": "phishing-aoc2025-h2tkye9fzU",
+      "description": "Learn how to use the Social-Engineer Toolkit to send phishing emails.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/6645aa8c024f7893371eb7ac-1761822143495",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "The Social-Engineer Toolkit (SET)",
+        "Phishing"
       ]
     },
     {
