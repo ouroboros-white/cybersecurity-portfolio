@@ -32,6 +32,13 @@ FINDING_RE = re.compile(r"\*\*CVSS 3\.1\*\*\s*\|\s*([0-9.]+),\s*`(AV:[^`]+)`")
 SEVERITY_RE = re.compile(r"\*\*Severity\*\*\s*\|\s*\*\*(\w+)\*\*")
 TABLE_RE = re.compile(r"^\|\s*(F-\d+)\s*\|.*\|\s*\*\*(\w+)\*\*\s*\|\s*([0-9.]+)\s*\|")
 
+# A full CVSS v3.1 base vector, every metric present and drawn from its own
+# allowed values. Matched strictly so a malformed vector is reported as a
+# problem rather than raising a KeyError partway through the arithmetic.
+VECTOR_RE = re.compile(
+    r"AV:[NALP]/AC:[LH]/PR:[NLH]/UI:[NR]/S:[UC]/C:[HLN]/I:[HLN]/A:[HLN]"
+)
+
 
 def roundup(value):
     """CVSS v3.1 Appendix A roundup: round to one decimal, always upward."""
@@ -41,8 +48,19 @@ def roundup(value):
     return (math.floor(scaled / 10000) + 1) / 10.0
 
 
+def parse_vector(vector):
+    """Split a base vector into its metric dict, rejecting malformed input.
+
+    Raises ValueError on anything that is not a complete, well-formed CVSS
+    v3.1 base vector, so callers can turn that into a reported problem.
+    """
+    if not VECTOR_RE.fullmatch(vector):
+        raise ValueError(f"not a valid CVSS v3.1 base vector: {vector}")
+    return dict(part.split(":") for part in vector.split("/"))
+
+
 def base_score(vector):
-    metrics = dict(part.split(":") for part in vector.split("/"))
+    metrics = parse_vector(vector)
     changed = metrics["S"] == "C"
 
     iss = 1 - (
@@ -81,24 +99,50 @@ def band(score):
     return "None"
 
 
-def check(path):
+def check(path, display=None):
+    """Validate one report. `display` names it in messages; defaults to `path`.
+
+    Keeping the two separate lets the caller pass an absolute path to open
+    while still printing a short repo-relative name, so the check works from
+    any working directory.
+    """
+    display = display or path
     problems = []
     with open(path, encoding="utf-8") as handle:
         lines = handle.read().splitlines()
 
-    # Findings-at-a-glance rows: {finding id: (severity, score)}
+    # Findings-at-a-glance rows: {finding id: (severity, score)}. A second row
+    # for the same id means another table (remediation, verification) collided
+    # with the glance parser; flag it rather than let it silently overwrite.
     table = {}
     for line in lines:
         match = TABLE_RE.match(line)
-        if match:
-            table[match.group(1)] = (match.group(2), float(match.group(3)))
+        if not match:
+            continue
+        fid = match.group(1)
+        if fid in table:
+            problems.append(
+                f"{display}: {fid} appears in more than one "
+                f"findings-at-a-glance row"
+            )
+            continue
+        table[fid] = (match.group(2), float(match.group(3)))
 
+    headings = []
+    vectored = set()
     current_severity = None
     current_id = None
     for number, line in enumerate(lines, 1):
         heading = re.match(r"^###\s+(F-\d+)", line)
         if heading:
             current_id = heading.group(1)
+            current_severity = None  # do not let one finding inherit the last
+            if current_id in headings:
+                problems.append(
+                    f"{display}:{number}: duplicate detailed heading {current_id}"
+                )
+            headings.append(current_id)
+
         severity = SEVERITY_RE.search(line)
         if severity:
             current_severity = severity.group(1)
@@ -107,38 +151,71 @@ def check(path):
         if not match:
             continue
 
+        if current_id is None:
+            problems.append(
+                f"{display}:{number}: CVSS line before any finding heading"
+            )
+            continue
+        vectored.add(current_id)
+
         claimed = float(match.group(1))
         vector = match.group(2)
-        actual = base_score(vector)
+        try:
+            actual = base_score(vector)
+        except ValueError as error:
+            problems.append(f"{display}:{number}: {current_id} {error}")
+            continue
 
         if abs(actual - claimed) > 0.001:
             problems.append(
-                f"{path}:{number}: score {claimed} does not match vector "
+                f"{display}:{number}: score {claimed} does not match vector "
                 f"{vector} (computed {actual})"
             )
-        if current_severity and current_severity != band(actual):
+        if current_severity is None:
             problems.append(
-                f"{path}:{number}: severity {current_severity} does not match "
+                f"{display}:{number}: {current_id} has no severity field"
+            )
+        elif current_severity != band(actual):
+            problems.append(
+                f"{display}:{number}: severity {current_severity} does not match "
                 f"score {actual} (band {band(actual)})"
             )
         if current_id in table:
             table_severity, table_score = table[current_id]
             if abs(table_score - actual) > 0.001:
                 problems.append(
-                    f"{path}:{number}: {current_id} summary table says "
+                    f"{display}:{number}: {current_id} summary table says "
                     f"{table_score}, detailed finding computes {actual}"
                 )
             if table_severity != band(actual):
                 problems.append(
-                    f"{path}:{number}: {current_id} summary table severity "
+                    f"{display}:{number}: {current_id} summary table severity "
                     f"{table_severity} does not match band {band(actual)}"
                 )
+        else:
+            problems.append(
+                f"{display}:{number}: {current_id} is missing from the "
+                f"findings-at-a-glance table"
+            )
+
+    # Cross-check the two halves of the report against each other: every
+    # detailed finding must carry a vector, and every glance row must have a
+    # detailed finding behind it. Silent non-validation is worse than a fail.
+    for fid in headings:
+        if fid not in vectored:
+            problems.append(f"{display}: {fid} has no CVSS 3.1 vector line")
+    for fid in table:
+        if fid not in headings:
+            problems.append(
+                f"{display}: {fid} is in the findings-at-a-glance table "
+                f"but has no detailed finding"
+            )
 
     return problems
 
 
 def main():
-    root = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     reports = sorted(glob.glob(os.path.join(root, "reports", "*.md")))
     if not reports:
         print("no reports found")
@@ -146,7 +223,9 @@ def main():
 
     problems = []
     for report in reports:
-        problems.extend(check(os.path.relpath(report, root)))
+        # Open the absolute path so this runs from any directory; print the
+        # short repo-relative name.
+        problems.extend(check(report, os.path.relpath(report, root)))
 
     if problems:
         for problem in problems:

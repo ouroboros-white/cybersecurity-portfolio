@@ -91,13 +91,7 @@ class BandTests(unittest.TestCase):
 class CheckTests(unittest.TestCase):
     """check() must actually fail on an inconsistent report, not just pass."""
 
-    TEMPLATE = """### F-01 Example finding
-
-| Field | Value |
-|---|---|
-| **Severity** | **{severity}** |
-| **CVSS 3.1** | {score}, `{vector}` |
-"""
+    GOOD_VECTOR = "AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"  # scores 7.5, High
 
     def write_report(self, body):
         handle = tempfile.NamedTemporaryFile(
@@ -108,45 +102,99 @@ class CheckTests(unittest.TestCase):
         self.addCleanup(os.unlink, handle.name)
         return handle.name
 
-    def test_a_consistent_finding_produces_no_problems(self):
-        path = self.write_report(
-            self.TEMPLATE.format(
-                severity="High", score="7.5",
-                vector="AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-            )
+    def report(
+        self, severity="High", score="7.5", vector=None,
+        table_severity=None, table_score=None,
+    ):
+        """A minimal but complete report: one glance row and one finding.
+
+        Both halves are well-formed by default; each argument overrides one
+        cell so a test can introduce exactly one inconsistency.
+        """
+        vector = self.GOOD_VECTOR if vector is None else vector
+        table_severity = severity if table_severity is None else table_severity
+        table_score = score if table_score is None else table_score
+        body = (
+            "## Findings at a glance\n\n"
+            "| ID | Summary | Severity | Score |\n"
+            "|---|---|---|---|\n"
+            f"| F-01 | Example finding | **{table_severity}** | {table_score} |\n\n"
+            "## Detailed findings\n\n"
+            "### F-01: Example finding\n\n"
+            "| Field | Value |\n|---|---|\n"
+            f"| **Severity** | **{severity}** |\n"
+            f"| **CVSS 3.1** | {score}, `{vector}` |\n"
         )
-        self.assertEqual(validate_cvss.check(path), [])
+        return self.write_report(body)
+
+    def test_a_consistent_finding_produces_no_problems(self):
+        self.assertEqual(validate_cvss.check(self.report()), [])
 
     def test_a_wrong_score_is_reported(self):
-        path = self.write_report(
-            self.TEMPLATE.format(
-                severity="High", score="7.9",
-                vector="AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-            )
-        )
-        problems = validate_cvss.check(path)
+        problems = validate_cvss.check(self.report(score="7.9", table_score="7.9"))
         self.assertTrue(any("does not match vector" in p for p in problems))
 
     def test_a_wrong_severity_band_is_reported(self):
-        path = self.write_report(
-            self.TEMPLATE.format(
-                severity="Critical", score="7.5",
-                vector="AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-            )
+        problems = validate_cvss.check(
+            self.report(severity="Critical", table_severity="Critical")
         )
-        problems = validate_cvss.check(path)
         self.assertTrue(any("severity Critical" in p for p in problems))
 
     def test_a_summary_table_disagreeing_with_the_finding_is_reported(self):
+        problems = validate_cvss.check(self.report(table_score="8.1"))
+        self.assertTrue(any("summary table says" in p for p in problems))
+
+    def test_a_malformed_vector_is_reported_not_crashed(self):
+        problems = validate_cvss.check(self.report(vector="AV:N/AC:L/PR:N"))
+        self.assertTrue(any("valid CVSS v3.1" in p for p in problems))
+
+    def test_an_impossible_metric_value_is_reported(self):
+        problems = validate_cvss.check(
+            self.report(vector="AV:X/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N")
+        )
+        self.assertTrue(any("valid CVSS v3.1" in p for p in problems))
+
+    def test_a_finding_missing_from_the_glance_table_is_reported(self):
+        # A detailed finding with no glance row: the check must not skip it.
         body = (
-            "| F-01 | Example finding | **High** | 8.1 |\n\n"
-            + self.TEMPLATE.format(
-                severity="High", score="7.5",
-                vector="AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-            )
+            "### F-01: Example finding\n\n"
+            "| **Severity** | **High** |\n"
+            f"| **CVSS 3.1** | 7.5, `{self.GOOD_VECTOR}` |\n"
         )
         problems = validate_cvss.check(self.write_report(body))
-        self.assertTrue(any("summary table says" in p for p in problems))
+        self.assertTrue(any("missing from the findings-at-a-glance" in p for p in problems))
+
+    def test_a_glance_row_with_no_detailed_finding_is_reported(self):
+        with open(self.report(), encoding="utf-8") as handle:
+            body = "| F-02 | Orphan row | **High** | 7.5 |\n\n" + handle.read()
+        problems = validate_cvss.check(self.write_report(body))
+        self.assertTrue(any("no detailed finding" in p for p in problems))
+
+    def test_a_duplicate_glance_row_is_reported(self):
+        body = (
+            "| F-01 | Example finding | **High** | 7.5 |\n"
+            "| F-01 | Example finding | **High** | 7.5 |\n\n"
+            "### F-01: Example finding\n\n"
+            "| **Severity** | **High** |\n"
+            f"| **CVSS 3.1** | 7.5, `{self.GOOD_VECTOR}` |\n"
+        )
+        problems = validate_cvss.check(self.write_report(body))
+        self.assertTrue(any("more than one" in p for p in problems))
+
+    def test_severity_does_not_leak_from_the_previous_finding(self):
+        # F-01 is Critical; F-02 omits its severity row. Without the per-heading
+        # reset, F-02 would silently inherit F-01's Critical and pass.
+        body = (
+            "| F-01 | First | **Critical** | 9.8 |\n"
+            "| F-02 | Second | **High** | 7.5 |\n\n"
+            "### F-01: First\n\n"
+            "| **Severity** | **Critical** |\n"
+            "| **CVSS 3.1** | 9.8, `AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H` |\n\n"
+            "### F-02: Second\n\n"
+            f"| **CVSS 3.1** | 7.5, `{self.GOOD_VECTOR}` |\n"
+        )
+        problems = validate_cvss.check(self.write_report(body))
+        self.assertTrue(any("F-02 has no severity field" in p for p in problems))
 
 
 class PublishedReportsTests(unittest.TestCase):
@@ -165,6 +213,23 @@ class PublishedReportsTests(unittest.TestCase):
         for report in reports:
             problems.extend(validate_cvss.check(report))
         self.assertEqual(problems, [], "\n".join(problems))
+
+
+class MainFromAnyDirectoryTests(unittest.TestCase):
+    """main() resolves reports by absolute path, so cwd must not matter.
+
+    Before the fix it opened a repo-relative path against the process cwd and
+    raised FileNotFoundError anywhere but the repo root.
+    """
+
+    def test_runs_from_an_unrelated_working_directory(self):
+        original = os.getcwd()
+        with tempfile.TemporaryDirectory() as elsewhere:
+            os.chdir(elsewhere)
+            try:
+                self.assertEqual(validate_cvss.main(), 0)
+            finally:
+                os.chdir(original)
 
 
 if __name__ == "__main__":
