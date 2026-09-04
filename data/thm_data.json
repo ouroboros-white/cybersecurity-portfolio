@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-09-03 06:00 UTC",
-  "rooms_completed": 128,
+  "last_synced_utc": "2026-09-04 06:00 UTC",
+  "rooms_completed": 129,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -2177,6 +2177,25 @@
       ],
       "technologyTags": [
         "Linux"
+      ]
+    },
+    {
+      "_id": "622bb53de7347f05d0f94cc0",
+      "title": "CyberHeroes",
+      "code": "cyberheroes",
+      "description": "Want to be a part of the elite club of CyberHeroes? Prove your merit by finding a way to log in!",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5e9c5d0148cf664325c8a075-1737130334933",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "challenge",
+      "timeToComplete": 15,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Web",
+        "Exploitation"
       ]
     },
     {
