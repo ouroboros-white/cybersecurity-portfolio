@@ -1,6 +1,6 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-09-05 06:00 UTC",
+  "last_synced_utc": "2026-09-06 06:00 UTC",
   "rooms_completed": 129,
   "rooms": [
     {
@@ -2536,6 +2536,36 @@
   ],
   "badges": [
     {
+      "_id": "689b0a0f12639e1031d1241a",
+      "name": "soc-sim-100-percent-true-positive-rate",
+      "image": "https://assets.tryhackme.com/img/badges/soc-sim-100-percent-true-positive-rate.png",
+      "title": "100% true positive rate",
+      "description": "Achieving 100% true positive rate in a scenario",
+      "earnedAt": "2026-09-05T15:37:48.933Z",
+      "rarityTier": "rare",
+      "rarityPercent": 2.4
+    },
+    {
+      "_id": "689b2ebb12639e1031d12422",
+      "name": "soc-sim-first-scenario-completed",
+      "image": "https://assets.tryhackme.com/img/badges/soc-sim-first-scenario-completed.png",
+      "title": "First scenario completed",
+      "description": "Completing your first scenario",
+      "earnedAt": "2026-09-05T15:37:48.893Z",
+      "rarityTier": "rare",
+      "rarityPercent": 2.8
+    },
+    {
+      "_id": "689b0a0f12639e1031d12418",
+      "name": "soc-sim-first-alert-closed",
+      "image": "https://assets.tryhackme.com/img/badges/soc-sim-first-alert-closed.png",
+      "title": "First alert closed",
+      "description": "Closing your first alert",
+      "earnedAt": "2026-09-05T15:31:58.660Z",
+      "rarityTier": "rare",
+      "rarityPercent": 3.5
+    },
+    {
       "_id": "5f1b30268b57fa13a65e3508",
       "name": "owasp-10",
       "image": "https://assets.tryhackme.com/img/badges/owasptop10.png",
@@ -2716,5 +2746,5 @@
       "rarityPercent": 30.4
     }
   ],
-  "badge_count": 18
+  "badge_count": 21
 }

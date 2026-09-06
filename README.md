@@ -64,14 +64,14 @@ cloud work above, and adding each one to this repository as it is done.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-09-05 06:00 UTC
+**Last synced:** 2026-09-06 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
 <td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>129</td>
-<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>18</td>
+<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>21</td>
 <td align="center">&nbsp;<strong>🔴 Hard</strong>&nbsp;<br>1</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>11</td>
 <td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>103</td>
@@ -89,6 +89,27 @@ cloud work above, and adding each one to this repository as it is done.
 <tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/soc-sim-100-percent-true-positive-rate.png" alt="100% true positive rate" width="90"><br>
+<strong>100% true positive rate</strong>
+</a>
+<br><sub>2026-09-05 · rare (2.4%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/soc-sim-first-scenario-completed.png" alt="First scenario completed" width="90"><br>
+<strong>First scenario completed</strong>
+</a>
+<br><sub>2026-09-05 · rare (2.8%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/soc-sim-first-alert-closed.png" alt="First alert closed" width="90"><br>
+<strong>First alert closed</strong>
+</a>
+<br><sub>2026-09-05 · rare (3.5%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/owasptop10.png" alt="OWASP Top 10" width="90"><br>
 <strong>OWASP Top 10</strong>
 </a>
@@ -100,27 +121,6 @@ cloud work above, and adding each one to this repository as it is done.
 <strong>Shield Apprentice</strong>
 </a>
 <br><sub>2026-08-23 · rare (3.1%)</sub>
-</td>
-<td align="center" width="130">
-<a href="https://tryhackme.com/p/ouroboroswhite">
-<img src="https://assets.tryhackme.com/img/badges/ohsint.png" alt="OhSINT" width="90"><br>
-<strong>OhSINT</strong>
-</a>
-<br><sub>2026-08-22 · rare (7.3%)</sub>
-</td>
-<td align="center" width="130">
-<a href="https://tryhackme.com/p/ouroboroswhite">
-<img src="https://assets.tryhackme.com/img/badges/careerready.png" alt="Cyber Ready" width="90"><br>
-<strong>Cyber Ready</strong>
-</a>
-<br><sub>2026-08-17 · rare (4.7%)</sub>
-</td>
-<td align="center" width="130">
-<a href="https://tryhackme.com/p/ouroboroswhite">
-<img src="https://assets.tryhackme.com/img/badges/streak30.png" alt="30 Day Streak" width="90"><br>
-<strong>30 Day Streak</strong>
-</a>
-<br><sub>2026-08-15 · rare (9.3%)</sub>
 </td>
 </tr>
 </table>

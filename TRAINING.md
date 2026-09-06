@@ -7,14 +7,14 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-09-05 06:00 UTC
+**Last synced:** 2026-09-06 06:00 UTC
 
 <div align="center">
 
 <table>
 <tr>
 <td align="center">&nbsp;<strong>Rooms Completed</strong>&nbsp;<br>129</td>
-<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>18</td>
+<td align="center">&nbsp;<strong>Badges Earned</strong>&nbsp;<br>21</td>
 <td align="center">&nbsp;<strong>🔴 Hard</strong>&nbsp;<br>1</td>
 <td align="center">&nbsp;<strong>🟡 Medium</strong>&nbsp;<br>11</td>
 <td align="center">&nbsp;<strong>🟢 Easy</strong>&nbsp;<br>103</td>
@@ -316,7 +316,7 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 
 </div>
 
-## Badges (18)
+## Badges (21)
 
 <div align="center">
 
@@ -324,11 +324,34 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 <tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/soc-sim-100-percent-true-positive-rate.png" alt="100% true positive rate" width="90"><br>
+<strong>100% true positive rate</strong>
+</a>
+<br><sub>2026-09-05 · rare (2.4%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/soc-sim-first-scenario-completed.png" alt="First scenario completed" width="90"><br>
+<strong>First scenario completed</strong>
+</a>
+<br><sub>2026-09-05 · rare (2.8%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
+<img src="https://assets.tryhackme.com/img/badges/soc-sim-first-alert-closed.png" alt="First alert closed" width="90"><br>
+<strong>First alert closed</strong>
+</a>
+<br><sub>2026-09-05 · rare (3.5%)</sub>
+</td>
+<td align="center" width="130">
+<a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/owasptop10.png" alt="OWASP Top 10" width="90"><br>
 <strong>OWASP Top 10</strong>
 </a>
 <br><sub>2026-08-23 · common (13%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/shieldapprentice.png" alt="Shield Apprentice" width="90"><br>
@@ -350,8 +373,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-17 · rare (4.7%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/streak30.png" alt="30 Day Streak" width="90"><br>
@@ -359,6 +380,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-15 · rare (9.3%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/swordapprentice.png" alt="Sword Apprentice" width="90"><br>
@@ -380,8 +403,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-03 · common (12.8%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/metasploit.png" alt="Metasploitable" width="90"><br>
@@ -389,6 +410,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-08-03 · common (12.2%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <strong>Session Held</strong>
@@ -409,8 +432,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-22 · common (51.2%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/howthewebworks.png" alt="World Wide Web" width="90"><br>
@@ -418,6 +439,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-21 · common (25.8%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/webbed.png" alt="Webbed" width="90"><br>
@@ -439,8 +462,6 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-20 · rare (2.2%)</sub>
 </td>
-</tr>
-<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/streak3.png" alt="3 Day Streak" width="90"><br>
@@ -448,6 +469,8 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 </a>
 <br><sub>2026-07-19 · common (15.4%)</sub>
 </td>
+</tr>
+<tr>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/firstfour.png" alt="First Four" width="90"><br>
