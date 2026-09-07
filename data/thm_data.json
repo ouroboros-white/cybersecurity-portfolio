@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-09-06 06:00 UTC",
-  "rooms_completed": 129,
+  "last_synced_utc": "2026-09-07 06:00 UTC",
+  "rooms_completed": 130,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -2114,6 +2114,28 @@
         "Red teaming",
         "Vulnerability analysis",
         "Reconnaissance"
+      ]
+    },
+    {
+      "_id": "60f9532d58feb80049f89e01",
+      "title": "Nmap Basic Port Scans",
+      "code": "nmap02",
+      "description": "Learn in-depth how nmap TCP connect scan, TCP SYN port scan, and UDP port scan work.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/62a7685ca6e7ce005d3f3afe-1778940381346",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 120,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Nmap",
+        "Vulnerability analysis",
+        "Red teaming",
+        "Penetration testing",
+        "Port scanning"
       ]
     },
     {
