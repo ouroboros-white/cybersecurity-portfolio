@@ -1,6 +1,6 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-09-07 06:00 UTC",
+  "last_synced_utc": "2026-09-09 06:00 UTC",
   "rooms_completed": 130,
   "rooms": [
     {
@@ -638,6 +638,24 @@
         "Exploitation",
         "System administration",
         "Identity and access management (IAC)"
+      ]
+    },
+    {
+      "_id": "62bae2b9dc6a500060047287",
+      "title": "Security Principles",
+      "code": "securityprinciples",
+      "description": "Learn about the security triad and common security models and principles.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/securityprinciples-1785241452480.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 90,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Threat modelling",
+        "Security analysis"
       ]
     },
     {
@@ -1649,27 +1667,6 @@
       "timeToComplete": 15
     },
     {
-      "_id": "69fa32c7b1116aaa4d6ecae9",
-      "title": "Offensive Security Intro",
-      "code": "offensivesecurityintroc101",
-      "description": "Introducing offensive security, where you will test the security of FakeBank's systems.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1778576882026",
-      "difficulty": "easy",
-      "freeToUse": true,
-      "type": "walkthrough",
-      "timeToComplete": 15,
-      "povTags": [
-        "Red"
-      ],
-      "technologyTags": [
-        "Linux",
-        "Web",
-        "dirb",
-        "Dirbuster",
-        "Enumeration"
-      ]
-    },
-    {
       "_id": "6a1d1a25de0778f5c243559e",
       "title": "Fools Mate",
       "code": "foolsmate",
@@ -2139,6 +2136,29 @@
       ]
     },
     {
+      "_id": "60f953510bad50005b06ca78",
+      "title": "Nmap Advanced Port Scans",
+      "code": "nmap03",
+      "description": "Learn advanced scanning and spoofing techniques covering null, FIN, Xmas, and idle scans.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/62a7685ca6e7ce005d3f3afe-1778952120935",
+      "difficulty": "medium",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Nmap",
+        "Penetration testing",
+        "Firewall evasion",
+        "Red teaming",
+        "Vulnerability analysis",
+        "Port scanning"
+      ]
+    },
+    {
       "_id": "6141d0ac8fa7a30049b12b1f",
       "title": "Protocols and Servers",
       "code": "protocolsandservers",
@@ -2218,24 +2238,6 @@
         "Linux",
         "Web",
         "Exploitation"
-      ]
-    },
-    {
-      "_id": "62bae2b9dc6a500060047287",
-      "title": "Security Principles",
-      "code": "securityprinciples",
-      "description": "Learn about the security triad and common security models and principles.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/securityprinciples-1785241452480.png",
-      "difficulty": "easy",
-      "freeToUse": true,
-      "type": "walkthrough",
-      "timeToComplete": 90,
-      "povTags": [
-        "Blue"
-      ],
-      "technologyTags": [
-        "Threat modelling",
-        "Security analysis"
       ]
     },
     {
