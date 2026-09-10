@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-09-09 06:00 UTC",
-  "rooms_completed": 130,
+  "last_synced_utc": "2026-09-10 06:00 UTC",
+  "rooms_completed": 133,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -2159,6 +2159,28 @@
       ]
     },
     {
+      "_id": "6114faf3ee3b140048b84191",
+      "title": "Nmap Post Port Scans",
+      "code": "nmap04",
+      "description": "Learn how to leverage Nmap for service and OS detection, use Nmap Scripting Engine (NSE), and save the results.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/62a7685ca6e7ce005d3f3afe-1778952644474",
+      "difficulty": "medium",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Nmap",
+        "Penetration testing",
+        "Red teaming",
+        "Vulnerability analysis",
+        "Scripting"
+      ]
+    },
+    {
       "_id": "6141d0ac8fa7a30049b12b1f",
       "title": "Protocols and Servers",
       "code": "protocolsandservers",
@@ -2425,6 +2447,39 @@
       "timeToComplete": 30
     },
     {
+      "_id": "696f3b2b4bdc839603f3f5cc",
+      "title": "Monitoring Active Directory",
+      "code": "monitoringactivedirectory",
+      "description": "Learn to monitor Active Directory and find anomalies in high-volume logs.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/68d2c1e7ab94268f6271de1d-1772543448998",
+      "difficulty": "medium",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Windows",
+        "Active Directory",
+        "Splunk",
+        "Group Policy Management Editor",
+        "Event Viewer NEW",
+        "Audit Policy NEW",
+        "GPO (Group Policy Objects)",
+        "Security operations",
+        "Incident response",
+        "Threat hunting",
+        "Detection engineering",
+        "SIEM engineering",
+        "Identity and access management (IAC)",
+        "Logging",
+        "Log analysis",
+        "Endpoint security monitoring",
+        "Security logging configuration"
+      ]
+    },
+    {
       "_id": "6989a6e05c1b0ffbd12c5df6",
       "title": "Dive Into Pentesting",
       "code": "diveintopentesting",
@@ -2443,6 +2498,28 @@
         "Network penetration testing",
         "Penetration testing",
         "Web application security"
+      ]
+    },
+    {
+      "_id": "69a02e6f2b5ed43988d9cd6a",
+      "title": "Walking An Application",
+      "code": "walkinganapp",
+      "description": "Manually review a web application for security issues using only your browser's developer tools. ",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/30ab9d726db28f92bf6bab62492aaf704f168ed717cf55444a954958c6fd6cb6.svg",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Web",
+        "Security analysis",
+        "Vulnerability analysis",
+        "Red teaming",
+        "Penetration testing",
+        "Exploitation"
       ]
     },
     {
