@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-09-10 06:00 UTC",
-  "rooms_completed": 133,
+  "last_synced_utc": "2026-09-11 06:00 UTC",
+  "rooms_completed": 134,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -2178,6 +2178,26 @@
         "Red teaming",
         "Vulnerability analysis",
         "Scripting"
+      ]
+    },
+    {
+      "_id": "611aa163a20947004b42c6ee",
+      "title": "Cyber Kill Chain ",
+      "code": "cyberkillchainzmt",
+      "description": "The Cyber Kill Chain framework is designed for identification and prevention of the network intrusions. You will learn what the adversaries need to do in order to achieve their goals.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/66704dd0e54a1f39bff7b1a1-1735573085552",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 45,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Crowdstrike",
+        "Incident management",
+        "Incident handling",
+        "OSINT"
       ]
     },
     {
