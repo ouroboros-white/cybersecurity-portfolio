@@ -16,6 +16,29 @@ impact, detection, and remediation.
 > than authorized client engagements, and target identifiers are redacted as they
 > would be in a real report.
 
+## Start Here
+
+Short on time? These three are the strongest work in the repository. Each links
+to the full report.
+
+- **[LLM Agent Security](reports/llm-agent-prompt-injection-2026-08.md):**
+  Bypassed an AI agent's model-adjudicated tool authorization to reach host
+  command execution, by routing a privileged command through a record the agent
+  already trusted. Shows AI/LLM security, authorization analysis, and the
+  confused-deputy pattern.
+- **[Web & Cloud Assessment](reports/lab-assessment-2026-08.md):** Three
+  independently scoped targets. A real CVE exploited with honest notes on an
+  unreliable public exploit, cloud IAM abuse, and the detection gap where default
+  logging records the credential theft but not the data-plane read that causes
+  the breach.
+- **[Lost-Device Forensics](reports/device-loss-data-at-rest-2026-08.md):**
+  Recovered data from an encrypted laptop without cracking anything, because the
+  key was stored on the device it protected. Shows digital forensics, Windows
+  credential stores, and defensible CVSS scoring.
+
+The full set of nine reports, ordered strongest first, sits under
+[Security Assessment Reports](#security-assessment-reports) below.
+
 <!-- Edit everything in this file freely - only the block below,
      between THM:START and THM:END, gets overwritten automatically. -->
 
