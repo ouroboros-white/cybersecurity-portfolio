@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-09-17 06:00 UTC",
-  "rooms_completed": 134,
+  "last_synced_utc": "2026-09-18 06:00 UTC",
+  "rooms_completed": 135,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -2156,6 +2156,27 @@
         "Red teaming",
         "Vulnerability analysis",
         "Port scanning"
+      ]
+    },
+    {
+      "_id": "610d0258516bcd0055fc1806",
+      "title": "Intro to Cross-site Scripting",
+      "code": "xss",
+      "description": "Learn how to detect and exploit XSS vulnerabilities, giving you control of other visitors' browsers.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/c1c509a263e7a42bece2f0b77fd1ba1b.png",
+      "difficulty": "easy",
+      "freeToUse": false,
+      "type": "walkthrough",
+      "timeToComplete": 30,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Web",
+        "XSS Hunter Express",
+        "Application penetration testing",
+        "Application security engineering",
+        "Exploitation"
       ]
     },
     {
