@@ -1,6 +1,6 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-09-30 06:00 UTC",
+  "last_synced_utc": "2026-10-01 06:00 UTC",
   "rooms_completed": 135,
   "rooms": [
     {
@@ -2685,7 +2685,7 @@
       "description": "Achieving 100% true positive rate in a scenario",
       "earnedAt": "2026-09-05T15:37:48.933Z",
       "rarityTier": "rare",
-      "rarityPercent": 2.4
+      "rarityPercent": 4.5
     },
     {
       "_id": "689b2ebb12639e1031d12422",
@@ -2695,7 +2695,7 @@
       "description": "Completing your first scenario",
       "earnedAt": "2026-09-05T15:37:48.893Z",
       "rarityTier": "rare",
-      "rarityPercent": 2.8
+      "rarityPercent": 5.5
     },
     {
       "_id": "689b0a0f12639e1031d12418",
@@ -2705,7 +2705,7 @@
       "description": "Closing your first alert",
       "earnedAt": "2026-09-05T15:31:58.660Z",
       "rarityTier": "rare",
-      "rarityPercent": 3.5
+      "rarityPercent": 6.9
     },
     {
       "_id": "5f1b30268b57fa13a65e3508",
@@ -2714,8 +2714,8 @@
       "title": "OWASP Top 10",
       "description": "Understanding every OWASP vulnerability",
       "earnedAt": "2026-08-23T13:14:53.029Z",
-      "rarityTier": "common",
-      "rarityPercent": 13
+      "rarityTier": "rare",
+      "rarityPercent": 8
     },
     {
       "_id": "6710f453b3eec466f102ed91",
@@ -2725,7 +2725,7 @@
       "description": "Completing the FlareVM room",
       "earnedAt": "2026-08-23T11:35:48.055Z",
       "rarityTier": "rare",
-      "rarityPercent": 3.1
+      "rarityPercent": 4.9
     },
     {
       "_id": "5cb0b82cea5ebc64acd45953",
@@ -2735,7 +2735,7 @@
       "description": "Completing the OhSINT room",
       "earnedAt": "2026-08-22T21:41:14.205Z",
       "rarityTier": "rare",
-      "rarityPercent": 7.3
+      "rarityPercent": 4.6
     },
     {
       "_id": "6710f453b3eec466f102ee2d",
@@ -2745,7 +2745,7 @@
       "description": "Understanding impact of training on teams",
       "earnedAt": "2026-08-17T22:52:00.626Z",
       "rarityTier": "rare",
-      "rarityPercent": 4.7
+      "rarityPercent": 6.8
     },
     {
       "_id": "5eb1f96f5689ac81e114b568",
@@ -2755,7 +2755,7 @@
       "description": "Hacking for 30 days solid",
       "earnedAt": "2026-08-15T15:04:03.032Z",
       "rarityTier": "rare",
-      "rarityPercent": 9.3
+      "rarityPercent": 9.6
     },
     {
       "_id": "6710f453b3eec466f102edd4",
@@ -2765,7 +2765,7 @@
       "description": "Completing the SQLMap room",
       "earnedAt": "2026-08-12T17:02:56.403Z",
       "rarityTier": "rare",
-      "rarityPercent": 3.7
+      "rarityPercent": 5.8
     },
     {
       "_id": "68da82c31ee525ba95e36858",
@@ -2774,8 +2774,8 @@
       "title": "Platinum League",
       "description": "Platinum League 1st place",
       "earnedAt": "2026-08-10T08:21:34.421Z",
-      "rarityTier": "epic",
-      "rarityPercent": 0.5
+      "rarityTier": "rare",
+      "rarityPercent": 1.3
     },
     {
       "_id": "5de2514490735abaceb31f8a",
@@ -2784,8 +2784,8 @@
       "title": "Blue",
       "description": "Hacking into Windows via EternalBlue",
       "earnedAt": "2026-08-03T19:25:08.119Z",
-      "rarityTier": "common",
-      "rarityPercent": 12.8
+      "rarityTier": "rare",
+      "rarityPercent": 9.6
     },
     {
       "_id": "5dcef93e90735abace1ee526",
@@ -2794,8 +2794,8 @@
       "title": "Metasploitable",
       "description": "Contains the knowledge to use Metasploit",
       "earnedAt": "2026-08-03T18:49:56.984Z",
-      "rarityTier": "common",
-      "rarityPercent": 12.2
+      "rarityTier": "rare",
+      "rarityPercent": 8.1
     },
     {
       "_id": "69944f5e75f7afeae11ee33f",
@@ -2805,7 +2805,7 @@
       "description": "Completing 4 weekly missions in a row!",
       "earnedAt": "2026-08-03T12:31:45.538Z",
       "rarityTier": "rare",
-      "rarityPercent": 1.5
+      "rarityPercent": 4.7
     },
     {
       "_id": "5eb1f7bf5689ac81e1141bc2",
@@ -2815,7 +2815,7 @@
       "description": "Achieving a 7 day hacking streak",
       "earnedAt": "2026-07-23T12:58:16.532Z",
       "rarityTier": "common",
-      "rarityPercent": 26.1
+      "rarityPercent": 20.1
     },
     {
       "_id": "5dcee81690735abace1e4208",
@@ -2825,7 +2825,7 @@
       "description": "Being competent in Linux",
       "earnedAt": "2026-07-22T19:55:48.817Z",
       "rarityTier": "common",
-      "rarityPercent": 51.2
+      "rarityPercent": 21
     },
     {
       "_id": "609bbc16a2323e2d0e95e057",
@@ -2835,7 +2835,7 @@
       "description": "Completing the 'How The Web Works' module",
       "earnedAt": "2026-07-21T18:11:00.116Z",
       "rarityTier": "common",
-      "rarityPercent": 25.8
+      "rarityPercent": 16
     },
     {
       "_id": "5e6830ca7095e6fb1e9f0520",
@@ -2845,7 +2845,7 @@
       "description": "Understands how the world wide web works",
       "earnedAt": "2026-07-21T15:48:20.389Z",
       "rarityTier": "common",
-      "rarityPercent": 31.8
+      "rarityPercent": 19.5
     },
     {
       "_id": "60cf505d437056aee2cf0de3",
@@ -2855,7 +2855,7 @@
       "description": "Completing the 'Network Fundamentals' module",
       "earnedAt": "2026-07-21T12:12:35.258Z",
       "rarityTier": "common",
-      "rarityPercent": 23.8
+      "rarityPercent": 14.6
     },
     {
       "_id": "6a3a946a9d3cabee2bb46a08",
@@ -2865,7 +2865,7 @@
       "description": "Completing your first quiz or recap on the mobile app!",
       "earnedAt": "2026-07-20T18:15:14.666Z",
       "rarityTier": "rare",
-      "rarityPercent": 2.2
+      "rarityPercent": 6.1
     },
     {
       "_id": "688c94222f6d4c3f0120a44f",
@@ -2875,7 +2875,7 @@
       "description": "Achieving a 3 day hacking streak",
       "earnedAt": "2026-07-19T10:15:28.027Z",
       "rarityTier": "common",
-      "rarityPercent": 15.4
+      "rarityPercent": 33
     },
     {
       "_id": "636ac6a866638c250cce701f",
@@ -2885,7 +2885,7 @@
       "description": "Completing four rooms in your first week of joining!",
       "earnedAt": "2026-07-17T12:56:22.551Z",
       "rarityTier": "common",
-      "rarityPercent": 30.4
+      "rarityPercent": 30.9
     }
   ],
   "badge_count": 21
