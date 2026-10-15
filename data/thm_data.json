@@ -1,7 +1,7 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-10-14 06:00 UTC",
-  "rooms_completed": 135,
+  "last_synced_utc": "2026-10-15 06:00 UTC",
+  "rooms_completed": 136,
   "rooms": [
     {
       "_id": "5c8edaab94a5767fa67f70ab",
@@ -638,24 +638,6 @@
         "Exploitation",
         "System administration",
         "Identity and access management (IAC)"
-      ]
-    },
-    {
-      "_id": "62bae2b9dc6a500060047287",
-      "title": "Security Principles",
-      "code": "securityprinciples",
-      "description": "Learn about the security triad and common security models and principles.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/securityprinciples-1785241452480.png",
-      "difficulty": "easy",
-      "freeToUse": true,
-      "type": "walkthrough",
-      "timeToComplete": 90,
-      "povTags": [
-        "Blue"
-      ],
-      "technologyTags": [
-        "Threat modelling",
-        "Security analysis"
       ]
     },
     {
@@ -1667,6 +1649,27 @@
       "timeToComplete": 15
     },
     {
+      "_id": "69fa32c7b1116aaa4d6ecae9",
+      "title": "Offensive Security Intro",
+      "code": "offensivesecurityintroc101",
+      "description": "Introducing offensive security, where you will test the security of FakeBank's systems.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1778576882026",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 15,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Linux",
+        "Web",
+        "dirb",
+        "Dirbuster",
+        "Enumeration"
+      ]
+    },
+    {
       "_id": "6a1d1a25de0778f5c243559e",
       "title": "Fools Mate",
       "code": "foolsmate",
@@ -2301,6 +2304,24 @@
         "Linux",
         "Web",
         "Exploitation"
+      ]
+    },
+    {
+      "_id": "62bae2b9dc6a500060047287",
+      "title": "Security Principles",
+      "code": "securityprinciples",
+      "description": "Learn about the security triad and common security models and principles.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/securityprinciples-1785241452480.png",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 90,
+      "povTags": [
+        "Blue"
+      ],
+      "technologyTags": [
+        "Threat modelling",
+        "Security analysis"
       ]
     },
     {
