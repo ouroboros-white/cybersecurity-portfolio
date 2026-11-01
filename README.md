@@ -87,7 +87,7 @@ cloud work above, and adding each one to this repository as it is done.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-10-31 07:00 UTC
+**Last synced:** 2026-11-01 07:00 UTC
 
 <div align="center">
 
@@ -115,21 +115,21 @@ cloud work above, and adding each one to this repository as it is done.
 <img src="https://assets.tryhackme.com/img/badges/soc-sim-100-percent-true-positive-rate.png" alt="100% true positive rate" width="90"><br>
 <strong>100% true positive rate</strong>
 </a>
-<br><sub>2026-09-05 · rare (4.5%)</sub>
+<br><sub>2026-09-05 · rare (4.9%)</sub>
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/soc-sim-first-scenario-completed.png" alt="First scenario completed" width="90"><br>
 <strong>First scenario completed</strong>
 </a>
-<br><sub>2026-09-05 · rare (5.5%)</sub>
+<br><sub>2026-09-05 · rare (5.9%)</sub>
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
 <img src="https://assets.tryhackme.com/img/badges/soc-sim-first-alert-closed.png" alt="First alert closed" width="90"><br>
 <strong>First alert closed</strong>
 </a>
-<br><sub>2026-09-05 · rare (6.9%)</sub>
+<br><sub>2026-09-05 · rare (7.5%)</sub>
 </td>
 <td align="center" width="130">
 <a href="https://tryhackme.com/p/ouroboroswhite">
