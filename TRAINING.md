@@ -7,7 +7,7 @@ automatically by the daily sync.
 
 <!--THM:START-->
 **Profile:** [ouroboroswhite](https://tryhackme.com/p/ouroboroswhite)  
-**Last synced:** 2026-11-05 07:00 UTC
+**Last synced:** 2026-11-06 07:00 UTC
 
 <div align="center">
 
@@ -189,7 +189,7 @@ _Walkthrough rooms. Hardest first; related rooms grouped._
 <td align="left" width="300"><a href="https://tryhackme.com/room/guidedpentestinfrastructure">Guided Pentest: Infrastructure</a></td>
 </tr>
 <tr>
-<td align="left" width="300"><a href="https://tryhackme.com/room/guidedpentestnn">Guided Pentest: Web</a></td>
+<td align="left" width="300"><a href="https://tryhackme.com/room/guidedpentestweb">Guided Pentest: Web</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/hashingbasics">Hashing Basics</a></td>
 <td align="left" width="300"><a href="https://tryhackme.com/room/howwebsiteswork">How Websites Work</a></td>
 </tr>

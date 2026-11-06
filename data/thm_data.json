@@ -1,6 +1,6 @@
 {
   "username": "ouroboroswhite",
-  "last_synced_utc": "2026-11-05 07:00 UTC",
+  "last_synced_utc": "2026-11-06 07:00 UTC",
   "rooms_completed": 136,
   "rooms": [
     {
@@ -2648,6 +2648,26 @@
       ]
     },
     {
+      "_id": "69c2381f98005f8d89c1e7fe",
+      "title": "Guided Pentest: Web",
+      "code": "guidedpentestweb",
+      "description": "Learn web app pentesting by chaining vulnerabilities from recon to full server compromise.",
+      "imageURL": "https://cdn-images.tryhackme.com/room-icons/62a7685ca6e7ce005d3f3afe-1779358981056",
+      "difficulty": "easy",
+      "freeToUse": true,
+      "type": "walkthrough",
+      "timeToComplete": 60,
+      "povTags": [
+        "Red"
+      ],
+      "technologyTags": [
+        "Web",
+        "Nmap",
+        "Gobuster",
+        "Application penetration testing"
+      ]
+    },
+    {
       "_id": "69d11794a4b37712cfb0bdc4",
       "title": "AI Threat Modelling Assessment",
       "code": "aithreatmodellingassessment",
@@ -2675,26 +2695,6 @@
       "freeToUse": true,
       "type": "walkthrough",
       "timeToComplete": 10
-    },
-    {
-      "_id": "6a4cbfc37199dd172593af47",
-      "title": "Guided Pentest: Web",
-      "code": "guidedpentestnn",
-      "description": "Learn web app pentesting by chaining vulnerabilities from recon to full server compromise.",
-      "imageURL": "https://cdn-images.tryhackme.com/room-icons/5de96d9ca744773ea7ef8c00-1783492472566",
-      "difficulty": "easy",
-      "freeToUse": true,
-      "type": "walkthrough",
-      "timeToComplete": 25,
-      "povTags": [
-        "Red"
-      ],
-      "technologyTags": [
-        "Web",
-        "Nmap",
-        "Gobuster",
-        "Application penetration testing"
-      ]
     }
   ],
   "badges": [
